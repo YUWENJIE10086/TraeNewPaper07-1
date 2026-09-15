@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Compatibility wrapper for run_4_hard_experiments_0916_0003.py.
-Pandas .T is transpose, so all treatment-column attribute access is rewritten to ['T'] before execution.
+Pandas .T is transpose, so treatment-column attribute access is rewritten to ['T'] before execution.
 """
 from pathlib import Path
 
@@ -16,17 +16,15 @@ repls={
     'te.T==1': "te['T']==1",
     'te.T.values==1': "te['T'].values==1",
     'gkf.split(d,d.T,groups=d.code)': "gkf.split(d,d['T'],groups=d.code)",
-    'd.T.values==1': "d['T'].values==1",
+    'd.T.values': "d['T'].values",
     'd.T.sum()': "d['T'].sum()",
     'ds.T.sum()': "ds['T'].sum()",
     "'T':d.T": "'T':d['T']",
     'd.iloc[tr_idx].T)': "d.iloc[tr_idx]['T'])",
-    'd.iloc[te_idx][xcols])[:,1]': "d.iloc[te_idx][xcols])[:,1]",
     'train.T.values==0': "train['T'].values==0",
     'train.T.values==1': "train['T'].values==1",
 }
 for a,b in repls.items(): s=s.replace(a,b)
-# numpy 2.x compatibility
 s=s.replace('np.trapz(cg,frac)','np.trapezoid(cg,frac)')
 g={'__name__':'__main__','__file__':str(p)}
 exec(compile(s,str(p),'exec'),g,g)
