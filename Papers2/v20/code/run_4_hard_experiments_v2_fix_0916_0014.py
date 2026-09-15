@@ -9,5 +9,10 @@ if bad not in s:
     raise RuntimeError('Expected overlap line not found; inspect source before running')
 s=s.replace(bad,good)
 s=s.replace("'T':d.T,", "'T':d['T'],")
+old="a=train[xcols].apply(pd.to_numeric,errors='coerce'); b=test[xcols].apply(pd.to_numeric,errors='coerce')\n    med=a.median().replace([np.inf,-np.inf],np.nan).fillna(0); return a.fillna(med).values,b.fillna(med).values"
+new="a=train[xcols].apply(pd.to_numeric,errors='coerce').replace([np.inf,-np.inf],np.nan); b=test[xcols].apply(pd.to_numeric,errors='coerce').replace([np.inf,-np.inf],np.nan)\n    med=a.median().replace([np.inf,-np.inf],np.nan).fillna(0); return a.fillna(med).values,b.fillna(med).values"
+if old not in s:
+    raise RuntimeError('Expected matrices definition not found')
+s=s.replace(old,new)
 g={'__name__':'__main__','__file__':str(p)}
 exec(compile(s,str(p),'exec'),g,g)
