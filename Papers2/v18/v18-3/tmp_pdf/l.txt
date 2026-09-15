@@ -1,0 +1,694 @@
+李焕森等  基于深度学习技术的卷烟陈列智能化督导的研究与应用 
+ 
+ 
+ 
+基金项目：中国烟草总公司广西壮族自治区公司科技计划项目“‘终端之眼’：零售终端卷烟陈列督导智能化研究”（201945000024132） 
+作者简介：李焕森（1984—），硕士，高级工程师，主要从事系统运维、计算机视觉等技术研究工作，Tel：0771-5865158，Email：lihuansen_2007@126.com 
+收稿日期：2022-07-14；网络出版日期：2024-01-26 
+113
+李焕森，覃忠达，谭春，等. 基于深度学习技术的卷烟陈列智能化督导的研究与应用[J]. 中国烟草学报，2024，30（4）. LI Huansen, 
+QIN Zhongda, TAN Chun, et al. Research and application of intelligent supervision for cigarette display based on deep learning 
+technology[J]. Acta Tabacaria Sinica, 2024,30（4）. doi:10.16472/j.chinatobacco.2022.T0173 
+基于深度学习技术的卷烟陈列智能化督导的研究与应用 
+李焕森
+1，覃忠达
+1，谭春
+1，林光耀
+1，秦岑
+1，赵贝贝
+1，黄庆庆
+2 
+1 中国烟草总公司广西壮族自治区公司，南宁市茶花园路25 号 530022； 
+2 广西壮族自治区烟草公司百色市公司，广西百色市城东大道131 号533099 
+摘  要：为解决烟草公司客户经理在终端卷烟陈列督导过程中耗时长、效率低等问题，论文基于深度学习技术设计了一种卷烟陈
+列智能化督导系统（Cigarette Display Intelligent Guidance System，CDIGS）。CDIGS 系统采用一种基于特征匹配和分类算法级联的
+卷烟商品识别算法，对移动终端拍摄的卷烟陈列图像进行识别，自动获取零售户的卷烟陈列、警示标识粘贴信息以及卷烟陈列达
+标率、陈列规格数、重点品牌上柜率等相关数据，并通过与预设的卷烟陈列标准模型进行比对，将二次陈列建议实时反馈至零售
+户。以广西百色市516 家卷烟零售门店为例，对CDIGS 系统进行验证，结果表明：①图片翻拍识别模型，对翻拍照片识别率达到
+79%，可以有效地提升拍摄图像的真实性；②警示标识检测、卷烟商品检测、卷烟牌号识别模型的准确率均达到97%以上，能准
+确地提取图像中的卷烟信息；③经简单介绍，卷烟零售门店人员可快速掌握系统的使用，卷烟陈列达标率持续提升，为推广应用
+奠定基础。可见，CDIGS 系统为卷烟陈列督导提供了一种新的方式，能有效地指导零售户按规则自主进行卷烟陈列，并为烟草公
+司快速获取到零售户相关营销数据提供了新的手段。 
+关键词：卷烟陈列；卷烟识别；警示标志检测；翻拍检测；深度学习 
+ 
+ 
+好的零售终端卷烟陈列，可以起到品牌宣传等作
+用[1-2]。传统的零售终端卷烟陈列督导是烟草公司客户
+经理按照公司制定的卷烟陈列标准，对零售户进行集
+体或个别指导，之后由零售户结合实际进行店内陈列，
+客户经理在后续走访中进行督导，主要存在以下几个
+方面的不足：①终端对营销策略变化的响应速度慢。
+当营销策略调整时，从客户经理将新的陈列标准要求
+告知各个零售户，到零售户线下完成卷烟陈列调整，
+再到客户经理现场走访督导，整个过程耗时较长，零
+售终端的卷烟陈列不能及时响应营销策略的变化。②
+耗费客户经理大量的工作时间。客户经理在走访零售
+客户时，需要耗费较多的时间反复做陈列督导，不同
+的零售户对陈列标准的理解和认识有偏差，从而导致
+陈列督导的效率低。③客户经理无法及时获取零售终
+端卷烟陈列相关数据，需要通过走访市场手工记录，
+弱化了对营销策略的动态优化能力。因此，传统的零
+售终端卷烟陈列督导方式难以满足现代终端建设的发
+展要求，亟需构建一种智能化的卷烟陈列督导方法。 
+在与卷烟零售类似的其他零售行业，特别是快消
+品零售行业里，基于信息技术的应用发展迅速。通过
+对零售门店中货架商品数据进行收集、分析，提取出
+商品种类、分销率、排面信息、货架份额、价格等关
+键信息，从商品数据的采集、识别、监测、分析到商
+业洞察形成一个生态闭环，达到人工处理无法达到的
+细颗粒度与精确程度，也充分体现出人工智能及图像
+处理等技术在货架商品陈列场景得到了广泛应用。刘
+永豪[3]设计了一种基于分治策略的货架商品检测方
+法，对图像进行分割后通过Faster R-CNN 和SSD 物
+体检测模型进行检测。王振[4]将Faster R-CNN 的基础
+网络替换为密集连接残差网络，并将改进的Faster 
+R-CNN 目标检测框架应用到快消品识别系统中。张烽
+[5]针对密集型具有方向性的目标检测场景提出一种基
+于倾斜目标检测技术的方法，应用到啤酒的销售场景
+中。胡正委[6]提出了一种基于改进Faster RCNN 与
+Grabcut 的多个商品识别与定位方法，应用到超市商品
+图像识别中。Prabu Selvam[7]等人设计了用于杂货店商
+中国烟草学报 Acta Tabacaria Sinica 2024 Vol.30 No.4 
+ 
+ 
+ 
+114
+品检测识别的深度学习框架，基于YOLOv5 和
+ResNet50 + FPN 算法进行商品检测和商品文本信息检
+测，并通过文本识别算法识别商品文本信息。Pankaj 
+Wajire[8] 等人针对货架陈列的合格性问题，使用
+VGG-16 和Tiny YOLO V2 模型进行物品分类和检测。
+Mehwish Saqlain[9]等人提出一种基于深度学习和计算
+机视觉的混合方法，实现零售场景货架监控和货架陈
+列合规性计算，其中在识别环节可根据商品的类型选
+择YOLO v4、YOLO v5 及YOLOR 中的一种。 
+在卷烟销售相关领域，GülVarol 等[10]通过将卷烟
+品牌识别问题分为检测和识别两个阶段，应用基于
+cascade 目标检测和SVM 支持向量机分类算法识别货
+架上的卷烟品牌。陈智斌等[11]提出了基于深度学习的
+卷烟牌号识别方法，用于解决卷烟销售场景中零售户
+扫码记录准确性和覆盖性不强等问题。单宇翔等[12]提
+出了一套在复杂场景条件下可行有效的卷烟烟盒图像
+识别框架，利用深度学习技术实现营销活动或陈列活
+动中的卷烟烟盒图片的自动化识别。梁东等[13]通过在
+本地端安装RGBD 深度摄像头、高清彩色摄像头等设
+备，构建了一种基于图像识别技术的卷烟零售数据采
+集方法。张侃弘等[14]结合目标检测、度量学习等技术，
+提出了一种融合标签平滑策略和经纬度信息的陈列识
+别方法。 
+总体上看，现有深度学习算法在卷烟营销场景的
+应用主要集中在解决卷烟牌号识别的问题，缺乏对拍
+摄图像的真实性检测（是否存在翻拍）、烟柜的警示标
+志检测、陈列达标率、卷烟二次陈列等问题的研究，
+并主要是从烟草公司数据采集的角度进行探讨。为了
+有效解决传统的零售终端卷烟陈列督导存在的不足，
+本文结合实际应用场景的特点，设计了一种卷烟陈列
+的智能化督导模型，创新点主要包括：①对零售户拍
+摄的图像进行实时翻拍检测，提升图像数据的真实性；
+②对烟柜的警示标志进行检测；③在卷烟牌号识别算
+法中使用“特征匹配模型+分类模型”的卷烟牌号识别
+模型，提高识别准确率；④陈列标准可根据营销策略
+动态调整，随时向零售户提供最新的二次陈列建议；
+⑤零售户通过移动终端简单操作即可完成，全程无需
+客户经理参与，同时客户经理在后台可以即时获取到
+零售户门店的相关营销信息，有效提升工作效率。 
+1  总体结构和图像采集 
+1.1  系统结构 
+CDIGS 系统主要分为手持终端设备和云端的数
+据处理系统。手持终端安装iOS（10.0 版本以上）或
+Android（5.0 版本以上）系统，内存2G 以上，摄像头
+像素要求为1440*1080 Pixel（156 万像素，普通相机
+可满足）以上。手持终端拍摄的烟柜图像，经过翻拍
+检测后，对合格的图像上传到云端的数据处理系统，
+系统处理完成后将二次陈列建议及相关营销数据返回
+至终端。客户经理可登录系统查看相关数据，系统结
+构如图1 所示。 
+ 
+图1 系统结构图 
+Fig. 1 System structure 
+李焕森等  基于深度学习技术的卷烟陈列智能化督导的研究与应用 
+ 
+ 
+ 
+115
+1.2  算法结构 
+CDIGS 系统主要由卷烟陈列图像翻拍检测算法、
+警示标识检测算法、卷烟商品检测算法、卷烟牌号识
+别算法和卷烟二次陈列算法等五种算法协同构成，各
+算法的结构关系如图2 所示。 
+ 
+图2 CDIGS 系统的算法结构图 
+Fig. 2 Algorithm structure of CDIGS system 
+ 
+（1）图像翻拍检测算法：对手持终端拍摄的图像
+进行实时检测，确认图像是否为翻拍图像，即是否为
+对着手机屏幕、电脑屏幕、彩色打印的纸张等拍摄。 
+（2）警示标识检测算法：检测图像中的烟柜是否
+粘贴“禁止中小学生吸烟 不向未成年人出售烟草制
+品”等警示标识。 
+（3）卷烟商品检测算法：检测烟柜中摆放的卷烟
+位置，并将各个卷烟图像截取出来。 
+（4）卷烟牌号识别算法：对卷烟商品检测算法中
+输出的卷烟图像进行牌号识别。 
+（5）卷烟二次陈列算法：对获取到的卷烟陈列信
+息，与卷烟陈列标准模型进行比对，根据比对结果提
+供二次陈列建议。 
+1.3  图像采集 
+（1）卷烟外包装图像采集。本研究主要采集盒装
+卷烟的图像和视频片段。通过手持终端在本地拍摄不
+同卷烟牌号规格280 个，其中采集不同的卷烟牌号规
+格图像共1800 张，其中每个卷烟牌号规格盒装照片至
+少6 张，对应包装的6 个平面，形成卷烟外包装图像
+数据集Di；采集不同的卷烟牌号规格视频共280 段，
+其中每个卷烟牌号规格盒装视频1 段，每段视频时长
+约为90 s，内容包含包装盒的6 个平面，形成卷烟外
+包装视频数据集Dv。 
+（2）烟柜图像采集。通过手持终端采集烟柜的图
+像3400 张，形成烟柜图像数据集Dc。烟柜图像拍摄
+要求拍摄设备与货架距离0.5 m～2 m，从不同角度（上
+下、左右角度变化）俯拍，以拍摄到烟柜正面全景为
+准，图像中烟柜内的卷烟清晰可见。 
+2  算法设计 
+2.1  图像翻拍检测算法 
+数据的真实性是保障系统数据质量的前提，为避
+免零售户提交非真实拍摄的卷烟陈列图像，图像在提
+交到云端之前，会首先进行合格性检测，如图像为翻
+拍[15]，将拒绝上传。图3 为翻拍图像示例，其中图3A
+为对着手机屏幕翻拍，图片中带有手机屏幕边框；图
+3B 为对着电脑屏幕拍摄，图片中带有屏幕摩尔纹；图
+3C 为对着彩色打印的纸张拍摄，图片中有形变的地方
+和打印机油墨痕迹。 
+ 
+ 
+ 
+A.对着手机屏幕翻拍               B.对着电脑屏幕拍摄              C.对着彩色打印的纸张拍摄 
+ 
+图3 翻拍图像示例图 
+Fig.3 Re-photographed image sample 
+中国烟草学报 Acta Tabacaria Sinica 2024 Vol.30 No.4 
+ 
+ 
+ 
+116
+由于翻拍检测算法模型运行在移动终端，为提升
+运行效率和降低对移动移动设备的能耗，本文采用
+MobileNetV2[16]轻量化网络训练二分类模型，实时判断
+拍摄的图像是否为翻拍图像，其架构如图4 所示。 
+ 
+图4 MobileNetV2 模型架构总览 
+Fig.4 Overview of MobileNetV2 Architecture 
+ 
+2.2  警示标识检测算法 
+常见的警示标识包括“禁止中小学生吸烟不向未
+成年人出售烟草制品”（图5A）、“不得向未成年人销
+售电子烟”（图5B）、“卷烟最高售价不超过1000 元/
+条（200 支）、100 元/包（20 支）”（图5C）等。 
+   
+   
+ 
+A 警示标识1                          B 警示标识2                  C 警示标识3 
+ 
+图5 卷烟零售场景警示标识示例图 
+Fig.5 Example of warning signage in cigarette retail scenarios 
+ 
+常见的目标检测算法主要分为基于传统特征和基
+于深度学习的目标检测算法。基于传统特征的目标检
+测算法，如DPM（Deformable Parts Model）[17]算法、
+基于HOG 特征的目标检测算法[18]，这些算法主要遵
+循传统的手工设计特征并结合滑动窗口的方式来进行
+目标检测。基于深度学习的目标检测算法，主要是通
+过卷积神经网络来代替传统手工设计特征的方式来完
+成目标检测的任务，如RCNN 算法[19]，Overfeat[20]算
+法等；此外，Fast R-CNN 算法提出了通过RPN 网络
+替代原始的滑动窗口策略[21]，实现了端到端的目标检
+测；YOLO 系列[22-24]，FPN 系列算法通过深度学习算
+法直接回归目标坐标信息，优化特征提取网络的表达，
+提高目标检测算法的精度和速度。由于警示标识占整
+张图像的比例较小，本文采用运行速度较快的
+YOLOv5 目标检测算法，处理流程如图6 所示。 
+ 
+图6 警示标识检测模型 
+Fig.6 Model of warning signs detection 
+李焕森等  基于深度学习技术的卷烟陈列智能化督导的研究与应用 
+ 
+ 
+ 
+117
+2.3  卷烟商品检测和卷烟牌号识别算法 
+本文的卷烟商品检测算法与警示标识检测算法相
+同，使用YOLOv5 算法训练卷烟商品检测模型。卷烟
+牌号识别算法模型包括特征匹配模型和分类模型（如
+图7 所示），首先将卷烟外包装图像数据集Di 内的各
+个卷烟牌号规格的图像，通过特征匹配模型提取特征
+向量，注册到卷烟数据库S，Si（i=1,2,3..n, n 为卷烟
+数据库内的卷烟牌号数量）代表数据库中第i 个卷烟
+牌号。同时，对数据库S 进行分类Cj（j=1,2,3...m, m
+为类别的数量），分类的原则为外观图像差异细微的卷
+烟牌号（示例如图8）归为一类，如软盒中华与硬盒
+中华归为同一类，Si-sub=Cj（i=1,2,3..n, j=1,2,3...m）
+记录牌号Si 所属类别，数据库分类工作由人工预先完
+成。 
+进行卷烟牌号识别时，对卷烟商品检测模型输出
+的各个卷烟商品图像Tj（j=1,2,3…h, h 为卷烟建模检
+测到的卷烟图像数量），预处理方式为对图片长宽一样
+的，直接将图像尺寸调整到224×224；否则直接把图
+片按照短边从中心点等距扩充到和长边等距离，并且
+将扩充区域的像素点填充为0，然后再将图像尺寸调
+整到224×224，作为牌号识别模型的输入。经预处理
+后通过特征匹配模型提取特征向量，与卷烟数据库中
+的注册样本进行比对，找出匹配度最高的卷烟牌号Sk
+（1≤k≤n），当Tj 与Sk 相似度小于或者等于设定的
+阈值时，则该商品判定为卷烟数据库未包含的其他卷
+烟牌号规格，无法识别；当Tj 与Sk 相似度大于设定
+的阈值时，如Sk 所在类别CSk-sub 包含的卷烟牌号数量
+大于1，则使用分类模型在CSk-sub 范围内在进一步区
+分，否则Sk 即为识别的结果。比如，特征匹配模型计
+算出当前待识别的卷烟，与卷烟数据库中的“中华牌
+香烟软盒20 支装”最为匹配，由于软盒中华所在分类
+包含的卷烟牌号数量大于1（至少还包含硬盒中华），
+因此模型会使用分类模型进一步区分。
+“特征匹配模型
++分类模型”的卷烟牌号识别模型有效地解决了单样本
+建模的问题，可以直接注册图片实现卷烟商品的识别，
+减少标注。 
+ 
+图7 卷烟商品识别算法模型 
+Fig.7 Cigarette product recognition model 
+中国烟草学报 Acta Tabacaria Sinica 2024 Vol.30 No.4 
+ 
+ 
+ 
+118
+ 
+图8 外观相似的卷烟牌号 
+Fig.8 Cigarette products with similar appearance 
+ 
+2.4  卷烟二次陈列算法 
+卷烟二次陈列是基于卷烟牌号识别的结果，根据
+卷烟陈列模板，结合烟草公司当前品牌培育方案，给
+出卷烟二次陈列的建议，其算法流程如图9 所示。烟
+柜陈列区域的确定，是根据卷烟商品检测（步骤1）
+确定的每个卷烟商品所在位置信息（Xi,Yi），并结合
+常见烟柜的特点，计算出烟柜陈列区域的行高R 和列
+宽L，进一步可计算出陈列区域能陈列的卷烟牌号数
+（步骤3），图中卷烟陈列区域1 个方格代表可陈列1
+盒卷烟。结合卷烟陈列模板，划分出重点推荐区、推
+荐区、高价位区、中价位区、低价位区（步骤4）。对
+卷烟牌号识别的结果（步骤2），根据卷烟牌号是否属
+于重点推荐品牌、推荐品牌，以及卷烟价格等信息，
+判断该卷烟牌号陈列是否符合预期（步骤5）。如当前
+陈列区域与预期区域不一致的，提出二次陈列建议。
+卷烟陈列模板，以及重点推荐区、推荐区应陈列的卷
+烟牌号，都可以在系统进行动态修改，便于营销部门
+根据市场和品牌培育等需求，快速调整卷烟陈列策略。 
+ 
+图9 卷烟二次陈列算法流程 
+Fig.9 Cigarette secondary display algorithm process 
+李焕森等  基于深度学习技术的卷烟陈列智能化督导的研究与应用 
+ 
+ 
+ 
+119
+3  结果与讨论 
+3.1  图像翻拍算法测试与结果 
+本文图像翻拍算法采用的训练数据集包含正常拍
+摄图像数据1013 张，翻拍图像数据1146 张；测试数
+据集中正常拍摄图像数据366 张，翻拍图像数据160
+张。正常拍摄图像数据从数据集Dc 随机抽取，翻拍
+图像数据由人工制作。通过对MobileNetV2 与
+ResNet18[25]网络训练二分类模型进行对比分析，使用
+MobileNetV2 网络结构训练模型，翻拍的召回率为
+78.81%；使用ResNet18 网络结构训练模型，翻拍的召
+回率为75.77%，可见MobileNetV2 能更有效地检测翻
+拍的图像。针对常见的一些终端设备型号，翻拍算法
+模型的平均耗时为112.4 ms（见表1）。 
+表1 图像翻拍模型耗时结果 
+Tab.1 Time consumption of image re-photography model 
+终端型号 
+配置 
+预处理耗时/ms 
+翻拍检测单张图像平均
+耗时/ms 
+合计耗时/ms 
+CPU 
+内存 
+华为P40 
+Kirin 990 5G 
+6G 
+25 
+26 
+51 
+三星S9+ 
+高通骁龙845 
+6G 
+17 
+52 
+69 
+畅享9S 
+海思麒麟710F 
+4G 
+37 
+94 
+131 
+oppo R9 
+高通MSM9876 
+4G 
+43 
+171 
+214 
+一加5T 
+高通晓龙835 
+4G 
+28 
+69 
+97 
+平均 
+ 
+ 
+30 
+82.4 
+112.4 
+ 
+3.2  警示标识检测算法测试与结果 
+从数据集Dc 中抽取830 张作为训练集，93 张作
+为测试集，机器GPU 型号为GTX-2080TI，模型
+batchsize = 1，平均耗时为196.1 ms，检测的MAP（平
+均准确率）结果如表2 所示。  
+表2 警示标识检测结果 
+Tab.2 Detection results of warning signs detection 
+序号 
+标识内容 
+训练集 
+测试集 
+MAP/% 
+1 
+禁止中小学生吸烟，不向未成年人出售烟草制品 
+702 
+77 
+97.0 
+2 
+不得向未成年人销售电子烟 
+91 
+12 
+99.5 
+3 
+卷烟最高售价不要超过1000 元/条，100 元/包 
+37 
+4 
+94.4 
+合计 
+ 
+830 
+93 
+ 
+ 
+3.3  卷烟商品检测和卷烟牌号识别算法测试与结果 
+卷烟商品检测模型与警示标识检测模型一致，在
+实际测试中卷烟商品检测的MAP 为97.3%。 
+卷烟牌号识别模型中的商品特征匹配模型训练数
+据由10000 个类别组成，共计491352 张商品图像数据
+（来源为公开的图像数据集、自行拍摄的图像等），包
+含卷烟、饮料、奶粉、粮油食品、日化用品等品类，
+测试数据包含卷烟和非卷烟图像共9556 张；分类模型
+包含50 个卷烟类别，训练数据每个类别10～100 张数
+据不等，共计2975 张图像，测试数据每个类别5～20
+张不等，共计675 张图像数据。本文使用了resnet18、
+resnet50、resnet101[17] 3 种网络结构来测试特征匹配模
+型、特征匹配模型+分类模型的准确率，模型batch size= 
+16，机器GPU 型号为GTX-2080TI，结果如表3 所示。
+使用resnet101 网络结构训练模型时，特征匹配模型+
+分类模型MAP 达到了97.48%，有效提升了细微差异
+的卷烟牌号识别的准确率。 
+表3 卷烟牌号识别结果 
+Tab.3 Recognition results of cigarette products 
+网络结构 
+特征匹配模型 
+MAP/% 
+特征匹配模型+分类模型MAP/%
+单个模型（特征或分类） 
+单张图像耗时/ms 
+resnet18 
+86.70 
+94.67 
+16.35 
+resnet50 
+88.91 
+96.88 
+21.03 
+resnet101 
+89.45 
+97.48 
+34.45 
+中国烟草学报 Acta Tabacaria Sinica 2024 Vol.30 No.4 
+ 
+ 
+ 
+120
+结合表1～3，使用resnet101 作为识别模型网络
+时，单张图像的处理时间平均约为1.3 s（见表4）。从
+实际运行来看，目前系统支持的图像处理速度可以达
+到1200 张/分钟以上，同时系统支持水平动态伸缩扩
+容，可以保证大部分的识别场景需求。数据存储方面，
+按10000 个用户，每个用户每周拍摄2 张图像，每张
+1.3 M 来计算，每年存储占用在10000*2*52*1.3 = 
+135.2 G，目前系统可支持存储空间超过100 T，并支
+持动态扩容，因此在图像存储方面能够满足实际业务
+要求。 
+表4 单张图像处理平均耗时 
+Tab.4 Average processing time of a single image 
+图像下载 
+警示标识检测耗时 
+卷烟商品检测耗时
+卷烟牌号识别耗时
+二次陈列计算 
+合计 
+5 ms 
+196.1 ms 
+196.1 ms 
+860 ms 
+2 ms 
+1259.2 ms
+检测模型 batchsize = 1  输入：3 x 640 x 640 
+识别模型 batchsize = 16  输入：3 x 224 x 224 
+卷烟牌号识别耗时=(200/16)*34.4*2=860ms，按照一张图像中卷烟牌号规格数量为200 个，并且需要使用特征匹配模型和分类模
+型来计算。 
+ 
+3.4  系统应用测试与结果 
+为验证CDIGS 系统的有效性，本文以广西百色市
+516 家卷烟零售门店为例，对系统进行验证。参与测
+试的零售户在移动终端上安装CDIGS 系统APP，初
+始安装包大小为76.36 MB，APP 需获取的终端权限主
+要为“相机”使用权限，进入系统界面后，会跳出个
+人信息使用提示，由零售户点击同意后提供服务。通
+过开展连续60 d 的应用测试，平均每个零售户拍摄烟
+柜陈列的频率为1～2 张/周，平均每张1.3 M，耗费约
+3 M 流量。本次参与测试的卷烟零售门店基本都安装
+有家庭宽带网络，零售户在使用APP 时通过无线Wifi
+不需要产生流量费用。同时，零售户所拍图像不会存
+储在终端，APP 每月增长存储空间2～4 M，用于存储
+非图像数据，对终端的存储不会造成空间上的压力。 
+在用户实际使用APP 时，由于不同零售户的终端
+设备及拍摄环境有较大差异，因此针对目前应用过程
+中主要遇到的3 类异常情况，系统做了实时处理或提
+示。（1）拍摄过程异常，零售户在拍摄烟柜图像时如
+取景出现模糊、倾斜、光线过暗等异常，在APP 界面
+会直接提示（图10）；（2）烟柜陈列商品异常，如拍
+摄的烟柜内有其他非烟商品（如图11），系统会自动
+将非烟商品当作背景处理，不影响卷烟商品的检测与
+识别；（3）图像质量异常，由于图像质量对卷烟商品
+的检测与识别有较大影响，当图像出现较严重的图像
+模糊、反光等情况时，系统会根据检测与识别的结果，
+确定是否作出重拍的提示。如图12 所示，所拍摄的图
+像左下角由于受到反光影响，该局部区域的卷烟商品
+虽然能检测出有商品，但无法识别出具体的卷烟牌号，
+系统会根据检测与识别的商品数差异大小，确定是否
+提示零售户重新拍摄图像。 
+         
+ 
+图10 拍摄过程的异常提醒                                 图11 烟柜内的非烟商品 
+Fig.10 Alert for anomalies during photographing              Fig.11 Non-Cigarette products in the cigarette cabinet 
+李焕森等  基于深度学习技术的卷烟陈列智能化督导的研究与应用 
+ 
+ 
+ 
+121
+ 
+图12 图像有局部的反光区域 
+Fig.12 Image with reflecting light 
+ 
+通过对使用前后的数据对比，在应用60 d 后，516
+家零售门店的陈列平均符合率从约40%提升至约
+70%。客户经理现场指导零售户卷烟陈列的时间也大
+幅减少，更多的精力投入到了与零售户的沟通工作中。
+同时，客户经理在工作中可以随时通过访问CDIGS
+系统管理平台，及时获取到零售户的陈列信息以及相
+关数据信息，有效提升工作效率。 
+4  结论 
+（1）CDIGS 系统通过对移动终端拍摄的卷烟陈
+列图像进行识别，自动获取零售户的卷烟陈列、警示
+标识粘贴信息以及卷烟陈列达标率、陈列规格数、重
+点品牌上柜率等相关数据，并通过与预设的卷烟陈列
+标准模型进行比对，将二次陈列建议实时反馈至零售
+户。结果表明：①图片翻拍识别模型，对翻拍照片识
+别率达到79%，可以有效地提升拍摄图像的真实性；
+②警示标识检测、卷烟商品检测、卷烟牌号识别模型
+的准确率均达到97%以上，能准确地提取出图像中的
+卷烟信息；③简单介绍后零售门店人员可掌握使用，
+在应用60 d 后，参与测试的零售户的卷烟陈列达标率
+从约40%提升到约70%，有效提升零售户卷烟陈列水
+平，为推广应用奠定基础。可见，CDIGS 系统为卷烟
+陈列指导提供了一种新的方式，能有效地指导零售户
+按规则自主进行卷烟陈列，并为烟草公司快速获取到
+零售户相关营销数据提供了新的手段。 
+（2）本研究主要针对单个图像的检测和识别，对
+长度较长的烟柜，拍摄者难以拍摄完整。下一步可通
+过增加图像拼接模型，对烟柜拍摄多个照片后进行拼
+接作为检测和识别的输入。此外，本研究对雪茄烟等
+异形包装卷烟的陈列，以及卷烟陈列美观等方面还缺
+乏探索，这些也将作为下一步研究的内容。 
+ 
+参考文献 
+[1] 
+王俊杰. 县域经济中现代零售终端卷烟陈列策略探讨[C]. 浙江
+省烟草学会学术年会，2013. 
+WANG Junjie. Exploration of modern retail terminal cigarette 
+display strategies in county economy[C]. Zhejiang Tobacco Society 
+Academic Annual Meeting, 2013. 
+[2] 
+刘薇. 卷烟陈列标准研究[J]. 商，2014(25):3. 
+LIU Wei. Research on cigarette display standards[J]. Business, 
+2014(25):3. 
+[3] 
+刘永豪. 基于深度学习的货架商品检测技术研究[D]. 浙江大 
+学，2017. 
+LIU Yonghao. Research on shelf commodity detection technology 
+based on deep learning[D]. Zhejiang University, 2017. 
+[4] 
+王振. 基于目标检测的快消品识别研究与应用[D]. 湖南大学，
+2018. 
+WANG Zhen. The research and application of FMCC detection on 
+object detection[D]. Hunan University, 2018. 
+[5] 
+张烽. 基于倾斜目标检测技术的快消品识别研究与应用[D]. 湖
+南大学，2019. 
+ZHANG Feng. Research and application of FMCG detection based 
+on slant object detection technology[D]. Hunan University, 2019. 
+[6] 
+胡正委. 基于深度学习的超市商品图像识别方法研究[D]. 中国
+科学技术大学，2018. 
+HU Zhengwei. Retail product image recognition method based on 
+deep learning[D]. University of Science and Techology of China, 
+2018. 
+[7] 
+Selvam P, Koilraj J. A Deep Learning Framework for Grocery 
+Product Detection and Recognition[J]. Food Analytical Methods, 
+2022, 15(12):3498-3522. 
+[8] 
+Wajire P, Angadi S, Nagar L. Image Classification for Retail[C]. 
+2020 International Conference on Industry 4.0 Technology 
+(I4Tech). IEEE, 2020. 
+[9] 
+Mehwish Saqlain, Saddaf Rubab, Malik M. Khan, et al. Hybrid 
+Approach for Shelf Monitoring and Planogram Compliance 
+中国烟草学报 Acta Tabacaria Sinica 2024 Vol.30 No.4 
+ 
+ 
+ 
+122
+(Hyb-SMPC) in Retails Using Deep Learning and Computer Vision. 
+Mathematical Problems in Engineering, Hindawi, vol. 2022, pages 
+1-18, June. 
+[10] 
+Gül Varol, Ridvan S. Kuzu. Toward retail product recognition on 
+grocery shelves[C]. Sixth International Conference on Graphic and 
+Image Processing (ICGIP 2014). 2015. 
+[11] 
+陈智斌，农英雄，梁冬，等. 基于深度学习的卷烟牌号识别方
+法[J].烟草科技，2020，53(12):8. 
+CHEN Zhibin, NONG Yingxiong, LIANG Dong , et al. 
+Recognition of cigarette brand based on deep learning[J]. Tobacco 
+Science & Technology, 2020, 53(12):8. 
+[12] 
+单宇翔，龙涛，楼卫东，等. 基于深度学习的复杂场景中卷烟
+烟盒检测与识别方法[J]. 中国烟草学报，2021，27(5). 
+SHAN Yuxiang, LONG Tao, LOU Weidong, et al. A detection and 
+recognition method of cigarette cases in complex scene based on 
+deep learning [J]. Acta Tabacaria Sinica, 2021, 27(5). 
+[13] 
+梁冬，陈智斌，农英雄，等. 基于图像识别技术的卷烟零售数
+据采集方法[J]. 中国烟草学报，2021，27(5). 
+LIANG Dong, CHEN Zhibin, NONG Yingxiong, et al. Cigarette 
+retail sales data collection method based on image recognition 
+technology [J]. Acta Tabacaria Sinica, 2021, 27(5). 
+[14] 
+张侃弘，周欣然，栾晓宇，等. 卷烟终端陈列识别方法研究[J].
+科技创新与应用，2022，12(18):1-8. 
+ZHANG Kanhong, ZHOU Xinran, LUAN Xiaoyu, et al. 
+Technology Innovation and Application[J], 2022, 12(18):1-8. 
+[15 
+]谢心谦，刘霞，孔月萍. 基于深度学习的图像翻拍检测[J]. 电
+脑知识与技术，2017，13(16):161-162，177. 
+XIE Xinqian, LIU Xia, KONG Yueping. Recaptured Image 
+Detection Based on Depth Learning. Computer Knowledge and 
+Technology, 2017, 13(16):161-162, 177. 
+[16] 
+Sandler M, Howard A, Zhu M, et al. MobileNetV2: Inverted 
+Residuals and Linear Bottlenecks[C]. 2018 IEEE/CVF Conference 
+on Computer Vision and Pattern Recognition (CVPR). IEEE, 2018. 
+[17] 
+Felzenszwalb, Pedro, F., et al. Object Detection with Discriminatively 
+Trained Part-Based Models.[J]. IEEE Transactions on Pattern 
+Analysis & Machine Intelligence, 2010, 32(9):1627-1645. 
+[18] 
+Dalal N. Histograms of oriented gradients for human detection[C]. 
+Computer Vision and Pattern Recognition. IEEE Computer Society, 
+2005. 
+[19] 
+Girshick R, Donahue J, Darrell T, et al. Rich Feature Hierarchies 
+for Accurate Object Detection and Semantic Segmentation[J]. 
+IEEE Computer Society, 2013. 
+[20] 
+Sermanet P, Eigen D, Zhang X, et al. OverFeat: Integrated 
+Recognition, Localization and Detection using Convolutional 
+Networks[J]. Eprint Arxiv, 2013. 
+[21] 
+Girshick R. Fast R-CNN[J]. Computer Science, 2015. 
+[22] 
+Redmon J, Divvala S, Girshick R, et al. You Only Look Once: 
+Unified, Real-Time Object Detection[C]. Computer Vision & 
+Pattern Recognition. IEEE, 2016. 
+[23] 
+Redmon J, Farhadi A. YOLO9000: Better, Faster, Stronger[C]. 
+IEEE Conference on Computer Vision & Pattern Recognition. 
+IEEE, 2017:6517-6525. 
+[24] 
+Redmon J, Farhadi A . YOLOv3: An Incremental Improvement[J]. 
+arXiv e-prints, 2018. 
+[25] 
+He K, Zhang X, Ren S, et al. Deep Residual Learning for Image 
+Recognition[C]. 2016 IEEE Conference on Computer Vision and 
+Pattern Recognition (CVPR). IEEE, 2016. 
+ 
+Research and application of intelligent supervision for cigarette display based on deep learning 
+technology 
+LI Huansen1, QIN Zhongda1, TAN Chun1, LIN Guangyao1, QIN Chen1, ZHAO Beibei1, HUANG Qingqing2 
+1 Guangxi Zhuang Autonomous Region Tobacco Company of CNTC, Nanning 530022, China; 
+2 Baise Branch of Guangxi Zhuang Autonomous Region Tobacco Company, Baise 53309, Guangxi, China 
+Abstract: To solve the problems of long time consumption and low efficiency in the supervision of terminal cigarette display by customer 
+managers of the tobacco company, this paper designed an intelligent cigarette display supervision system (Cigarette Display Intelligent 
+Guidance System, CDIGS) based on deep learning technology. The CDIGS system uses a cigarette product recognition algorithm based on 
+feature matching and a cascade of classification algorithms. It recognizes cigarette display images taken by mobile terminals, automatically 
+obtains the retailer's cigarette display, warning label placement information, and data related to cigarette display compliance rate, display 
+specification count, and key brand shelving rate. By comparing with the preset standard model of cigarette display, the system provides 
+real-time secondary display suggestions to retailers. Taking 516 cigarette retail stores in Baise City, Guangxi as an example, the CDIGS 
+system was validated. The results show that: (1) The picture re-photography recognition model has an identification rate of 79%, effectively 
+improving the authenticity of captured images; (2) The accuracy rates of the warning label detection, cigarette product detection, and 
+cigarette brand recognition models all exceed 97%, accurately extracting cigarette information from images; (3) After a brief introduction, 
+retail staff can quickly master the use of the system, and the compliance rate of cigarette display continues to improve, laying the 
+foundation for widespread application. Thus, the CDIGS system provides a new way for cigarette display supervision, effectively guiding 
+retailers to autonomously arrange cigarette displays according to rules and offering a new means for tobacco companies to quickly obtain 
+relevant marketing data from retailers. 
+Keywords: cigarette display; cigarette recognition; warning signs detection; Re-photography detection; deep learning  
+ 
+*Corresponding author. Email：lihuansen_2007@126.com 
+ 

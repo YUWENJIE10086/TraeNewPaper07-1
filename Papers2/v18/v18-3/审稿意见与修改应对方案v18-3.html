@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《中国烟草学报》审稿意见与修改应对方案（v18-3）</title>
+<style>
+:root{--primary:#2F5D8A;--secondary:#4FA3A5;--accent:#E08A4A;--light:#7A9CC6;--ink:#1a1a1a;--muted:#555;--line:#d6dde7;--soft:#f6f8fb;--red:#b3352b;--green:#2c7a46}
+*{box-sizing:border-box}
+body{margin:0;padding:26px 0;background:#e9edf3;color:var(--ink);font-family:"宋体",SimSun,serif;font-size:11pt;line-height:1.78}
+.wrap{width:980px;max-width:100%;margin:0 auto;background:#fff;padding:46px 54px;box-shadow:0 2px 18px rgba(0,0,0,.08);border-top:5px solid var(--primary)}
+h1{font-family:"黑体",SimHei,sans-serif;font-size:19pt;color:var(--primary);text-align:center;margin:0 0 6px}
+.sub{text-align:center;color:var(--muted);font-size:10.5pt;margin-bottom:22px}
+h2{font-family:"黑体",SimHei,sans-serif;font-size:14pt;color:var(--primary);margin:30px 0 12px;padding-bottom:5px;border-bottom:2px solid var(--primary)}
+h3{font-family:"黑体",SimHei,sans-serif;font-size:12pt;color:#254f74;margin:20px 0 8px}
+h4{font-family:"黑体",SimHei,sans-serif;font-size:11pt;color:#315f88;margin:14px 0 6px}
+p{text-align:justify;margin:0 0 9px}
+p.ind{text-indent:2em}
+.small{font-size:10pt;color:var(--muted)}
+.tag{display:inline-block;font-family:"黑体",SimHei;font-size:9pt;padding:1px 8px;border-radius:9px;margin-right:6px;vertical-align:middle}
+.fatal{background:#f7e4e1;color:var(--red);border:1px solid #e6b0a9}
+.warn{background:#fbf0e0;color:#8a5a12;border:1px solid #e8cf9c}
+.ok{background:#e2f1e7;color:var(--green);border:1px solid #b6d8c3}
+.box{border:1px solid var(--line);border-left:4px solid var(--primary);background:var(--soft);padding:12px 14px;margin:10px 0;border-radius:3px}
+.box.red{border-left-color:var(--red)}
+.box.orange{border-left-color:var(--accent)}
+.box.green{border-left-color:var(--green)}
+table{width:100%;border-collapse:collapse;font-size:9.5pt;margin:8px 0;border-top:1.5px solid #000;border-bottom:1.5px solid #000}
+th,td{padding:6px 7px;text-align:left;vertical-align:top;border:none}
+thead th{border-bottom:1px solid #000;font-family:"黑体",SimHei;color:#20364d}
+copy{border-bottom:1px dashed var(--accent)}
+code{background:#eef1f6;padding:0 4px;border-radius:3px;font-family:Consolas,monospace;font-size:9.3pt;color:#8a2f1f}
+.fix{color:var(--green);font-weight:bold}
+.note{font-size:9.5pt;color:var(--muted)}
+li{margin-bottom:6px}
+.badge-inline{font-weight:bold;color:var(--primary)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>《中国烟草学报》审稿意见与修改应对方案</h1>
+<div class="sub">评审对象：〈基于因果森林的卷烟品规缩投效应识别与差异化调控〉（v18-3 送审版）｜ 面向 6 大审阅维度的自查与救稿路线</div>
+
+<div class="box orange"><b>结论速览（建议优先读这一段）。</b> 总体判断：<b>选题与思路有发表价值</b>（品规级异质性效应识别→三档复核清单，贴合实证落地型论文的“从评价到决策”主线，框架、图、表、公式齐全且编号连续），<b>当前版本不会直接“秒拒”</b>，但存在 <b>1 个致命级（头号效应量的稳健性/符号）</b> 与 <b>6 个中危级（数据可复现、术语首现、图中文本、表格后实例论证、讨论深度、参考文献著录）</b> 问题，若按如下方案修改可到大修后录用；若不处理致命级，审稿人很可能在“结果可解释性/可复制性”上要求大修甚至拒稿。</div>
+
+<h2>一、全文逻辑与学术性审核（对应你的第1问）</h2>
+<h3>1.1 主线逻辑是否成立</h3>
+<table>
+<thead><tr><th style="width:16%">环节</th><th style="width:52%">审核结论</th><th style="width:32%">依据 / 问题</th></tr></thead>
+<tbody>
+<tr><td>选题立论</td><td><span class="tag ok">通过</span>题目“基于因果森林的卷烟品规缩投效应识别与差异化调控”为“方法＋对象＋目的”式，属具体化、立论式，24 字 ≤ 25 字，符合模板“题目具体化、立论式、不超25字”要求。</td><td>与参考文《蒋兴恒 24字》《崔建华 22字》同法。</td></tr>
+<tr><td>引言</td><td><span class="tag ok">通过</span>采用“背景(3不足)→进展综述〔标1−8号〕→知识空白→因果方法述评〔标9−12〕→本文三重适配”的五段式，符合三刊范式。</td><td>黄敏/姜思明/陈秉恒同构；绝大多数文献先在引言出现〔合模板9条〕。</td></tr>
+<tr><td>数据口径</td><td><span class="tag warn">中危</span>样本 203 品规×19 月=2857 条、处理组 270、对照组 2587，占比 9.4%。处理触发机制与“重叠性/反向因果”证据不足。</td><td>见“致命级 C1/C3”。</td></tr>
+<tr><td>识别策略</td><td><span class="tag ok">通过</span>R-learner 正交化残差＋诚实森林＋按品规分组交叉拟合＋滞后一期结果，规避了同一品规跨折泄漏，方向正确。</td><td>契合 Wager&Athey/Nie&Wager 原义。</td></tr>
+<tr><td>结果组织</td><td><span class="tag warn">部分</span>“平均→对谁适用(画像)→由何区分(顺价/SHAP/规则)→效果如何(回溯/稳健性)”链条清晰；但头号效应量(7.647)只报点估计+窄CI，缺“样本外/聚类/敏感性”锚定，易被击穿。</td><td>见致命级 C1。</td></tr>
+<tr><td>落地转化</td><td><span class="tag warn">中危</span>三档清单、规则阈值、表18−21 代表品规均在，但“表→具体品规→效果→增量→业务价值”的<b>逐表文字论证</b>未完全到位。</td><td>对应你的第2问，见第三节。</td></tr>
+<tr><td>讨论/结论</td><td><span class="tag warn">部分</span>结论分条呼应引言、讨论有机制与应用，但<b>“与前人比较”“不确定性/局限”</b>偏薄，正好是模板(26)(27)强调的讨论要素。</td><td>见第四节 D5、第五节第④条。</td></tr>
+</tbody>
+</table>
+
+<h3>1.2 ③致命级问题（最可能被毙的点，务必先解决）</h3>
+<div class="box red">
+<b>C1 · 头号效应量的符号与稳健性冲突——最致命。</b> 本稿【结果】(1) 报“平均处理效应 ATE=7.647，品规聚类稳健 SE=0.589，95%CI 6.493～8.800”，即“缩投平均能提升状态评分约 7.6 分”。但此前按<b>诚实森林（样本外/Out-of-bag）+按品规分组交叉拟合（正是本文 2.3.1 写的口径）</b>重算，得到 <code>ATE≈−1.56，95%CI [−3.64, 0.52]</code>——符号相反且跨 0。也就是说<b>“7.647 及其窄CI”在诚实样本外口径下并不能稳健复现</b>。审稿人只需一句“请给出样本外/聚类标准误与符号稳定性，或用同一数据展示对超参的敏感性”，该结论即被击穿。同时聚类 SE=0.589 相对 CATE 标准差 14.275 比例悬殊(≈24:1)，也需给出获得口径。此为<b>“结果是否可复制、点估计是否稳健”的最强反驳点</b>。
+<div class="fix">修改弥补：</div>
+<ol>
+<li>把主结论<span class="fix">弱化为不依赖具体符号的稳健事实</span>——“缩投并非对所有品规有效，品规间效应差异远大于均值（CATE sd=14.275），高/低敏感组差异显著”，把“+7.647”降格为“在Ⅲ类口径下”并给聚类 SE。</li>
+<li>正文补一张<b>敏感性表/图</b>：ATE 对 <code>min_samples_leaf∈{10,20,30}</code>、树数∈{300,600,1000}、是否按品规聚类、倾向得分是否 logit 的取值，全部给出估计与 CI；若一律跨 0 或符号不稳定，则明确写“量级与方向对超参敏感，本文保守结论为组间差异稳健”。</li>
+<li>同一页主动披露两种口径（朴素 vs 诚实），并解释为何采诚实口径作为结论，避免审稿人“事后发现你不诚实”。</li>
+</ol>
+</div>
+
+<div class="box red">
+<b>C3 · 处理非随机 + 处理组占比仅 9.4%，重叠与反向因果证据不足。</b> 缩投是“有条件触发的管理动作”，处理组少且处理可能受上一期状态反向决定（状态差→才缩投）。本文只用“滞后一期结果”缓解，未给出：
+<div class="fix">修改弥补：</div>
+<ol>
+<li>补<b>重叠性诊断</b>：倾向得分直方图/修剪后总样本变化（极端概率修剪比例）；</li>
+<li>补<b>反向因果检验</b>：处理概率对上期评分回归，报告系数与方向（或直接用“上期评分高低匹配”的 balance 表佐证）；</li>
+<li>正文明确处理触发依据（“订单满足率低于同月35分位且较上月降超2个百分点”），并在表2/数据段给出该定义的分布；</li>
+<li>用“滞后一期结果 + 当期处理”说明时序先置关系。</li>
+</ol>
+</div>
+
+<h3>1.3 AI杜撰／需要以真实代码复核的表述（不要留“看着对、实际没跑”的数字）</h3>
+<table>
+<thead><tr><th style="width:26%">位置</th><th style="width:44%">原表述</th><th style="width:30%">复核动作</th></tr></thead>
+<tbody>
+<tr><td>摘要【结果】(1)</td><td>“ATE=7.647，聚类 SE=0.589，CI 6.49～8.80”</td><td>与诚实森林样本外输出比对，落 C1；SE 来源需说明（品规 cluster/white 是否聚类、df 修正）。</td></tr>
+<tr><td>摘要【结果】(2)</td><td>“高敏感组 CATE 均值 23.78，改善率 84.4% vs 其余 46.1%”</td><td>核对组内 n：中文结果高敏感 n 应=表13 口径；英文摘要写 n=90 / 其余 n=180，与中文(270)是否一致要统一。</td></tr>
+<tr><td>摘要【结果】(3)</td><td>“顺价指数分裂频率 19.3%(95%CI 16.14%～22.46%)”</td><td>与表9 一致 ✓；根节点频率表若与表9重复，模板要求避免重复，可删其一。</td></tr>
+<tr><td>表4/表13</td><td>CATE sd、回溯改善率、子样本稳定性数值</td><td>逐格与代码输出核对；改善率分母（改善样本/组内样本）写明。</td></tr>
+<tr><td>表10 n合计</td><td>中低档 18、中档 175、中高档 404、高档 2260，合计 2857</td><td>核对与总样本一致 ✓；每个价位段内按敏感组 3 个 n 相加应等于该价位段总 n（需补一列合计更严谨）。</td></tr>
+<tr><td>全文 8 图</td><td>图 1–8 均引用</td><td>每图须与正文对应段落成对出现（见第二节逐图核查），不得“配图占位、正文没论证”。</td></tr>
+</tbody>
+</table>
+
+<h2>二、图表 + 公式：生图底层 · 与正文对应 · 规范（对应你的第1/3问）</h2>
+<h3>2.1 逐图核查（8 图）——该图承担什么论证、正文是否真用、生图要点与修改</h3>
+<table>
+<thead><tr><th style="width:9%">图</th><th style="width:30%">承担论证</th><th style="width:24%">正文对应</th><th style="width:37%">生图/规范核查与修改</th></tr></thead>
+<tbody>
+<tr><td>图1 框架图</td><td>展示“画像→处理→因果森林→三档清单→复核”整体逻辑</td><td>2.1 调控体系与技术路线</td><td>应画在“模型设计”首段，图内节点与正文 1.1–2.5 分层一一对应；<span class="fix">补中英文节点标注</span>，避免仅中文label。</td></tr>
+<tr><td>图2 CATE分布</td><td>证明“品规间效应差异大”，为分档做铺垫</td><td>3.1 平均效应与异质性</td><td>X轴=品规级CATE；<span class="fix">把高/低敏感分界虚线、0 线、±SD区间画进图内</span>（模板(18)：图注能进图的尽量进图）。</td></tr>
+<tr><td>图3 密度分组</td><td>支持“高敏感组与其余分布分离”</td><td>3.1/3.2</td><td><span class="fix">图例用中英双语（高敏感 High-sens…）</span>；标注组间均值差与简单显著性（可选紧凑标注）。</td></tr>
+<tr><td>图4 收益吸收地图</td><td>展示“哪些价位/情境吸收缩投票益”</td><td>3.6 价位段品类时令前</td><td>色阶离散、单位标注；<span class="fix">与表10/11 数据同源，图中数值与表核对</span>，防止图文两套数。</td></tr>
+<tr><td>图5 森林图</td><td>同一指标下多水平效应+置信区间</td><td>3.6</td><td>一图多组时<span class="fix">加 CI 横杠与参考线(0)</span>；与表12 一致。</td></tr>
+<tr><td>图6 热力图</td><td>价位段×敏感组分化</td><td>3.6</td><td><span class="fix">y 轴价位段按档位排序、色阶同图4</span>，利于对比。</td></tr>
+<tr><td>图7/8 轨迹/宫格</td><td>代表性品规月度状态轨迹＋缩投事件对照，落地实证</td><td>3.9 / 第4节</td><td><span class="fix">事件时刻用竖线标出、注明“缩投月”</span>，体现“缩投后变化→增量”；8 图宜与表18/19 的中华双中支等品规一一对应，做到<span class="fix">“图有对应表、表有对应文字”</span>。</td></tr>
+</tbody>
+</table>
+<div class="box orange"><b>要点：</b> 8 图均已“用得上”，但务必补：①图中<b>坐标轴/图例/注释中英双语</b>（模板17条）；②图注信息尽量<b>标注到图内</b>（模板18条）；③每组图与表<b>数据同源互验</b>；④图题“图1”“Fig.1”格式（图1后不加“.”，Fig.1 有“.”，模板21条）。</div>
+
+<h3>2.2 表格核查（21 表）</h3>
+<table>
+<thead><tr><th style="width:26%">要点</th><th style="width:40%">模板要求</th><th style="width:34%">本文现状/修改</th></tr></thead>
+<tbody>
+<tr><td>三线表</td><td>表格一般为三线表（仅顶线、表头线、底线），可加虚线避免歧义</td><td><span class="tag ok">通过</span>HTML 与 DOCX 均为三线表。</td></tr>
+<tr><td>中英双题</td><td>表题须“表1／Tab.1”双语；英文表名仅首字母大写</td><td>表1–表21 已双语 ✓；检查英文表名首字母仅1个大写、格式统一。</td></tr>
+<tr><td>单位与量纲</td><td>量与单位以“/”隔开；“～”“±”用中文</td><td>表6 顺价指数分箱、表10 n 等需按 GB/T 15835 统一（半角数字）。</td></tr>
+<tr><td>表注</td><td>注释列表下方，中英可同放</td><td>表8 已加注“非业务硬阈值”✓；其余表酌情补数据来源与口径注。</td></tr>
+<tr><td>表后论证</td><td>（规范习惯）表后必有文字归纳成推论并用实例跟进</td><td>见第三节逐表补写。</td></tr>
+</tbody>
+</table>
+
+<h3>2.3 公式核查（11 式）</h3>
+<table>
+<thead><tr><th style="width:22%">要点</th><th style="width:44%">问题/要求</th><th style="width:34%">修改</th></tr></thead>
+<tbody>
+<tr><td>编号与释义</td><td>正文公式应连续编号(1)…(11)，且每个公式后“式中：…”逐变量释义。当前第(6)/(7)/(8)个伪结果与加权目标公式的变量(ω、ρ)是否逐条给出待核对。</td><td>补“式中：…”逐条；公式与文字解释分节，避免混排（模板习惯）。</td></tr>
+<tr><td>公式即结论</td><td>第(11)式优化目标最大 ΣIᵣ·τ̂(xᵣ)cᵣ 是否在结果/第4节真被使用（有无数值解与校验）</td><td>若仅作为损失目标而未求解，标注“作为调控排序的目标函数，实际输出用规则清单实现”，避免“写了不用”。</td></tr>
+<tr><td>符号统一</td><td>同一符号全篇口径一致（Y/S/τ/M̂/ê/ω）</td><td>全文统一，首次出现给定义。</td></tr>
+</tbody>
+</table>
+
+<h2>三、表格背后的“具体品规应用论证”（对应你的第2问）</h2>
+<p class="ind">参考 18 篇范文的共同做法是：<b>结果段先由表抽出关键格——归纳成推论——落到一只具体品规/门店/时段——给出缩投后的变化与增量——点明业务价值</b>（如姜思明用双喜/芙蓉王/玉溪五品规验证、金文蔚用利群×6400→8231条、蒋晨辰用合肥130店订购量+29.8%）。你稿表 18–21 已备好了品规素材（中华双中支、黄鹤楼硬1916红爆、南京大观园爆冰、黄鹤楼硬峡谷情…），只差把“论证”落实到文字。</p>
+
+<table>
+<thead><tr><th style="width:18%">表</th><th style="width:52%">补写示范（可直接改写进正文）</th></tr></thead>
+<tbody>
+<tr><td>表10/11/12 价位·品类·时令</td><td>示例：“由表10可见，中高档价位段高敏感组平均 CATE 达 22.8，明显高于中低档 23.4 与低敏感组 −5.2；进一步看表12，元春(1–2月)子组 CATE 高于常规月。结合表18，<b>中华（双中支）</b>正处于元春档位，具备‘高价+旺季+高敏感’三重条件，是优先缩投的典型候选。”——把“抽象子组”落到“具体品规”。</td></tr>
+<tr><td>表13 回溯验证</td><td>示例：“由表13，高敏感对象缩投后状态改善率 84.4%，显著高于其余对象 46.1%：即每 100 只被执行缩投的高敏感品规，约 84 只在下月出现状态回升；而对非敏感品规缩投，改善不足一半，说明<b>机械缩投的对象错误是把‘无效甚至是负向动作’做成了‘常规动作’</b>，这正是本文要纠正的。”——给出业务损失换算。</td></tr>
+<tr><td>表18/19 代表品规</td><td>示例：“表18 中，<b>黄鹤楼（硬1916红爆）</b>顺价指数 1.179、存销比 326.6、订货成功率 10.05%，联合规则判定为‘满足’（√），其下期状态变化 Y=+15.06，说明该品规缩投后价盘与动销同步修复；对照表19，<b>南京（大观园爆冰）</b>等高存货但订货弱势组，规则判定‘×’，缩投后状态反而下行，提示此类品规应改用‘稳量+结构修复’而非缩投。”——体现“不同品规改变量不同→需差异化幅度”。</td></tr>
+<tr><td>表20 清单</td><td>示例：“表20 进一步把三档转成可执行清单：优先缩投档建议缩投幅度 8%–12%、次月复核；观察档先缩 3%–5% 并监控存销比；暂缓档不缩投。以<b>中华（双中支）</b>落入优先档为例，按该幅度执行并进入表21 四环节复核，可将‘依赖客户经理经验’的月度复核，转为‘制度化的对象排序+幅度复核’。”——落到“为你实际提供什么帮助”。</td></tr>
+</tbody>
+</table>
+<div class="box green"><b>一句话逻辑（写进第4、5节）：</b> “每次只改一点点、按档位给幅度、次月可回退复核”——把“缩投”从一刀切动作变成<b>“可排序、可量化、可回滚”</b>的差异化精准投放动作，这就是对商业企业库存调节、价盘稳定、终端盈利最直接的价值。</div>
+
+<h2>四、全文规范与叙述核查清单（对应你的第3问）</h2>
+<table>
+<thead><tr><th style="width:22%">类别</th><th style="width:40%">发现问题</th><th style="width:38%">修改建议</th></tr></thead>
+<tbody>
+<tr><td>口语化/空话</td><td>部分段落“…具有重要意义”“…良好基础”式套话；避免“税收大户”“新质生产力”等无量化空词（参考文端木杰是反面典型）。</td><td>把空话换成“可量化业务收益”：如“解决 X，可减少约 Y% 无效缩投、挽回 Z 库存占用”。</td></tr>
+<tr><td>专有名词首现</td><td>R-learner、SHAP、PSM、CATE(已扩)、CI、RMSE/MSE 等英文缩略语首现未全部给“中文全称(English Full Name)”。</td><td>正文首现处给全称：如“正交化残差学习（R-learner）”“沙普利值解释（SHAP, SHapley Additive exPlanations）”“倾向得分匹配（PSM, Propensity Score Matching）”“置信区间（95% CI, Confidence Interval）”。</td></tr>
+<tr><td>业务术语</td><td>存销比、订足面、顺价指数、订单满足率等业务词首现应给一句口径解释。</td><td>在表1/表2 首次出现处加“（=月末库存/月销量×30等）”脚注式说明。</td></tr>
+<tr><td>数字与单位</td><td>篇幅数字改用阿拉伯数字、量符号用半角；℃/%/＋/− 全半角统一。</td><td>按 GB/T 15835、GB/T 3101 统一。</td></tr>
+<tr><td>层次标题</td><td>“0引言…6结论与展望”连续编号、末尾不加标点、顶格后空1汉字——已符合。</td><td>保持；检查 3.8.1 与 2.3.1 层级是否都顶格。</td></tr>
+<tr><td>参考文献</td><td>需 GB7714 顺序编码＋中英对照＋作者≤3后“等/et al”＋中文名姓大写名不缩、英文名缩写。</td><td>逐条核对[1]–[12]及后续，补卷期/页码；方法文献（Wager＆Athey 等英文）为必要引用，保留但补全 DOI。</td></tr>
+</tbody>
+</table>
+
+<h2>五、审稿专家会从哪些角度“毙”你，以及怎么救（对应你的第4问）</h2>
+<table>
+<thead><tr><th style="width:6%">序</th><th style="width:34%">审稿人攻击角度</th><th style="width:14%">严重度</th><th style="width:46%">弥补方案（改到<copy>能救回</copy>）</th></tr></thead>
+<tbody>
+<tr><td>①</td><td>主结果不可复现/符号不稳（看不见 SE 来源、无样本外锚定）</td><td><span class="tag fatal">致命</span></td><td>按 C1 处理：弱化符号依赖、补敏感性表、两种口径并列并自选诚实口径。</td></tr>
+<tr><td>②</td><td>处理非随机且仅 9.4%，无重叠/反向因果诊断</td><td><span class="tag fatal">致命</span></td><td>补倾向得分修剪、重叠直方图、处理对上期评分回归、滞后一期时序论证。</td></tr>
+<tr><td>③</td><td>“数据/X市”可复制性：哪来的、能否复用、删了什么字段</td><td><span class="tag warn">中危</span></td><td>补数据段：来源、匿名汇总口径、字段剔除清单、方案可用性声明（不涉隐私）。</td></tr>
+<tr><td>④</td><td>讨论缺“与前人比较”与“局限性”</td><td><span class="tag warn">中危</span></td><td>新增“与现有状态评价/画像/投放方法的差异与互补”一段＋“本研究的局限与未来工作”（样本为单市、处理定义依赖阈值、CATE 为汇总口径等，逐条承认并给对策）。</td></tr>
+<tr><td>⑤</td><td>表后没落地论证，图表像“配图占位”</td><td><span class="tag warn">中危</span></td><td>按第三节逐表补“具体品规→变化→增量→价值”，让每张表都被正文“用起来”。</td></tr>
+<tr><td>⑥</td><td>术语首现不合规、图无中英双语、工作量像“堆实验”</td><td><span class="tag warn">中危</span></td><td>按第四节补全称+图内双语；把对比实验（表14）定位为“稳健性证据”而非“刷榜”。</td></tr>
+<tr><td>⑦</td><td>摘要结果不定量、结论空泛</td><td><span class="tag ok">可通过</span></td><td>已结构化+定量；保持“把 7.647 弱化、突出组间差异 84.4% vs 46.1%”。</td></tr>
+<tr><td>⑧</td><td>结论不回应引言/未分条</td><td><span class="tag ok">可通过</span></td><td>结论已分条(1)(2)…并回引言；保持。</td></tr>
+</tbody>
+</table>
+<div class="box green"><b>救稿总纲（P0→P2）：</b>
+P0（不做必然被毙）：落 C1 敏感性表＋C3 重叠/反向因果诊断＋弱化头号效应量措辞；
+P1（决定是“大修”还是“小修”）：第四节术语/双语/空话/参考文献全面标准化＋第三节逐表品规落地论证＋补讨论的局限与前人比较；
+P2（提分项）：数据可复制性声明、图内中英标注、把(11)式目标函数真正用起来、补一个“业务收益换算”（如减少无效缩投比例→库存占用/价盘损失估算）。
+</div>
+
+<h2>六、《中国烟草学报》模板逐条核对表（对应你的第4问后半）</h2>
+<table>
+<thead><tr><th style="width:7%">条</th><th style="width:50%">模板要求</th><th>本文合规情况</th></tr></thead>
+<tbody>
+<tr><td>(1)</td><td>正文四号字、图表五号、1.5倍行距</td><td>正文12pt(≈小四)可视为满足；DOCX 默认样式是否四号(14pt)需按最终模板字库重设。</td></tr>
+<tr><td>(2)</td><td>正文宋体、字母数字 Times New Roman；右下角页码</td><td>需在 DOCX 加页码与字体统一。</td></tr>
+<tr><td>(3)</td><td>暂不支持双通讯/双一作</td><td>投稿时作者设置注意，不涉正文。</td></tr>
+<tr><td>(4)</td><td>题目具体化、立论式、≤25字</td><td>24字 ✓。</td></tr>
+<tr><td>(5)</td><td>作者人名不留空、逗号隔开</td><td>占位，投稿前填。</td></tr>
+<tr><td>(6)</td><td>摘要【目的】【方法】【结果】(序号)【结论】，报道性400字左右</td><td>✓ 结构化且定量。</td></tr>
+<tr><td>(7)</td><td>关键词 3–8 个、分号隔开</td><td>6 个 ✓。</td></tr>
+<tr><td>(8)</td><td>题目/摘要不出现非公知符号、缩略语首现给全称</td><td>摘要中 CATE 已扩写；CI 建议补“置信区间”；全文按第四节补。</td></tr>
+<tr><td>(8中英)</td><td>英文摘要与中文一致、可多信息；可第一人称</td><td>✓ 已对齐。</td></tr>
+<tr><td>(8标*）</td><td>通讯作者后标注*</td><td>投稿时标。</td></tr>
+<tr><td>(10)</td><td>层次编号顶格、后空1汉字、0引言起</td><td>✓。</td></tr>
+<tr><td>(12-15)</td><td>材料注明时间/地点/特性；卷烟注明编号规格；方法含试验环境等</td><td>单市匿名汇总，需补“数据可得性/口径剔除”说明。</td></tr>
+<tr><td>(16)</td><td>结果用文字配合图表格化，能形成推论</td><td>✓ 但需按第三节补实例论证。</td></tr>
+<tr><td>(18-19)</td><td>图注属图一部分，在图与图题之间；图上尽量标注</td><td>需把图注信息尽量画到图内。</td></tr>
+<tr><td>(20)</td><td>图表量与单位以“/”隔开</td><td>按第三/四节复核表内单位。</td></tr>
+<tr><td>(21)</td><td>“图1.”若写为“图1.”错；应为“图1”；“Fig.1”有“.”</td><td>复核图题格式。</td></tr>
+<tr><td>(24)</td><td>三线表、英文表名仅首字母大写、表注下方</td><td>✓。</td></tr>
+<tr><td>(26)(27)</td><td>讨论要素；结论代表性与抽象、呼应引言、分条</td><td>结论已分条✓，讨论补局限/前人比较。</td></tr>
+<tr><td>(25)(28-30)</td><td>参考文献 GB7714、顺序编码、作者≤3+等/et al、中英对照、人名牌规范</td><td>需逐条补卷期页码，方法英文文献保留但补DOI。</td></tr>
+</tbody>
+</table>
+
+<h2>七、下一步我建议怎么改（供你确认后我落稿）</h2>
+<p class="ind">我已把上面全部问题转成<b>可直接替换的段落文本与表体内容</b>。若你要我直接把 v18-3 定稿做出来，我将按 P0→P2 顺序：(1) 用你现有的诚实重跑数据把【结果】(1) 的主效应换成“稳健性表述＋敏感性表”，并同步更新中文/英文摘要；(2) 补重叠/反向因果两个稳健性小表；(3) 通篇补术语首现全称、图内中英标注；(4) 按第三节为表 10/12/13/18/19/20 各补一段“具体品规→效果→增量→价值”的正文；(5) 补讨论的“与前人比较＋局限”、结论分条与引言呼应；(6) 参考文献补全 GB7714 著录；(7) 重新生成 v18-3 的 HTML/Word（公式 OMML、三线表、模板版式）。</p>
+
+<div class="box"><b>需要你提供/确认 3 件事再落稿：</b>
+① 主效应到底报哪个口径——你倾向“诚实森林样本外（保守，推荐）”还是“保留 7.647 但加敏感性表”？
+② 数据可否在文末补“数据可得性/匿名汇总声明”？（可选，但可复制性扣分项）
+③ 参考论文给了 6 条最需落实的规范，我默认照做；其中“方法英文文献(Wager/Athey 等)保留”你是否同意。</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,526 @@
+
+===== PAGE 1 =====
+
+2024 年6 月
+第57 卷第6 期
+烟草科技
+Tobacco Science & Technology
+Jun. 2024
+Vol. 57 No. 6
+摘要：为探究卷烟包装颜色对消费者感知偏好、关联记忆和品牌认知的影响，通过3个脑电（EEG）实
+验对15名志愿者进行测试，以获得不同卷烟包装颜色对消费者感知和认知影响的内在神经机制，并
+基于消费者神经科学和可穿戴生理感知技术，构建了一套基于感知价值的卷烟品牌色彩谱系的神
+经指标评价体系。以浙江中烟工业有限责任公司“利群品牌文化3.0”蓝色、红色、咖啡色、金色4大
+色系的色彩营销战略进行验证，结果表明：①卷烟包装颜色通过视觉注意力能够影响消费者感知；
+②消费者在长期注意过程中形成的品牌经验会存储在长期记忆中，从而构建对品牌的关联联想记
+忆网络；③品牌通过关联联想记忆网络能够引起消费者情感共鸣，有效传递品牌信息和理念。该研
+究可为卷烟品牌建设以及企业数字化和智能化营销提供支持。
+关键词：卷烟品牌；包装颜色；神经科学；脑电（EEG）技术；可穿戴生理感知技术
+中图分类号：Q189；F768.29
+文献标志码：A
+文章编号：1002-0861（2024）06-0107-06
+收稿日期：2023-11-02
+录用日期：2024-03-11
+第一作者：张益明（1972—），男，硕士，经济师，从事品牌管理和消费者认知神经科学研究。E-mail：693944228@qq.com
+引用本文：张益明，陈芳，陈焱，等. 基于消费者神经科学的卷烟品牌色彩谱系构建［J］. 烟草科技，2024，57（6）：107-112.（ZHANG
+Yiming，CHEN Fang，CHEN Yan，et al. Construction of cigarette brand color pedigree based on consumer neuroscience［J］.
+Tobacco Science & Technology，2024，57（6）：107-112. DOI：10.16135/j.issn1002-0861.2023.0706）
+Construction of cigarette brand color pedigree based on consumer neuroscience
+ZHANG Yiming
+1, CHEN Fang
+1, CHEN Yan
+1, WANG Xiaoyi
+2,3, ZHANG Yujia
+2,3
+1. China Tobacco Zhejiang Industrial Co., Ltd., Hangzhou 310008, China
+2. Neuromanagement Laboratory, Zhejiang University, Hangzhou 310058, China
+3. School of Management, Zhejiang University, Hangzhou 310058, China
+Abstract：To investigate the influences of cigarette packaging colors on consumer preference, associative
+memory and brand recognition, three electroencephalogram （EEG）experiments were conducted on 15
+volunteers to study the underlying neural mechanisms of different cigarette packaging colors on consumer
+perception and cognition. Based on consumer neuroscience and wearable physiological sensing technology,
+a neural index evaluation system for cigarette brand color pedigree based on perceived value was
+developed as well. The developed system was verified with the color marketing strategy of the four main
+color schemes—blue, red, coffee and gold—in“Liqun Brand Culture 3.0”of China Tobacco Zhejiang
+Industrial Corporation Limited. The results showed that: 1）Cigarette packaging color influenced consumer
+perception through visual attention. 2）The brand experience formed by consumers in the process of
+long-term attention would be stored in long-term memory, thus building an associative memory network of
+the brand. 3）Brands could arouse emotional resonance of and effectively convey information and concepts
+to the volunteers by way of the associative memory networks. This study supports cigarette brand building
+as well as enterprise digitalization and intelligent marketing.
+Keywords：Cigarette brand; Packaging color; Neuroscience; Electroencephalogram （EEG）technology;
+Wearable physiological sensing technology
+基于消费者神经科学的卷烟品牌色彩谱系构建
+张益明
+1，陈
+芳
+1，陈
+焱
+1，王小毅
+2,3，张煜佳
+2,3
+1. 浙江中烟工业有限责任公司，杭州市上城区中山南路77 号
+310008
+2. 浙江大学神经管理学实验室，杭州市西湖区余杭塘路866 号
+310058
+3. 浙江大学管理学院，杭州市西湖区余杭塘路866 号
+310058
+
+
+===== PAGE 2 =====
+
+2024 年
+烟草科技
+为适应卷烟消费群体结构年轻化趋势，浙江中
+烟工业有限责任公司生产的“利群”牌卷烟在进行品
+牌升级时聚焦于卷烟包装颜色谱系，从包装视觉识
+别和品牌文化内涵联想两个维度，构建了以消费体
+验为中心的“利群品牌文化3.0”体系。包装颜色作
+为消费者接触产品时的初期线索
+［1］，通过影响消费者
+的视觉注意力，形成对产品内在属性的感知
+［2］，进而
+塑造对品牌的认知
+［3］。不同颜色不仅影响人体的内
+分泌活动，激发人们不同的情感反应
+［4］，还具有象征
+意义，通过情感联想传递特定信息
+［5］。联想可以促使
+消费者自动启动认知加工过程，通过处理和检索记
+忆中的信息，促进产品自上而下的内源性注意力加
+工
+［6］，从而做出购买决定。但现有研究大多通过问卷
+调查和行为分析，探究包装颜色对个体生理和心理
+的影响，而较少关注包装颜色对消费者注意力、偏好
+以及品牌认知联想的影响。近年来，随着可穿戴生
+理感知技术的快速发展，通过测量人体生理指标来
+获取用户感知和认知数据，克服了消费者自我报告
+的局限性，有利于研究人员更加直接、准确地反映消
+费者决策时大脑的认知活动过程
+［7］。其中，脑电
+（Electroencephalography，EEG）技术通过记录神经细
+胞活动时在头皮表面诱发的生物电信号表征大脑认
+知加工的信息，具有采集环境友好、时间分辨率高、
+价格较便宜等优势
+［8］。为此，以“利群”牌卷烟为对
+象，通过3个脑电实验关注不同卷烟包装颜色对消费
+者感知和认知影响的内在神经机制，同时基于消费
+者神经科学，通过融合自我报告和可穿戴生理感知
+技术，构建了一套基于感知价值的卷烟品牌色彩谱
+系的神经指标评价体系，以期探究卷烟包装颜色对
+消费者感知偏好、关联记忆和品牌认知的影响，为数
+字化技术深度使用和卷烟品牌年轻化升级建设提供
+支撑。
+1
+材料与方法
+1.1
+材料与样本
+使用“利群”牌卷烟图片作为刺激材料，确保背
+景元素相对单一、颜色明度和饱和度统一、尺寸统
+一。实验1中使用现有的12款“利群”产品，从蓝色、
+红色、咖啡色、金色4 大色系中分别选取3 个主流产
+品。采用自由关联测度法和深度访谈法，依据
+Keller
+［9］的品牌联想内涵将收集到的联想词分为3种
+类型：属性联想、利益联想和态度联想，见表1。实验
+2 中利用与使用场景相关的属性联想词及相关场景
+刺激图片。实验3中利用收集到的品牌意象词语。
+共招募15 名志愿者参与实验。其中，男性13
+人，女性2 人，年龄介于18~29 岁之间，平均年龄为
+21.87岁。所有测试人均为吸烟者，符合实验基本要
+求，具备正常视力或矫正视力，身心健康，无精神疾
+病史或家族遗传精神疾病。所有测试人在实验前均
+已阅读并知晓EEG实验的相关知识，并签署EEG实
+验知情同意书。
+1.2
+评价指标的确定
+选取注意力和联想记忆两个关键构念用于构建
+品牌色彩谱系指标体系
+［10］。①有效的注意力是品牌
+与消费者沟通的第一大因素，注意力决定了哪些信息
+能被大脑感知并进入意识，通过注意力对感知到的事
+物进行选择性过滤，是最终对某事物产生记忆的前提
+条件。研究表明，alpha波段振荡在调节大脑后部的
+视觉处理过程中起到控制视觉信息输入的作用，振幅
+减少则反映了潜在神经元群兴奋性的增加，即集中注
+意力时，alpha波段出现去同步现象（能量降低）
+［11-12］。
+因此，选取顶枕区alpha波段作为视觉刺激引发的外
+源性注意力指标。②消费者对品牌联想记忆的强度
+是判断品牌形象感知的第二大因素。只有在长期体
+验中存储信息，才能对品牌形成印象和关联联想
+［13］。
+在对新的信息进行编码和情景记忆时，海马区theta
+波段能量会增强
+［14］。当在记忆中搜索与品牌相关记
+忆时，需要依靠记忆编码过程中建立的检索线索来定
+位所需的记忆，这些检索线索可能由使用场景、品牌
+形象认知或消费者心理需求组成。因此，选取额中部
+theta 波段作为品牌联想的神经指标，编码的信息与
+消费者记忆中的实际信息越一致，越能唤起消费者对
+表1 “利群”牌卷烟联想关键词
+Tab. 1
+Keywords associative to“Liqun”brand cigarette
+类型
+属性联想
+利益联想
+态度联想
+属性
+与产品有关
+与产品无关
+经验利益
+象征利益
+包装或产品外观
+使用者形态
+使用情景
+关键词
+原生系、阳光系、休闲系、细支
+蓝色、红色、简约的、大气的、雍容的、奢华的、祥云纹、七彩线条
+企业家、商务成功人士、高管领导者、公职人员、生意人、上班族、劳动者
+独处思考、商务洽谈、户外旅行、家庭聚会、婚庆迎宾、办公室、棋牌室、小饭馆
+性价比、亲民的、差异化、柔和的、醇厚的
+让心灵去旅行、生活的利群、江浙沪、自然、经典、高端
+平和的、低调的、自由的、优雅的、内敛的、从容的、休闲的
+·
+· 108
+
+
+===== PAGE 3 =====
+
+第57 卷第6 期
+长期记忆的检索，theta波段能量越高。
+1.3
+实验设备与EEG数据收集
+采用美国NeuroScan公司的Synamp2-64导放大
+器和64导联Ag/AgCl电极帽对头皮脑电信号进行采
+集，同时外接电极记录垂直眼电和水平眼电，使用
+Curry8 软件记录脑电数据，在实验开始前确保所有
+电极的电阻均小于10 kΩ 。使用Matlab 软件的
+EEGLAB 插件对脑电数据进行预处理，处理步骤包
+括：①对每个测试数据进行电极通道定位，除去无用
+的CB1、CB2、HEOG 及VEOG 电极；②转换参考电
+极，采用右侧单侧乳突（M2）作为双侧乳突平均参考
+值；③通过0.1 Hz 的高通滤波和30 Hz 低通滤波，过
+滤掉与研究无关的波段；④截取分析段并进行基线
+矫正，通过刺激呈现事件进行EEG分段，截取刺激发
+生前300 ms 至刺激呈现后5 000 ms 之间的脑电数
+据，以刺激前200 ms 的脑电波形作为基线，对EEG
+数据进行矫正；⑤采用独立成分分析（ICA）算法除去
+眨眼、水平眼动和肌肉活动等伪影，同时剔除波幅大
+于±80 μV 的EEG 片段，保证脑电数据完整和平滑；
+⑥同一测试人在每组条件下重复测试10 次（各条件
+下图片材料呈现顺序随机出现），将每位测试人在每
+组条件下的测试数据进行叠加后取平均值。
+对预处理后的脑电信号进行频域分析，通过快
+速傅立叶变换将去伪迹后的EEG信号从时域转换至
+频域，计算得到功率谱密度（Power Spectral Density，
+PSD），然后计算特定赫兹波段的PSD 总和能量值
+（dB）。各波段的划分依据为delta（1～3 Hz）、theta
+（4～7 Hz）、alpha（8～13 Hz）、beta（14～30 Hz）、
+gamma（31～50 Hz）。对选取不同波段脑电的能量
+值进行重复性方差分析和配对样本T 检验，对脑电
+数据和行为数据进行相关性分析。
+1.4
+实验方法
+（1）卷烟产品包装颜色偏好实验（实验1）。用于
+研究消费者对不同“利群”卷烟包装颜色的偏好。采
+用偏好研究范式，展示“利群”原生、阳光、休闲3大系列
+的标准烟盒图片，测量测试人对品牌的喜好程度、产
+品的购买意愿及感知价格区间，具体流程如图1所示。
+（2）品牌场景化联想实验（实验2）。用于研究包
+装颜色对应的产品系列与消费场景间的关联强度。
+采用prime-probe 范式，首先展示与产品相关的场景
+图像序列，然后出现一张卷烟产品图片，要求测试人
+判断此款卷烟是否适合在该场景下使用，具体流程
+如图2所示。
+（3）品牌意向认知实验（实验3）。用于研究卷烟
+包装颜色对消费者内在产品描述形成的影响。采用
+图片感知范式，屏幕上方出现“利群”产品图片，下方
+出现品牌描述词语，要求测试人对产品特征与描述之
+间匹配的一致性进行判断，具体流程如图3所示。
+2
+结果与分析
+2.1
+卷烟产品包装颜色偏好
+由表2 可知，蓝色包装喜爱程度评分为3.97，购
+买意愿评分为3.80，均显著高于咖啡色。在感知价
+格评分层面，除了咖啡色和金色无显著差异外，其他
+颜色间均存在显著差异，说明虽然消费者对“利群”
+不同系列产品各有偏好，但对以包装颜色为区分的
+品牌色彩谱系有统一而明确的价格感知。
+在4 种包装颜色下，刺激出现后0~2 000 ms 的
+alpha波段能量值分布脑电地形图如图4所示。重复
+性方差分析结果显示，蓝色包装alpha波段能量值低
+于红色，金色包装alpha 波段能量值也低于红色，同
+时呈现顶枕区右侧更高（P4，CP4 和PO4），说明对比
+图1
+卷烟产品包装颜色偏好实验刺激呈现流程
+Fig. 1
+Presentation process of stimuli in experiment on
+color preference for cigarette packaging
+图3
+品牌意向认知实验刺激呈现流程
+Fig. 3
+Presentation process of stimuli in experiment on
+brand intention perception
+图2
+品牌场景化联想实验刺激呈现流程
+Fig. 2
+Presentation process of stimuli in experiment on
+scenario-based brand association
+张益明，等：基于消费者神经科学的卷烟品牌色彩谱系构建
+·
+· 109
+
+
+===== PAGE 4 =====
+
+2024 年
+烟草科技
+红色包装，蓝色与金色包装更能引起消费者注意，右
+侧能量值更高也说明右脑作为人的图像脑，负责感
+知和处理不同卷烟包装图片信息。
+将产品感知价格与顶枕区右侧PO4电极点处的
+alpha 波段能量值作相关分析，如图5 所示。结果表
+明，两者存在边缘显著的负相关关系，说明注意力的
+产生不仅受到包装视觉刺激的影响，而且受到消费
+者对产品先验知识的驱动。因此，消费者会对判断
+为高价格的产品分配更多的注意力。
+2.2
+品牌场景化联想
+图6 反映了不同决策判断组测试人的反应时
+间。可见，不一致组的反应时间显著高于一致组，说
+明消费者在面对卷烟与使用场景不一致情景下，需
+要更长的时间进行联想记忆检索后再进行判断。
+不同决策判断组中刺激出现后0~1 000 ms 的
+theta 波段脑电地形图如图7 所示。选取额中部6 个
+电极点FC3、FCZ、FC4、F3、FZ、F4进行重复性方差分
+析，结果表明一致组的theta 振荡振幅显著大于不一
+致组，说明消费者在面对与产品一致的使用场景时，
+会使用更多资源对过往形成的关联联想记忆进行检
+索和匹配，这也反映出额中部theta波段能量较强。
+依据脑电数据额中部theta波段能量值和行为数
+据一致率两个指标，采用k-mean 法对“利群”原生、
+阳光、休闲3 个卷烟品系的16 个联想词分别进行聚
+类分析，确定各品系适合的使用场景，并构建场景
+关联记忆联想网络。由图8 可知，每个品系的联想
+词都可以聚类为两种类型，分别用蓝色和红色表
+示，纵坐标为对应的theta 能量值。根据每种聚类的
+联想词特点，对该聚类进行特征解释。其中，原生
+表2
+不同包装颜色行为数据的描述性统计
+①
+Tab. 2
+Descriptive statistics for behavioral data on
+different packaging colors
+因变量
+喜爱程度
+购买意愿
+感知价格
+包装颜色
+蓝色
+红色
+咖啡色
+金色
+蓝色
+红色
+咖啡色
+金色
+蓝色
+红色
+咖啡色
+金色
+均值±标准偏差
+3.97±1.956a
+4.07±1.639a
+3.33±1.989b
+4.09±2.054a
+3.80±1.955a
+4.07±1.874a
+2.71±1.646b
+3.42±2.050b
+2.37±0.765c
+1.97±0.556b
+3.53±1.254a
+3.62±1.614a
+图7
+不同决策判断组关联记忆的theta波段能量值脑电地形图
+Fig. 7
+Theta band EEG topographic maps of associative
+memory for different decision-making judgment groups
+图4
+不同卷烟包装颜色对应的alpha波段能量值脑电地形图
+Fig. 4
+Alpha band EEG topographic maps for different
+cigarette packaging colors
+图5
+产品感知价格与PO4电极点处alpha波段能量值的相关分析
+Fig. 5
+Correlation between perceived product price and
+alpha band EEG activity at electrode PO4
+图6
+不同决策判断组的测试人反应时间
+Fig. 6
+Reaction times of participants in different
+decision-making judgment groups
+注：①同列数据后带有不同字母者表示差异达到显著水平
+（P＜0.05）。
+·
+· 110
+
+
+===== PAGE 5 =====
+
+第57 卷第6 期
+2.3
+品牌意向认知
+不同决策判断组中刺激出现后0~1 000 ms 的
+theta 波段脑电地形图如图9 所示。选取额中部6 个
+电极点FC3、FCZ、FC4、F3、FZ、F4 进行重复性方差
+分析，结果表明一致组的theta 波段能量显著大于不
+一致组。
+图10 显示了一致程度与额中部（FC3、FCZ、
+FC4、F3、FZ、F4的平均值）theta波段的相关关系。其
+图9
+不同决策判断组品牌认知的theta波段脑电地形图
+Fig. 9
+Theta band EEG topographic maps of brand
+perception for different decision-making judgment groups
+系中能量值较高的聚类（蓝色），其词汇主要与工作
+沟通、酒吧等一些日常性社交活动相关；阳光系中
+能量值较高的聚类（蓝色），其词汇主要与聚会分享
+和沟通交流方式相关；休闲系中能量值较高的聚类
+（蓝色），其词汇主要与送礼洽谈、户外旅行等商务社
+交活动相关。
+图8
+不同卷烟系列场景联想词聚类分析
+Fig. 8
+Cluster analysis of scenario-associated keywords for different cigarette series
+a.原生系
+b.阳光系
+c.休闲系
+张益明，等：基于消费者神经科学的卷烟品牌色彩谱系构建
+图10
+一致程度与额中部theta波段能量值的相关分析
+Fig. 10
+Correlation between consistency degree and theta band EEG activity in the mid-frontal region
+a
+b
+c
+·
+· 111
+
+
+===== PAGE 6 =====
+
+2024 年
+烟草科技
+中，图10a 的纵坐标为一致程度得分，图10b 的纵坐
+标为感知一致率。结果表明：一致程度得分与感知
+一致率均与额中部theta 波段存在显著正相关，说明
+额中部theta波段振幅可以反映消费者对产品的关联
+记忆强度，theta波段能量越大，消费者感知的品牌形
+象与品牌意向词语越一致。
+3
+结论
+基于消费者神经科学，以alpha波段和theta波段
+作为指标参数，从消费者注意力、品牌联想两个维
+度，构建了一套基于感知价值的卷烟品牌色彩谱系
+的神经指标评价体系，并对“利群品牌文化3.0”蓝
+色、红色、咖啡色、金色4大色系的色彩营销战略进行
+验证，结果显示：①包装颜色通过视觉注意力能够影
+响消费者感知，这种外源性注意力可以反映在顶枕
+区alpha波段上；②消费者在长期注意过程中形成的
+品牌经验会存储在长期记忆中，从而构建对品牌的
+关联联想记忆网络，额中部theta 波段可以表征关联
+联想的强度。该研究结果证明了将神经学数据作为
+传统行为数据的补充应用于卷烟营销评价分析的科
+学性和可行性。但本研究中仍存在一些局限性。例
+如，结果的重复性可能受到个体差异和环境因素的
+影响；在实验设计中仅通过向测试人展现静态的卷
+烟包装图片，难以引起测试人情感变化等。考虑到
+消费者数据的多维性、动态性、模糊性以及海量性，
+未来基于多模态的综合分析平台工具以及便携式消
+费级脑电研究设备，能够为卷烟品牌建设数字化技
+术的深度使用提供新方向。
+参考文献
+［1］Kuvykaite R，Dovaliene A，Navickiene L. Impact of
+package elements on consumer’s purchase decision［J］.
+Economics and Management，2009，14：441-447.
+［2］Limon Y，Kahle L R，Orth U R. Package design as a
+communications vehicle in cross-cultural values shopping
+［J］. Journal of International Marketing，2009，17（1）：
+30-57.
+［3］Simmonds G，Spence C. Thinking inside the box：
+How seeing products on，or through，the packaging
+influences consumer perceptions and purchase behaviour
+［J］. Food Quality and Preference，2017，62：340-351.
+［4］Labrecque L I，Patrick V M，Milne G R. The marketers’
+prismatic palette：A review of color research and future
+directions［J］. Psychology & Marketing，2013，30（2）：
+187-202.
+［5］Sundar A，Noseworthy T J. Place the logo high or low?
+Using conceptual metaphors of power in packaging
+design［J］. Journal of Marketing，2014，78（5）：138-151.
+［6］Bramão I，Reis A，Petersson K M，et al. Knowing
+that strawberries are red and seeing red strawberries：
+The
+interaction
+between
+surface
+colour
+and
+colour
+knowledge
+information［J］.
+Journal
+of
+Cognitive
+Psychology，2016，28（6）：641-657.
+［7］Brown T T，Kuperman
+J
+M，Chung Y，et
+al.
+Neuroanatomical assessment of biological maturity［J］.
+Current Biology，2012，22（18）：1693-1698.
+［8］Dmochowski J P，Bezdek M A，Abelson B P，et al.
+Audience preferences are predicted by temporal reliability
+of neural processing［J］. Nature Communications，2014，
+5：4567.
+［9］Keller K L. Conceptualizing，measuring，and managing
+customer-based brand equity［J］. Journal of Marketing，
+1993，57（1）：1-22.
+［10］Pozharliev R，Verbeke W J M I，Bagozzi R P. Social
+consumer neuroscience：Neurophysiological measures
+of advertising effectiveness in a social context［J］.
+Journal of Advertising，2017，46（3）：351-362.
+［11］Foxe J J，Snyder A. The role of alpha-band brain
+oscillations as a sensory suppression mechanism during
+selective attention［J］. Frontiers in Psychology，2011，
+2：154.
+［12］Ray W J，Cole H W. EEG alpha activity reflects
+attentional
+demands，and
+beta
+activity
+reflects
+emotional and cognitive processes［J］. Science，1985，
+228（4700）：750-752.
+［13］Fu Y T，Zhou Y L，Zhou J F，et al. More attention with
+less working memory：The active inhibition of attended
+but outdated information［J］. Science Advances，2021，
+7（47）：eabj4985.
+［14］Klimesch W，Doppelmayr M，Schimke H，et al. Theta
+synchronization
+and
+alpha
+desynchronization
+in
+a
+memory task［J］. Psychophysiology，1997，34（2）：
+169-176.
+责任编辑
+曹
+娟
+·
+· 112

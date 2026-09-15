@@ -1,0 +1,1066 @@
+
+===== PAGE 1 =====
+
+2025 年11 月
+第58 卷第11 期
+Nov. 2025
+Vol. 58 No. 11
+烟草科技
+Tobacco Science & Technology
+摘要：为了获取卷烟消费者反馈，洞察消费行为成因，构建了一个大规模多情感消费者评价数据集，
+提出了融合多层级特征的消费者评价情感分析模型ECBHA，并基于该模型建立了卷烟消费者典型
+意见智能挖掘系统。模型ECBHA 采用预训练模型ERNIE（Enhanced Representation through
+Knowledge Integration）获得包含上下文信息的动态词向量，通过卷积神经网络（CNN）和双向长短
+时记忆神经网络（BiLSTM）提取局部和全局特征，使用层次注意力网络（HAN）在词和句子两个层面
+提取情感判断的关键特征。在卷烟消费者评价数据集上的实验结果表明，模型ECBHA的各项指标
+均优于支持向量机（SVM）、多元逻辑回归（LG）、文本卷积神经网络（TextCNN）等9种机器学习或深
+度学习的基线方法，其中整体分类准确率为85.29%，在正向、中性、负向情感分类中的F1值分别为
+90.51%、67.96%和86.21%，比表现最好的基线方法ERNIE 分别提高了3.28、2.02、5.32 和4.77 百分
+点；基于模型ECBHA建立的卷烟消费者典型意见智能挖掘系统，可以实现对卷烟产品画像、产品情
+感分析结果的对比，帮助企业快速掌握消费者对卷烟产品的态度，为产品研发和精准营销提供支持。
+关键词：卷烟消费者评价；情感分析；ERNIE；BiLSTM；层次注意力网络
+中图分类号：F274；F713.55
+文献标志码：A
+文章编号：1002-0861（2025）11-0093-08
+收稿日期：2025-03-10
+录用日期：2025-09-23
+基金项目：中国烟草总公司重大科技项目“基于消费需求意见提取与设计语言转化的消费洞察技术研究”
+［110202401032（SZ-06）］；
+烟草行业青年科技托举人才项目（602023ACR0080）；郑州烟草研究院青年人才托举工程计划项目“基于消费者评价数
+据的卷烟产品画像研究”
+（602020CR0370）；云南中烟技术中心联创平台项目“高端卷烟产品消费者认知模型构建技术
+研究”
+（2025539200340009）。
+第一作者：王锐（1992—），女，硕士，高级工程师，从事卷烟消费者行为研究及烟草科学数据挖掘研究。E-mail：aboutstefanie@163.
+com
+*通信作者：冯伟华（1978—），男，硕士，正高级工程师，从事烟草科学数据挖掘研究。E-mail：fwhtt934@126.com；吴继忠（1981—），
+男，硕士，高级工程师，从事产品开发研究。E-mail：wujizhong@zjtobacco.com
+引用本文：王锐，沈羽东，高扬，等. 融合多层级特征的卷烟消费者评价情感分析［J］. 烟草科技，2025，58（11）：93-100.（WANG Rui，
+SHEN Yudong，GAO Yang，et al. Smokers’sentiment towards cigarette consumption: an evaluation by integrating multi-level
+features［J］. Tobacco Science & Technology，2025，58（11）：93-100. DOI：10.16135/j.issn1002-0861.2025.0157）
+融合多层级特征的卷烟消费者评价情感分析
+王
+锐
+1，沈羽东
+2，高
+扬
+3，王
+迪
+1，居
+雷
+3，杨
+蕾
+4，胡
+斌
+1，宗国浩
+1，
+王永胜
+1，郑超群
+1，冯伟华
+*1，吴继忠
+*2
+1. 中国烟草总公司郑州烟草研究院，郑州高新技术产业开发区枫杨街2 号
+450001
+2. 浙江中烟工业有限责任公司技术中心，杭州市西湖区科海路118 号
+310024
+3. 上海烟草集团有限责任公司技术中心，上海市浦东新区秀浦路3733 号
+201315
+4. 云南中烟工业有限责任公司技术中心，昆明市五华区红锦路181 号
+650231
+Smokers’sentiment towards cigarette consumption: an evaluation by
+integrating multi-level features
+WANG Rui
+1，SHEN Yudong
+2，GAO Yang
+3，WANG Di
+1，JU Lei
+3，YANG Lei
+4，HU Bin
+1，ZONG Guohao
+1，
+WANG Yongsheng
+1，ZHENG Chaoqun
+1，FENG Weihua
+*1，WU Jizhong
+*2
+1. Zhengzhou Tobacco Research Institute of CNTC，Zhengzhou 450001，China
+2. Technology Center，China Tobacco Zhejiang Industrial Co.，Ltd.，Hangzhou 310024，China
+3. Technology Center，Shanghai Tobacco Group Co.，Ltd.，Shanghai 201315，China
+4. Technology Center，China Tobacco Yunnan Industrial Co.，Ltd.，Kunming 650231，China
+Abstract：In order to obtain feedback from smokers and gain insights into factors affecting their cigarette
+consumption behavior，a large-scale multi-sentiment consumers’evaluation dataset was constructed，and
+
+
+===== PAGE 2 =====
+
+2025 年
+烟草科技
+随着互联网和移动通信技术的高速发展，越来
+越多的用户在网络平台上发表意见和经验，产生了
+大量包含情感色彩的评论文本，对这些文本数据进
+行分析挖掘可以提炼用户对事物的看法和态度，为
+商家制定营销策略、消费者选购商品等提供参考。
+因此，对评论文本的情感分析引起了学术界的广泛
+关注。目前，情感分析方法主要分为3类：①基于情
+感词典的方法
+［1-2］，该类方法通过领域情感词典和人
+工设计的规则来确定文本的情感极性。然而，由于
+情感词典不能实时收录网络上不断涌现的新词，同
+时规则无法涵盖所有的语法结构，导致基于词典的
+情感分析方法结果不够准确。②机器学习方法，该
+类方法将情感分析看作分类问题，通过训练分类器
+实现不同情绪的划分。例如，赵刚等
+［3］分析了朴素贝
+叶斯、C4.5 分类树等典型机器学习方法在商品评论
+情感分析中的表现；姜杰等
+［4］提出了一个机器学习与
+语义规则融合的情感分类方法，取得了比基于规则的
+方法更好的分类性能。③深度学习方法，这类方法通
+常基于卷积神经网络（Convolutional Neural Network，
+CNN）、循环神经网络（Recurrent Neural Network，
+RNN）开展。例如，刘寒
+［5］提出了基于注意力机制的
+Att-Con-GloVe 模型，分析用户对餐厅评论中的情感
+倾向性；谭皓等
+［6］结合文本中的表情符号特征，提出
+了基于表情符注意力机制的微博情感分析神经网络
+模型，提升了微博情感识别的准确率；为了开展细粒
+度的情感分析，杨春霞等
+［7］对BERT（Bidirectional
+Encoder Representations from Transformers）的输入嵌
+入部分进行改进，加入了方面词信息，提出了一种融
+合深度双向门控循环单元和语境感知注意力机制的
+方面词感知BERT 模型。后两类方法通过特征学习
+可以明显提高情感分析的准确性，其中深度学习方
+法还能充分利用上下文语义信息，在复杂语义理解
+方面往往表现更加出色。但由于现有公共数据集的
+限制，这些研究大多集中在娱乐和餐饮领域。
+近年来，国际烟草组织在产品使用行为方面开
+展了诸多研究
+［8-10］，利用消费者评价信息分析消费
+者的吸烟行为也引起了国内烟草行业的关注。蔡
+波等
+［11］将消费者评价中的感官描述词与中式卷烟
+消费体验感官评价指标词相匹配，验证了中式卷烟
+消费体验感官评价指标的实用性和适用性，并得到
+消费者较为关注的感官评价指标。杨春晓等
+［12］建
+立了基于情感词典的卷烟评价文本情感分析模型，
+分析卷烟在线评论中的情感表达。然而，由于缺少
+大规模消费者评价数据集，目前的研究大多局限于
+基于词典的方法和无监督机器学习方法。为此，从
+大量在线卷烟消费评论中提取有效的消费者体验
+信息，构建了一个大规模、多情感的卷烟消费者评
+价数据集，并在此基础上提出了融合预训练模型
+ERNIE（Enhanced Representation through Knowledge
+Integration）
+［13］、卷积神经网络
+［14］、双向长短时记忆神
+经网络（BiLSTM）
+［15］、层次注意力网络（Hierarchical
+Attention Network）
+［16］的深度学习模型ECBHA，研发
+了卷烟消费者典型意见智能挖掘系统，以期准确分
+析消费者评价中包含的情感信息，助力卷烟产品研
+the resultant smoker evaluation sentiment analysis model，ECBHA，was proposed by integrating key
+multi-level features. Based on this model，an intelligent data mining system for typical opinions of smokers
+was developed. The ECBHA model used a pre-trained model，Enhanced Representation through Knowledge
+Integration（ERNIE），to generate dynamic word vectors with contextual information，and extracted local
+and global features through convolutional neural network（CNN）and bi-directional long short-term memory
+neural network（BiLSTM）. A hierarchical attention network（HAN）was employed to extract key features for
+sentiment judgment at the word and sentence levels used by smokers. Experimental results based on smokers’
+evaluation dataset showed that ECBHA model outperformed nine baseline methods of machine learning or
+deep learning，including Support Vector Machine（SVM），Multinomial Logistic Regression（LG），and Text
+Convolutional Neural Network（TextCNN）across all major indexes. Among which，the overall classification
+accuracy of ECBHA model was 85.29% ，and the F1 scores for positive，neutral and negative sentiment
+classification were 90.51% ，67.96% and 86.21% respectively，which were 3.28，2.02，5.32 and 4.77
+percentage points higher than those of ERNIE，the baseline method displayed with best performance. The
+intelligent mining system for typical opinions of smokers built on the ECBHA model enabled functions such
+as generation of cigarette product portraits and comparison of sentiment analysis results，assisting
+manufacturers in swiftly understanding smokers’attitudes towards cigarette products and providing support
+for product research and development as well as precise marketing.
+Keywords：Cigarette consumers’evaluation；Sentiment analysis；ERNIE；BiLSTM；Hierarchical attention
+network
+·
+· 94
+
+
+===== PAGE 3 =====
+
+第58 卷第11 期
+发和精准营销。
+1
+数据与方法
+1.1
+数据集构建
+从各类烟民论坛上收集2006—2021年消费者针
+对2 066 个国内卷烟品牌规格的评价数据114 214
+条，完成数据清洗等预处理操作，按正向、中性、负向
+3种情感倾向对评价数据进行人工标注，构建了包含
+75 610条数据的卷烟消费者评价数据集。数据集中
+正向情感评价38 244条（占比50.6%），中性情感评价
+16 572 条（占比21.9%），负向情感评价20 794 条（占
+比27.5%），数据分布不平衡。但考虑到人们习惯在
+互联网上推荐好的产品或抱怨不喜欢的产品，数据
+类别不平衡更符合实际情况，因此不对数据做平衡
+处理。按照8∶1∶1的比例将数据集划分为训练集、验
+证集和测试集，训练集用于模型训练，验证集用于优
+化调整模型参数，测试集用于模型效果评估。数据
+集划分情况见表1。
+情感类别
+正向
+中性
+负向
+合计
+总计
+38 244
+16 572
+20 794
+75 610
+训练集
+30 233
+13 827
+16 430
+60 490
+验证集
+4 125
+1 207
+2 228
+7 560
+测试集
+3 886
+1 538
+2 136
+7 560
+样例
+很经典！柔中带刚，软硬适中。味道醇厚，30元以内最顺口。
+这烟的烟嘴老早就变了，金色还带空心滤嘴的。杭州市联华超市里
+卖的还是老版的。
+慕名买的，感觉抽大口晕，烟味不浓，烟气容易散，抽完嘴里味道差。
+表1
+数据集概况
+Tab. 1
+Dataset Overview
+1.2
+模型构建
+ECBHA模型由输入层、嵌入层、特征提取层、注
+意力层和输出层组成，架构见图1。模型的目的是预
+测评价文本的情感极性y∈｛0，1，2｝，0、1、2分别代表
+文本的情感极性为负向、中性和正向。
+1.2.1
+嵌入层
+一词多义是一种重要的语言现象，普遍存在于
+各国语言中。例如“这烟抽着可以”中的“可以”表示
+对评价对象的肯定，而“太原这边12 块钱就可以买
+到”中的“可以”则是助动词，与“能够”的含义相近。
+word2vec
+［17］这类静态词向量针对同一语料中相同的
+词汇形成相同的词向量，不能很好地解决一词多义
+问题。如图2 所示，预训练模型ERNIE
+［13］可以通过
+短语、实体等不同粒度的掩码训练，充分利用数据中
+的词法结构、语法结构和语义信息生成动态词向量，
+更好地表达词在不同语境下的语义信息。
+嵌入层通过预训练模型ERNIE 获得向量表示。
+ERNIE 由多层Transformer 的编码器堆叠而成，模型
+结构如图3 所示，Trm 表示Transformer 的编码器，
+ERNIE 的输入是X=［X1，X2，…，Xi，…，Xn］，Xi是第i
+个字对应的向量表示，n为文本长度。E=［E1，E2，…，
+输出层
+注意力层
+特征
+提取层
+嵌入层
+输入层
+Attention
+ERNIE
+BiLSTM
+CNN
+Softmax
+LSTM
+LSTM
+LSTM
+LSTM
+LSTM
+LSTM
+MaxPooling
+MaxPooling
+MaxPooling
+Conv1
+Conv2
+Conv3
+Conv1、Conv2、Conv3为不同尺寸的卷积核，MaxPooling为
+最大池化，Attention为注意力机制，Softmax表示softmax函数。
+图1
+ECBHA模型架构
+Fig. 1
+Architecture of ECBHA model
+[掩码]
+[掩码]
+[掩码]
+[掩码]
+净
+干
+醇
+和
+口
+感
+余
+味
+Transformer模型
+图2
+ERNIE的掩码策略
+Fig. 2
+Masking strategy of ERNIE
+X1
+X2
+X3
+Xn
+Trm
+Trm
+Trm
+Trm
+Trm
+Trm
+Trm
+Trm
+E1
+E2
+E3
+En
+图3
+预训练模型ERNIE的结构
+Fig. 3
+Architecture of pertaining model ERNIE
+王
+锐，等：融合多层级特征的卷烟消费者评价情感分析
+·
+· 95
+
+
+===== PAGE 4 =====
+
+2025 年
+烟草科技
+En］是经过预训练模型ERNIE得到的动态词向量，词
+向量的维度为k。
+每个编码器由多头注意力层和前馈神经网络
+（Feed Forward Neural Network，FFNN）组成。注意
+力层是编码器的重要结构，通过注意力机制反映句
+子中不同词之间的相关性和重要性差异。根据公式
+（1）~（3）将输入向量X 与参数矩阵W
+Q、W
+K、W
+V相乘
+得到查询向量Q、键向量K、值向量V。
+Q=W
+QX
+（1）
+K=W
+KX
+（2）
+V=W
+VX
+（3）
+如公式（4）所示，计算每个词和输入序列中所有
+词之间的相关性K
+T·Q，通过dk（dk是输入向量的维
+度）进行缩放（缩放操作可以使训练时的梯度更新更
+加稳定），使用softmax 函数归一化后得到注意力权
+重，以注意力权重对值向量V加权求和，更新词的向
+量表示。
+Attention（Q，K，V）=V·softmax K
+T·Q
+dk
+（4）
+按上述操作得到每个注意力头的注意力输出向
+量［公式（5）］并按公式（6）进行拼接作为多头注意力
+的输出Z。
+Hi=Attention（W i
+QX，W i
+KX，W i
+VX）
+（5）
+Z=W
+O·concate（H 1，H 2，…，H i，…，H h）
+（6）
+式中：W i
+Q、W i
+K、W i
+V表示第i 个注意力头的参数矩阵，
+H i是第i 个注意力头的输出向量，h 是注意力头的个
+数，W
+O是线性变换矩阵，concate表示向量拼接操作。
+多头注意力的输出经过残差连接和层归一化后
+送入前馈神经网络，前馈神经网络采用ReLU激活函
+数对向量进行非线性变换以增强模型的拟合能力，
+见公式（7）。
+FFNN（Z）=W 2ReLU（W 1Z+b1）+b2
+（7）
+式中：W 1、W 2是权重矩阵，b1、b2是偏置向量。
+各层编码器的结构相同，每层编码器的输出作
+为下层编码器的输入，最后一层编码器的输出就是
+预训练模型ERNIE的输出词向量E。
+1.2.2
+特征提取层
+特征提取层由CNN和BiLSTM组成，CNN用于
+提取文本局部特征，BiLSTM从两个方向提取全局特
+征。依照预训练模型ERNIE 输出的动态词向量E，
+将训练文本转换成输入矩阵D送入多个不同尺寸的
+CNN，每个CNN都包含卷积和池化操作。卷积层设
+置大小为2、3、4 的3 种卷积核来提取不同维度的特
+征，每种尺寸的卷积核各有100个。对于卷积核w∈
+R
+d×k（d是卷积核的高度；卷积核的宽度等于输入动态
+词向量的维度k），通过卷积操作提取的特征Ci见公
+式（8）。
+Ci=ReLU（w·Di：i+d-1+b）
+（8）
+式中：Di：i+d-1表示输入矩阵的第i行到第i+d-1行，b是
+偏置项。
+对卷积层提取的特征采用最大池化来进一步抽
+取最显著的特征，之后将不同尺寸卷积核提取的特
+征拼接作为CNN的输出。
+长短时记忆神经网络（Long Short-Term
+Memory，LSTM）
+［18］通过引入门控机制，可以更好地
+捕捉长距离的依赖关系，在情感分析研究中应用广
+泛
+［19-21］。但由于其隐藏层单向传播的特性，LSTM无
+法对文本中从后向前的信息编码。由前向LSTM与
+后向LSTM 组合而成的BiLSTM 通过提取双向语义
+特征，可以更充分地利用上下文信息。BiLSTM的网
+络结构如图4 所示，将CNN 模块得到的混合向量分
+别传入前向LSTM 和后向LSTM，通过拼接前向
+LSTM 产生的隐向量ht
+L与后向LSTM 产生的隐向量
+ht
+R，得到句子的编码向量ht=［ht
+L，ht
+R］。
+1.2.3
+注意力层和输出层
+由于评价中不同的词和句子对文本情感判断的
+贡献不同，引入层次注意力网络（HAN）学习句子和词
+汇的重要性。将BiLSTM的输出h=（h1，h2，…，hi，…，
+hn）作为层次注意力网络的输入，依照公式（9）~（11）
+计算词级别和句子级别的表示特征。
+ui=tanh（Wshi+bs）
+（9）
+αi= exp（ui
+Tus）
+∑iexp（ui
+Tus）
+（10）
+v=∑iαihi
+（11）
+式中：ui是hi的隐藏表示，Ws、bs是特征转换参数，us是
+上下文向量，αi是重要性权重，v是由hi的重要性加权
+求和得到的高层表示，概括了文本中句子的所有信息。
+输出层通过softmax实现文本情感分类，损失函
+数为交叉熵损失与正则化损失的加和。
+1.3
+模型评估
+使用Tensorflow GPU 2.5.0 和keras 2.5.0 构建模
+输出层
+反向LSTM
+正向LSTM
+输入层
+LSTM
+LSTM
+LSTM
+LSTM
+LSTM
+LSTM
+h
+L
+t-1
+h
+R
+t-1
+h
+L
+t
+h
+R
+t
+h
+L
+t+1
+h
+R
+t+1
+xt-1
+xt
+xt+1
+图4
+BiLSTM网络结构
+Fig. 4
+Structure of BiLSTM network
+·
+· 96
+
+
+===== PAGE 5 =====
+
+第58 卷第11 期
+型，使用NVIDIA GeForce RTX 3090 显卡训练模
+型。优化器为Adam，通过网格搜索确定学习率为
+0.000 05，批样本大小为64，dropout率设为0.1。
+为了对模型效果进行评估，将模型ECBHA 与
+9 种基线方法进行对比，评价指标采用准确率
+（Accuracy）、精确率（Precision）、召回率（Recall）和
+F1 值。对比方法为2 种传统的机器学习方法，包括
+支持向量机（SVM）
+［22］和多元逻辑回归（LG）
+［23］；7
+个深度学习方法，包括文本卷积神经网络
+（TextCNN）
+［14］、深度金字塔卷积神经网络（Deep
+Pyramid Convolutional Neural Networks for Text
+Categorization，DPCNN）
+［24］、双向长短时记忆神经网
+络（BiLSTM）
+［15］、结合注意力机制的BiLSTM 模型
+（BiLSTM-Att）
+［25］、基于注意力机制的序列到序列学
+习模型（Transformer）
+［26］、基于Transformer 编码器的
+双向语言模型（Bidirectional Encoder Representation
+from Transformers，BERT）
+［27］、在BERT模型基础上增
+加了基于短语和基于实体的两种掩码策略的预训练
+模型ERNIE
+［14］。
+所有模型都进行相同的数据预处理操作，并优化
+至最佳效果。针对非BERT模型，使用基于搜狗新闻
+（https：//github.com/Embedding/Chinese-Word-Vectors）
+训练的300维词向量来初始化词嵌入向量。
+2
+结果分析
+针对卷烟消费者评价数据集的情感分类结果
+如表2 所示。可见，ECBHA 模型整体分类的准确率
+为85.29%，预测正向、中性和负向3 种情感类别的
+F1 值分别为90.51%、67.96%和86.21%，均优于所有
+基线方法且比表现最好的基线方法ERNIE 分别提
+高了3.28、2.02、5.32 和4.77 百分点，表明了模型
+ECBHA 的有效性。由于3 种情感类别的数据量不
+平衡，所有模型对中性情感的预测准确性普遍低于
+正向和负向情感，但模型ECBHA 相比ERNIE 在精
+确率、召回率和F1 值3 项指标上分别提高了7.54、
+3.90 和5.32 百分点。此外，深度学习方法的准确性
+普遍优于传统机器学习方法，体现了深度学习强大
+的学习能力。
+方法
+机器学习方法
+深度学习方法
+SVM
+［22］
+LG
+［23］
+TextCNN
+［14］
+DPCNN
+［24］
+BiLSTM
+［15］
+BiLSTM-Att
+［25］
+Transformer
+［26］
+BERT
+［27］
+ERNIE
+［14］
+ECBHA
+测试
+准确率
+72.75
+73.82
+75.75
+79.06
+76.92
+79.55
+79.39
+81.46
+82.01
+85.29
+精确率
+正向
+78.03
+81.87
+81.91
+85.24
+79.67
+85.53
+85.42
+84.11
+84.50
+86.63
+中性
+64.51
+58.02
+60.73
+68.41
+71.12
+69.16
+68.85
+70.48
+72.28
+79.82
+负向
+67.11
+71.00
+74.31
+73.85
+73.96
+74.56
+74.37
+82.28
+82.38
+85.53
+召回率
+正向
+84.07
+81.34
+85.74
+88.45
+90.58
+88.86
+88.78
+93.03
+92.89
+94.75
+中性
+49.15
+59.95
+58.13
+53.51
+47.07
+54.68
+54.03
+54.81
+55.27
+59.17
+负向
+69.15
+70.13
+70.27
+80.38
+73.55
+80.52
+80.57
+79.59
+80.52
+86.89
+F1值
+正向
+80.94
+81.61
+83.78
+86.81
+84.78
+87.16
+87.07
+88.34
+88.49
+90.51
+中性
+55.79
+58.97
+59.40
+60.05
+56.56
+61.07
+60.66
+61.67
+62.64
+67.96
+负向
+68.11
+70.56
+72.23
+76.98
+73.76
+77.43
+77.35
+80.91
+81.44
+86.21
+表2
+情感分类结果比较
+Tab. 2
+Sentiment classification results
+（%）
+为了给实际应用提供更可靠的参考，通过构建
+混淆矩阵进一步探究误判和漏判数据的分布情况，
+如图5 所示。可见，在测试集中，模型将正向样本误
+判为中性样本的有347 个，占正向样本的比例为
+8.93%，将正向样本误判为负向样本的有48个，占正
+向样本的比例为1.24%；将中性样本误判为正向样
+本的有249 个，占中性样本的比例为16.19%，将中
+性样本误判为负向样本的有190 个，占中性样本的
+比例为12.35%；将负向样本误判为正向样本的有88
+个，占负向样本的比例为4.12%，将负向样本误判为
+中性样本的有250 个，占负向样本的比例为
+11.70%。
+3 000
+2 500
+2 000
+1 500
+1 000
+500
+真实标签
+中性
+正向
+负向
+预测标签
+中性
+正向
+负向
+3 491
+249
+88
+347
+1 099
+250
+48
+190
+1 798
+图5
+混淆矩阵
+Fig. 5
+Confusion matrix
+王
+锐，等：融合多层级特征的卷烟消费者评价情感分析
+·
+· 97
+
+
+===== PAGE 6 =====
+
+2025 年
+烟草科技
+3
+应用分析
+基于构建的卷烟消费者评价数据集和情感分析
+方法，研发了卷烟消费者典型意见智能挖掘系统，以
+实现卷烟产品画像、产品情感分析结果对比等功能。
+消费者评价中通常包含对不同产品的比较和对
+同一产品不同方面的感受，综合考虑词频、点间互信
+息和左右信息熵等指标，抽取消费者评价中的烟草
+领域专有词汇
+［28］，如产品名称、产品别称、抽吸感受
+等，统一相同概念的不同表述，为准确划分评价主
+体、提取竞品名称提供基础。通过对评价的整体情
+感及口感、烟味、价格、包装、品质等方面情感的抽
+取，实现消费者评价的分类查询及消费者对产品态
+度的深度提炼，便于产品研发机构快速掌握消费者
+反馈，为新产品研发和老产品维护提供方向和支
+撑。统计分析每款产品评价中经常被比较的产品规
+格，实现竞品提取。
+图6展示了对卷烟产品A的画像，结合词云图和
+竞品提取结果可以看出，产品A 的评价数据中最常
+被提及的是“玉溪（软）”，提及较多的除了20元价位
+段的“玉溪（软）”
+“苏烟（五星红杉树）”
+“南京（精品）”
+外，还有同品牌不同价位段的“云烟（红）”
+“云烟
+（紫）”和“云烟（印象）”，说明产品A 的主要竞品是
+“玉溪（软）”，该产品消费群体的主要消费区间在10~
+25 元，同时对云烟品牌的认可度较高。从评价的整
+体情感倾向分布以及消费者对产品各方面的情感判
+断可以看出，消费者对产品A的认可度较高，认为其
+主要缺点在产品包装，所以产品A 的生产企业可以
+优化产品的包装设计，进一步提高消费者的满意度。
+图7展示了产品情感分析结果对比功能，实现不
+同产品基础信息、整体好评率及各方面好评率的横
+向对比，辅助卷烟生产企业开展竞品分析。
+图6
+卷烟产品画像
+Fig. 6
+Portraits of cigarette products
+图7
+品牌规格对比
+Fig. 7
+Specifications of various brands
+·
+· 98
+
+
+===== PAGE 7 =====
+
+第58 卷第11 期
+4
+结论
+采集2006—2021 年2 066 个国内卷烟品牌规格
+的消费者评价数据，建立了卷烟消费者评价数据集
+和情感分析模型ECBHA，采用准确率、精确率、召回
+率和F1 值作为评价指标，对比ECBHA 和传统机器
+学习方法（SVM、LG）、深度学习方法（CNN、DPCNN、
+BiLSTM、BiLSTM-Att、Transformer、BERT、ERNIE）
+的分类效果，结果表明：①模型ECBHA 在卷烟消费
+者评价情感分类中整体准确率达到85.29%，正向和
+负向情感分类的F1值分别为90.51%和86.21%，比表
+现最好的基线方法ERNIE 分别提高了3.28、2.02 和
+4.77百分点。②所有方法在中性情感分类中的表现
+都有所下降，但ECBHA仍然是准确性最高的模型并
+且精确率、召回率和F1 值分别比ERNIE 提高了
+7.54、3.90和5.32百分点。研发卷烟消费者典型意见
+智能挖掘系统，实现了卷烟产品画像和产品情感分
+析结果对比功能。未来将针对评论标签提取开展研
+究，以拓展从评价中提取卷烟产品口感、价格、包装
+等方面标签的多样性。
+参考文献
+［1］陈晓东. 基于情感词典的中文微博情感倾向分析研
+究［D］. 武汉：华中科技大学，2012.
+CHEN Xiaodong. Research on sentiment dictionary
+based emotional tendency analysis of Chinese MicroBlog
+［D］. Wuhan：Huazhong
+University
+of
+Science
+&
+Technology，2012.
+［2］王志涛，於志文，郭斌，等. 基于词典和规则集的中
+文微博情感分析［J］. 计算机工程与应用，2015，51
+（8）：218-225.
+WANG
+Zhitao，YU
+Zhiwen，GUO
+Bin，et
+al.
+Sentiment analysis of Chinese micro blog based on
+lexicon and rule set［J］. Computer Engineering and
+Applications，2015，51（8）：218-225.
+［3］赵刚，徐赞. 基于机器学习的商品评论情感分析模型
+研究［J］. 信息安全研究，2017，3（2）：166-170.
+ZHAO Gang，XU Zan. Research on the sentiment
+analysis model of product reviews based on machine
+learning［J］. Journal of Information Security Research，
+2017，3（2）：166-170.
+［4］姜杰，夏睿. 机器学习与语义规则融合的微博情感分
+类方法［J］. 北京大学学报（自然科学版），2017，53
+（2）：247-254.
+JIANG Jie，XIA Rui. Microblog sentiment classification
+via combining rule-based and machine learning methods
+［J］.
+Acta
+Scientiarum
+Naturalium
+Universitatis
+Pekinensis，2017，53（2）：247-254.
+［5］刘寒. 基于用户评论的情感分析研究与实现［D］. 北
+京：北京邮电大学，2021.
+LIU Han. Research and implementation of sentiment
+analysis based on user comments［D］. Beijing：Beijing
+University of Posts and Telecommunications，2021.
+［6］谭皓，邓树文，钱涛，等. 基于表情符注意力机制的
+微博情感分析模型［J］. 计算机应用研究，2019，36
+（9）：2647-2650.
+TAN
+Hao，DENG
+Shuwen，QIAN
+Tao，et
+al.
+Emoji-attentional neural network for microblog sentiment
+analysis［J］. Application Research of Computers，2019，
+36（9）：2647-2650.
+［7］杨春霞，韩煜，陈启岗，等. 基于BERT 与注意力机
+制的方面级隐式情感分析模型［J］. 南京信息工程大
+学学报（自然科学版），2023，15（5）：551-560.
+YANG Chunxia，HAN Yu，CHEN Qigang，et al.
+Aspect-based implicit sentiment analysis model based on
+BERT and attention mechanism［J］. Journal of Nanjing
+University of Information Science & Technology（Natural
+Science），2023，15（5）：551-560.
+［8］
+Scherer G. Smoking behaviour and compensation：A
+review of the literature［J］. Psychopharmacology，1999，
+145（1）：1-20.
+［9］Cahours X，Prasad K. A review of electronic cigarette use
+behaviour
+studies［J］.
+Beiträge
+zur
+Tabakforschung
+International/Contributions to Tobacco Research，2018，
+28（2）：81-92.
+［10］Lau R，Underly R. Towards an industry standard for
+interoperability of product use behaviour data from
+connected devices［C］//Proceedings of the CORESTA
+Congress. Edinburgh：CORESTA，2024：154.
+［11］蔡波，张天栋，叶长文，等. 基于网络评论和问卷调
+查的卷烟消费体验感官评价指标分析［J］. 中国烟草
+学报，2017，23（5）：106-113.
+CAI Bo，ZHANG Tiandong，YE Changwen，et al.
+Analysis of consumer experienced cigarette sensory
+evaluation indexes based on network comments and
+questionnaires［J］. Acta Tabacaria Sinica，2017，23（5）：
+106-113.
+［12］杨春晓，张鹤馨，黄家雯，等. 卷烟在线评论的文本
+情感分析［J］. 中国烟草学报，2020，26（2）：92-100.
+YANG Chunxiao，ZHANG Hexin，HUANG Jiawen，et
+al. Text sentiment analysis of online cigarette reviews
+［J］. Acta Tabacaria Sinica，2020，26（2）：92-100.
+［13］Zhang Z Y，Han X，Liu Z Y，et al. ERNIE：Enhanced
+language representation with informative entities［C］//
+Proceedings
+of
+the
+57th
+Annual
+Meeting
+of
+the
+Association for Computational Linguistics. Florence：
+Association
+for
+Computational
+Linguistics，2019：
+1441-1451.
+［14］Kim Y. Convolutional neural networks for sentence
+王
+锐，等：融合多层级特征的卷烟消费者评价情感分析
+·
+· 99
+
+
+===== PAGE 8 =====
+
+2025 年
+烟草科技
+classification［C］//Proceedings of the Conference on
+Empirical Methods in Natural Language Processing.
+Doha：Association
+for
+Computational
+Linguistics，
+2014：1746-1751.
+［15］Peng Z，Qi Z Y，Zheng S C，et al. Text classification
+improved
+by
+integrating
+bidirectional
+LSTM
+with
+two-dimensional max pooling［C］//Proceedings of the
+26th
+International
+Conference
+on
+Computational
+Linguistics.
+Osaka：Association
+for
+Computational
+Linguistics，2016：3485-3495.
+［16］Yang Z C，Yang D Y，Dyer C，et al. Hierarchical
+attention
+networks
+for
+document
+classification［C］//
+Proceedings of the North American Chapter of the
+Association for Computational Linguistics. San Diego：
+Association
+for
+Computational
+Linguistics，2016：
+1480-1489.
+［17］Mikolov T，Chen K，Corrado G，et al. Efficient
+estimation of word representations in vector space［EB/
+OL］. （2013-01-16）［2025-03-07］. https：//arxiv.org/
+abs/1301.3781.
+［18］Hochreiter S，Schmidhuber J. Long short-term memory
+［J］. Neural Computation，1997，9（8）：1735-1780.
+［19］於雯，周武能. 基于LSTM 的商品评论情感分析［J］.
+计算机系统应用，2018，27（8）：159-163.
+YU
+Wen，ZHOU
+Wuneng.
+Sentiment
+analysis
+of
+commodity reviews based on LSTM［J］. Computer
+Systems & Applications，2018，27（8）：159-163.
+［20］李科. 基于多元特征融合和LSTM 神经网络的中文评
+论情感分析［D］. 太原：太原理工大学，2017.
+LI Ke. Sentiment analysis of Chinese reviews based on
+multi-feature fusion and LSTM neural network［D］.
+Taiyuan：Taiyuan University of Technology，2017.
+［21］Jelodar H，Wang Y L，Orji R，et al. Deep sentiment
+classification and topic discovery on novel coronavirus or
+COVID-19
+online
+discussions：NLP
+using
+LSTM
+recurrent neural network approach［J］. IEEE Journal of
+Biomedical and Health Informatics，2020，24（10）：
+2733-2742.
+［22］程正双，王亮. 基于支持向量机的网络评论情感分析
+方法［J］. 电子技术与软件工程，2019（16）：3-4.
+CHENG
+Zhengshuang，WANG
+Liang.
+Sentiment
+analysis method for online comments based on support
+vector machine［J］. Electronic Technology & Software
+Engineering，2019（16）：3-4.
+［23］Ramadhan W P，Novianty S T M T A，Setianingsih S T
+M T C. Sentiment analysis using multinomial logistic
+regression［C］//Proceedings
+of
+the
+International
+Conference on Control，Electronics，Renewable Energy
+and Communications. Yogyakarta：IEEE，2017：46-49.
+［24］Johnson R，Zhang T. Deep pyramid convolutional neural
+networks for text categorization［C］//Proceedings of the
+55th Annual Meeting of the Association for Computational
+Linguistics. Vancouver：Association for Computational
+Linguistics，2017：562-570.
+［25］Wang Y Q，Huang M L，Zhu X Y，et al. Attention-based
+LSTM
+for
+aspect-level
+sentiment
+classification［C］//
+Proceedings of the Conference on Empirical Methods in
+Natural Language Processing. Austin：Association for
+Computational Linguistics，2016：606-615.
+［26］Vaswani A，Shazeer N，Parmar N，et al. Attention is all
+you need［C］//Proceedings of the 31st International
+Conference on Neural Information Processing Systems.
+Long Beach：Curran Associates Inc.，2017：6000-6010.
+［27］Devlin J，Chang M W，Lee K，et al. BERT：Pre-training
+of
+deep
+bidirectional
+transformers
+for
+language
+understanding［C］//Proceedings of the Conference of the
+North
+American
+Chapter
+of
+the
+Association
+for
+Computational Linguistics. Minneapolis：Association for
+Computational Linguistics，2019：4171-4186.
+［28］王锐，郑新章，宗国浩，等. 融合BiLSTM 和注意力
+机制的卷烟消费者评价情感分类方法［J］. 烟草科
+技，2022，55（11）：106-112.
+WANG Rui，ZHENG Xinzhang，ZONG Guohao，et al.
+An emotion classification method for cigarette consumers’
+evaluation based on combination of BiLSTM and Attention
+Mechanism［J］. Tobacco Science & Technology，2022，
+55（11）：106-112.
+责任编辑
+张玉聪
+·
+· 100

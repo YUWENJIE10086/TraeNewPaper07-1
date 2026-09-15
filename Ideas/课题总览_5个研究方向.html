@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>卷烟营销领域5个高创新性课题方案设计总览</title>
+<style>
+:root {
+  --bg: #0f1117;
+  --bg2: #1a1d29;
+  --bg3: #232838;
+  --ink: #e8eaf0;
+  --muted: #9ca3af;
+  --rule: #2d3344;
+  --accent: #c89968;
+  --accent2: #6b8dd6;
+  --accent3: #5db985;
+  --danger: #e06c75;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Microsoft YaHei', 'PingFang SC', 'Noto Sans CJK SC', sans-serif;
+  line-height: 1.8;
+  font-size: 15px;
+}
+.container { max-width: 1100px; margin: 0 auto; padding: 40px 30px; }
+.hero {
+  text-align: center;
+  padding: 60px 30px 50px;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 50px;
+}
+.hero h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+.hero .subtitle {
+  color: var(--muted);
+  font-size: 14px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.meta-bar {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 25px;
+  flex-wrap: wrap;
+}
+.meta-item {
+  text-align: center;
+}
+.meta-item .num {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--accent2);
+}
+.meta-item .label {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+.section {
+  margin-bottom: 50px;
+}
+.section-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--accent);
+  border-left: 4px solid var(--accent);
+  padding-left: 12px;
+  margin-bottom: 20px;
+}
+.topic-card {
+  background: var(--bg2);
+  border-radius: 12px;
+  padding: 30px;
+  margin-bottom: 25px;
+  border: 1px solid var(--rule);
+  transition: border-color 0.3s;
+}
+.topic-card:hover { border-color: var(--accent); }
+.topic-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+.topic-num {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--bg);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+.topic-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink);
+  flex: 1;
+}
+.direction-tag {
+  display: inline-block;
+  font-size: 12px;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+.tag-eval { background: rgba(200,153,104,0.15); color: var(--accent); border: 1px solid rgba(200,153,104,0.3); }
+.tag-monitor { background: rgba(107,141,214,0.15); color: var(--accent2); border: 1px solid rgba(107,141,214,0.3); }
+.tag-anomaly { background: rgba(224,108,117,0.15); color: var(--danger); border: 1px solid rgba(224,108,117,0.3); }
+.tag-place { background: rgba(93,185,133,0.15); color: var(--accent3); border: 1px solid rgba(93,185,133,0.3); }
+.tag-predict { background: rgba(160,120,200,0.15); color: #a078c8; border: 1px solid rgba(160,120,200,0.3); }
+
+.topic-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin: 15px 0;
+}
+.info-block { }
+.info-label {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+.info-value {
+  font-size: 14px;
+  color: var(--ink);
+}
+.innovation-list {
+  list-style: none;
+  margin: 12px 0;
+}
+.innovation-list li {
+  padding: 4px 0 4px 18px;
+  position: relative;
+  font-size: 14px;
+}
+.innovation-list li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+.data-match {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+.stars { color: var(--accent); font-size: 16px; }
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  font-size: 13px;
+}
+.compare-table th {
+  background: var(--bg3);
+  color: var(--accent);
+  padding: 10px 12px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 2px solid var(--rule);
+}
+.compare-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--rule);
+  color: var(--ink);
+}
+.compare-table tr:hover td { background: var(--bg3); }
+.link-btn {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 8px 20px;
+  background: var(--accent);
+  color: var(--bg);
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: opacity 0.3s;
+}
+.link-btn:hover { opacity: 0.85; }
+.summary-box {
+  background: var(--bg2);
+  border-radius: 12px;
+  padding: 25px 30px;
+  border-left: 4px solid var(--accent2);
+  margin: 30px 0;
+}
+.summary-box h3 {
+  color: var(--accent2);
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+.summary-box p {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+footer {
+  text-align: center;
+  padding: 30px;
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: 12px;
+}
+@media (max-width: 768px) {
+  .topic-info { grid-template-columns: 1fr; }
+  .compare-table { font-size: 12px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="hero">
+  <h1>卷烟营销领域5个高创新性课题方案设计</h1>
+  <p class="subtitle">基于营销四级专业知识教材、中国烟草学报等三大刊16篇营销类论文深度分析，结合2608论文数据（832户×12月×6类数据源），围绕"经营能力评估"与"市场监测"两大方向，设计5个中稿率高、创新性强、详细可操作的研究课题</p>
+  <div class="meta-bar">
+    <div class="meta-item"><div class="num">5</div><div class="label">课题数量</div></div>
+    <div class="meta-item"><div class="num">832</div><div class="label">零售户样本</div></div>
+    <div class="meta-item"><div class="num">12</div><div class="label">月度数据</div></div>
+    <div class="meta-item"><div class="num">6</div><div class="label">数据源类别</div></div>
+    <div class="meta-item"><div class="num">45</div><div class="label">特征维度</div></div>
+  </div>
+</div>
+
+<div class="section">
+  <h2 class="section-title">课题方向与设计逻辑</h2>
+  <div class="summary-box">
+    <h3>两大方向定位</h3>
+    <p><strong>方向一：客户经营能力评估</strong> — 突破"以档定能"的片面性，利用多源数据融合与可解释AI，构建超越档位的综合经营能力评估体系，驱动分层服务与精准投放。</p>
+    <p><strong>方向二：市场状态智能监测</strong> — 突破人工经验判断的滞后性，利用时序分析与集成学习，构建多维市场状态指标体系与预警机制，实现市场异常的自动识别与提前预警。</p>
+  </div>
+</div>
+
+<div class="section">
+  <h2 class="section-title">5个课题总览</h2>
+
+  <!-- 课题1 -->
+  <div class="topic-card">
+    <div class="topic-header">
+      <div>
+        <span class="topic-num">课题1</span>
+        <span class="topic-title">基于多源数据融合与LightGBM-SHAP的卷烟零售户经营能力评估与分层服务策略研究</span>
+      </div>
+      <span class="direction-tag tag-eval">经营能力评估</span>
+    </div>
+    <div class="topic-info">
+      <div class="info-block">
+        <div class="info-label">解决核心问题</div>
+        <div class="info-value">现有评价仅依赖档位和订购量，无法刻画数字化运营、库存管理、合规稳定等经营全貌</div>
+      </div>
+      <div class="info-block">
+        <div class="info-label">核心方法</div>
+        <div class="info-value">6类数据源融合 → 45维特征体系 → LightGBM+贝叶斯优化 → SHAP可解释分析 → K-Means++分层</div>
+      </div>
+      <div class="info-block">
+        <div class="info-label">仿写对象</div>
+        <div class="info-value">梁雪霞（标签体系+权重计算）+ 谭琛（模型设计+特征重要性）</div>
+      </div>
+      <div class="info-block">
+        <div class="info-label">数据匹配度</div>
+        <div class="info-value"><span class="stars">★★★★★</span> 832户×12月完整数据，6类数据源全覆盖</div>
+      </div>
+    </div>
+    <ul class="innovation-list">
+      <li>多源数据融合：首次将扫码统计、店铺运营、方差明细等6类数据源系统融合用于经营能力评估</li>
+      <li>可解释AI应用：引入SHAP替代传统特征重要性，实现全局解释+局部归因+交互效应三层次分析</li>
+      <li>贝叶斯超参数优化：采用Optuna-TPE替代网格搜索，搜索效率提升10倍以上</li>
+      <li>闭环应用设计：评估结果直接驱动分层服务策略，形成"评估-分层-服务-反馈"闭环</li>
+    </ul>
+    <a href="./课题1_经营能力评估方案设计.html" class="link-btn">查看完整方案设计 →</a>
+  </div>
+
+  <!-- 课题2 -->
+  <div class="topic-card">
+    <div class="topic-header">
+      <div>
+        <span class="topic-num">课题2</span>
+        <span class="topic-title">基于多维指标融合与集成学习的卷烟市场状态智能监测与预警研究</span>
+      </div>
+      <span class="direction-tag tag-monitor">市场监测</span>
+    </div>
+    <div class="topic-info">
+      <div class="info-block">
+        <div class="info-label">解决核心问题</div>
+        <div class="info-value">市场状态评价权重主观、阈值依赖经验、异常发现滞后，缺乏自动化实时监测手段</div>
+      </div>
+      <div class="info-block">
+        <div class="info-label">核心方法</div>
+        <div class="info-value">多维指标体系 → CRITIC-AHP组合赋权 → Isolation Forest异常检测 → LightGBM状态分类 → 预警阈值训练</div>
+      </div>
+      <div class="info-block">
+        <div class="info-label">仿写对象</div>
+        <div class="info-value">黄敏（智能集成与阈值训练）+ 姜思明（数据治理与市场监测）</div>
+      </div>
+      <div class="info-block">
+        <div class="info-label">数据匹配度</div>
+        <div class="info-value"><span class="stars">★★★★★</span> 销售/扫码/店铺运营12月时序数据，可构建存销比、价格指数等核心指标</div>
+      </div>
+    </div>
+    <ul class="innovation-list">
+      <li>多维指标融合：构建涵盖动销、价格、库存、数字化4维度的市场状态指标体系</li>
+      <li>集成赋权创新：CRITIC客观赋权+AHP主观修正的组合赋权法，兼顾数据驱动与业务逻辑</li>
+      <li>异常检测引入：Isolation Forest无监督异常检测，突破传统阈值规则的局限性</li>
+      <li>预警机制设计：基于历史数据训练动态预警阈值，实现"监测-评估-预警-响应"闭环</li>
+    </ul>
+    <a href="./课题2_市场状态监测方案设计.html" class="link-btn">查看完整方案设计 →</a>
+  </div>
+
+  <!-- 课题3 -->
+  <div class="topic-card">
+    <div class="topic-header">
+      <div>
+        <span class="topic-num">课题3</span>
+        <span class="topic-title">基于时序图网络的卷烟零售户异常订购关联识别研究</span>
+      </div>
+      <span class="direction-tag tag-anomaly">异常识别</span>
+    </div>
+    <div class="topic-info">
+      <div class="info-block">
+        <div class="info-label">解决核心问题</div>
+        <div class="info-value">传统规则方法难以识别隐蔽的"大户控制小户"套购关联，Louvain等静态算法无法捕捉时序变化</div>
+      </div>
+      <div class="info-block">
+        <div class="info-label">核心方法</div>
+        <div class="info-value">订购关联图谱构建 → 时序图网络(TGN)节点嵌入 → 社群发现 → 异常评分 → 案例验证</div>
+      </div>
+      <div class="info-block">
+        <div class="info-label">仿写对象</div>
+        <div class="info-value">陈秉恒（Louvain异常关联网络）— 升级为时序图网络</div>
+      </div>
+      <div class="info-block">
+        <div class="info-label">数据匹配度</div>
+        <div class="info-value"><span class="stars">★★★★☆</span> 12月销售订购数据+客户档案+方差明细，可构建时序关联图谱</div>
+      </div>
+    </div>
+    <ul class="innovation-list">
+      <li>时序图网络：首次将TGN引入烟草领域，捕捉订购关联的时序动态变化</li>
+      <li>多维边特征：融合品规重叠度、订购时间相似度、地理距离等多维边特征</li>
+      <li>对比实验设计：TGN vs Louvain vs Node2Vec vs GraphSAGE四模型严格对比</li>
+      <li>业务可解释：异常社群识别后提供可解释的关联证据链，支撑实际执法</li>
+    </ul>
+    <a href="./课题3_异常关联识别方案设计.html" class="link-btn">查看完整方案设计 →</a>
+  </div>
+
+  <!-- 课题4 -->
+  <div class="topic-card">
+    <div class="topic-header">
+      <div>
+        <span class="topic-num">课题4</span>
+        <span class="topic-title">基于经营能力约束与多目标优化的卷烟品规精准投放策略研究</span>
+      </div>
+      <span class="direction-tag tag-place">精准投放</span>
+    </div>
+    <div class="topic-info">
+      <div class="info-block">
+        <div class="info-label">解决核心问题</div>
+        <div class="info-value">投放策略依赖人工经验，难以同时兼顾市场状态、经营能力、品牌培育等多维目标</div>
+      </div>
+      <div class="info-block">
+        <div class="info-label">核心方法</div>
+        <div class="info-value">经营能力评估 → 市场状态量化 → NSGA-II多目标整数规划 → 帕累托前沿 → 场景验证</div>
+      </div>
+      <div class="info-block">
+        <div class="info-label">仿写对象</div>
+        <div class="info-value">金文蔚（数据驱动投放策略）+ 梁雪霞（选点投放模型）</div>
+      </div>
+      <div class="info-block">
+        <div class="info-label">数据匹配度</div>
+        <div class="info-value"><span class="stars">★★★★☆</span> 销售数据+客户档案+经营能力评估结果，可构建投放优化模型</div>
+      </div>
+    </div>
+    <ul class="innovation-list">
+      <li>能力约束创新：将经营能力评估结果作为投放约束条件，实现"以能定投"</li>
+      <li>多目标优化：NSGA-II同时优化市场满足率、品牌培育效率、经营能力匹配度3个目标</li>
+      <li>帕累托决策：提供帕累托前沿解集，支持决策者根据实际偏好选择最优策略</li>
+      <li>闭环设计：投放效果反馈→能力评估更新→策略动态调整，形成自适应闭环</li>
+    </ul>
+    <a href="./课题4_精准投放方案设计.html" class="link-btn">查看完整方案设计 →</a>
+  </div>
+
+  <!-- 课题5 -->
+  <div class="topic-card">
+    <div class="topic-header">
+      <div>
+        <span class="topic-num">课题5</span>
+        <span class="topic-title">基于深度时序卷积网络与多源特征融合的卷烟零售终端销量预测研究</span>
+      </div>
+      <span class="direction-tag tag-predict">销量预测</span>
+    </div>
+    <div class="topic-info">
+      <div class="info-block">
+        <div class="info-label">解决核心问题</div>
+        <div class="info-value">传统时序模型无法捕捉销量中的周期性+节令性+策略性特征，预测精度不足</div>
+      </div>
+      <div class="info-block">
+        <div class="info-label">核心方法</div>
+        <div class="info-value">多源特征工程 → TCN时序编码 → 注意力机制 → 多步预测 → 库存优化建议</div>
+      </div>
+      <div class="info-block">
+        <div class="info-label">仿写对象</div>
+        <div class="info-value">崔建华（MLP销量预测）— 升级为TCN+注意力机制</div>
+      </div>
+      <div class="info-block">
+        <div class="info-label">数据匹配度</div>
+        <div class="info-value"><span class="stars">★★★★☆</span> 12月销售+扫码+运营时序数据，可构建多维时序特征</div>
+      </div>
+    </div>
+    <ul class="innovation-list">
+      <li>TCN替代MLP：时序卷积网络具有更大的感受野和并行计算能力，适合长序列建模</li>
+      <li>多源特征融合：融合销售、扫码、运营3类时序特征，构建56维时序特征矩阵</li>
+      <li>注意力机制：引入时间注意力权重，自动聚焦关键时间节点的预测贡献</li>
+      <li>应用闭环：预测结果直接驱动库存优化建议，形成"预测-备货-销售-反馈"闭环</li>
+    </ul>
+    <a href="./课题5_销量预测方案设计.html" class="link-btn">查看完整方案设计 →</a>
+  </div>
+
+</div>
+
+<div class="section">
+  <h2 class="section-title">五课题对比矩阵</h2>
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th>维度</th>
+        <th>课题1</th>
+        <th>课题2</th>
+        <th>课题3</th>
+        <th>课题4</th>
+        <th>课题5</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>方向</strong></td>
+        <td>经营能力评估</td>
+        <td>市场监测</td>
+        <td>异常识别</td>
+        <td>精准投放</td>
+        <td>销量预测</td>
+      </tr>
+      <tr>
+        <td><strong>核心算法</strong></td>
+        <td>LightGBM+SHAP</td>
+        <td>Isolation Forest+LightGBM</td>
+        <td>时序图网络TGN</td>
+        <td>NSGA-II多目标优化</td>
+        <td>TCN+Attention</td>
+      </tr>
+      <tr>
+        <td><strong>数据源数</strong></td>
+        <td>6类（全覆盖）</td>
+        <td>4类</td>
+        <td>3类</td>
+        <td>3类+评估结果</td>
+        <td>3类</td>
+      </tr>
+      <tr>
+        <td><strong>特征维度</strong></td>
+        <td>45维</td>
+        <td>32维</td>
+        <td>图结构特征</td>
+        <td>28维+约束</td>
+        <td>56维时序</td>
+      </tr>
+      <tr>
+        <td><strong>创新强度</strong></td>
+        <td>★★★★★</td>
+        <td>★★★★☆</td>
+        <td>★★★★★</td>
+        <td>★★★★☆</td>
+        <td>★★★★☆</td>
+      </tr>
+      <tr>
+        <td><strong>中稿概率</strong></td>
+        <td>★★★★★</td>
+        <td>★★★★☆</td>
+        <td>★★★★☆</td>
+        <td>★★★☆☆</td>
+        <td>★★★★☆</td>
+      </tr>
+      <tr>
+        <td><strong>实现难度</strong></td>
+        <td>中等</td>
+        <td>中等</td>
+        <td>较高</td>
+        <td>较高</td>
+        <td>中等</td>
+      </tr>
+      <tr>
+        <td><strong>仿写论文</strong></td>
+        <td>梁雪霞+谭琛</td>
+        <td>黄敏+姜思明</td>
+        <td>陈秉恒</td>
+        <td>金文蔚+梁雪霞</td>
+        <td>崔建华</td>
+      </tr>
+      <tr>
+        <td><strong>业务价值</strong></td>
+        <td>替代档位评定</td>
+        <td>实时市场预警</td>
+        <td>打击套购违规</td>
+        <td>优化投放效率</td>
+        <td>降低库存成本</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="section">
+  <h2 class="section-title">推荐优先级</h2>
+  <div class="summary-box">
+    <h3>投稿策略建议</h3>
+    <p><strong>首选课题1</strong>：数据匹配度最高（6类数据源全覆盖）、创新点最多（4个创新点）、仿写基础最扎实（梁雪霞+谭琛双仿写），已有v5实验结果支撑（LightGBM准确率99.4%，CV 98.9%），中稿概率最高。</p>
+    <p><strong>备选课题2</strong>：与课题1形成"评估+监测"组合，可拓展为系列研究。市场状态监测是当前行业热点，黄敏和姜思明的论文已验证该方向的热度。</p>
+    <p><strong>冲刺课题3</strong>：时序图网络在烟草领域属首创，创新性最强，但实现难度较高，需构建图数据结构。若成功，可冲击核心期刊。</p>
+    <p><strong>延伸课题4/5</strong>：可在课题1评估结果基础上延伸，形成"评估→投放→预测"完整研究链条。</p>
+  </div>
+</div>
+
+<footer>
+  <p>数据来源：2608论文数据（已脱敏） | 参考文献来源：中国烟草学报等三大刊16篇营销类论文</p>
+  <p>生成时间：2026年7月</p>
+</footer>
+
+</div>
+</body>
+</html>

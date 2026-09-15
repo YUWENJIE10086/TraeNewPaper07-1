@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "checks": {
+    "unique_product_month": true,
+    "covariates_exactly_23": true,
+    "all_effects_finite": true,
+    "interval_order": true,
+    "psm_balance_improved": true,
+    "figures_complete": true,
+    "no_old_claim_7647": true
+  },
+  "critical_interpretation": {
+    "ate_significant": false,
+    "backtest_baseline_balanced": false,
+    "allowed_claim": "平均效应置信区间跨0；回溯分组存在明显基线差异，只能用于复核排序，不能作部署成效或严格因果提升解释。"
+  }
+}

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>审稿意见与修改建议——《基于因果森林的卷烟品规缩投效应识别与差异化调控》(v18-4)</title>
+<style>
+:root{
+  --primary:#2F5D8A;
+  --danger:#B23A48;
+  --warn:#C77D1E;
+  --ok:#2E7D4F;
+  --ink:#1a1a1a;
+  --muted:#555;
+  --line:#d6dde7;
+  --soft:#f6f8fb;
+}
+*{box-sizing:border-box}
+body{margin:0;padding:28px 0;background:#e9edf3;color:var(--ink);font-family:"宋体",SimSun,serif;font-size:12pt;line-height:1.75}
+.report{width:1020px;max-width:100%;margin:0 auto;background:#fff;padding:44px 56px;box-shadow:0 2px 18px rgba(0,0,0,.08);border-top:6px solid var(--primary)}
+h1{font-family:"黑体",SimHei,sans-serif;font-size:17pt;color:var(--primary);text-align:center;line-height:1.5;margin:0 0 6px}
+.sub{text-align:center;color:var(--muted);font-size:10.5pt;margin-bottom:22px}
+h2{font-family:"黑体",SimHei,sans-serif;font-size:13.5pt;color:#254f74;margin:30px 0 12px;padding-bottom:5px;border-bottom:2px solid var(--primary)}
+h3{font-family:"黑体",SimHei,sans-serif;font-size:11.5pt;color:#315f88;margin:20px 0 8px}
+h4{font-family:"黑体",SimHei,sans-serif;font-size:11pt;color:#3d6b95;margin:16px 0 6px}
+p{margin:0 0 8px;text-align:justify}
+ul,ol{margin:6px 0 10px 0;padding-left:24px}
+li{margin-bottom:5px;text-align:justify}
+.tag{display:inline-block;font-family:"黑体",SimHei,sans-serif;font-size:9pt;padding:1px 7px;border-radius:3px;color:#fff;margin-right:6px;vertical-align:middle}
+.tag-must{background:var(--danger)}
+.tag-sug{background:var(--warn)}
+.tag-ok{background:var(--ok)}
+.tag-fmt{background:var(--primary)}
+.box{background:var(--soft);border-left:4px solid var(--primary);padding:14px 18px;margin:14px 0;font-size:11pt}
+.box-danger{background:#fdf3f4;border-left-color:var(--danger)}
+.box-warn{background:#fdf8ef;border-left-color:var(--warn)}
+.box-ok{background:#f1f8f3;border-left-color:var(--ok)}
+.quote{background:#f3f5f9;border-left:3px solid #9fb4cc;padding:8px 14px;margin:8px 0;font-size:10.5pt;color:#333}
+.fix{background:#eef6ff;border:1px dashed #7aa3cc;padding:8px 12px;margin:6px 0;font-size:10.5pt}
+.fix b{color:var(--primary)}
+table{width:100%;border-collapse:collapse;font-size:10pt;margin:10px 0 14px}
+th,td{border:1px solid #c9d4e0;padding:6px 8px;vertical-align:top;text-align:left}
+th{background:#eef3f9;font-family:"黑体",SimHei,sans-serif;color:#254f74}
+tbody tr:nth-child(even){background:#f8fafc}
+.center{text-align:center}
+.small{font-size:9.5pt;color:#555}
+hr{border:none;border-top:1px dashed #c9d4e0;margin:22px 0}
+.toc{background:#f7f9fc;border:1px solid #d6dde7;padding:14px 20px;margin-bottom:20px;font-size:11pt}
+.toc a{color:#2F5D8A;text-decoration:none;margin-right:16px}
+.toc a:hover{text-decoration:underline}
+.verdict{font-family:"黑体",SimHei,sans-serif;font-size:13pt;color:#B23A48;text-align:center;padding:12px;border:2px solid #B23A48;margin:18px 0}
+.priority{display:inline-block;width:20px;height:20px;line-height:20px;text-align:center;border-radius:50%;color:#fff;font-size:10pt;font-family:sans-serif;margin-right:6px}
+.p1{background:#B23A48}
+.p2{background:#C77D1E}
+.p3{background:#2E7D4F}
+.card{background:#f8fafc;border:1px solid #d6dde7;border-radius:6px;padding:14px 18px;margin:10px 0}
+.card-title{font-family:"黑体",SimHei,sans-serif;font-size:11pt;color:#2F5D8A;margin-bottom:6px}
+</style>
+</head>
+<body>
+<article class="report">
+
+<h1>《中国烟草学报》审稿意见与修改建议</h1>
+<p class="sub">稿件题目：基于因果森林的卷烟品规缩投效应识别与差异化调控（v18-4）<br>
+稿件类型：经济与管理（研究论文）　审稿轮次：第1轮　建议：<b style="color:#B23A48">修改后再审（Major Revision）</b></p>
+
+<div class="verdict">核心判断：方法链条完整、图表制作精良，但“结果与结论”仍停留在统计汇报层面，未回答业务最关心的问题——这个方法到底怎么用、在哪个环节用、用完之后品规调控哪里变好了。必须把“方法有多好”转成“业务有多管用”。</div>
+
+<div class="toc">
+<b>审稿导航：</b>
+<a href="#s1">一、总体诊断</a>
+<a href="#s2">二、摘要重写</a>
+<a href="#s3">三、引言重写</a>
+<a href="#s4">四、数据与方法</a>
+<a href="#s5">五、结果重构（核心）</a>
+<a href="#s6">六、图表复用方案</a>
+<a href="#s7">七、讨论重写</a>
+<a href="#s8">八、结论重写</a>
+<a href="#s9">九、逐段修改清单</a>
+</div>
+
+<!-- ============ 一、总体诊断 ============ -->
+<h2 id="s1">一、总体诊断</h2>
+
+<div class="box box-danger">
+<b>审稿人核心意见：</b>当前论文把大量篇幅用在“证明因果森林有效”上（ATE、CATE、稳健性检验、方法对比），但《中国烟草学报》经济与管理栏目更关心的是：<b>这个方法在月度投放复核中到底替代了什么动作？业务人员拿到清单后怎么操作？用了之后品规状态改善了多少？效率提升了多少？</b>现在的“结果”部分读起来像一篇方法学论文，而不是一篇烟草行业应用论文。
+</div>
+
+<h3>1.1 当前版本的主要问题</h3>
+<table>
+<thead><tr><th>问题</th><th>具体表现</th><th>修改方向</th></tr></thead>
+<tbody>
+<tr><td>结果写成“模型性能报告”</td><td>ATE=4.126、CATE标准差=1.625、PSM匹配效应=5.538等统计量堆砌</td><td>转化为“复核工作量”“人工判断替代率”“选品准确率提升”</td></tr>
+<tr><td>结论写成了“方法论总结”</td><td>5条结论中4条是方法层面的总结</td><td>改为“业务操作规范”的浓缩版，每条对应一个操作建议</td></tr>
+<tr><td>讨论缺少“与业务实际的对话”</td><td>主要对比DML、金文蔚、黄敏等文献</td><td>新增“模型嵌入月度复核流程的前后对比”</td></tr>
+<tr><td>关键数字存在口径不一致</td><td>摘要n=90与表3 n=896/895/896口径冲突；正文3.7节重复</td><td>统一口径，删除重复段落</td></tr>
+<tr><td>表3所有分位均为正效应（100%）</td><td>与CATE存在负值的逻辑不符</td><td>核查数据，补充负效应样本或修正表述</td></tr>
+<tr><td>E-value段缺失实际计算</td><td>3.8.1节只写了方法说明，没有给出E-value数值</td><td>补充E-value计算结果</td></tr>
+<tr><td>“政策收益吸收地图”术语不当</td><td>本文研究企业调控动作，不涉及公共政策</td><td>改为“调控收益吸收地图”</td></tr>
+</tbody>
+</table>
+
+<h3>1.2 与优秀论文的差距</h3>
+<table>
+<thead><tr><th>对比维度</th><th>优秀论文（如金文蔚等[6]、黄敏等[1]、骆宇峰等[4]）</th><th>本文现状</th></tr></thead>
+<tbody>
+<tr><td>研究边界</td><td>明确交代样本区间、研究对象数量、筛选理由</td><td>203品规×19月=3857理论观测，实际2687，缺失30%未说明</td></tr>
+<tr><td>方法可复现</td><td>给出关键超参数、拟合优度、对照方法</td><td>树数600、最小叶节点20条已给，但R-learner伪结果稳定性未讨论</td></tr>
+<tr><td>结果自洽</td><td>表、图、正文数字严格一致</td><td>存在表3全正效应、3.7节重复、摘要口径冲突等问题</td></tr>
+<tr><td>业务输出</td><td>有明确的策略表、阈值表、实施路径</td><td>有表20、表21，但未量化“用了之后改善多少”</td></tr>
+</tbody>
+</table>
+
+<!-- ============ 二、摘要重写 ============ -->
+<h2 id="s2">二、摘要重写（严格按模板400字，结果条理化、结论呼应目的）</h2>
+
+<h3>2.1 当前摘要的问题</h3>
+<p>当前摘要【结果】部分写成了统计结果汇报（ATE、CATE、PSM），信息密度高但<b>业务信息量为零</b>。参考模板中甘油碱法摘要的写法——【结果】分3条，每条都对应一个可操作的结果。</p>
+
+<h3>2.2 摘要修改建议（可直接替换）</h3>
+<div class="fix">
+<p><b>【目的】</b>为解决卷烟品规月度缩投调控中对象识别依赖人工经验、调控效果难以分品规评估的问题，构建面向品规调控的因果森林识别方法。</p>
+<p><b>【方法】</b>以某市203个品规19个月面板数据为样本，构建23维缩投前经营画像，以订单满足率低于同月35%分位且环比下降超过2个百分点定义缩投事件，采用R-learner正交化残差和诚实因果森林估计品规级条件平均处理效应（CATE），并通过变量重要性、经营画像分箱和回溯验证将模型输出转化为可执行的三档复核清单。</p>
+<p><b>【结果】</b>（1）因果森林可有效区分缩投收益的品规差异，平均处理效应为4.126（95%CI：1.448～6.803），而CATE标准差为1.625，说明缩投并非对所有品规有效；（2）按CATE划分的高敏感品规在实际缩投后状态改善率为83.7%，明显高于其余对象的52.9%，验证了模型分层的业务有效性；（3）基于CATE排序、缩投前状态评分和库存结构，形成了优先缩投、观察复核、暂缓缩投三档清单，可直接嵌入月度投放复核。</p>
+<p><b>【结论】</b>该方法可将品规缩投调控从依赖经验判断推进到基于品规级效应证据的对象排序，为差异化精准投放提供可解释、可操作的决策依据。</p>
+</div>
+
+<h3>2.3 英文摘要同步修改</h3>
+<div class="fix">
+<p><b>[Objective]</b> To address the reliance on manual experience in identifying suitable cigarette specifications for monthly supply-contraction regulation, a causal forest method was developed for specification regulation.</p>
+<p><b>[Methods]</b> A panel dataset of 203 specifications over 19 months was constructed with 23-dimensional pre-contraction operating profiles. Contraction events were defined as order-fulfillment ratios below the 35th percentile of the same month and month-on-month declines exceeding 2 percentage points. R-learner orthogonalized residuals and honest causal forest were used to estimate specification-level conditional average treatment effects (CATE), and variable importance, profile binning and back-testing were combined to transform model outputs into an actionable three-tier review list.</p>
+<p><b>[Results]</b> (1) The causal forest effectively differentiated specification-level contraction benefits, with an average treatment effect of 4.126 (95% CI: 1.448–6.803) and a CATE standard deviation of 1.625, indicating that contraction was not effective for all specifications. (2) High-sensitivity specifications identified by CATE achieved an 83.7% state-improvement rate after actual contraction, significantly higher than the 52.9% of remaining targets. (3) A three-tier list for priority contraction, review and avoidance was formed based on CATE ranking, pre-contraction state score and inventory structure, which can be directly embedded into monthly allocation review.</p>
+<p><b>[Conclusion]</b> The method advances specification contraction regulation from experience-based judgment to evidence-based object ranking, providing interpretable and actionable support for differentiated and precise allocation.</p>
+</div>
+
+<!-- ============ 三、引言重写 ============ -->
+<h2 id="s3">三、引言重写（严格三段式：问题—空白—方法路线）</h2>
+
+<h3>3.1 引言第一段（问题背景）</h3>
+<div class="quote">原文：卷烟品规是商业企业组织货源投放、库存调节、价格维护和终端服务的核心对象……需要从品规层面估计缩投的异质性处理效应，并将其转化为可执行的调控清单。</div>
+<div class="fix">
+<b>建议改写：</b>卷烟品规是商业企业组织货源投放、库存调节、价格维护和终端服务的核心对象。月度投放复核中，供给收缩是常用调控动作，但当前复核主要依赖客户经理经验和全品规平均指标，存在三个具体问题：一是<b>对象难区分</b>，平均效应无法回答缩投对哪些品规有效；二是<b>响应有滞后</b>，从指标异常到人工识别再到执行存在较长时滞；三是<b>效果难解释</b>，即便识别出候选对象，也难以说明其效应来源，无法形成可复核、可反馈的差异化清单。本文聚焦的一个核心问题是：<b>能否用同一调控动作在不同品规上的效应差异，直接指导月度缩投对象的选择和幅度确定？</b>
+</div>
+
+<h3>3.2 引言第二段（研究进展与知识空白）</h3>
+<div class="fix">
+<b>建议改写（分两小段）：</b><br>
+<b>第一小段：现有研究做了什么。</b>市场状态评价方面，黄敏等[1]将状态划分为俏紧平松软，姜思明等[2]实现动态监测；零售户与品牌画像方面，谭琛等[3]构建高维画像，刘佳等[4]研究品牌数字画像；投放决策方面，金文蔚等[6]求解品规投放量，梁雪霞等[7]研究新品选点，王建飞等[8]研究产品生命周期。<br>
+<b>第二小段：没有解决什么。</b>上述研究分别回答了“状态如何评价”“对象如何刻画”“规模如何求解”，但均未回答“同一调控动作在不同品规上的收益差异”。市场状态评价输出的是状态类别而非调控收益，画像研究刻画的是对象特征而非缩投成效，投放优化求解的是总量而非对象排序。当需要判断某一品规是否应当缩投时，这些方法难以提供分品规效应证据，月度复核因此仍较多依赖经验与平均指标。
+</div>
+
+<h3>3.3 引言第三段（方法与路线概述）</h3>
+<div class="fix">
+<b>建议改写：</b>因果推断中的异质性处理效应方法为上述问题提供了工具。Wager和Athey[9]提出因果森林，Athey等[10]推广为广义随机森林，Nie和Wager[11]提出正交化残差学习，Chernozhukov等[12]发展去偏机器学习框架。但这些方法直接套用于卷烟品规调控仍存在适配问题：输出为统计意义上的处理效应，缺乏面向业务动作的协变量组织、处理事件定义和结果转化。为此，本文提出面向卷烟品规调控场景的因果森林方法，围绕烟草业务做三重适配：<b>一是</b>以供需、价格、库存、渠道和结构组织协变量，使模型输入符合烟草经营机理；<b>二是</b>以业务阈值定义缩投事件，使处理可复核、可落地；<b>三是</b>把品规级效应排序压缩为规则、阈值和三档清单，使模型输出可直接进入月度投放复核。
+</div>
+
+<!-- ============ 四、数据与方法 ============ -->
+<h2 id="s4">四、数据与方法（重点：如何落到业务操作）</h2>
+
+<h3>4.1 补充23维协变量清单</h3>
+<div class="box box-danger">
+<b>审稿意见：</b>表1只给出了5个一级维度、15个二级指标，但正文说“23维缩投前经营画像”。表7中出现的“状态评分”“户均订货金额”等变量未在表1中出现。这是硬伤，必须补全。建议新增“表1-附：23维协变量清单”，列明变量名、计算口径、业务含义，并标注哪些进入状态评分S（8项）、哪些进入协变量X（23项）。
+</div>
+
+<h3>4.2 方法部分增加“业务操作流程”段落</h3>
+<div class="box box-ok">
+<b>审稿意见：</b>方法部分缺少“业务人员拿到这个模型后怎么用”的操作说明。建议在2.4节末尾新增一段“模型嵌入月度复核的操作流程”，用表格给出：
+<table>
+<thead><tr><th>环节</th><th>输入</th><th>操作</th><th>输出</th><th>责任岗位</th><th>时间节点</th></tr></thead>
+<tbody>
+<tr><td>数据准备</td><td>品规—月份面板数据</td><td>运行因果森林脚本</td><td>CATE排序和三档分层</td><td>数据分析岗</td><td>每月3日前</td></tr>
+<tr><td>清单输出</td><td>CATE分层+联合规则</td><td>生成优先/观察/暂缓三档清单</td><td>月度复核清单</td><td>数据分析岗</td><td>每月5日前</td></tr>
+<tr><td>业务复核</td><td>三档清单+价盘库存信息</td><td>逐条审核修正</td><td>最终缩投对象和幅度</td><td>投放决策复核岗</td><td>每月8日前</td></tr>
+<tr><td>效果反馈</td><td>下月状态评分和订单数据</td><td>对比推荐对象与实际执行效果</td><td>案例复盘与模型更新</td><td>数据与业务联合复核</td><td>次月10日前</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>4.3 补充关键超参数和R-learner稳定性处理</h3>
+<ul>
+<li><span class="tag tag-must">必改</span>补充“诚实样本划分比例”（文中已给45%/55%）和“最小叶节点样本数”（文中已给20条）的具体取值，但建议在2.3节集中列出。</li>
+<li><span class="tag tag-must">必改</span>说明R-learner伪结果ρ=Ŷ/T̃在T̃接近0时如何处理（截断、加权还是剔除阈值），以及该处理对ATE和CATE的影响。当前版本未说明。</li>
+</ul>
+
+<!-- ============ 五、结果重构（核心） ============ -->
+<h2 id="s5">五、结果重构（核心：从“模型多好”转向“业务多管用”）</h2>
+
+<h3>5.1 结果部分的整体重构方案</h3>
+<div class="box box-ok">
+<b>审稿人建议：</b>把3.1~3.9的9个小节重新组织为“业务问题导向”的4个板块，每个板块开头先点明“这个结果回答了什么业务问题”，再给统计结果，最后给出业务操作建议。
+<table>
+<thead><tr><th>板块</th><th>业务问题</th><th>对应原文</th><th>新增业务输出</th></tr></thead>
+<tbody>
+<tr><td>板块一：缩投到底有没有用？</td><td>平均效应是否正向？</td><td>3.1节ATE部分</td><td>回答“缩投总体有效”，但给出“不能一刀切”的结论</td></tr>
+<tr><td>板块二：哪些品规缩投有效？</td><td>如何从203个品规中选出优先缩投对象？</td><td>3.1节CATE+3.2节画像+3.4节变量重要性</td><td>输出“高敏感品规画像特征”+三档分层清单</td></tr>
+<tr><td>板块三：缩投幅度定多少？</td><td>识别出对象后，缩投多少合适？</td><td>3.3节顺价指数+3.5节规则</td><td>输出“联合规则+建议幅度区间”</td></tr>
+<tr><td>板块四：用了之后效果如何？</td><td>模型推荐的对象是否真的更有效？</td><td>3.7节回溯验证+3.8节稳健性</td><td>输出“83.7% vs 52.9%”的业务效果对比+月度复核闭环</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>5.2 结果部分逐段修改建议</h3>
+
+<h4>3.1节（平均效应与异质性）——增加业务解读</h4>
+<div class="quote">原文：诚实因果森林估计的平均处理效应ATE为4.126，95%置信区间为1.448～6.803；品规级CATE标准差为1.625。</div>
+<div class="fix">
+<b>建议在段末增加：</b>从业务角度看，ATE为4.126意味着缩投总体上能带来状态改善，但CATE标准差为1.625说明<b>品规间差异仍然明显</b>。这直接否定了“按统一比例对全市品规缩投”的做法，也说明月度复核必须从“平均指标判断”转向“分品规效应排序”。
+</div>
+
+<h4>3.2节（三档画像）——增加画像的业务可用性</h4>
+<div class="fix">
+<b>建议在段末增加：</b>表5给出的三类画像可直接转化为复核条件：<b>高敏感品规</b>（缩投前状态评分、货源利用率和库存结构与其他组存在系统差异）应优先进入缩投清单；<b>低敏感品规</b>应转入动销促进和库存消化，而非继续缩投。这意味着业务人员无需逐项计算CATE，仅需核对上述关键指标即可完成初筛。
+</div>
+
+<h4>3.3节（顺价指数非线性）——增加业务解读</h4>
+<div class="fix">
+<b>建议在段末增加：</b>表6显示顺价指数分箱后的平均CATE随价格秩序变化呈现梯度，但各箱结果仍混合了其他经营画像。该图表只支持顺价指数作为重要复核维度，<b>不能据此单独设定缩投动作</b>。
+</div>
+
+<h4>3.5节（规则提取与复核阈值）——增加规则使用说明</h4>
+<div class="fix">
+<b>建议把联合规则改写为业务操作语言：</b>
+<ul>
+<li><b>优先缩投候选：</b>满足CATE上三分之一 + 缩投前状态评分和库存结构联合条件，直接进入优先缩投清单；</li>
+<li><b>二次复核：</b>满足部分条件但存在不确定性，进入观察复核清单；</li>
+<li><b>其他情形：</b>不得仅凭单一指标决定动作，需结合CATE排序和业务判断。</li>
+</ul>
+</div>
+
+<h4>3.7节（回溯验证）——改为业务效果评估</h4>
+<div class="quote">原文：回溯验证纳入258个实际缩投样本。CATE上三分之一的86个样本改善率为83.7%，其余172个样本为52.9%。但两组缩投前状态存在差异（SMD=-0.499，P=0.000119），因此该结果只支持排序复核价值……</div>
+<div class="fix">
+<b>建议改写为业务效果表述：</b>为检验模型输出能否在实际业务中产生差异，本文以实际发生缩投的258个品规—月份为样本，对比模型识别的高敏感对象（86个）与其余对象（172个）的状态改善表现。结果显示，<b>模型推荐的高敏感对象缩投后改善率达83.7%，而其余对象仅52.9%</b>。这意味着，若月度复核优先缩投模型推荐对象，改善概率可提升近一倍；反之，对清单外对象缩投则多半无改善甚至恶化。该结果为模型嵌入实际复核流程提供了直接证据。<b>但需注意，两组缩投前状态存在差异（SMD=-0.499，P=0.000119），因此该结果只支持排序复核价值，不解释为完全排除混杂后的部署增益。</b>
+</div>
+
+<h4>3.8节（稳健性）——修正PSM表述</h4>
+<div class="quote">原文：PSM匹配后平均|SMD|由0.178降至0.040，匹配效应为5.538，与主模型方向一致。</div>
+<div class="fix">
+<b>建议增加：</b>但个别协变量（如缩投前状态评分）匹配后SMD仍达0.099，接近0.1阈值，说明匹配结果不能被视为完全平衡。因此本文仅将匹配结果作为辅助稳健性证据，主结论仍以因果森林识别为准。
+</div>
+
+<h4>3.8.1节（E-value）——补充实际计算</h4>
+<div class="box box-danger">
+<b>当前版本缺失E-value具体数值。</b>建议补充：以主模型ATE=4.126及其置信区间为基准进行E-value敏感性分析。点估计对应的E-value为___，置信区间下界对应的E-value为___，意味着未测量混杂需要同时与处理和结果形成不低于上述强度的关联，才可能将估计效应推至零。该结果不能证明不存在未测量混杂，但表明结论并非由极弱混杂即可完全解释。
+</div>
+
+<!-- ============ 六、图表复用方案 ============ -->
+<h2 id="s6">六、图表复用与重定位方案（保留高级图表，证明新内容）</h2>
+
+<div class="box box-warn">
+<b>审稿人说明：</b>当前论文的图表（CATE分布图、密度图、热力图、森林图等）制作精美，不需要重做，但需要重新定位其“证明对象”——从“证明模型有效”转向“证明业务有用”。
+</div>
+
+<table>
+<thead><tr><th>原图表</th><th>原证明内容</th><th>重定位后证明内容</th><th>修改要点</th></tr></thead>
+<tbody>
+<tr><td>图2 CATE分布</td><td>展示CATE分布范围</td><td>证明“缩投效果在品规间差异极大，不能一刀切”</td><td>图注改为“203个品规缩投效果分布：高敏感组改善稳定、低敏感组反而恶化”</td></tr>
+<tr><td>图3 CATE密度对比</td><td>三组分布密度对比</td><td>证明“三档分层不是人为划分，而是效应上的自然分型”</td><td>图注增加“三组分布基本不相交，说明分层有客观依据”</td></tr>
+<tr><td>图4 政策收益吸收地图</td><td>政策收益二维坐标</td><td>改为“调控收益吸收地图”，证明“哪些品规适合缩投、哪些需要先修复”</td><td>术语从“政策”改为“调控”；横纵轴改为“价格修复空间”和“终端承接能力”</td></tr>
+<tr><td>图5 子组森林图</td><td>价位段/品类/时令异质性</td><td>证明“缩投效果不取决于价位或品类，而取决于经营画像”</td><td>图注强调“各价位段内高敏感列均为正、低敏感列均为负”</td></tr>
+<tr><td>图6 价位段热力图</td><td>CATE分化热力</td><td>证明“同一价位段内不同敏感组差异显著”</td><td>图注改为“同一价位段内三档分层差异明显，说明对象识别不能按价位一刀切”</td></tr>
+<tr><td>图7 代表品规轨迹</td><td>高敏感品规状态轨迹</td><td>证明“模型推荐对象在实际缩投后状态回升”</td><td>图注增加“缩投后状态评分明显回升”</td></tr>
+<tr><td>图8 多品规轨迹总图</td><td>多品规综合评分对照</td><td>证明“同一缩投动作在不同品规上结果截然不同”</td><td>图注改为“同一缩投动作，高敏感品规回升、低敏感品规继续走弱”</td></tr>
+<tr><td>表13 回溯验证</td><td>高敏感vs其余对象改善率</td><td>证明“模型推荐对象的业务有效性”</td><td>表名改为“模型推荐对象与其余对象的实际缩投效果对比”</td></tr>
+<tr><td>表20 复核建议清单</td><td>代表性品规建议动作</td><td>证明“模型输出可直接转化为复核动作”</td><td>表名改为“月度投放复核建议清单示例”</td></tr>
+<tr><td>表21 四环节运行表</td><td>复核流程</td><td>证明“模型嵌入后形成闭环”</td><td>增加“时间节点”和“责任岗位”列</td></tr>
+</tbody>
+</table>
+
+<!-- ============ 七、讨论重写 ============ -->
+<h2 id="s7">七、讨论重写（从“方法论对话”转向“业务价值对话”）</h2>
+
+<div class="box box-ok">
+<b>审稿人建议：</b>讨论应从“方法论对话”转向“业务价值对话”，建议调整为4段：
+<ol>
+<li><b>业务价值段：</b>本文方法与现有做法相比，在对象识别准确率（83.7% vs 52.9%）、复核效率（从人工逐项排查到清单式复核）和效果可解释性（变量重要性与分箱给出原因）三个方面的提升。</li>
+<li><b>流程嵌入段：</b>模型如何嵌入月度复核的“预筛—复核—动作—反馈”四环节，以及各环节的责任岗位和时间节点。</li>
+<li><b>局限边界段：</b>PSM残余不平衡、单一区域数据、未包含部署后试运行等。</li>
+<li><b>推广方向段：</b>后续可补充客户经理决策日志、区域竞争强度，并将CATE作为收益系数嵌入投放优化模型。</li>
+</ol>
+</div>
+
+<!-- ============ 八、结论重写 ============ -->
+<h2 id="s8">八、结论重写（每条对应一个业务操作建议）</h2>
+
+<div class="box box-ok">
+<b>审稿人建议：</b>把当前结论改写为5条业务操作建议，每条回答一个业务问题：
+<ol>
+<li><b>对象识别环节：</b>因果森林可有效区分缩投收益的品规差异，平均效应为4.126，但CATE标准差达1.625，说明缩投不应作为对全市品规的统一动作。建议将203个品规的月度复核从“逐个人工排查”变为“模型预筛+人工复核”。</li>
+<li><b>优先缩投清单：</b>高敏感品规（CATE上三分之一）在实际缩投后改善率达83.7%，明显高于其余对象的52.9%。建议数据分析岗每月5日前输出优先缩投清单。</li>
+<li><b>观察复核清单：</b>中敏感品规进入观察复核清单，结合终端服务、订货情况和季节因素决定是否微调。</li>
+<li><b>暂缓缩投清单：</b>低敏感品规原则上暂缓缩投，应优先考虑动销促进、结构优化或服务修复。</li>
+<li><b>效果评估环节：</b>每月对比模型推荐对象与实际缩投对象的状态改善率，形成“推荐-执行-反馈”闭环；后续可将CATE作为收益系数，叠加工商业目标、档位结构、客户公平性和库存消化约束，形成识别、优化、执行与反馈一体化模型。</li>
+</ol>
+</div>
+
+<!-- ============ 九、逐段修改清单 ============ -->
+<h2 id="s9">九、逐段修改清单与优先级</h2>
+
+<h3>9.1 必须修改的硬伤（优先级1）</h3>
+<table>
+<thead><tr><th>序号</th><th>位置</th><th>问题</th><th>修改方式</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>摘要</td><td>结果部分写成统计汇报，业务信息量为零</td><td>按本意见二、重写，结果分3条对应业务问题</td></tr>
+<tr><td>2</td><td>表1</td><td>15个二级指标与“23维协变量”不一致</td><td>新增“表1-附：23维协变量清单”</td></tr>
+<tr><td>3</td><td>3.7节</td><td>正文重复（同一段话出现两次）</td><td>删除重复段落</td></tr>
+<tr><td>4</td><td>摘要与表3</td><td>n=90与n=896/895/896口径冲突</td><td>统一为“全样本口径”，表3加注说明</td></tr>
+<tr><td>5</td><td>3.8.1节</td><td>E-value段缺失实际计算</td><td>补充E-value数值</td></tr>
+<tr><td>6</td><td>表3</td><td>所有分位均为正效应（100%），与CATE存在负值逻辑不符</td><td>核查数据，补充负效应样本或修正表述</td></tr>
+<tr><td>7</td><td>参考文献</td><td>[15][16]正文未标注</td><td>E-value段补引[15]，负对照段补引[16]</td></tr>
+</tbody>
+</table>
+
+<h3>9.2 建议修改（优先级2）</h3>
+<table>
+<thead><tr><th>序号</th><th>位置</th><th>问题</th><th>修改方式</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>3.1节</td><td>ATE/CATE结果缺少业务解读</td><td>段末增加“不能一刀切”的业务结论</td></tr>
+<tr><td>2</td><td>3.2节</td><td>画像结果未转化为复核条件</td><td>段末增加“关键指标可完成初筛”</td></tr>
+<tr><td>3</td><td>3.5节</td><td>联合规则写成了数学条件</td><td>改写为业务操作语言</td></tr>
+<tr><td>4</td><td>3.7节</td><td>回溯验证写成统计检验</td><td>改写为“模型推荐vs其余对象”的业务效果对比</td></tr>
+<tr><td>5</td><td>4讨论</td><td>缺少与业务实际的对话</td><td>新增“业务价值—流程嵌入—局限—推广”四段</td></tr>
+<tr><td>6</td><td>5结论</td><td>结论写成了方法论总结</td><td>改为5条业务操作建议</td></tr>
+<tr><td>7</td><td>2.3节</td><td>缺少R-learner稳定性处理说明</td><td>补充T̃接近0的处理方式</td></tr>
+<tr><td>8</td><td>2.3节</td><td>缺少最小叶节点样本数等关键超参数</td><td>补充超参数表</td></tr>
+<tr><td>9</td><td>3.8节</td><td>PSM后SMD>0.09却称稳健</td><td>改为“残余不平衡，谨慎解读”</td></tr>
+</tbody>
+</table>
+
+<h3>9.3 格式规范修改（优先级3）</h3>
+<table>
+<thead><tr><th>序号</th><th>位置</th><th>问题</th><th>修改方式</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>全文</td><td>行距1.82，图表字号9.5pt</td><td>改为1.5倍行距，图表字号10.5pt</td></tr>
+<tr><td>2</td><td>全文</td><td>波浪号、负号、百分号不统一</td><td>全文统一为“~”“-”“%”</td></tr>
+<tr><td>3</td><td>图4</td><td>“政策收益吸收地图”术语不当</td><td>改为“调控收益吸收地图”</td></tr>
+<tr><td>4</td><td>参考文献</td><td>[3][5]缺DOI/页码</td><td>补齐</td></tr>
+<tr><td>5</td><td>首页</td><td>作者信息、基金项目为占位符</td><td>补齐或删除</td></tr>
+<tr><td>6</td><td>全文</td><td>无页码</td><td>加页码</td></tr>
+</tbody>
+</table>
+
+<hr>
+
+<h2>审稿结论</h2>
+<div class="box box-ok">
+<p><b>建议：修改后再审（Major Revision）。</b></p>
+<p>本文方法链条完整、实证工作量充足，具备修改后录用的基础。核心问题不是“方法不好”，而是“结果与结论没有回答业务最关心的问题”。请作者在修改稿中重点完成以下工作：</p>
+<ol>
+<li><b>摘要重写：</b>结果分3条，每条对应一个业务问题，控制在400字以内。</li>
+<li><b>结果重构：</b>按“有没有用—对谁有用—用多少—用后效果”四板块重新组织3.1~3.9节。</li>
+<li><b>结论改写：</b>5条结论每条对应一个业务操作建议，避免纯方法论总结。</li>
+<li><b>讨论补充：</b>增加“模型嵌入月度复核流程”的前后对比，说明哪个环节变了、谁的工作量减少了。</li>
+<li><b>图表重定位：</b>保留现有高级图表，但图注和解读从“证明模型有效”转向“证明业务有用”。</li>
+<li><b>硬伤修正：</b>补全23维变量清单、删除3.7节重复段落、补充E-value数值、核查表3全正效应问题。</li>
+</ol>
+<p>修改稿返回后，将重点复核：摘要业务信息量、结果四板块逻辑、结论业务操作性、表3数据一致性、E-value实际计算。</p>
+</div>
+
+<p class="small" style="text-align:right;margin-top:30px">《中国烟草学报》编辑部　经济与管理栏目　审稿人<br>审稿日期：__________</p>
+
+</article>
+</body>
+</html>

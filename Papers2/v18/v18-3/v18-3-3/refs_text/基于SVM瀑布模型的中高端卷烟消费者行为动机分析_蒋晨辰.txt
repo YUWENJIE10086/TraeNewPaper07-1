@@ -1,0 +1,764 @@
+
+===== PAGE 1 =====
+
+蒋晨辰等  基于SVM 瀑布模型的中高端卷烟消费者行为动机分析 
+ 
+ 
+ 
+基金项目：广西中烟工业有限责任公司科技项目“安徽市场中高端卷烟消费者行为研究”（CGAXZX20220030050001-049） 
+作者简介：蒋晨辰（1993—），本科，研究方向：智能烟草营销策略优化，Tel：18777166687，Email：1542010785@qq.com 
+通讯作者：孔维力（1997—），Tel：18260801884，Email：794494961@qq.com 
+收稿日期：2025-04-08；网络出版日期：2025-08-27 
+143
+经济与管理 
+蒋晨辰，孔维力，黄丽莹，等. 基于SVM 瀑布模型的中高端卷烟消费者行为动机分析[J]. 中国烟草学报，2025，31（6）：143-151. 
+JIANG Chenchen, KONG Weili, HUANG Liying, et al. Analysis of consumer behavioral motivations for premium cigarettes based on an 
+SVM cascade model[J]. Acta Tabacaria Sinica, 2025, 31(6):143-151. doi:10.16472/j.chinatobacco.2025.T0123 
+基于SVM 瀑布模型的中高端卷烟消费者行为动机分析 
+蒋晨辰
+1，孔维力
+1*，黄丽莹
+1，张子超
+1，韦伟
+1， 
+李纲彬
+1，张磊
+2，宋文慧
+2 
+1 广西中烟工业有限责任公司，广西南宁 530000； 
+2 深圳纹通科技有限公司，广东深圳 518000 
+摘  要：
+【背景和目的】针对传统机器学习方法在中高端卷烟消费者多动机识别中的局限性，本文通过构建基于支持向量机（Support 
+Vector Machine，SVM）的瀑布模型分析方法，以提升对消费者多动机的识别准确率，进而高效指导烟草企业制定精准营销策略。
+【方法】基于用户行为对营销策略的导向，消费者行为动机分为交往型、追新型、求异型、从众型、务实型5 类。依据前述5 类
+行为动机在中高端卷烟营销实践中的优先级不同，本文构建三级SVM 瀑布模型分类器。【结果】实验表明，所提出模型的综合准
+确率达92.67%，较传统方法提升约10%或以上。【结论】在安徽省合肥市使用该模型筛选出130 家店铺，并对其进行中高端卷烟
+营销，结果显示，这些店铺中高端卷烟订购总量上升了29.8%，表明模型在实际营销中具有显著价值，推广前景广阔。 
+关键词：SVM；瀑布模型；消费者行为动机；中高端卷烟 
+ 
+ 
+在烟草市场中，消费者作为市场的主体和中心，
+其行为研究至关重要。目前，烟草业界从不同角度对
+卷烟消费者行为进行了研究。丁杰等[1]指出，现有的
+市场营销策略主要依赖于零售商数据，忽略了消费者
+行为和偏好对策略的影响，因此无法做到精准营销；
+莫玉华等[2]认为，消费者决策过程涉及心理、认知、
+情感和行为因素的交织，使得现有算法难以准确预测
+和理解消费者行为；纪佳乐[3]发现，通过对海量消费
+者数据的挖掘，企业能够更准确地把握消费者的需求、
+偏好和购买习惯，但未能准确指出消费者行为背后的
+驱动因素。总体看，烟草行业的消费者行为研究存在
+多维度缺失和理论应用的局限性，导致策略与实际行
+为脱节，营销有效性不足。 
+消费者行为动机是驱动卷烟购买决策的核心因
+素，有研究认为个体的消费行为可能同时包含社会交
+往、求新求异、从众务实等复合动机，传统分类模型
+如随机森林等，对行为动机分析的准确率普遍低于
+80%[4]。当前针对中高端卷烟消费者行为动机的研究正
+面临“多动机交织困境”，如安徽市场高端卷烟（批发
+价≥800 元/条）消费中，动机混杂现象占比达43.6%，
+导致23.8%的精准营销资源错配[5]。因此，烟草行业需
+深入理解和预测消费者的关键行为动机，从而制定精
+准的市场营销策略，这对中高端卷烟的市场营销尤为
+重要。 
+为实现精准营销，一些学者引入了机器学习的方
+法来研究消费者行为[6-9]，但这些方法偏重于数据的简
+单统计，缺乏对数据隐含知识的建模，因此在消费者
+行为研究中引入新的机器学习方法至关重要。Vapnik
+等[10,11]提出的SVM 在机器学习领域具有重要意义。后
+续众多学者系统地研究了基于SVM 的多分类处理机
+
+
+===== PAGE 2 =====
+
+中国烟草学报 Acta Tabacaria Sinica 2025 Vol.31 No.6 
+ 
+ 
+144
+制，提出了一些非线性分类方法，如Platt 等[12]提出的
+基于有向无环图的SVM 多分类方法、Weston 等[13]提
+出的基于全局优化的SVM 多分类方法等，对机器学
+习的理论研究及各领域应用都作出了卓越贡献[14]。 
+为此，本文利用SVM 优异的非线性分类能力，
+建立不同优先级的SVM 瀑布模型来预测消费者的行
+为动机，以便对不同类型的消费者实施精准营销。 
+1  消费行为动机与SVM 模型的应用研究 
+1.1  卷烟消费行为动机 
+郁炜[15]将购买动机定义为“引发消费行为的内在
+驱动力”，并指出卷烟消费动机具有社交需求、生理满
+足和身份象征三重属性；孙东亮[16,17]通过分解卷烟消
+费的生理感知（如温、甜、辣、颗粒感等）、感官体验
+（如烟气饱满度、喉部舒适度）与心理认知（如社交
+认同感）的交互关系，细致分析了卷烟消费行为动机
+的维度组成和划分规则，提出的“吸食感知机理”理
+论具有突破性，揭示了消费者从产品接触到忠诚形成
+的完整链条，细致阐述了消费动机与卷烟吸食具体行
+为间关系的复杂性、动态复合性。 
+邓超等[18]基于大数据标签体系构建的六大画像系
+统，进一步验证了卷烟消费行为动机的动态复合性。
+李晓林等[19]通过实证研究发现，中高端卷烟消费者的
+炫耀性消费动机与品牌溢价、包装设计显著正相关；
+邓蓉晖等[20]通过零售终端实验发现物理场景与心理暗
+示存在耦合效应。 
+因此，从研究的多维度分析角度出发，可将卷烟
+的消费者行为动机细化，并划分为交往型、追新型、
+求异型、从众型、务实型5 种类型。 
+1.2  SVM 模型的应用研究 
+徐晟皓等[21]通过SVM 的核函数将年龄、收入等
+数据与消费评论文本特征映射至高维空间，提高了烟
+草消费群体的分类准确率。刘璐等[22]研究表明，结合
+RBF（Radial basis function，径向基函数）的SVM 模
+型在季节性波动剧烈的卷烟市场中具有显著优势。 
+在复杂动机识别方面，SVM 的优势得到进一步验
+证。如Netflix Prize 竞赛中，SVM 通过处理超百万维
+的用户行为数据，成功捕捉到观影偏好与社交动机的
+隐性关联。亚马逊的实践表明，采用级联SVM 结构
+可有效区分实用性购买与冲动性消费。 
+因此，本文利用SVM 强大的分类性能和泛化能
+力，通过构建三级SVM 瀑布模型分类器，精准地捕
+捉消费者行为背后的复杂性。个体经济条件和社会地
+位的局限通常是从众、务实类型消费者产生的根源，
+因此聚焦于中高端卷烟消费者行为的异质性分析研
+究，相对于卷烟消费者行为动机的普适性研究更具指
+导意义。与此同时，考虑到行为动机具有不同的优先
+级（见本文2.2.1），故建立三级SVM 瀑布模型分类器，
+第一级模型用于筛选出交往型消费者，第二级模型将
+追新型消费者从非交往型消费者中分离开来，第三级
+模型将剩余消费者细分为求异型、从众型或务实型消
+费者。 
+2  模型设计 
+2.1  数据信息 
+本文基于安徽省合肥市2023—2024 年中高端卷
+烟消费数据，基本信息见表1。 
+表1  安徽省合肥市2023—2024 年中高端卷烟消费数据 
+Tab.1 Premium cigarette consumption data in Hefei, Anhui 
+Province (2023—2024) 
+数据类型 
+详细信息 
+总条数 
+1101279 
+消费者数量
+123045 
+店铺数量 
+4587 
+消费信息字段
+会员码、销售日期、卷烟名称、卷烟条码、建
+议零售价、售价、数量、单位、支付金额、所
+属营销部、零售铺许可证号、行为动机。 
+行为动机 
+交往型；追新型；求异型；从众型；务实型。
+ 
+一般研究中，训练数据与测试数据的划分比例选
+择取决于数据集大小、问题复杂度和业务需求等多个
+因素，常见的比例有7:3 和8:2 等[23]。本文采用7:3 的
+比例来划分训练数据和测试数据，见表2。 
+表2 训练及测试数据划分 
+Tab.2 Division of training and testing datasets 
+消费者总人数
+训练集人数 
+测试集人数 
+123045 
+86134 
+36911 
+ 
+根据安徽省合肥市提供的中高端卷烟消费数据，
+各个行为动机类型的消费者数量及其占比见表3。 
+
+
+===== PAGE 3 =====
+
+将晨辰等  基于SVM 瀑布模型的中高端卷烟消费者行为动机分析 
+ 
+ 
+ 
+145
+表3 行为动机人数分布及占比 
+Tab.3 Distribution and proportions of consumer behavioral motivations 
+行为动机 
+总人数 / 占比 
+训练集人数 / 占比 
+测试集人数 / 占比 
+交往型 
+11193 / 9.10% 
+7836 / 9.10% 
+3357 / 9.09% 
+追新型 
+5350 / 4.35% 
+3745 / 4.35% 
+1605 / 4.35% 
+求异型 
+9343 / 7.59% 
+6541 / 7.59% 
+2802 / 7.59% 
+从众型 
+54678 / 44.44% 
+38275 / 44.44% 
+16403 / 44.44% 
+务实型 
+42481 / 34.52% 
+29737 / 34.52% 
+12744 / 34.53% 
+ 
+2.2  模型设计 
+2.2.1  行为动机优先级划分 
+在中高端卷烟消费中，消费者购买决策受多种动
+机影响，引入行为动机优先级概念可精准划分其重要
+性，从而洞察核心需求，助力营销策略制定。 
+实践中，交往型和追新型的定向营销策略制订更
+容易，因此应赋予交往型和追新型动机较高的优先级。
+交往型消费看重社会认同价值，期待用品牌负载的社
+交价值和形象价值来匹配自己的社会地位，优先级最
+高；追新型消费则对新颖时尚的产品更敏感，愿为独
+特的消费体验支付更高的价格，优先级次之；而求异
+型消费与从众型、务实型消费存在一定的互补或互斥
+性，从众型偏好大众化，务实型关注性价比，而求异
+性则追求特立独行，因此求异型、从众型和务实型优
+先级较低，难以为这类中高端卷烟消费者制定精准的
+营销策略，可列为同一优先级。综上，本文对消费者
+行为动机的优先级排序如下： 
+交往型 > 追新型 > （求异型、从众型、务实型） 
+这种细致的分类与排序，不仅有助于剖析消费者
+行为模式，更能助力企业在激烈的市场竞争中实现精
+准营销，提升品牌竞争力。 
+2.2.2  模型设计 
+针对中高端卷烟消费者行为动机存在不同的优先
+级，本文提出一种基于SVM 瀑布模型的中高端卷烟
+消费者行为动机分析方法，流程见图1。 
+ 
+图1 SVM 瀑布模型流程图 
+Fig.1 Flowchart of the SVM cascade model 
+ 
+鉴于单个用户可能存在多个行为动机，模型将计
+算每个行为动机的概率，并依据概率最高的行为动机
+对消费者进行分类。该方法通过3 个SVM 模型串联
+形成多级分类系统，依次筛选出交往型消费者、追新
+
+
+===== PAGE 4 =====
+
+中国烟草学报 Acta Tabacaria Sinica 2025 Vol.31 No.6 
+ 
+ 
+146
+型消费者、求异型/从众型/务实型消费者，从而将复杂
+的分类问题有效分解，具有适应复杂问题、实现大规
+模数据处理和优先级层灵活的特点。 
+3  特征选取 
+3.1  交往型特征选取 
+（1）模型输入特征 
+总量偏重度ρZ定义为中高端卷烟消费者假期购买
+盒数hj与其总购买盒数hZ之比： 
+ρZ = hj
+hZ
+ 
+密集偏重度ρm定义为中高端卷烟消费者日均盒
+数μr与其假期日均盒数μj和平时日均盒数μр的和之
+比： 
+ρm = 
+μr
+μj + μр
+ 
+（2）模型输出结果 
+中高端卷烟消费者是否为交往型cj 及其概率pj
+（0 ≤pj ≤1，pj越大表示其是交往型的概率越大），cj
+的表达如下： 
+cj = {0, 非交往型
+1, 是交往型
+ 
+3.2  追新型特征选取 
+（1）模型输入特征 
+新品规H 的盒占比m1定义为新品规H 的消费盒
+数nh与总消费盒数hZ之比： 
+m1 = nh
+hZ
+ 
+新品规M 的盒占比m2定义为新品规M 的消费盒
+数nm与总消费盒数hZ之比： 
+m2 = nm
+hZ
+ 
+新品规Q 的盒占比m3定义为新品规Q 的消费盒
+数nq与总消费盒数hZ之比： 
+m3 = nq
+hZ
+ 
+（2）模型输出结果 
+中高端卷烟消费者是否为追新型cZ及其概率pZ
+（0≤pZ≤1，pZ越大表示其是追新型的概率越大），cZ
+的表达如下： 
+cZ = {0, 非追新型
+1, 是追新型
+ 
+3.3  求异型、从众型、务实型特征选取 
+（1）模型输入特征 
+a）从众度dc：中高端卷烟消费者从众度用于描述
+其行为受社会行为正面影响的程度，即消费者对社会
+一致性行为的正向响应程度。 
+设消费者第i条消费记录是在店铺j购买卷烟品规
+k，该品规在该店铺的销售量记为Sjk，该店的最大卷
+烟销量记为SJN，则本次购买卷烟的流行度为
+Sjk
+SJT ，该消
+费者本次的购买量记为Bijk，该消费者本次购买行为
+受影响程度则为
+Sjk
+SJ^ × Bijk，该消费者所有购买行为受
+正向影响的总程度即为从众度dc，计算方式如下： 
+dc = 
+∑
+Sjk
+SJl
+i,j,k
+Bijk
+∑
+Bijk
+i,j,k
+ 
+b）求异度dq：中高端卷烟消费者求异度用于描述
+其行为受社会行为负面影响的程度，即消费者对社会
+一致性行为的反向响应程度。 
+设消费者第i条消费记录是在店铺j购买卷烟品规
+k，该品规在该店铺的销售量记为Sjk，该店的最小卷
+烟销量记为SJ%，则本次购买卷烟的小众度为
+SJ
+(
+Sjk，该消
+费者本次的购买量记为Bijk，该消费者本次购买行为
+受影响程度为
+SJ2
+Sjk × Bijk，该消费者所有购买行为受反
+向影响的总程度即为求异度dq，计算方式如下： 
+dq = 
+∑
+SJ@
+Sjk
+i,j,k
+Bijk
+∑
+Bijk
+i,j,k
+ 
+（2）模型输出结果 
+中高端卷烟消费者的类别cx及其概率px,q，px,c，
+px,w（0≤px,q，px,c，px,w≤1，px,q + px,c + px,w = 1，
+px,q/px,c/px,w越大表示其是求异型/从众型/务实型的概
+率越大），cx的表达如下： 
+cx = {
+1, 求异型
+2, 从众型
+3, 务实型
+ 
+4  模型搭建 
+4.1  SVM 瀑布模型分类器 
+三级SVM 瀑布模型分类器见图2。 
+
+
+===== PAGE 5 =====
+
+将晨辰等  基于SVM 瀑布模型的中高端卷烟消费者行为动机分析 
+ 
+ 
+ 
+147
+ 
+图2 中高端卷烟消费者行为SVM 瀑布模型 
+Fig.2 SVM cascade model of premium cigarette consumer behavior 
+ 
+其判定过程见算法1。 
+ 
+ 
+4.2  模型解析 
+4.2.1  第一级模型 
+记Xi（i = 1,2,… … , N，N 是中高端卷烟消费者总
+量）为中高端卷烟消费者的特征向量，其中
+Xi = (ρZ,i, ρm,i)，ρZ,i为第i个消费者的总量偏重度，ρm,i
+为第i个消费者的密集偏重度。记Yi为该消费者的行为
+动机标签，其中Yi=(cj,i, pj,i)，cj,i为第i个消费者是否为
+交往型，pj,i为第i个消费者是交往型的概率。本文统
+计了交往型消费者和非交往型消费者数据，其分布见
+图3。由图3 可知该问题是线性可分的，因此第一级
+模型选择线性SVM。 
+
+
+===== PAGE 6 =====
+
+中国烟草学报 Acta Tabacaria Sinica 2025 Vol.31 No.6 
+ 
+ 
+148
+ 
+图3 交往型消费者分布 
+Fig.3 Distribution of communicative consumers 
+ 
+4.2.2  第二级模型 
+记Xi（i = 1,2,… … , N，N 是中高端卷烟消费者总
+量）为中高端卷烟消费者的特征向量，其中
+Xi = (m1,i，m2,i，m3,i)，m1,i/m2,i/m3,i为第i个消费者
+购买新品规H/M/Q 的盒占比。记Yi为该消费者的行为
+动机标签，其中Yi=(cZ,i, pZ,i)，cZ,i为第i个消费者是否
+为追新型，pZ,i为第i个消费者是追新型的概率。本文
+统计了追新型消费者和非追新型消费者数据，其分布
+见图4。由图4 可知该问题是线性不可分的，因此第
+二级模型选择非线性SVM，其中核函数选用RBF（标
+准差为1）。 
+ 
+图4 追新型消费者分布 
+Fig.4 Distribution of novelty-seeking consumers 
+4.2.3  第三级模型 
+记Xi（i = 1,2,… … , N，N 是中高端卷烟消费者总
+量）为中高端卷烟消费者的特征向量，其中
+Xi = (dc,i，dq,i)，dc,i/dq,i为第i个消费者的从众度/求
+异度。记Yi 为该消费者的行为动机标签，其中
+Yi=(cx,i, px,q,i,px,c,i,px,w,i)，px,q,i/px,c,i/px,w,i为第i个消费
+者是求异型/从众型/务实型的概率，cx,i为第i个消费者
+概率最大的那一类。本文统计了求异型、从众型和务
+
+
+===== PAGE 7 =====
+
+将晨辰等  基于SVM 瀑布模型的中高端卷烟消费者行为动机分析 
+ 
+ 
+ 
+149
+实型消费者数据，其分布见图5。由图5 可知该问题
+是线性不可分的，因此第三级模型选择非线性SVM，
+其中核函数选用RBF（标准差为1）。 
+ 
+图5 求异型、从众型和务实型消费者分布 
+Fig.5 Distribution of divergent, conformity, and pragmatic consumers 
+ 
+5  模型验证 
+5.1  SVM 瀑布模型F1-score 和准确率 
+在模型设计和搭建完成后，基于测试集评测了每
+一级SVM 模型的F1-score 和分类准确率，具体见表4。 
+ 
+表4 各级SVM 模型实验结果 
+Tab.4 Experimental results of hierarchical SVM models 
+模型 
+类别 
+TP（True 
+Positive） 
+FP（False 
+Positive） 
+FN（False 
+Negative） 
+TN（True 
+Negative） 
+F1-score 
+准确率 
+第一级SVM 模型 
+交往型 
+2597 
+0 
+760 
+33554 
+0.93 
+97.94% 
+第二级SVM 模型 
+追新型 
+1216 
+1 
+389 
+31948 
+0.93 
+98.83% 
+第三级SVM 模型 
+求异型 
+2799 
+457 
+3 
+28690 
+0.94 
+95.10% 
+从众型 
+15522 
+236 
+881 
+15310 
+务实型 
+12071 
+865 
+673 
+18340 
+ 
+第一级SVM 模型的高准确率表明对应的特征能
+够有效筛选出具有交往型消费动机的中高端卷烟消费
+者，可指导对该类型消费者实行具有社交场景的营销
+策略；第二级SVM 模型的高准确率表明对应的特征
+能够有效筛选出具有追新型消费动机的中高端卷烟消
+费者，在新品上市时可着重对该类型消费者进行精准
+营销；第三级SVM 模型的高准确率表明对应的特征
+能够有效区分具有求异型、从众型或务实型消费动机
+的中高端卷烟消费者，可针对不同类型消费者适配不
+同的营销策略。 
+同时利用全体消费者数据，评测了SVM 瀑布模
+型的总体F1-score 和总体准确率，实验结果见表5。 
+表5 SVM 瀑布模型实验结果 
+Tab.5 Experimental results of the proposed SVM cascade model 
+真实标签\预测结果 
+务实型 
+从众型 
+求异型 
+追新型 
+交往型 
+F1-score 
+准确率 
+务实型 
+12071 
+232 
+440 
+1 
+0 
+0.90 
+92.67% 
+从众型 
+865 
+15522 
+16 
+0 
+0 
+求异型 
+0 
+3 
+2799 
+0 
+0 
+追新型 
+189 
+105 
+95 
+1216 
+0 
+交往型 
+242 
+466 
+37 
+15 
+2597 
+
+
+===== PAGE 8 =====
+
+中国烟草学报 Acta Tabacaria Sinica 2025 Vol.31 No.6 
+ 
+ 
+150
+SVM 瀑布模型的高综合准确率表明其在多动机
+场景下仍具有较高的精准度。 
+ 
+5.2  与其它方法的对比 
+将SVM 瀑布模型与决策树、逻辑回归、随机森
+林的方法进行了对比，见表6。 
+表6 与其他方法对比 
+Tab.6 Comparison with other methods 
+方法 
+准确率 
+F1-score 
+本文方法准确率提升幅度 
+决策树 
+78.92% 
+0.73 
++13.75% 
+逻辑回归 
+80.15% 
+0.76 
++12.52% 
+随机森林 
+83.43% 
+0.81 
++9.24% 
+SVM 瀑布模型 
+92.67% 
+0.90 
+- 
+ 
+SVM 瀑布模型较决策树、逻辑回归、随机森林提
+升约10%或以上，证明了该方法具有显著的有效性和
+先进性。 
+5.3  应用实践 
+2024 年8 月在安徽省合肥市部署该模型以指导中
+高端卷烟营销策略的制定。该模型在4587 个店铺中筛
+选出中高端消费者人数较多的130 家店铺，并投放精
+准营销资源。结果显示，相较于2024 年1—7 月（模
+型部署前的7 个月），2024 年8 月—2025 年2 月（模
+型部署后的7 个月）这些店铺的中高端卷烟订购总量
+上涨29.8%。结果表明，本文提出的模型可大幅节省
+营销资源，提升营销精准度。 
+6  结论 
+针对消费者行为动机的分类需求，形成了基于
+SVM 瀑布模型的中高端卷烟消费者行为动机分析方
+法。实验结果表明，所提出模型的综合准确率达
+92.67%，较传统方法提升约10%或以上。实践过程中，
+在安徽省合肥市使用该模型筛选出130 家店铺，并对
+其进行中高端卷烟营销，结果显示，这些店铺中高端
+卷烟订购总量上升了29.8%。综上，该方法的有效性
+得到了充分验证，能够更准确地捕捉消费者行为背后
+的复杂性，突显其在处理复杂消费者行为动机时的优
+越性，为卷烟营销策略的制定提供更为精准的决策支
+持，具有显著的在实际场景中的适用性和可靠性。 
+未来，可采用该方法，纳入更多地域的研究对象，
+确保实验数据覆盖更广泛的地区和人群，以进一步增
+强分析的准确性、方法的普适性，并可进一步探究社
+会、文化和心理因素对消费者购买决策的影响。 
+ 
+参考文献 
+[1] 
+丁杰，王伟，龚强. 大数据时代消费者行为与卷烟精准营销策
+略研究[J]. 中国市场，2022, (22):136-138. 
+DING Jie, WANG Wei, GONG Qiang. Research on consumer 
+behavior and cigarette precision marketing strategy in the era of 
+big data[J]. China Market, 2022, (22) :136-138. 
+[2] 
+莫玉华，孔维力，祝丽丽，等. 消费者迁移模型的研究进展及
+其在烟草行业的应用[J]. 现代商贸工业，2024, 45(14): 10-12. 
+MO Yuhua, KONG Weili, ZHU Lili, et al. The research progress of 
+consumer migration model and its application in the tobacco 
+industry[J]. Modern Trade Industry, 2024, 45(14): 10-12. 
+[3] 
+纪佳乐. 基于大数据分析的消费者行为模式研究[J]. 中国市场，
+2024, (29): 111-114.  
+JI Jiale. Research on consumer behavior patterns based on big data 
+analysis[J]. China Market, 2024, (29): 111-114.  
+[4] 
+中国烟草经济研究所. 中国烟草消费市场研究报告（2022）[R]. 
+北京：国家烟草专卖局，2022. 
+China Tobacco Economic Research Institute. China Tobacco 
+Consumer Market Research Report (2022)[R]. Beijing: National 
+Tobacco Monopoly Bureau, 2022. 
+[5] 
+安徽省烟草专卖局. 安徽省烟草市场发展年报（2023）[R]. 合
+肥：安徽省烟草专卖局，2023. 
+Anhui Tobacco Monopoly Bureau. Annual Report of Tobacco 
+Market Development in Anhui Province (2023) [R]. Hefei: Anhui 
+Tobacco Monopoly Bureau, 2023. 
+[6] 
+黄焱隆. 卷烟消费者行为及营销策略探讨[J]. 中国市场，
+2016(18): 2. 
+HUANG Yanlong. Cigarette consumer behavior and marketing 
+strategy[J]. China market, 2016(18): 2. 
+[7] 
+陈浩，王诗航，顾祖毅，等. 基于POI 数据的卷烟消费者行为
+研究[J]. 科技和产业，2019, 19(1): 6. 
+CHEN Hao, WANG Shihang, GU Zuyi, et al. Study on cigarette 
+consumer behavior based on POI data[J]. Technology and Industry, 
+2019, 19(1): 6. 
+[8] 
+黄菲，余其昌，孔浩辉，等. 广东卷烟消费者吸烟行为分析[J]. 中
+国烟草学报，2019, 25(3): 110-116. 
+HUANG Fei, YU Qichang, KONG Haohui, et al. Analysis of 
+smoking behavior of cigarette consumers in Guangdong[J]. Acta 
+Tabacaria Sinica, 2019, 25(3): 110-116. 
+[9] 
+韩亚君，杨万青. 湖南卷烟消费市场特征及发展方向——基于
+消费者行为角度分析[J]. 全国流通经济，2020(5): 133-134. 
+HAN Yajun, YANG Wanqing. Characteristics and development 
+direction of cigarette consumption market in Hunan-Analysis based 
+on consumer behavior[J]. National circulation economy, 2020 (5): 
+133-134. 
+[10] 
+BOSER B, GUYON I, VAPNIK V. A training algorithm for 
+optimal margin classifiers[C]. Proceedings of the Fifth Annual 
+
+
+===== PAGE 9 =====
+
+将晨辰等  基于SVM 瀑布模型的中高端卷烟消费者行为动机分析 
+ 
+ 
+ 
+151
+Workshop on Computational Learning Theory, Pittsburgh, 1992. 
+[11] 
+VAPNIK V. The nature of statistical learning theory[M]. Springer, 
+New York, 1995. 
+[12] 
+PLATT J C, CRISTIANINI N, SHAWE-TAYLOR J. Large margin 
+DAG's for multiclass classification[M]. Advances in Neural 
+Information Processing Systems, Cambridge, MA: MIT Press, 
+2000, 12: 547-553. 
+[13] 
+WESTON J, WATKINS C. Multi-class support vector machines[C]. 
+Proceedings of the ESANN1999, Brussels, Belgium, 1999. 
+[14] 
+张学工. 关于统计学习理论与支持向量机[J]. 自动化学报，2000, 
+26(1): 32-42. 
+ZHANG Xuegong. On statistical learning theory and support 
+vector machines[J]. Journal of Automation, 2000, 26(1): 32-42. 
+[15] 
+郁炜. 消费者研究是企业营销的基础[J]. 上海商业，2008, (09): 
+40-42. 
+YU Wei. Consumer research is the basis of enterprise marketing [J]. 
+Shanghai Commerce, 2008, (09): 40-42. 
+[16] 
+孙东亮. 消费行为过程与中式卷烟品质概念的形成[EB/OL]. 北
+京：中国科技论文在线[2024-01-31]. https://www.paper.edu.cn/ 
+releasepaper/content/202401-81. 
+SUN Dongliang. Consumer behavior process and the formation of 
+the concept of Chinese cigarette quality [EB/OL]. Beijing: China 
+Science and Technology Papers Online [2024-01-31].https://www. 
+paper.edu.cn/releasepaper/content/202401-81. 
+[17] 
+孙东亮. 卷烟吸食感知机理与三感技术探索[EB/OL]. 北京：中
+国科技论文在线[2024-02-26]. https://www.paper.edu.cn/releasepaper/ 
+content/202402-68. 
+SUN Dongliang. Exploration of cigarette smoking perception 
+mechanism and three senses technology[EB/OL]. Beijing: China 
+Science and Technology Papers Online [2024-02-26].https://www. 
+paper.edu.cn/releasepaper/content/202402-68. 
+[18] 
+邓超，梁雪霞，陈志，等. 基于卷烟消费大数据标签体系的六
+大画像系统[J]. 中国烟草学报，2024, 30(01): 108-114.  
+DENG Chao, LIANG Xuexia, CHEN Zhi, et al. Six portrait 
+systems based on cigarette consumption big data tagging system[J]. 
+Chinese Journal of Tobacco, 2024, 30(01): 108-114.  
+[19] 
+李晓林，陈彦亮. 中国消费者的炫耀性消费行为动机研究[J]. 中
+国商界（下半月），2008, (11): 154. 
+LI Xiaolin, CHEN Yanliang. Study on the motivation of 
+conspicuous consumption behavior of Chinese consumers[J]. 
+Chinese business community (second half of the month), 2008, 
+(11): 154. 
+[20] 
+邓蓉晖，陈建华. 零售终端建设对消费者行为的影响研究——
+以烟草公司为例[J]. 商业文化，2015, (03): 34-36. 
+DENG Ronghui, CHEN Jianhua. Research on the impact of retail 
+terminal construction on consumer behavior-taking tobacco 
+companies as an example[J]. Business culture, 2015, (03): 34-36. 
+[21] 
+徐晟皓，杨楠堃，易梦乔. 基于支持向量机的消费者行为分类
+方法[J]. 价值工程，2015, 34(04): 19-21. 
+XU Shenghao, YANG Nankun, YI Mengqiao. Consumer behavior 
+classification method based on support vector machine [J]. Value 
+Engineering, 2015, 34(04): 19-21. 
+[22] 
+刘璐，丁福利，孙立民. 基于SVM 的烟草销售量预测[J]. 软件
+导刊，2016, 15(11): 134-137. 
+LIU Lu, DING Fuli, SUN Limin. Prediction of tobacco sales based 
+on SVM[J]. Software Guide, 2016, 15(11): 134-137. 
+[23] 
+闫贺. 支持向量机的鲁棒性研究及其在智能交通系统中的应 
+用[D]. 南京理工大学，2022. 
+YAN He. Research on the robustness of support vector machine 
+and its application in intelligent transportation system[D]. Nanjing 
+University of Science and Technology, 2022. 
+ 
+Analysis of consumer behavioral motivations for premium cigarettes based on an SVM cascade 
+model 
+JIANG Chenchen1, KONG Weili1*, HUANG Liying1, ZHANG Zichao1, WEI Wei1,  
+LI Gangbin1, ZHANG Lei2, SONG Weihui2 
+1 China Tobacco Guangxi Industrial Co., Ltd., Nanning 530000, China;  
+2 Shenzhen Wentong Technology Co., Ltd., Shenzhen 518000, China 
+Abstract: [Objective] To address the limitations of traditional machine learning methods in recognizing multiple behavioral motivations of 
+premium cigarette consumers, this study proposes an SVM-based cascade model to improve recognition accuracy and provide effective 
+guidance for tobacco enterprises in developing precise marketing strategies. [Methods] Based on the orientation of user behavior toward 
+marketing strategies, consumer behavioral motivations were classified into five categories: communicative, novelty-seeking, divergent, 
+conformity, and pragmatic. According to the different priorities of these five motivations in the marketing practice of premium cigarettes, a 
+three-level SVM cascade classifier was constructed.[Results] Experimental results demonstrated that the proposed model achieved an 
+overall accuracy of 92.67%, representing an improvement of more than 10% compared with traditional methods. [Conclusion] Applying 
+the model to screen 130 retail stores in Hefei, Anhui Province, and implementing premium cigarette marketing in these stores, the total 
+order volume of premium cigarettes increased by 29.8%. These findings indicate that the model provides significant practical value for 
+marketing applications and has broad prospects for wider promotion. 
+Keywords: SVM; cascade model; consumer behavioral motivation; premium cigarettes 
+ 
+*Corresponding author. Email：794494961@qq.com 

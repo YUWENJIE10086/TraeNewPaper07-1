@@ -1,0 +1,679 @@
+
+===== PAGE 1 =====
+
+中国烟草学报 Acta Tabacaria Sinica 2025 Vol.31 No.5 
+ 
+ 
+作者简介：骆宇峰（1988—），硕士研究生，经济师，从事烟草渠道管理与深度学习应用研究，Email：87378503@qq.com 
+收稿日期：2024-10-18；网络出版日期：2025-06-09 
+146
+骆宇峰，黄斌. 基于微调大语言模型的互联网卷烟消费评价文本分类研究[J]. 中国烟草学报，2025，31（5）：146-154. LUO Yufeng , 
+HUANG Bin. Research on internet cigarette consumption evaluation text classification based on fine-tuning large language model[J]. Acta 
+Tabacaria Sinica, 2025,31(5)146-154. doi:10.16472/j.chinatobacco.2024.T0387  
+基于微调大语言模型的互联网卷烟消费评价文本分类研究 
+骆宇峰，黄斌 
+九江市烟草公司柴桑分公司，江西省九江市柴桑区江州大道 332000 
+摘  要：本文旨在研究一种基于微调大语言模型的卷烟消费者评价文本分类方法，以实现对卷烟产品评论的精准分类。针对传统
+深度学习模型在处理互联网中文文本时面临的挑战，本文设计了一种能够同时兼顾情感分类、主题分类和自然语言推理的人工智
+能模型。研究方法包括构建包含五类标签的数据集，并采用监督微调和强化微调对大语言模型进行训练。实验结果表明，该模型
+在测试集上Micro F1 分数相比基础模型最大提升26.72%，有效地提高了对卷烟产品评论的分类准确率和灵活性。通过模型的运
+用可以帮助企业从互联网卷烟消费者评论中快速发现自身不足，提高产品改进效率、优化市场策略，在竞争激烈的市场中保持优
+势。 
+关键词：烟草；文本分类；情感分析；主题分类；大语言模型；深度学习 
+ 
+ 
+深度学习方法作为自动化探索非结构化文本背后
+观点的重要工具，已被广泛应用于文本分类任务。准确
+提取产品评价内容的情感状态对于企业改进和提升具
+有重要作用。在传统文本分类情感分析研究[1]中通常会
+任务分为情感分析、主题分类、自然语言推理等多个具
+体子任务[2-5]进行单独研究。然而，互联网是一个相对
+开放的环境，用户评论内容往往是未经严格筛选的，仅
+具备单一能力的模型无法使用于复杂的真实场景。 
+综合以上特点，本研究尝试设计一种能够同时完成
+情感分类、主题分类和自然语言推理的人工智能模型，
+以实现对卷烟产品评论的精准分类。通过构建包含5
+类标签的数据集，并采用监督微调和强化微调对大语言
+模型进行训练，本研究旨在克服传统深度学习模型的不
+足，提高对卷烟产品评论的分类准确率和灵活性。 
+1  数据与方法 
+1.1  数据来源 
+使用requests 库对国内某卷烟产品评论网站中所 
+有国产卷烟产品评论数据进行采集，具体涉及111 个
+卷烟品牌，2953 个产品规格，117105 条评论。结合应
+用场景和多任务处理的需求，通过文本描述分析，将
+文本结构不完整或不符合任务主题的内容，划入无产
+品评价语义分类；通过自然语言推理分析，将存在语
+义特征前后矛盾的内容，划入讽刺（冲突）分类；通
+过文本中情感倾向表现，按不同程度分别划为正向、
+中性、负向类别，任务与分类结果对应关系如图1。 
+应用在线版本大语言模型G 的API（Application 
+Programming Interface）进行分类标注。标注后的数据
+按每个类别50%：50%的概率随机抽样分为本次研究
+的训练集和验证集，所有数据均保留其原始状态。其
+中包含“\xa0、\u3000”等无关语义的不间断空格符号，
+也包含“doge、TM、FB”等重要情绪宣泄用语或拼
+音字母缩写，同时还存在部分错别字的情况，数据集
+中样本分布情况见表1。 
+
+
+===== PAGE 2 =====
+
+骆宇峰等  基于微调大语言模型的互联网卷烟消费评价文本分类研究 
+ 
+ 
+ 
+147
+ 
+图1 文本综合分类任务流程图 
+Fig.1 Flowchart of text comprehensive classification task 
+表1 样本数据数量分布 
+Tab.1 Distribution of sample data quantity 
+分类 
+占比 
+样例 
+A 正向 
+35.60% 
+"可可的香味很迷人，烟气入后还算柔和，性价比高" 
+"一直抽的三年的口粮" 
+B 负向 
+23.12% 
+"朋友给了一根，太TM 难抽了" 
+"吸完嘴里有一股怪怪的味道\xa0 本地人大多不吸这个都吸红旗渠" 
+C 中性 
+35.62% 
+"中规中矩的西北烟。" 
+"一个信阳的哥们儿给的，包装平平无奇。烟气还算浓，马马虎虎。" 
+D 讽刺（冲突） 
+3.67% 
+"也不看看自己什么牌子就想往FB 烟里上" 
+"再贵也是XX，有这钱上绿猫不好吗" 
+E 无产品评价语义 
+1.99% 
+"你是的"，"鞍山"，"000" 
+ 
+数据集中虽然存在较大的样本分布不均衡情况，
+但在真实的业务场景中，D 讽刺（冲突）与E 无产品
+评价语义在总体样本中存在量确实远小于其他分类，
+因此，使用这样的数据集训练模型更具实际意义。 
+1.2  基础模型选择 
+相较于传统的循环神经网络模型，大语言模型
+（Large Language Models，LLMs）在大量语料库上进
+行了预训练，积累了丰富的语言知识和模式，在处理
+多义词和长依赖关系时表现出色。同时，应用注意力
+机制（Attention Mechanism）的神经网络结构使得模
+型在处理信息时能够聚焦于当前最为重要的部分。更
+大容量和更高表达能力，使得它们能够捕捉更复杂的
+模式和细微差异。在数据效率方面，大模型在少样本
+学习和零样本分类任务中表现出色，能够在标注数据
+有限的情况下取得良好的性能。 
+本研究以大模型Q 的7B 版本进行专项任务改进，
+其作为目前最强大的中文开源大模型之一，已经具备
+基础的自然语言推理能力[6]，能够适配本研究需求，
+模型架构如图2。 
+ 
+图2 模型整体架构图 
+Fig.2 Overall architecture diagram of the model 
+
+
+===== PAGE 3 =====
+
+中国烟草学报 Acta Tabacaria Sinica 2025 Vol.31 No.5 
+ 
+ 
+148
+Q2_7B 是典型的单独解码器（decode-only）模型，
+在原始的transformer 模型[7]解码器模块的基础上做了
+部分调整。掩码注意力机制公式为： 
+Mask Attention = Softmax (
+QKT
+■dk + M) V   （1） 
+其中，Q、K、V、M均为矩阵形式，掩码矩阵M为
+严格上三角矩阵，主对角线（不含）上方元素均为负
+无穷，其余元素均为零, dk为缩放系数，在多头注意力
+机制中代表每个头上处理数据的维度，用于稳定模型
+梯度传递，该模型中实际值为128。 
+使用
+RMSnorm （Root Mean Square Layer 
+Normalization）替换原有的归一化方式[8]，去掉计算均
+值的步骤，运算速度明显提升，公式为： 
+a2i =
+ai
+■∑
+ai
+2
+n
+i=1
+n
++ε
+              （2） 
+其中，ϵ通常为随机数，用于规避除0 错误，本研
+究中实际值为1e-6。 
+使用分组注意力机制（Grouped-query attention）
+替换原始的多头注意力（MQA）[9]，在注意力分数计
+算中多个query 使用同一组key、value 进行计算，降
+低读取时数据加载量，本研究中实际值为7，如图3。 
+ 
+图3 分组注意力架构图 
+Fig.3 Grouped attention architecture diagram 
+ 
+对query、key 使用旋转位置编码（RoPE，Rotary 
+Position Embedding）[10]，融合绝对位置编码和相对位
+置编码的优点，更善于处理长文本序列。公式为： 
+g(xm, xn,m −n) = (qm
+(1) qm
+(2)) (cos((m −n)θ)
+−sin((m −n)θ)
+sin((m −n)θ)
+cos((m −n)θ) ) (kn
+(1)
+kn
+(2))              （3） 
+其中，m、n分别代表两个token 的绝对位置，q、k
+为对应输入x的注意力分解值。 
+使用SwiGLU 激活函数[11]替换原始的ReLU 激活
+函数。SwiGLU 是Swish 激活函数与GLU 门控线性单
+元的组合，如图4，提升模型在不同长度文本环境下
+的推理精度。公式为： 
+ 
+图4 SwiGLU 架构图 
+Fig.4 SwiGLU architecture diagram 
+ 
+SwiGLU(x,W1, W2) = Swishβ(xW1) ⊗(xW2)  （4） 
+Swishβ(x) =
+x
+1+e-βx          （5） 
+其中，W为对应线性变换的可学习参数，β为超
+参数，本研究中实际值为1。 
+1.3  多分类评估指标 
+本次研究中采用多分类模型领域常用的评测指
+标，Micro F1 分数用于评估模型在整体数据集上的性
+能情况。计算公式为： 
+Precision =
+TP
+TP+FP          （6） 
+Recall =
+TP
+TP+FN           （7） 
+MicroF1 =
+2PR
+P+R           （8） 
+2  实验验证和分析 
+2.1  提示词工程 
+提示词工程（prompt engineering）是大语言模型
+区别于其他模型的重要特征之一，指在不对模型内部
+参数进行调整的情况下，让模型仅根据不同的输入文
+本的内容，就能完成不同任务需求的专有调试方式。 
+
+
+===== PAGE 4 =====
+
+骆宇峰等  基于微调大语言模型的互联网卷烟消费评价文本分类研究 
+ 
+ 
+ 
+149
+本研究通过模仿大语言模型在预训练中常用的提
+示词设计格式，分别从定义交互角色（Role），明确任
+务目标（Goal），确定任务文本（Context），限定输出
+格式（Expectations）4 个方面进行提示词构建，格式
+如图5。 
+ 
+图5 提示词构成示意图 
+Fig.5 Schematic diagram of prompt composition 
+ 
+图中蓝色框选内容设计为任务复杂度控制项，在
+仅需简要回答需求时删除。绿色库框选内容为过拟合
+控制项，为保留模型泛化能力，在模型训练和测试时，
+会随机替换成近似语义内容，具体替换文件见附录2。 
+经过提示词工程后，分别从是否需要说明理由、
+是否量化模型、模型超参数（hyper parameter）调整3
+个方面对测试集进行能力测试，评估指标使用Micro 
+F1 分数（average=micro），结果如表2。可以发现通过
+使用适当的提示词引导，预训练模型本身已经一定的
+识别能力，但整体精度上还有提升空间，其中通过不
+需要说明理由的简化回答的方式，能够大幅提升模型
+识别正确或规范答案格式的能力，通过量化模型在简
+化回答的情况下对模型整体推理结果影响较小，但大
+幅降低了模型消耗的算力资源，调整温度系数
+（temporary）对模型结果影响不大。 
+ 
+表2 基础模型测试能力表 
+Tab.2 Baseline model testing capability table 
+模型参数 
+F1 Score/% 
+基础问答 
+60.86 
+简化回答 
+71.40 
+4bit 量化模型 
+71.78 
+温度系数0.5 
+71.86 
+温度系数0.3  
+72.16 
+ 
+如图6，从各分类细分的角度考虑，图中A-E 对
+应前文所述的5 个分类，F 分类对应输出内容不符合
+预期，无法正确提取分类结果的情况。表中结果按行
+进行了归一化处理，主对角线结果与各分类召回率一
+致。通过观察可以发现，模型在需要说明理由的长文
+本输出的环境下，难以控制其输出结果格式，但相比
+其他条件的模型下，讽刺和无产品评价两个类别识别
+结果更准确。 
+ 
+（a）基础问答             （b）简化回答          （c）量化模型         （d）温度系数0.5      （e）温度系数0.3 
+ 
+图6 基础模型具体分类结果混淆矩阵 
+Fig.6 Confusion matrix of specific classification results of the baseline model 
+
+
+===== PAGE 5 =====
+
+中国烟草学报 Acta Tabacaria Sinica 2025 Vol.31 No.5 
+ 
+ 
+150
+2.2  模型监督微调 
+监督微调（Supervised Fine-Tuning）是提升大语
+言模型在特定领域能力的基础方法之一。通过前文研
+究可知，量化后的模型并未出现明显的能力劣化情况，
+故采用QLoRA（Quant Low-Rank Adaptation）[12]的高
+效微调策略。以LoRA 模型设计为基础，训练过程中
+冻结模型原始参数，并新增一条路径，如图7，A、B
+是两个较小的矩阵，用来保证参数更新在低秩的情况
+下运行,矩阵相乘后维度与原参数维度一致，使模型在
+保留原始能力的同时提升特定任务能力，其公式为： 
+ 
+图7 LoRA 模型架构图 
+Fig.7 LoRA model architecture diagram 
+ 
+YBF16 = XBF16WBF16 + XBF16ABT 
+（9） 
+其中，XBF16WBF16代表左侧原始路径及模型参
+数，BF16为数值编码类型，XBF16ABT为右侧新增路径
+及模型参数，B矩阵初始参数为全0，以保证模型初始
+化时，输出值Y的一致性，本次研究中W′矩阵的秩
+（Rank）设为16。 
+在训练过程中将原始模型参数进行nf4（Normal 
+Float 4bit）的双重量化，第一次量化采用线性量化的
+方式，快速实现数据压缩，第二次量化采用分位数量
+化（Quantile Quantization）的非线性量化的方式，用
+于契合正态分布型的数据，使量化后的数据更为合理
+和易于区分，如图8，本研究中量化后的模型可以在
+几乎不改变模型精度的情况下压缩显存占用至原始的
+25%，量化公式为： 
+ 
+图8 nf4 量化结果映射图 
+Fig.8 Mapping of NF4 quantization results 
+ 
+XInt8 = round(
+127
+absmax(X)X) = round(c · X)  （10） 
+WBF16 = dequant(dequant(cFP16,cInt8), WNF4)（11） 
+dequant(cFP16 · Xk-bit) =
+Xk-bit
+cFP16      （12） 
+其中，absmax(·)是取绝对值后最大数的函数，
+round(·)是取整函数，8bit 量化阶段为线性缩放，4bit
+量化为分位数非线性缩放，为避免边界为无穷的情况，
+实际置信度取值区间仅覆盖正态分布区间的96.77%，
+各区间均值如图，其中零值单独分为1 个区间，其余
+区域分为负值区间7 个、正值区间8 个，反量化过程
+是量化过程的逆操作。 
+表3 4bit 监督微调超参数 
+Tab.3 4-bit supervised fine-tuning hyper-parameters 
+超参数名称 
+设置值 
+r(low_rank) 
+8 
+lora_alpha 
+16 
+lora_dropout 
+0.1 
+per_device_train_batch_size 
+4 
+gradient_accumulation_steps 
+4 
+num_train_epochs 
+3 
+learning_rate 
+2e-4 
+optim 
+paged_adamw_8bit 
+weight_decay 
+0.001 
+warmup_ratio 
+0.3 
+lr_scheduler_type 
+"linear" 
+ 
+为提升模型输出格式的规范性，使用简要回答版本
+的训练集进行微调训练，训练中超参数如表3，训练后
+Micro F1 分数提升至82.08%。细分类别中，如图8，
+在保持正向、负向两个情感分类指标稳定的情况下，大
+幅提升了其他分类的召回率，并且完全消除了格式不符
+合要求的情况，如图9。但具体查看混淆矩阵的情况可
+知，D 矛盾评价与B 负面评价、E 无产品相关评价与C
+
+
+===== PAGE 6 =====
+
+骆宇峰等  基于微调大语言模型的互联网卷烟消费评价文本分类研究 
+ 
+ 
+ 
+151
+中性评价两组分类存在易混淆的情况。 
+ 
+图9 监督微调模型结果混淆矩阵 
+Fig.9 Confusion matrix of supervised fine-tuning model results 
+ 
+2.3  模型强化微调 
+进一步分析督微调后依然无法正确分类的数据，
+发现这部分数据均呈现了情绪释放不清晰这一特点，
+主要特点为内容简短，仅有轻微的情感倾向或文本内
+容同时存在符合多种分类选项的情况，在确定分类归
+属时界限模糊。  
+人类反馈强化学习（Reinforcement Learning from 
+Human Feedback，RLHF）[13]是一种偏好学习的方式，
+让模型与人类的价值取向、道德观念、社会常识保持
+一致，特别适用于难以从客观上判断回答的对错，仅
+反映主观上喜好的情况。本研究采用基于其改进的直
+接偏好优化方法（Direct Preference Optimization，DPO）
+[14]，通过直接公式推导的方式，消除传统方法中的奖
+励模型需求，损失函数如式13，简化模型调优过程。
+优化后的损失函数公式为： 
+LDPO(πθ; πref) = −E(x,Y+,Y-)∼D[log σ(βlog
+πθ(Y+|x)
+πref(Y+|x) −β log
+πθ(Y-|x)
+πref(Y-|x))]              （13） 
+其中，σ即sigmoid 函数，β为超参数控制模型调
+试，在本次研究中设置为0.1，y+、y-分别为模型生
+成支持、拒绝的回答，πθ(·)、πref(·)分别为改进模
+型与原始模型生成对应支持、拒绝文本的概率累计，
+该损失函数实际作用为拉大模型生成支持、拒绝内容
+间的距离。 
+结合前文研究结果，在提示词中要求模型说明理
+由能够提升模型在识别D 讽刺、E 无相关产品评价选
+项的能力。因此从训练集筛选包含解释理由的高质量
+数据，根据算法设计格式要求形成专用训练集，如表
+4，约为原训练集数据量的10%。 
+表4 直接偏好优化数据集格式 
+Tab.4 Direct preference for optimizing dataset format 
+评论文本 
+支持（Chosen） 
+拒绝（Rejected） 
+确实不错烟气
+足也挺顺有劲
+味道没话说，就
+是不太好买。 
+“分类标签”：“A 正面”，“理由”：“评论中提到‘确
+实不错’，‘烟气足’，‘挺顺有劲’，‘味道没话说’，这
+些都是对卷烟产品质量的正面评价，说明用户对产品
+的使用体验是满意的。唯一提到的负面因素是‘不太
+好买’，但这并不影响对产品质量本身的正面评价。”
+“分类标签”：“C 中性”，“理由”：“评论中提到的‘确
+实不错’、‘烟气足也挺顺有劲’和‘味道没话说’等描
+述表明了对卷烟产品的正面评价。同时，
+‘就是不太好买’
+这一部分则是对购买难度的客观描述，并非对产品质量
+或体验的直接评价，因此可以归类为中性信息。” 
+具体价钱不清
+楚，但是绝对不
+会这么便宜 
+“分类标签”：“C 中性”，“理由”：“评论中并未明确
+表达出对卷烟产品的正面或负面评价，而是仅对产品
+的价格表达了不确定的态度。评论者没有对产品的质
+量、性价比或其它具体属性进行直接的正面或负面评
+价，因此可以归类为中性。” 
+“分类标签”：“B 负面”，“理由”：“评论中提到‘绝对
+不会这么便宜’表明评论者认为该商品的价格不合理或
+超出了他们的预期，因此对产品持负面态度。由于评论
+没有提供具体的产品信息，所以无法判断价格是否合理，
+但评论者的态度是明确的负面评价。” 
+请问你觉得口
+感怎样？ 
+“分类标签”：“E 无产品评价语意”，“理由”：“该评
+论是一个询问句，它没有表达出任何关于卷烟产品口
+感的具体评价，而是在请求对方的看法。因此，它不
+属于正面、负面、中性或讽刺的任何一种评价，而是
+一种无评价语意的提问。” 
+“分类标签”：“C 中性”，“理由”：“这条评论是在询问
+关于卷烟产品口感的个人意见或体验，并没有直接表达
+对产品的正面或负面看法。因此，它不属于正面或负面
+评价，而是中性的询问性质。” 
+“这烟不错，戒
+烟首选！” 
+“分类标签”：“D 讽刺”，“理由”：“评论中称这烟是
+‘戒烟首选’，通常戒烟意味着停止吸烟，这里使用‘戒
+烟首选’可能是在讽刺这种烟难抽。因此，这句话带
+有讽刺意味。” 
+“分类标签”：“A 正面”，“理由”：“评论者提到‘这烟
+不错’表明他对这款卷烟有正面的评价。同时，‘戒烟首
+选’这一表述表明他推荐这款卷烟作为戒烟的选择，进
+一步强调了其正面的态度和推荐意图。因此，这个评论
+整体上表达的是对卷烟产品的积极看法和推荐使用。” 
+
+
+===== PAGE 7 =====
+
+中国烟草学报 Acta Tabacaria Sinica 2025 Vol.31 No.5 
+ 
+ 
+152
+经再次训练，训练中超参数如表5，优化后模型
+Micro F1 分数提升至87.58%，其中C 中性、D 讽刺、
+E 无相关产品评价分类的识别能力提升明显，如图10。 
+表5 DPO 优化微调超参数 
+Tab.5 DPO optimization fine-tuning hyperparameters 
+超参数名称 
+设置值 
+r(low_rank) 
+16 
+lora_alpha 
+16 
+lora_dropout 
+0.1 
+beta 
+0.1 
+per_device_train_batch_size 
+1 
+gradient_accumulation_steps 
+8 
+num_train_epochs 
+1 
+learning_rate 
+5e-5 
+optim 
+AdamW 
+warmup_ratio 
+0.1 
+max_prompt_length 
+128 
+ 
+图10 直接偏好优化模型结果混淆矩阵 
+Fig.10 Confusion matrix of direct preference optimization model 
+results 
+ 
+进一步验证模型通用能力是否发生劣化现象，基
+于GSM8k[15]（Grade School Math）进行能力验证，如
+图11，可知微调后模型的在该数据集上依然保留与原
+模型相当的数学推理能力。 
+ 
+图11 GMS8k 模型通用数学能力验证结果 
+Fig.11 Validation results of the model's general mathematical abilities on the GMS8k dataset 
+ 
+3  结语 
+本文研究了基于微调大语言模型的卷烟消费者评
+价文本分类方法，提出了一种能够同时兼顾情感分类、
+主题分类和自然语言推理的综合模型思路，并采用提
+示词设计、QLoRA 和DPO 方法对大语言模型进行高
+效微调。实验结果表明，该方法在真实卷烟产品评论
+数据集上取得了显著的分类效果，Micro F1 分数相比
+基础模型提升了26.72%，识别准确率与人类水平相
+当，识别速率约为9000 字符/min，为正常人类速率的
+20～30 倍。为卷烟行业提供了更精准的用户评价分析
+工具，有助于企业优化产品改进和市场策略，提升市
+场竞争力。 
+未来，我们将进一步探索大语言模型在更多 NLP 
+任务中的应用，并研究如何将人机交互技术融入文本
+分类任务，以进一步提高分类效率和准确性。 
+ 
+参考文献 
+[1] 
+Zhang W, Li X, Deng Y, et al. A survey on aspect-based sentiment 
+analysis: Tasks, methods, and challenges[J]. IEEE Transactions on 
+Knowledge and Data Engineering, 2022, 35(11): 11019-11038. 
+[2] 
+王昱，袁毓林. 基于规则的双重否定识别——以“不V1 不V2”
+为例[J]. 中文信息学报，2022, 36 (04): 12-19. 
+WANG Yu, YUAN Yulin. Rule-based double negation recognition: 
+taking “不V1 不V2” as an example[J]. Journal of Chinese 
+Information Processing, 2022, 36 (04): 12-19. 
+[3] 
+杜利明，郭文艳，崔蕾，等. 基于LDA 的电商平台用户评论挖
+掘与情感分析研究——以京东商城App 为例[J]. 江苏科技信息，
+2024, 41 (12): 125-129. 
+DU Liming, GUO Wenyan, CUI Lei, et al. Research on user review 
+mining and sentiment analysis of E-commerce platform based on 
+LDA:taking Jingdong Mall App as an example[J]. Jiangsu Science 
+
+
+===== PAGE 8 =====
+
+骆宇峰等  基于微调大语言模型的互联网卷烟消费评价文本分类研究 
+ 
+ 
+ 
+153
+& Technology Information Magazine Agency,  2024, 41(12): 
+125-129. 
+[4] 
+程灿，赵敬华. 基于BERT 和VADER 规则的新能源汽车用户评
+论情感分析[J/OL]. 智能计算机与应用，1-12[2024-07-29]. 
+https://doi.org/10.20169/j.issn.2095-2163.24040907. 
+CHENG Can, ZHAO Jinghua. Sentiment analysis of new energy 
+vehicle users comments based on BERT and VADER rules[J/OL]. 
+Intelligent Computer and Applications,1-12[2024-07-29].https:// 
+doi.org/10.20169/j.issn.2095-2163.24040907. 
+[5] 
+王锐，郑新章，宗国浩，等. 融合BiLSTM 和注意力机制的卷
+烟消费者评价情感分类方法[J]. 烟草科技，2022, 55(11): 
+106-112.  
+WANG Rui, ZHENG Xinzhang, ZONG Guohao, et al. An emotion 
+classification method for cigarette consumers'evaluation based on 
+combination of BiLSTM and Attention Mechanism[J]. Tobacco 
+Science & Technology, 2022, 55(11): 106-112. 
+[6] 
+Yang A, Yang B, Hui B, et al. Qwen2 technical report[J]. arXiv 
+preprint arXiv: 2407. 10671, 2024. 
+[7] 
+Vaswani A, Shazeer N, Parmar N, et al. Attention is all you need[J]. 
+Advances in neural information processing systems, 2017, 30. 
+[8] 
+Zhang B, Sennrich R. Root mean square layer normalization[J]. 
+Advances in Neural Information Processing Systems, 2019, 32. 
+[9] 
+Ainslie J, Lee-Thorp J, de Jong M, et al. Gqa: Training generalized 
+multi-query transformer models from multi-head checkpoints[J]. 
+arXiv preprint arXiv: 2305. 13245, 2023. 
+[10] 
+Su J, Ahmed M, Lu Y, et al. Roformer: Enhanced transformer with 
+rotary position embedding[J]. Neurocomputing, 2024, 568: 
+127063. 
+[11] 
+Shazeer N. Glu variants improve transformer[J]. arXiv preprint 
+arXiv: 2002.05202, 2020. 
+[12] 
+Dettmers T, Pagnoni A, Holtzman A, et al. Qlora: Efficient 
+finetuning of quantized llms[J]. Advances in Neural Information 
+Processing Systems, 2024, 36. 
+[13] 
+Ouyang L, Wu J, Jiang X, et al. Training language models to 
+follow instructions with human feedback[J]. Advances in neural 
+information processing systems, 2022, 35: 27730-27744. 
+[14] 
+Rafailov R, Sharma A, Mitchell E, et al. Direct preference 
+optimization: Your language model is secretly a reward model[J]. 
+Advances in Neural Information Processing Systems, 2024, 36. 
+[15] 
+Cobbe K, Kosaraju V, Bavarian M, et al. Training verifiers to solve 
+math word problems[J]. arXiv preprint arXiv:2110.14168, 2021. 
+ 
+附录1： 
+本文中研究过程代码见https://github.com/py-Rw1nd/llm_text_classify。 
+附录2： 
+提示词多样化设计。 
+prompt_lst = [ 
+            "你是一个语义分类器。", 
+            "你将扮演一个文本意图识别器。", 
+            "你的功能是识别用户输入的语义类别。", 
+            "你的任务是将文本分配到相应的类别中。", 
+            "请将自己视为一个文本分类专家。", 
+            "你的目标是理解并分类文本的意图。", 
+            "你能够识别和归类不同的文本主题。", 
+            "你在这里是为了将文本信息分门别类。", 
+            "你的角色是文本意图的分类器。", 
+            "你是一个专业的语义识别系统。", 
+            "你专注于文本的语义分析和分类。", 
+            "你将提供文本意图的分类服务。", 
+            "你致力于精确地识别和分类文本内容。", 
+            "你的任务是分析文本并将其归入适当的类别。", 
+            "你将帮助识别文本的语义范畴。", 
+            "你能够快速地对文本进行语义分类。", 
+            "你的任务是将文本意图进行精确分类。", 
+            "你是文本语义分类助手。", 
+            "你将确保文本被正确地分类到其语义类别中。", 
+            "你的角色是确保文本分类的准确性和效率。", 
+            "你能为文本提供深入的语义分析和分类。"] 
+
+
+===== PAGE 9 =====
+
+中国烟草学报 Acta Tabacaria Sinica 2025 Vol.31 No.5 
+ 
+ 
+154
+response_lst = [ 
+    "A 正面，B 负面，C 中性，D 讽刺，E 无产品评价语意", 
+    "A 积极评价，B 消极评价，C 中立态度，D 反讽意味，E 无关产品评价的语境", 
+    "A 正面反馈，B 负面反馈，C 中立观点，D 讽刺语气，E 非产品评价内容", 
+    "A 正面情绪，B 负面情绪，C 无明显倾向，D 讽刺性表达，E 非评价性语义", 
+    "A 赞赏性，B 批评性，C 客观性，D 嘲讽性，E 非评价性语义", 
+    "A 正面评价倾向，B 负面评价倾向，C 评价中立，D 讽刺性语气，E 非评价性语境", 
+    "A 积极情绪表达，B 消极情绪表达，C 情绪中性，D 讽刺性语调，E 非产品评价语义", 
+    "A 正面情感色彩，B 负面情感色彩，C 情感中立，D 讽刺性语气，E 非评价性语义", 
+    "A 正面评价，B 负面评价，C 评价中立，D 讽刺性表达，E 非产品评价语义", 
+    "A 积极评价倾向，B 消极评价倾向，C 评价中性，D 讽刺性语气，E 非评价性语境", 
+    "A 正面情感，B 负面情感，C 情感中立，D 讽刺性语调，E 非评价性语义", 
+    "A 正面评价语境，B 负面评价语境，C 中立评价语境，D 讽刺性语境，E 非评价性语境", 
+    "A 积极情绪倾向，B 消极情绪倾向，C 情绪中立，D 讽刺性语气，E 非产品评价语境", 
+    "A 正面评价性质，B 负面评价性质，C 评价性质中立，D 讽刺性质，E 非评价性质", 
+    "A 正面评价特征，B 负面评价特征，C 评价特征中立，D 讽刺特征，E 非评价特征", 
+    "A 积极评价语义，B 消极评价语义，C 评价语义中立，D 讽刺语义，E 非评价语义", 
+    "A 正面情感倾向性，B 负面情感倾向性，C 情感倾向性中立，D 讽刺倾向性，E 非评价倾向性", 
+    "A 正面评价语义特征，B 负面评价语义特征，C 评价语义中立，D 讽刺语义特征，E 非评价语义特征", 
+    "A 正面评价语境特征，B 负面评价语境特征，C 评价语境中立，D 讽刺语境特征，E 非评价语境特征", 
+    "A 积极评价语义倾向，B 消极评价语义倾向，C 评价语义中立，D 讽刺语义倾向，E 非评价语义倾向", 
+    "A 正面情感语义，B 负面情感语义，C 情感语义中立，D 讽刺情感语义，E 非情感评价语义"] 
+ 
+Research on internet cigarette consumption evaluation text classification based on fine-tuning 
+large language model 
+LUO Yufeng , HUANG Bin 
+ Chaisang Branch, Jiujiang Tobacco Company, Jiujiang 332000, China 
+Abstract: This paper aims to study a cigarette consumer evaluation text classification method based on fine-tuned large language models to 
+achieve accurate classification of cigarette product reviews. Addressing the challenges faced by traditional deep learning models in 
+processing internet Chinese text, this paper designs an artificial intelligence model that can simultaneously consider sentiment classification, 
+topic classification, and natural language inference. The research method includes constructing a dataset containing five types of labels and 
+using supervised fine-tuning and reinforcement fine-tuning to train the large language model. The experimental results show that the Micro 
+F1 score of this model on the test set is improved by up to 26.72% compared to the baseline model, effectively improving the classification 
+accuracy and flexibility of cigarette product reviews. The application of this model can help enterprises quickly identify their shortcomings 
+from internet cigarette consumer reviews, improve product improvement efficiency, optimize marketing strategies, and maintain an 
+advantage in the fiercely competitive market. 
+Keywords: tobacco; text classification; sentiment analysis; topic classification; natural language inference; large language mode; deep 
+learning 
+ 
+*Corresponding author. Email：87378503@qq.com 
+ 

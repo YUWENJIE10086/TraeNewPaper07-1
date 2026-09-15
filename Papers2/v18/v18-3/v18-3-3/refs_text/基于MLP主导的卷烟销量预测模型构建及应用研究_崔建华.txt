@@ -1,0 +1,1558 @@
+
+===== PAGE 1 =====
+
+崔建华等  基于MLP 主导的卷烟销量预测模型构建及应用研究 
+ 
+ 
+ 
+基金项目：中国烟草总公司重点研发项目“基于智慧物流的工商供应链一体化研究”（110202202043） 
+作者简介：崔建华（1965—），高级经济师（副高级），主要研究方向为烟草产业链供应链一体化、卷烟商业领域企业管理、销售物流等，Email：
+cuijh@zjyc.cn 
+通讯作者：刘冬荣（1984—），Tel：0577-88660198，Email：liudr@zjyc.cn 
+收稿日期：2025-04-25；网络出版日期：2026-04-08 
+133
+经济与管理 
+崔建华，陈颢，刘冬荣. 基于MLP 主导的卷烟销量预测模型构建及应用研究[J]. 中国烟草学报，2026，32（3）：133-140. CUI Jianhua, 
+CHEN Hao, LIU Dongrong. Research on the construction and application of an MLP-dominated cigarette sales forecasting model[J]. Acta 
+Tabacaria Sinica, 2026, 32(3):133-140. doi:10.16472/j.chinatobacco. 2025. T0167 
+基于MLP 主导的卷烟销量预测模型构建及应用研究 
+崔建华，陈颢，刘冬荣
+* 
+中国烟草总公司浙江省公司，浙江省杭州市上城区将军路9 号 310000 
+摘  要：卷烟市场销量具有强烈的“周期性+节令性+策略性”特征，传统预测模型难以刻画政策指令、供给计划、投放节奏、库
+存守恒、专卖约束等关键的非市场因素影响。为此，本文将多层感知机（Multi-Layer Perceptron, MLP）与大语言模型（Large Language 
+Model，LLM）相结合，提出了“MLP 主导、LLM 辅助”的卷烟销量组合预测模型。MLP 擅长自然数据建模而LLM 具备多源信
+息理解与推理能力。在此基础上，将销量预测模型应用于卷烟移库策略，提出了基于递阶分布式模型预测控制（Distributed Model 
+Predictive Control, DMPC）的卷烟物流供应链库存动态最优控制方法。采用Z 省2022 年1 月至2023 年6 月共18 个月的真实历史
+数据进行销量预测和库存控制，结果表明：该预测模型对畅销品规的平均相对预测误差为3.5%，显著优于ARIMA（20.0%）和
+RBF 神经网络（8.3%）；该库存控制方法对某地市前置仓不同时期3 项卷烟移库指标（平均库存、运输车次、入库量标准差）均
+低于传统的存销比控制方法，平均分别下降了24.21%、36.84%和9.93%。 
+关键词：卷烟物流；销量预测；库存控制；多层感知机；大语言模型；模型预测控制 
+ 
+ 
+0  引言 
+卷烟市场的销量预测与一般快消品销量预测有显
+著不同的特点。卷烟销量并非单纯由市场自然需求、
+自发生成，而是在计划管理与投放调控机制下被持续
+塑形的经营结果：商业公司通常依据年度、半年度经
+营目标形成销售计划，并按品牌、规格、区域与渠道
+逐级分解到月度乃至周度；在执行层面，烟草商业公
+司在供给能力、可供货量、订货与投放节奏、价格与
+结构管控要求、库存结构（商业库、共库、前置仓、
+客户库存）及阶段性计划完成进度等约束下，对每周
+投放量、发货节奏和区域倾斜进行动态调配。因此，
+历史销量数据同时包含了市场需求信号与专卖策略信
+号，既可能来自真实需求变化，也可能来自控货、缺
+货、保价、结构优化、冲刺达成等经营动作，再叠加
+元旦、春节等节令窗口销量集中释放，卷烟销量曲线
+具有强烈的“周期性+节令性+策略性”特征。传统的
+卷烟销量预测以数据驱动类方法为主，大致可分为基
+于统计回归[1]、基于时间序列[2]、基于神经网络[3]、基
+于机器学习[4]、基于深度学习[5]等模型的方法。上述不
+同的卷烟销量预测方法各有优劣：统计回归模型和时
+间序列模型简单方便，但难以应对季节性变动、长期
+趋势以及政策因素；机器学习类模型能有效处理非平
+稳、非线性数据，但容易陷入参数敏感性、局部最优
+及过度拟合等问题，模型泛化能力不强；包括深度学
+习在内的神经网络类方法需要大量训练数据且收敛慢
+且模型难以反映动态变化规律。因此，若仅依赖历史
+销量数据进行外推，传统预测模型虽然能拟合部分周
+期规律，但难以显示表达政策指令、计划分解、投放
+节奏、库存守恒与供给约束等关键的非单纯市场机制，
+容易在节令窗口、计划调整期、供给紧张期出现结构
+性偏差。近年来，出现了很多组合预测方案[6]-[8]，即根
+据不同方法的优势和特点把两种或多种方法相结合进
+行卷烟销量预测，克服了单一模型的局限性。本文将
+
+
+===== PAGE 2 =====
+
+中国烟草学报 Acta Tabacaria Sinica 2026 Vol.32 No.3 
+ 
+ 
+134
+深度学习的MLP[9]与AI技术的LLM[10]相结合进行卷烟
+销量的智能预测，建立了面向卷烟需求预测场景的“数
+据预测+决策耦合”卷烟销量预测模型。在此基础上，
+本文将该卷烟销量预测模型应用于卷烟物流供应链的
+库存控制中，基于模型预测控制[11]提出了递阶DMPC
+方法，降低了卷烟库存和提高了卷烟配送运输效率。 
+2  基于MLP 和LLM 相结合的卷烟销量预测模型 
+2.1  “MLP 主导、LLM 辅助”的卷烟销量预测建模
+策略 
+基于烟草行业的业务特点，卷烟销量预测具有明
+确的“数据预测+决策耦合”特征：一方面要通过市场
+数据预测稳定可用的未来定长（例如未来一周）销量
+基线，作为补货计算与计划对齐的统一参照；另一方
+面要把年度/半年度计划分解、阶段达成率约束以及品
+牌投放调配对销量形成的影响显式纳入预测链路；两
+者共同作用使预测结果能够真实反映烟草经营“市场
+主导、计划驱动、策略调控、供给约束”的运行方式。
+为此，本文将MLP 与LLM 相结合，提出了“MLP 主
+导、LLM 辅助”的卷烟销量预测方法，如图1 所示。 
+ 
+ 
+图1 “MLP 主导、LLM 辅助”的卷烟销量预测方法 
+Fig. 1 Framework for cigarette sales forecasting method combining MLP and LLM 
+ 
+“MLP 主导、LLM 辅助”的卷烟销量预测方法
+的核心是MLP 模型和LLM 模型的相互结合。由于卷
+烟销量预测既要求结果精确、稳定、可直接进入补货
+计算链路，又要求能够吸收计划分解口径、达成率压
+力、控量保价与重点规格策略等经营信息，单一模型
+很难同时满足上述两类要求。MLP 模型擅长直接输出
+固定步长的数值序列，天然具备“精确、稳定、易对
+接”的优势，但对计划文本、策略口径、跨系统异构
+信息的融合能力不足；LLM 模型具备多源信息理解与
+推理能力，能够模拟投放调配逻辑并给出可解释的校
+正依据，但若直接生成未来销量数值序列，容易出现
+输出长度不一致、格式漂移等风险。因此，采用“MLP
+模型产出定长基线+LLM 模型生成校正方案+确定性
+执行器落地并做一致性校验”的组合分工，在不牺牲
+可用性的前提下，将真实销售决策过程显式纳入预测
+链路。 
+2.2  “MLP 主导、LLM 辅助”的卷烟销量预测模型 
+图1 中，“业务输入层”是全链路的数据与规则入
+口，作用是把分散在商业经营、仓配物流与计划管理
+系统中的关键要素按统一口径汇聚、对齐与结构化，
+形成后续模块可直接调用的“输入包”；“约束融合输
+出层”是预测指令校正落地与一致性检验的执行模块，
+用于把“MLP 主导、LLM 辅助”的卷烟销量预测转
+化为最终可执行的协同预测结果。而基于MLP 的“基
+线预测层”和基于LLM 的“策略校正层”是整个模
+型的核心。 
+（1）基线预测层负责产生实际可用的定长数值基
+线，是整个链路中对接补货计算的“硬输出”来源。
+在不引入当期策略再分配的前提下，基线预测层基于
+MLP 模型（图2）输出未来固定H 天（或H 周）的基
+
+
+===== PAGE 3 =====
+
+崔建华等  基于MLP 主导的卷烟销量预测模型构建及应用研究 
+ 
+ 
+ 
+135
+线需求/基线销量序列ŷt+1:t+H
+basb
+（按品规维度可扩展为
+K × H的预测矩阵，K 为品规数量）。 
+a）网络结构与前向传播：设在同一地市（或区域）
+内共有K 个卷烟品规，在时刻 t 将销量历史窗口、计
+划与供给等结构化特征拼接为输入向量xt ∈Rd。记第
+0 层为输入层h(0) = xt，第l个隐藏层（l = 1, … , L −1）
+为h(i) = φ(W(i)h(i-1) + b(i))，其中 W(i)、b(i)分别为
+权值矩阵与偏置向量，φ(·)为非线性激活函数。输出
+层采用线性回归形式 ŷt+1:t+H
+basb
+= W(L)h(L-1) + b(L)。
+为保证预测长度严格固定，采用“多步长向量直接输
+出”而非逐步递推，从机制上避免出现输出步长不一
+致。 
+b）损失函数、正则化与输出端投影：以监督学习
+方式构造样本对(xt, yt+1:t+H)，采用均方误差（MSE）
+作为主损失函数：J(θ) = (1/N) ∑
+||yt+1:t+H −
+t∈D
+ŷt+1:t+H
+basb
+||
+2
+2
++ λ ∑||W(i)||
+F
+2
+i
+，其中 θ = W(i), b(i)为模型
+参数，λ为L2 正则系数。针对节令窗口与供给扰动引
+入的异常点，可将MSE 替换为Huber 损失以提升鲁棒
+性。为确保基线结果可直接用于补货计算，输出端引
+入基础投影，对预测值执行非负与必要的上下限裁剪：
+ŷbasb ←clip(ŷbasb, 0, Ubasb)，从而保证数值可用与格
+式稳定。 
+c）参数优化与训练-预测流程（图3）：为将卷烟
+经营计划与供给约束以“可计算”形式植入基线预测，
+样本构造与特征设计采用场景化扩展：在时间粒度上
+以日（或周）为基本单位，将销售、订发货、在途、
+库存、计划分解与达成率等数据对齐到同一时间轴；
+在特征构造上以滑动窗口方式提取历史销量序列（长
+度为L的滞后窗口），并拼接计划销售、计划生产、可
+供货量、库存结构、缺货/控量标记、节令窗口等结构
+化变量形成输入xt；标签yt+1:t+H为未来H步的实际销
+量，用于监督训练。 
+ 
+图2 基线预测层MLP 模型结构 
+Fig. 2 MLP model structure for the baseline prediction layer 
+按上述原理构造的基线预测层实现了“多品规共
+享参数+定长多步向量输出+输出端投影”的功能组
+合：MLP 在同一网络内学习多个品规的共性波动模式
+（如周内周期、节令共振），提升长尾品规在数据稀疏
+条件下的稳定性；同时以向量直接输出保证预测步长
+严格固定，并以投影机制保证预测值在有效的范围内，
+从而实现可复现、可对接、可审计的基线预测。 
+ 
+图3 基线预测层MLP 模型流程 
+Fig. 3 Operating process of the MLP model for the baseline 
+prediction layer 
+ 
+（2）策略校正层基于LLM 模型，用于生成“如
+何从基线走向实际可执行结果”的校正方案，其输出
+为结构化指令而非最终销量预测（销量预测结果由“约
+束融合输出层”获得）。该层以基线预测层MLP 模型
+的基线预测序列 ŷt+1:t+H
+basb
+为输入基准，同时读取业务
+输入层的计划分解口径、阶段达成率、供给能力与库
+存结构约束、节令窗口与重点策略等信息，模拟围绕
+计划目标进行投放调配的逻辑，输出结构化的校正指
+令包 u。策略校正层输出指令通过约束融合输出层进
+行确定性变换得到候选校正序列ŷt+1:t+H
+cand
+=
+clip(α ⊙ŷt+1:t+H
+basb
++ β, floor, cap)并对 ŷcand 执行企
+业规则与物理约束的一致性校验后，得到带硬约束的
+可行化过程最小改动优化模型：
+ŷfinai = argminy ||y −ŷcand||
+2
+2
+ , s. t. y ∈F ，其中 F 
+为企业规则与物理约束构成的可行域，最终得到长度
+
+
+===== PAGE 4 =====
+
+中国烟草学报 Acta Tabacaria Sinica 2026 Vol.32 No.3 
+ 
+ 
+136
+严格为 H 的协同预测序列ŷt+1:t+H
+finai
+。这里引入LLM 模
+型的原因在于其具备多源信息理解、文本口径解析与跨
+维度约束推理能力，能够将“计划-达成率-库存供给-
+节令策略”等异构信息组织为可解释的决策线索。 
+较传统的产品销量预测类方法相比，“MLP 主导、
+LLM 辅助”的卷烟销量预测模型实现MLP 和LLM 的
+优势互补，将卷烟销量预测升级为“基线预测+校正决
+策+约束执行”的“预测+决策耦合”模式，主要技术
+优势包括：1）MLP 模型负责“定长与稳定”的数值
+基线输出，LLM 模型负责“多源信息融合与经营逻辑
+推理”的校正方案生成，并通过确定性约束执行器负
+责“可执行与可审计”的落地与一致性校验，从而同
+时满足烟草供应链系统对计划对齐、协同补货与风险
+可控的要求；2）以MLP 模型定长多步向量输出为硬
+基线，并通过输出端投影保证预测长度严格固定、格
+式稳定，通过裁剪机制保证数值合法可用（满足非负
+与基础上下限），可直接进入补货计算；3）以“先基
+线、后指令、再执行”的执行路径完成：基线预测层
+给出固定周期的销量基线，策略校正层生成结构化校
+正指令并给出原因标签与优先级，约束执行器将校正
+指令落地为可行的最终预测与补货建议并生成审计记
+录，实现“预测结果-经营策略-补货动作”三者同口
+径联动。 
+2.3  基于递阶DMPC 的卷烟物流供应链库存控制 
+卷烟物流供应链中智能仓储管理策略的核心是库
+存控制。结合当前卷烟物流供应链实行全面前置的实
+际情况，构成了以烟草工业（烟厂）、集散式前置仓、
+直接式前置仓、各地市配送中心为核心节点的多层级、
+多节点供应链网络，卷烟移库过程库存控制呈现出强
+耦合（同一发货地各品规的拼载）、不确定性（卷烟销
+量与运输时长的不确定）和大迟滞（发起移库到实际
+入库的延迟）等特点，同时还存在针对输入、输出的
+众多约束条件（如移库量不能超出烟厂产能或销售计
+划量、库存量居于安全库存和库容上限间等），这对库
+存控制提出了极高要求，传统方法不再适用于类似全
+面前置这样复杂系统的库存控制任务。为此，本文提
+出基于递阶DMPC 的卷烟供应链库存控制方法，它将
+卷烟供应链的全链库存控制问题分解为各集散式前置
+仓、各直接式前置仓、各地市配送中心的多个最优库
+存控制子问题，在优化调度层统一协调下由多个局部
+控制器独立或协同工作，每个控制器负责供应链网络
+的一部分，共同组成了递阶分布式库存控制的架构。
+这里，DMPC 构成包含库存输入输出模型、库存预测
+模型和移库优化控制模型，其中，卷烟销量预测结果
+被分解后作为移库请求量送入库存输入输出模型作为
+模型输入。 
+（1）库存输入输出模型。库存输入输出模型如图
+4 所示。其中，状态量
+( )
+DI t 和
+( )
+DB t 分别为直接式前
+置品规和集散式前置品规的t 日库存量，输入量
+( )
+DIR t 、
+( )
+DBR t 为对应品规的t 日发起的移库请求量，
+输出量
+( )
+DIC t 、
+( )
+DBC t 则为对应品规的t 日出库量，
+下标i，j 代表着某具体品规的编号。 
+ 
+图4 库存输入输出模型 
+Fig. 4 Market inventory input-output model 
+ 
+鉴于移库操作存在时延特性，即从卷烟厂发起移
+库到实际入库存在若干天间隔，因此某品规t 日实际
+入库量
+(
+)
+i
+i
+DIR t
+τ
+−
+为
+iτ 天前的移库量，而变量
+( )
+i
+DIR t
+则为t 日发起的移库量，最终会在
+i
+t
+τ
++
+日入库。 
+（2）库存预测模型。在当日初始库存量、出库量
+和入库量已知的情况下，可进行模型的单步预测，计
+算下一日的库存量。以某地市为例，假设有a 个直接
+式前置品规，b 个集散式前置品规，其各品规下一日
+库存量的计算方法如式（1）所示。 
+
+
+===== PAGE 5 =====
+
+崔建华等  基于MLP 主导的卷烟销量预测模型构建及应用研究 
+ 
+ 
+ 
+137
+1
+1
+1
+1
+1
+1
+1
+1
+1
+(
+1)
+( )
+(
+)
+( )
+(
+1)
+( )
+(
+)
+( )
+(
+1)
+( )
+(
+)
+( )
+(
+1)
+( )
+(
+)
+( )
+a
+a
+a
+a
+a
+b
+b
+b
+b
+DI t
+DI t
+DIR t
+DIC t
+DI t
+DI
+t
+DIR t
+DIC t
+DB t
+DB t
+DBR t
+DBC t
+DB t
+DB t
+DBR t
+DBC t
+τ
+τ
+τ
+τ
++
+−
+■
+■
+■
+■
+■
+■
+■
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
++
+−
+=
++
+−
+|
+|
+|
+|
+|
+|
+|
++
+−
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
++
+−
+|
+|
+|
+|
+|
+|
+■
+■
+■
+■
+■
+■
+■
+⋮
+⋮
+⋮
+⋮
+⋮
+⋮
+⋮
+⋮
+■
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|■
+                       （1） 
+创建库存状态向量( )t
+x
+、入库向量( )t
+u
+和出库向
+量
+( )t
+f
+如式（2）-（4）所示，则模型的单步预测可表
+示为式（5）。 
+[
+]
+T
+1
+1
+( )
+( ),
+,
+( ),
+( ),
+,
+( )
+a
+b
+t
+DI t
+DI t DB t
+DB t
+=
+…
+…
+x
+                             （2） 
+[
+]
+T
+1
+1
+1
+( )
+(
+),
+,
+(
+),
+(
+),
+,
+(
+)
+a
+b
+a
+t
+DIR t
+DIR t
+DBR t
+DBR t
+τ
+τ
+τ
+τ
+=
+−
+−
+−
+−
+…
+…
+u
+                     （3） 
+[
+]
+T
+1
+1
+( )
+( ),
+,
+( ),
+( ),
+,
+( )
+a
+b
+t
+DIC t
+DIC t DBC t
+DBC t
+=
+…
+…
+f
+                          （4） 
+(
+1)
+( )
+( )
+( )
+t
+t
+t
+t
++
+=
++
+−
+x
+x
+u
+f
+                                   （5） 
+式中：( )t
+x
+为所有品规在t 日作业前的初始库存
+向量；(
+1)
+t +
+x
+为
+1
+t + 日的初始库存向量，同时可以理
+解为所有品规在t 日作业后的库存结算量。进一步对
+未来N 天的库存量(
+)
+t
+k
++
+x
+，
+1, 2,
+,
+k
+N
+=
+…
+进行预测，
+如式（6）所示。 
+1
+1
+0
+0
+1
+1
+0
+0
+(
+1)
+( )
+( )
+( )
+(
+2)
+( )
+( )
+(
+1)
+( )
+(
+1)
+(
+)
+( )
+(
+)
+(
+)
+(
+)
+( )
+(
+)
+(
+)
+k
+k
+i
+i
+N
+N
+i
+i
+x t
+t
+t
+t
+x t
+t
+t
+t
+t
+t
+x t
+k
+t
+t
+i
+t
+i
+x t
+N
+t
+t
+i
+t
+i
+−
+−
+=
+=
+−
+−
+=
+=
++
+=
++
+−
++
+=
++
++
++
+−
+−
++
++
+=
++
++
+−
++
++
+=
++
++
+−
++
+∑
+∑
+∑
+∑
+⋮
+⋮
+x
+u
+f
+x
+u
+u
+f
+f
+x
+u
+f
+x
+u
+f
+                       （6） 
+（3）移库优化控制模型。设某地市配送中心共管
+理
+1
+m 个直接式前置品规，
+2
+m 个集散式前置品规，以各
+品规的未来入库量
+(
+)
+t
+k
++
+u
+为决策变量如式（7），
+0,1, 2,
+,
+1
+k
+N
+=
+−
+…
+，对所有品规未来N 天的库存进行
+预测和控制。假设各品规的初始库存
+0x 、历史入库量
+,
+,
+,
+i j
+i j
+DIR
+DBR
+和未来出库量
+kf 已知，可根据式（6）
+预测未来库存情况如式（8）所示。 
+1
+1
+2
+1
+1
+1
+(
+)
+(
+),
+,
+(
+),
+(
+),
+,
+(
+)
+T
+m
+m
+m
+t
+k
+DIR t
+DIR
+t
+DBR t
+k
+DBR
+t
+k
+k
+k
+τ
+τ
+τ
+τ
++
+=
+−
+−
+−
++
+−
++
+■
+■
++
++
+■
+■
+…
+…
+u
+           （7） 
+0
+,
+1
+,
+2
+1
+1
+0
+0
+( )
+,
+(
+)
+,
+0,1,
+,
+1,
+(
+)
+,
+1,2,...,
+,
+,
+1,
+, 1,
+(
+)
+,
+1,2,...,
+,
+,
+1,
+, 1,
+(
+)
+( )
+(
+)
+(
+),
+1,2,
+,
+k
+i
+i j
+i
+i
+i
+i j
+k
+k
+i
+i
+t
+t
+k
+k
+N
+DIR t
+j
+DIR
+i
+m
+j
+DBR t
+j
+DBR
+i
+m
+j
+t
+k
+t
+t
+i
+t
+i k
+N
+τ
+τ
+τ
+τ
+−
+−
+=
+=
+■
+=
+|
+|
++
+=
+=
+−
+||
++
+=
+=
+= −
+−
++
+−
+■
+|
+|
++
+=
+=
+= −
+−+
+−
+|
+|
++
+=
++
++
+−
++
+=
+■
+∑
+∑
+…
+…
+…
+…
+x
+x
+f
+f
+x
+x
+u
+f
+                  （8） 
+根据前置仓运行的业务特点，除式（8）的状态转
+移方程外，优化命题的其他各项硬约束条件包括： 
+（1）各品规库存量上下限约束：高于安全下限值，
+低于库容上限值。 
+(
+)
+,
+1,2,
+,
+t
+k
+k
+N
++
+=
+…
+≤
+≤
+ss
+x
+cp
+        （9） 
+（2）各品规移库量上下限约束：前置仓申请的移
+库总量不能超出半年度或年度销售计划。 
+
+
+===== PAGE 6 =====
+
+中国烟草学报 Acta Tabacaria Sinica 2026 Vol.32 No.3 
+ 
+ 
+138
+1
+2
+1
+1
+0
+1
+2
+0
+(
+) 0,
+1,2,
+,
+,
+0,1,
+,
+1,
+(
+) 0,
+1,2,
+,
+,
+0,1,
+,
+1,
+(
+)
+,
+1,2,
+,
+,
+(
+)
+,
+1,2,
+,
+i
+i
+i
+i
+i
+i
+N
+i
+DI
+j
+N
+i
+DB
+j
+DIR t
+j
+i
+m
+j
+N
+DBR t
+j
+i
+m
+j
+N
+DIR t
+j
+pl
+i
+m
+DBR t
+j
+pl
+i
+m
+τ
+τ
+τ
+τ
+−
+−
+=
+−−
+=
++
+=
+=
+−
+−
+■
+|
++
+=
+=
+−
+−
+||■
++
+=
+|
+|
++
+=
+|■
+∑
+∑
+…
+…
+…
+…
+…
+…
+≥
+≥
+≤
+≤
+（10） 
+（3）各品规移库量的拼载约束：前置仓模式的一
+大优势是对同一发货地各品规卷烟进行以车辆满载为
+目标的拼载运输，使得减少总运输批次、降低运输成
+本。移库拼载约束如式（11）。 
+(
+)
+(
+)
+1
+0
+1
+0
+(
+)
+0,
+1,2,
+, ,
+(
+)
+0,
+1,
+2,
+,
+,
+,
+0,
+1,2,
+,
+,
+,
+1,2,
+,
+j
+j
+j
+j
+n
+i
+j
+j
+j
+j
+k
+i Z
+n
+i
+j
+j
+j
+j
+k
+i DC
+j
+j
+j
+DIR t
+k
+d
+d
+EB
+b
+j
+a
+DBR t
+k
+d
+d
+EB
+b
+j
+a
+a
+a
+b
+d
+d
+j
+a
+b
+b
+j
+a
+b
+−
+−
++
+=
+∈
+−
+−
++
+=
+∈
+−
++
+■
++
++
+−
+−
+×
+=
+=
+|
+|
+|
++
++
+−
+−
+×
+=
+=
++
++
++
+■
+|
+=
++
+|
+|
+∈
+=
++
+■
+∑
+∑
+∑
+∑
+…
+…
+…
+N
+…
+≥
+         （11） 
+式中，jd−和
+jd+分别代表所有品规多日总移库量与
+运输满载量的负偏差和正偏差，因为总移库量不总是
+等于满载量，为保证命题可解，需要表示此偏差。 
+最后，完成优化命题目标函数的构造。库存周转
+率是衡量库存管理效果的重要指标，高周转率意味着
+能快速转化库存为收入。此外，通过每次移库时尽可
+能提高运输车辆的满载率、降低运输成本也是一个重
+要目标。建立优化目标如下： 
+1
+`1
+2
+1
+1
+0
+(
+)
+min
+(
+)
+N
+a b
+k
+j
+j
+N
+j
+k
+t
+k
+d
+d
+N
+t
+k
+λ
+λ
++
+−
++
+=
+−
+=
+=
++
+■
+■
++
++
+■
+■
+⋅
++
+∑
+∑
+∑
+x
+f
+  （12） 
+3  测试验证 
+面向Z 省11 个地市和1 个集散中心，测试周期为
+18 个月（2022 年1 月—2023 年6 月），测试期间内的
+验证数据为真实历史数据。以Z 省H 市畅销卷烟品规
+672 为例，采用本文卷烟销量预测模型的一步预测结
+果如图5 所示，平均相对预测误差3.5%。另外，与典
+型的时间序列模型ARIMA 和径向基神经网络模型
+RBF 进行比较，结果如表1 所示。 
+ 
+ 
+图5 卷烟品规672 的销量预测结果（上：实际数据vs.预测数据，下：预测相对误差） 
+Fig. 5 The predicted results for sales of cigarette brand A (upper: True Data vs. Pred. Data, down: Relative Errors) 
+
+
+===== PAGE 7 =====
+
+崔建华等  基于MLP 主导的卷烟销量预测模型构建及应用研究 
+ 
+ 
+ 
+139
+表1 不同预测模型比较结果 
+Tab. 1 Comparison results of different prediction models 
+模型类型 
+平均相对预测误差 
+（预测时长1 天）/% 
+平均相对预测误差 
+（预测时长10 天）/%
+ARIMA 
+20.00 
+23.98 
+RBF 
+8.30 
+14.59 
+本文模型 
+3.50 
+5.00 
+ 
+进一步进行DMPC 应用测试。仍采用第2.3 节18
+个月数据，并在同一时期内同时运用基于存销比的传
+统库存控制进行方法对比。首先以Z 省N 市单一地市
+为例，以6 个月为1 个周期，将数据分为第1、2、3
+期，对直接式前置仓运行的各项数据进行统计和分析，
+结果见表2。可见，本文库存控制方法在各时期内的
+指标均低于存销比控制方法，分别下降了24.21%、
+36.84%和9.93%。 
+表2 测试周期内前置仓各时期的运行数据 
+Tab. 2 Operating data of the front-loaded warehouse for each 
+period during the test cycle 
+指标 
+时期 
+存销比 
+本文方法
+下降幅度/%
+平均库存/件
+第1 期
+49 594.02
+34 148.74
+31.14 
+第2 期
+35 569.85
+29 636.47
+16.68 
+第3 期
+37 883.31
+29 741.39
+21.49 
+合计 
+41 249.86
+31 261.52
+24.21 
+运输车次/车
+第1 期
+573 
+361 
+37.00 
+第2 期
+652 
+408 
+37.42 
+第3 期
+532 
+366 
+31.20 
+合计 
+1 797 
+1 135 
+36.84 
+入库量标准差
+第1 期
+6 550.53
+6 055.53
+7.56 
+第2 期
+2 973.36
+3 245.04
+-9.14 
+第3 期
+6 946.90
+5 788.29
+16.68 
+合计 
+5 776.28
+5 202.42
+9.93 
+ 
+对全省所有地市两类前置仓库存控制测试验证。
+共涉及来自Z 中烟、H 中烟和S 中烟的27 个直接式
+前置品规和10 个集散式前置品规。结果如下：（1）对
+于同省Z 中烟的所有直接式前置品规，各地市运输车
+次总量降幅为29.97%。其中，Z 中烟各品规在H 市的
+销售量最大，使得存销比模式也能从大批量运输中受
+益，所以H 市的车次降低幅度为全省最小但也达到
+17.39%；而对于销量较小且运输距离较远的Q 市、L
+市和Z 市，本文方法对于运输经济性的提升非常显著，
+降幅分别为45.80%、48.34%和59.53%；（2）对于跨
+省H 中烟的所有直接式前置品规，本文方法带来的运
+输经济性提升更为显著，即使在销量最大的N 市，运
+输车次的降幅也达到27.46%，全省运输车次总体降幅
+为45.20%；（3）对于S 中烟的所有集散式前置品规，
+运输车次总量降幅为46.56%。 
+4  结论 
+（1）建立了“MLP 主导、LLM 辅助”的卷烟销
+量预测模型，通过MLP 和LLM 优势互补将卷烟销量
+预测升级为“基线预测+校正决策+约束执行”的“预
+测+决策耦合”模式，实现了“先基线、后指令、再执
+行”的执行路径。测试验证结果表明：对畅销品规的
+平均相对预测误差为3.5%，显著优于ARIMA（20.0%）
+和RBF 神经网络（8.3%）。 
+（2）提出了递阶DMPC 库存控制方法，将卷烟
+供应链的全局库存控制问题分解为多个子系统协同求
+解，尤其适合卷烟供应链多层级、多品规、强耦合、
+大迟滞应用场景，实现了多重约束下的动态库存决策。
+测试验证结果表明，该库存控制相较于传统存销比控
+制，平均库存、运输车次、入库量标准差3 项指标平
+均分别下降了24.21%、36.84%和9.93%。 
+（3）本文提出的“MLP 主导、LLM 辅助”卷烟
+销量预测模型和递阶DMPC 库存控制，已经在Z 省得
+到了实际应用。数据统计表明，2024 年全年Z 省烟草
+工商整体库存下降6.35%，烟草工业运输成本下降
+10%，烟草商业日均库存下降38.1%。 
+ 
+参考文献 
+[1] 
+MARTINEZ E, MEJIA R, PEREZ-STABLE E J. An empirical 
+analysis of cigarette demand in Argentina[J]. Tobacco Control, 
+2015, 24(1): 89-93. 
+[2] 
+康静，姚春玲. Prophet-VAR 组合优化模型在高值卷烟销量预测
+中的应用[J]. 中国烟草学报，2023, 29(1): 127-134. 
+KANG Jing, YAO Chunling. Application of Prophet-VAR 
+combined optimization model in predicting sales of high-priced 
+cigarettes[J]. Acta Tabacaria Sinica, 2023, 29(1): 127-134.  
+[3] 
+齐志成. 基于BP 神经网络模型的商洛市卷烟需求预测[J]. 湖南
+农业科学，2017, (1): 86-89. 
+QI Zhicheng. Cigarette demand forecasting based on BP neural 
+network model in Shangluo[J]. Hunan Agricultural Sciences, 2017, 
+(1): 86-89. 
+[4] 
+武牧，林慧苹，李素科，等. 一种基于支持向量机的卷烟销量
+预测方法[J]. 烟草科技，2016, 49(2): 87-91. 
+WU Mu, LIN Huiping, LI Suke, et al. An SVM-based method for 
+predicting cigarette sales volume[J]. Tobacco Science & 
+Technology, 2016, 49(2): 87-91. 
+
+
+===== PAGE 8 =====
+
+中国烟草学报 Acta Tabacaria Sinica 2026 Vol.32 No.3 
+ 
+ 
+140
+[5] 
+邓超，刘颂，王露笛，等. 基于深度神经网络的卷烟智能投放
+模型构建方法[J]. 烟草科技，2021, 54(02): 78-83. 
+DENG Chao, LIU Song, WANG Ludi, et al. Modeling for 
+intelligent cigarette release based on deep neural network[J]. 
+Tobacco Science & Technology, 2021,54(02): 78-83. 
+[6] 
+吴明山，王冰，起亚宁，等. 卷烟销量组合预测模型研究[J]. 中
+国烟草学报，2019, 25(3): 84-91. 
+WU Mingshan, WANG Bing, QI Yaning, et al. Research on 
+combined forecasting model for cigarette sales volume[J]. Acta 
+Tabacaria Sinica, 2019, 25(3): 84-91. 
+[7] 
+蒋兴恒. 基于分解集成思想的复杂卷烟销量时间序列预测模型
+研究[J]. 中国烟草学报，2025, 31(5): 138-145. 
+JIANG Xingheng. Research on time series prediction model of 
+complex cigarette sales based on decomposition ensemble idea[J]. 
+Acta Tabacaria Sinica, 2025, 31(5): 138-145. 
+[8] 
+赵旻，张丹枫，曾中良，等. 基于组合模型的云南省卷烟需求
+预测与结果评价研究[J]. 中国烟草学报，2019, 25(1): 93-98. 
+ZHAO Min, ZHANG Danfeng, ZENG Zhongliang, et al. 
+Prediction of cigarette demand in Yunnan province based on 
+combination model and criteria of result evaluation[J]. Acta 
+Tabacaria Sinica, 2019, 25(1): 93-98 
+[9] 
+ZENG A, CHEN M, ZHANG L, et al. Are transformers effective 
+for time series forecasting[C]//Proceedings of the AAAI 
+Conference on Artificial Intelligence. Association for the 
+Advancement of Artificial Intelligence (AAAI), 2023, 37(9): 
+11121-11128. 
+[10] 
+WEI J, WANG X, SCHUURMANS D, et al. Chain-of-thought 
+prompting elicits reasoning in large language models[J]. Advances 
+in neural information processing systems, 2022, 35: 24824-24837. 
+[11] 
+FU D, ZHANG H T, DUTTA A, et a1．A cooperative distributed 
+model predictive control approach to supply chain management[J]. 
+IEEE Transactions on Systems, Man, and Cybernetics: Systems, 
+2019, 50(12): 4894-4904.  
+ 
+Research on the construction and application of an MLP-dominated cigarette sales forecasting 
+model 
+CUI Jianhua, CHEN Hao, LIU Dongrong* 
+Zhejiang Tobacco Monopoly Administration, Hangzhou 310001, China 
+Abstract: Cigarette market sales exhibit strong cyclical, seasonal, and strategic characteristics, making it difficult for traditional forecasting 
+models to capture the impact of key non-market factors such as policy directives, supply plans, delivery rhythms, inventory balance, and 
+monopoly regulations. To address this, this paper combines a Multi-Layer Perceptron (MLP) with a Large Language Model (LLM) and 
+proposes a combined forecasting model for cigarette sales characterized by “MLP dominance and LLM assistance”. In this framework, the 
+MLP excels at modeling natural data patterns, while the LLM provides capabilities for multi-source information understanding and 
+reasoning. Based on this forecasting model, the study further applies it to cigarette inventory transfer strategies and proposes a dynamic 
+optimal control method for cigarette logistics supply chain inventory based on hierarchical Distributed Model Predictive Control (DMPC). 
+Using real historical data from Province Z covering the 18-month period from January 2022 to June 2023, the sales forecasting and 
+inventory control are evaluated. Results show that the proposed forecasting model achieves a mean relative prediction error of 3.5% for 
+fast-selling stock-keeping units, significantly outperforming ARIMA (20.0%) and the RBF neural network (8.3%). Furthermore, the 
+proposed inventory control method outperforms the traditional inventory-to-sales ratio approach across three cigarette inventory transfer 
+indicators (average inventory, number of transport trips, and standard deviation of inbound volume) in a front warehouse of a 
+prefecture-level city during different periods, achieving average reductions of 24.21%, 36.84%, and 9.93%, respectively. 
+Keywords: cigarette logistics; sales forecasting; inventory control; Multi-Layer Perceptron; Large Language Model; model predictive 
+control 
+ 
+*Corresponding author. Email：liudr@zjyc.cn 

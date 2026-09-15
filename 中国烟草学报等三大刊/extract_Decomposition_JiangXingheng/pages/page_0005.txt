@@ -1,0 +1,23 @@
+142 中国烟草学报 Acta Tabacaria Sinica 2025 Vol.31 No.5
+图 5 黄山品牌本征模态函数分量 1-7
+Fig.5 Intrinsic mode function components 1-7 of huangshan brand
+图 5 显示，本征模态函数（IMF）各分量揭示了 0.0019，验证了分解的精确性。该方法实现了将复杂
+黄山品牌销量变化的多时间尺度特征。IMF1 呈现约 数据分解为具有独立动态特性的 IMF 分量和趋势项。
+2.5 年的周期性波动，可能与市场需求或宏观经济因素 2.2.3 模态分量预测
+相关；IMF2 显示约 2 年的震荡模式，反映市场中期动 在时间序列分析领域，通常基于一定的数据假设，
+态；IMF3 表现出 1 年左右的短期波动，或与促销活动 其中最常见的是数据的平稳性和线性关系。基于前文
+等短期因素有关；IMF4 的 2 年变率与 IMF2 的中期动 介绍的分析方法，首先，判断本征模态函数分量数据
+态相呼应；IMF5 揭示约 5 年的长周期波动，或源于行 的平稳性及是否为线性序列。其次，针对数据的不同
+业技术革新；IMF6 呈现 9 年超长周期，反映宏观经济 特征，采取相应的预测方法。平稳且线性的分量采用
+环境周期性；IMF7 作为趋势项，表明销量保持稳健增 ARIMA 预测模型，其它分量经平稳处理后使用门限
+长态势。 回归或 LM-BP 神经网络等模型分析预测。
+采用 EEMD 方法将黄山品牌销量序列分解为多 综合上述分析，黄山、中华和云烟品牌销量的数
+个 IMF 分量，各分量累加值与原始序列的最大差值仅 据特征如表 2 所示。
+表 2 黄山、中华和云烟品牌销量 EEMD 最优分解参数、IMF 分量及其预测方法
+Tab.2 Optimal decomposition parameters, imf components and prediction methods of eemd for huangshan, chunghwa and yunyan brand sales
+IMF
+品牌 Nstd NE IMF 分量预测模型组合
+分量数
+黄山 0.45 150 7 ARIMA(2,1,1)+ SETAR+ SETAR+ ARMA(3,2)+ ARMA(4,3)+ ARMA(4,1)+ AR(2 )
+中华 0.50 150 7 SETAR+ SETAR+ SETAR+ AR(4)+ ARMA(4,1)+ ARMA(3,2)+ AR(3)
+云烟 0.45 150 7 SETAR+ SETAR+ SETAR+ ARMA(4,1)+ AR(5)+ AR(4)+ AR(2)

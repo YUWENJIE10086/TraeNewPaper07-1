@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "checks": {
+    "unique_product_month": true,
+    "covariates_exactly_23": true,
+    "all_effects_finite": true,
+    "interval_order": true,
+    "psm_balance_improved": true,
+    "figures_complete": true,
+    "paper_has_8_figures": true,
+    "paper_has_21_tables": true,
+    "paper_has_no_nan_cells": true,
+    "no_old_claim_7647": true
+  },
+  "critical_interpretation": {
+    "ate_significant": true,
+    "backtest_baseline_balanced": false,
+    "allowed_claim": "平均效应显著为正；处理组内回溯分组仍存在基线差异，改善率差异仅作排序复核证据，不作无偏部署增益解释。"
+  }
+}

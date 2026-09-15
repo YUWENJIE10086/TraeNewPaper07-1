@@ -1,0 +1,602 @@
+
+===== PAGE 1 =====
+
+中国烟草学报 
+Acta Tabacaria Sinica 
+ISSN 1004-5708,CN 11-2985/TS 
+ 
+ 
+ 
+ 
+《中国烟草学报》网络首发论文 
+ 
+题目： 
+基于 Louvain 算法对大户控制小户套购卷烟异常关联网络分析 
+作者： 
+陈秉恒，陈星融，吴洵洵，张鹏宇，刘荣，陈杜勇，邓雄源，余栋柱 
+收稿日期： 
+2025-11-12 
+网络首发日期： 
+2026-04-16 
+引用格式： 
+陈秉恒，陈星融，吴洵洵，张鹏宇，刘荣，陈杜勇，邓雄源，余栋柱．基于 Louvain 
+算法对大户控制小户套购卷烟异常关联网络分析[J/OL]．中国烟草学报. 
+https://link.cnki.net/urlid/11.2985.ts.20260415.1504.002 
+ 
+ 
+ 
+ 
+ 
+ 
+网络首发：在编辑部工作流程中，稿件从录用到出版要经历录用定稿、排版定稿、整期汇编定稿等阶
+段。录用定稿指内容已经确定，且通过同行评议、主编终审同意刊用的稿件。排版定稿指录用定稿按照期
+刊特定版式（包括网络呈现版式）排版后的稿件，可暂不确定出版年、卷、期和页码。整期汇编定稿指出
+版年、卷、期、页码均已确定的印刷或数字出版的整期汇编稿件。录用定稿网络首发稿件内容必须符合《出
+版管理条例》和《期刊出版管理规定》的有关规定；学术研究成果具有创新性、科学性和先进性，符合编
+辑部对刊文的录用要求，不存在学术不端行为及其他侵权行为；稿件内容应基本符合国家有关书刊编辑、
+出版的技术标准，正确使用和统一规范语言文字、符号、数字、外文字母、法定计量单位及地图标注等。
+为确保录用定稿网络首发的严肃性，录用定稿一经发布，不得修改论文题目、作者、机构名称和学术内容，
+只可基于编辑规范进行少量文字的修改。 
+出版确认：纸质期刊编辑部通过与《中国学术期刊（光盘版）》电子杂志社有限公司签约，在《中国
+学术期刊（网络版）》出版传播平台上创办与纸质期刊内容一致的网络版，以单篇或整期出版形式，在印刷
+出版之前刊发论文的录用定稿、排版定稿、整期汇编定稿。因为《中国学术期刊（网络版）》是国家新闻出
+版广电总局批准的网络连续型出版物（ISSN 2096-4188，CN 11-6037/Z），所以签约期刊的网络版上网络首
+发论文视为正式出版。 
+ 
+
+
+===== PAGE 2 =====
+
+中国烟草学报 
+ 
+基于 Louvain 算法对大户控制小户套购卷烟异常关联网
+络分析  
+陈秉恒1，陈星融1，吴洵洵1，张鹏宇1，刘荣1，陈杜勇2，邓雄源3， 
+余栋柱4 
+(1 中国烟草总公司广东省公司，广州市天河区林和东路128 号 510610；2 广东烟草东莞市有限公司，东莞市南城街道东骏路22 号 
+523000； 3 广东烟草阳江市有限公司，阳江市江城区西平北路363 号529500； 4 广东烟草广州市有限公司，广州市天河区林和西横路
+路186 号 510000) 
+通信作者  陈星融（1981—），硕士研究生，主要从事内部专卖管理监督数字化、卷烟消费者行为研究，Tel：020-35668103，
+Email：chenxingrong@gd.tobacco.gov.cn 
+摘要  【背景和目的】大户控制小户套购卷烟，关系到烟草专卖专营渠道管理，是烟草专卖监管研究的重点方向之
+一。本研究引入社会网络分析，旨在从异常关联网络中精准定位套购团伙及其关键主体，为从结构上打击地下违法卷
+烟交易网络提供新视角。【方法】以零售户使用相同ID 订货为基础构建零售户异常关联网络，采用Louvain 算法开展
+社团检测，并结合网络拓扑结构与社团属性，以识别关联网络中的核心节点、中介节点及潜在团伙。【结果】通过历
+史涉案数据对比验证分析，两类节点的涉案率分别达14.3%和20.7%，显著高于随机节点。节点移除实验表明，核心
+节点移除可使社团密度最大降低36.53%；中介节点移除导致社团最多碎裂为12 个孤立子图。【结论】实验证明，本
+研究提出的通过Louvain 分析算法，能有效揭示和瓦解大户控制小户套购卷烟网络结构，为烟草专卖监督提供了高
+效、可量化的理论和技术支持。  
+关键词  套购卷烟；社会网络分析；Louvain 算法；社团检测；关键节点识别  
+Abnormal association network Analysis of manipulated trading accounts in 
+cigarette based on the Louvain Algorithm 
+CHEN Bingheng1，CHEN Xingrong1，WU Xunxun1，ZHANG Pengyu1，LIU Rong1，CHEN Duyong2，DENG Xiongyuan3，
+YU Dongzhu4 
+1 Guangdong Company of CNTC, Guangzhou 510610, China; 
+2 Guangdong Tobacco Dongguan Co.,Ltd.,Dongguan 523000, China; 
+3 Guangdong Tobacco Yangjiang City Co.,Ltd.,Yangjiang 529500, China;  
+4 Guangdong Tobacco Guangzhou Co.,Ltd., Guangzhou 510000, China 
+Abstract  [Background] The manipulation of small retailers by large retailers to scalp cigarettes is closely related to the 
+management of tobacco monopoly and exclusive distribution channels, and it is one of the key research directions in tobacco 
+monopoly supervision. This study introduces social network analysis, aiming to accurately locate cigarette scalping syndicates 
+and their key entities from abnormal association networks, and provide a new perspective for structurally combating 
+underground illegal cigarette trading networks. [Methods] An abnormal association network of retailers was constructed based 
+on retailers using the same ID for cigarette ordering. The Louvain algorithm was employed to conduct community detection. 
+By integrating network topology and community attributes, core nodes, betweenness nodes, and potential gangs within the 
+association network were identified. [Results] Through comparative verification and analysis of historical case-related data, the 
+case involvement rates of the two types of nodes reached 14.3% and 20.7% respectively, which were significantly higher than 
+those of randomly selected nodes. The node removal experiments demonstrated that removal of core nodes could reduce the 
+                                                        
+收稿日期：2025-11-12 
+基金项目：广东烟草内部专卖管理监督智能化升级及实践(2023440000200123) 
+作者简介：陈秉恒（1967—），研究方向为专卖监督管理，Tel：020-35668007，Email：gdtc-zmng@gd.tobacco.gov.cn 
+网络首发时间： 
+ 
+ 
+ 
+  网络首发地址：                                       
+ 
+2026-04-16 15:15:58
+https://link.cnki.net/urlid/11.2985.ts.20260415.1504.002
+
+
+===== PAGE 3 =====
+
+2 
+中国烟草学报 
+ 
+community density by a maximum of 36.53%; the removal of betweenness nodes led to the fragmentation of the community 
+into a maximum of 12 isolated subgraphs. [Conclusion] Experiments confirm that the method based on the Louvain analysis 
+algorithm proposed in this study can effectively reveal and disrupt the network structure where large retailers control small 
+retailers to scalp cigarettes, providing efficient and quantifiable theoretical and technical support for tobacco monopoly 
+supervision. 
+Key words  manipulated trading accounts; social network analysis; louvain algorithm; community detection; key node 
+identification 
+0 引言 
+近年来，随着信息技术发展和网络订货系统的广泛应用，烟草专卖市场监管面临新的挑战，其中
+大户控制小户套购卷烟成为当前烟草专卖监管的突出难点。该行为通常表现为具备资金、渠道或规模
+优势的零售大户（控制方），通过支配、引导或利用合作关系等隐性手段，操纵中小零售户（被控制
+方）使用其订货账号或设备集中订货，违反《烟草专卖法实施条例》中“零售户应在当地烟草批发企
+业进货”的规定。其核心目的是套取卷烟货源，进而实施二次批发、非法调剂或操纵市场价格等违规
+操作。该类行为不仅造成市场供需信号失真、价格秩序混乱，而且直接侵害中小零售户公平竞争权，
+更重要的是破坏专卖专营渠道管理，动摇烟草专卖制度运行基础[1][2]。 
+当前套购卷烟行为呈现出“专业化、组织化、跨地区、网络化”等特征[3]，违法团伙通过设备共
+用、账号轮换、信息共享等方式形成隐蔽的“地下网络”，实现跨区域协作与利益输送。受执法权限与
+数据来源限制，烟草专卖监管部门难以直接获取资金流、通讯记录等关键证据，依赖人工筛查和经验
+判断的传统监管模式难以有效应对。目前大部分单位已建立相同IP 或ID 的订单预警机制[4]，但如何
+深挖数据价值[5]，识别复杂的网络结构及其关联关系仍面临一定的挑战。在此背景下，行业亟需一种
+能够揭示隐性网络结构、识别关键节点的智能化分析方法，以提升监管精准度与主动性。 
+社会网络分析（Social Network Analysis，SNA）[6-8]通过将个体及其关系抽象为网络结构，能够
+从整体层面揭示系统中的组织形态和关键节点，已广泛应用于有组织犯罪侦查、洗钱防控和电信诈骗
+治理等领域。马方（2012）[9]的研究表明，SNA 能够有效识别犯罪网络的层级结构与核心成员，为组
+织解构提供理论依据；谢秦川（2014）[10]基于图聚类算法挖掘犯罪团伙内部关系，为执法部门提供了
+可操作的犯罪线索；牛惊雷和王艳红（2020）[11]进一步指出，SNA 可整合结构化与非结构化数据，
+识别洗钱组织的演变路径和行为模式这些研究为复杂网络下的群体识别提供了借鉴，但多集中于公
+安、海关等领域。相比之下，烟草行业关于套购卷烟行为的研究仍主要停留在交易频次、单一异常特
+征等统计预警层面，缺乏对网络结构特征、节点角色及协作机制的系统性认知，难以形成面向监管实
+务的技术体系。 
+针对上述大户控制小户套购卷烟行为隐蔽性强、关联复杂、定位难等现实痛点，本文从网络化视
+角对套购卷烟行为的组织形态进行刻画，构建基于相同订货ID 的零售户异常关联网络，识别潜在协
+作社团及其关键节点，实现了对“大户控制小户”套购行为的结构化分析。该方法突破了传统基于单一
+异常特征的预警模式，为烟草专卖监管中异常行为的精准识别和精细化研判提供了一种可量化、可扩
+展的技术路径。不仅为精准识别大户控制网络、摧毁地下违法链条提供了技术支撑，也为行业构建智
+能化、体系化的真烟流通监管模式提供了理论参考与实践价值。 
+1 研究思路 
+正常经营情形下，零售客户独立行使订货权，与其他零售客户长期或频繁共用订货ID 的情况较
+为少见。因此，稳定存在的相同订货ID 订货行为可视为具有指向性的异常特征。基于该特征构建零
+售客户异常关联网络，有助于刻画零售客户之间潜在的异常协作关系，为识别套购卷烟行为的组织结
+构提供基础。 
+基于此，本文首先以零售户相同订货ID 行为构建异常关联网络，将异常订货现象转化为可分析
+的网络结构；其次，采用Louvain 算法对网络进行社团划分，识别潜在的套购协作社团；进一步结合
+
+
+===== PAGE 4 =====
+
+陈秉恒等  基于 Louvain 算法对大户控制小户套购卷烟异常关联网络分析  
+3 
+ 
+网络拓扑特征，利用加权度和社团参与度识别社团核心节点，通过中介中心度和跨社团连接特征挖掘
+中介节点；最后，通过历史涉案数据关联分析、节点移除实验和可视化分析，对关键节点识别结果及
+方法整体有效性进行验证。 
+2 研究方法 
+2.1 基于相同订货ID 构建零售户异常关联网络 
+（1）节点集构建：网络节点集合V由持有效烟草专卖零售许可证的零售户构成，每个节点vi通过
+唯一的烟草专卖零售许可证编码lic作为标识，即V={vi|lic∈合法许可证集合}。 
+（2）边集合构建：网络中的边集合E基于不同零售户使用相同ID 设备进行网上订货生成，即当且
+仅当2 个零售户节点vi与vj之间，存在至少一次相同ID 订货时，节点间存在无向边eij∈E。 
+（3）边权重设计：边权重定义为不同零售户与同一ID 的交互频次乘积总和，即wij= ∑节点
+q
+vi和节点vj使用订货IDq 的频次的乘积，规避了订货时间不同步的约束，同时通过多个相
+同ID 交互的累积效应与数值差异，量化节点间的关联强度，其中，高频共用同一或多个ID 的零售户
+之间会被赋予更高权重。 
+（4）邻接矩阵：网络的矩阵化表示为N×N的邻接矩阵A=[aij]，其中N=|V|为零售户异常关联网
+络中的节点总数。矩阵元素定义为： 
+ 
+aij= {
+wij,&i≠j 且eij∈E;
+0,&否则。
+ 
+（1） 
+其中，非对角线元素为0 时，表示两个零售户间未发生过相同ID 订货行为；不为0 时，则代表
+两个零售户间通过相同订货ID 形成的关联强度，数值大小直接反映二者关联的紧密程度。 
+（5）白名单及孤立点剔除：为提升网络对异常关联的表征精度，剔除如大型国有企业连锁零售店
+等纳入白名单的客户，以及无任何共享ID 行为的节点，降低网络冗余，使网络更加聚焦。 
+（6）网络构建：异常关联网络表示为G=(V,E)，其中V={v1,v2,…,vN}为网络中的节点集，N
+为节点数，E={eij|vi,vj∈V}为网络的边集合。 
+表1 异常关联网络符号定义表 
+Tab.1 Abnormal association network Symbol Definition 
+符号类别 
+符号表示 
+定义 
+网络结构 
+𝐺= (𝑉, 𝐸) 
+复杂网络或图 
+𝑉= {𝑣1, 𝑣2, … , 𝑣𝑁} 
+网络的节点集合 
+𝐸= {𝑒𝑖𝑗|𝑣𝑖, 𝑣𝑗∈𝑉} 
+网络的边集合 
+𝑤𝑖𝑗 
+节点𝑣𝑖和节点𝑣𝑗连边的权重 
+𝐴= [𝑎𝑖𝑗]𝑁×𝑁 
+网络𝐺的邻接矩阵 
+社团结构 
+𝑐𝑖 
+节点𝑣𝑖所属的社团 
+𝑄 
+模块度（Modularity） 
+𝑚 
+网络中所有边的权重之和 
+𝛥𝑄 
+模块度变化量 
+节点指标 
+𝑘𝑖 
+加权度，即节点𝑣𝑖在网络中所有连边权重的总和 
+𝐴𝑓𝑓(𝑣𝑖, 𝑐𝑖) 
+社团参与度，即节点𝑣𝑖与社团𝑐𝑖内节点的连接权重占比 
+𝐵𝐶(𝑣𝑖) 
+中介中心度，即经过节点𝑣𝑖的最短路径数占所有最短路径数的比例 
+𝐶𝑟𝑜𝑠𝑠𝐶𝑜𝑚𝑚(𝑣𝑖) 
+节点𝑣𝑖连接的社团个数 
+
+
+===== PAGE 5 =====
+
+4 
+中国烟草学报 
+ 
+2.2 基于Louvain 算法的潜在套购卷烟协作团伙识别 
+本研究采用基于模块度优化的Louvain 算法进行社团检测[12]。Louvain 算法适用于加权网络，能
+够高效处理大规模数据，自动发现网络中内部连接紧密、外部连接稀疏的社团结构，从而为团伙识别
+提供量化依据。 
+在零售户订货异常关联网络中，每个社团可对应一个潜在的非法收购倒卖卷烟团伙：社团内部节
+点共享订货ID 频繁，表明团伙成员间存在高频协作；而社团间节点共享ID 关联强度较低，则显示不
+同团伙之间联系有限。社团结构紧密程度通过模块度Q（Modularity）衡量，其定义为： 
+ 
+Q=
+1
+2m ∑[aij-
+kikj
+2m] δ(ci,cj)
+ij
+， 
+（2） 
+其中，aij为节点vi与vj使用相同订货ID 的关联强度；ki= ∑aij
+j
+为节点vi的加权度，反映节点在
+网络中的总关联强度；m=
+1
+2 ∑aij
+ij
+为网络中所有边权重总和；ci表示节点vi所属社团；δ(ci,cj)为指
+示函数，当ci=cj时为1，表示社团内部连接，否则为0。模块度Q越大表示社团内部关联越紧密，对
+应团伙内部成员协作越频繁，便于识别潜在套购卷烟协作团伙。 
+Louvain 算法通过3 个阶段实现模块度最大化，其伪代码如算法1 所示： 
+（1）初始阶段：将网络中每个节点视为独立社团，每个社团仅含一个节点； 
+（2）局部移动阶段：遍历每个节点，计算其移动到相邻社团后模块度变化量ΔQ： 
+ 
+ΔQ=
+∑in+ki,in
+2m
++ (
+∑tot+ki
+2m )
+2
+−[
+∑in
+2m - (
+∑tot
+2m )
+2
+- (
+ki
+2m)
+2
+]， 
+(3) 
+其中，∑in为目标社团内部连接权重之和，∑tot是目标社团的所有连边权重之和，包括社团内
+部与外部连接，ki,in为节点vi和目标社团之间连接权重之和，ki为节点vi的所有连接权重之和，即它
+的加权度。选择使ΔQ最大的移动方式；如果最大ΔQ小于0，则节点保持原社团；否则移动至对应社
+团。 
+（3）全局聚合阶段：将上一阶段形成的社团视为新节点，构建新网络，边权为原社团间节点所有
+边权之和，重复局部移动阶段直至模块度不再显著增加或达到最大迭代次数。 
+算法1：基于Louvain 的非法收购倒卖卷烟团伙识别算法 
+1 
+输入：网络邻接矩阵A，最大迭代次数maxGen，终止参数ϵ。 
+2 
+3 
+4 
+5 
+6 
+7 
+8 
+9 
+10 
+初始化每个节点的社团标签 
+Repeat 
+对网络中的每个节点vi DO 
+遍历其邻居节点Neigh(vi) 
+根据公式（3）计算将节点vi移动到其他社团的模块度增益 
+将节点vi移动到模块度增益最大的社团 
+Until ΔQ不再增加 
+合并同一社团内的节点 
+Until 迭代次数>maxGen or ΔQ<ϵ 
+11 
+输出：网络中所有节点的社团c。 
+Louvain 高效且可扩展，适用于大规模零售户网络，可以实现对潜在非法团伙的快速识别与定
+位。通过应用Louvain 算法，零售户异常订货关联网络可被划分为若干内部连接紧密的社团，为关键
+节点定位、线索挖掘以及监管精准打击提供了量化支撑。 
+3 实验 
+本章从数据集构建、关键节点识别、涉案数据关联分析、关键节点移除效应分析4 个方面展开，
+验证精准识别关键节点在卷烟监管中的理论和实践价值。 
+3.1 数据集构建与网络特征分析 
+本研究基于2021 年1 月至2025 年7 月的GD 烟草零售户历史订货信息，构建无向加权异常关联
+
+
+===== PAGE 6 =====
+
+陈秉恒等  基于 Louvain 算法对大户控制小户套购卷烟异常关联网络分析  
+5 
+ 
+网络。原始网络如表2 所示，含236,388 个节点和10,195,336 条边，但多数为小规模连通分量，对异
+常识别价值有限。故提取最大连通分量（LCC）分析，其含171,428 个节点和9,934,372 条边，代表网
+络核心活跃结构。如表3 所示：LCC 的平均加权度123.37，最大加权度达6480，平均中介中心度为
+1.73×10-5，呈现明显的“权重集中”现象，即少数节点承担大量订货共享链接。这表明网络具有度异
+质性和层级化特点，为后续关键节点识别提供了理论支撑。 
+表2 原始网络统计信息 
+Tab.2 Statistical information of Original network 
+节点 
+边 
+总权重 
+联通分量数量 
+小规模联通分量占比（节点个数<100） 
+236388 
+10195336 
+11138513 
+20926 
+99.99% 
+表3 异常关联网络（最大联通分量）统计信息 
+Tab.3 Statistical information of Largest connected component 
+节点 
+边 
+总权重 
+平均加权度 
+最大加权度 
+平均中介中心度 
+ 171428 
+9934372 
+10574459 
+123.37 
+6480 
+1.73×10-5 
+3.2 基于网络拓扑结构和社团结构的关键节点分析 
+采用Louvain 算法对LCC 进行社团划分，共识别出485 个社团，其中最大社团规模为4308，平
+均规模为353.46。大规模社团往往代表长期稳定的异常协作群体，而小社团则可能是短期临时性协作
+团伙。 
+3.2.1 社团核心节点提取 
+在划分的社团结构中，节点加权度反映节点在网络中的总关联强度，定义为ki= ∑aij
+j
+；社团参
+与度衡量节点在所属社团内部的连接集中程度，定义为：Aff(vi,ci)=
+∑
+aij
+j∈ci,j≠i
+ki
+。加权度较高且社团
+参与度较大的节点通常位于社团内部的连接密集区，可能承担组织资源整合和信息流转的核心功能。 
+ 
+图1 节点加权度与社团参与度相关性散点图 
+Fig.1 Scatter plot of the correlation between node weighted degree and community affiliation 
+图1 显示节点加权度与社团参与度呈现“低度分散、高度集中”趋势：低加权度节点在社团参与上
+差异显著，而高加权度节点聚集在社团深处，反映这些节点可能为组织化套购网络的“核心中枢”。此
+类零售户在社团结构中承担核心角色，可能通过高频交互、资源整合等方式强化与社团的关联，需重
+点关注。结合加权度与社团参与度进行核心节点提取，选取全局1%高权重节点，同时保证节点社团
+参与度＞0.9 且加权度超过社团均值。 
+
+
+===== PAGE 7 =====
+
+6 
+中国烟草学报 
+ 
+表4 核心节点社团分布Top6情况统计 
+Tab.4 Statistical analysis of top6 community distribution of core nodes 
+社团编号 
+核心节点数 
+社团规模 
+核心节点密度（%） 
+6 
+1031 
+2793 
+36.91 
+158 
+182 
+1419 
+12.83 
+17 
+159 
+1192 
+13.34 
+16 
+137 
+1226 
+11.17 
+40 
+84 
+2385 
+3.52 
+50 
+54 
+1625 
+3.32 
+表4 显示，61.7%的核心节点集中于社团6，其核心节点密度高达36.9%。该社团内部连接封闭、
+节点间协作频繁，推测其为典型的区域性控制团伙。此外，社团158、17、16 的核心节点密度在
+11%~13%之间，构成“次核心群体”，可能是尚未完全形成中心化控制但已具规模的潜在高风险团伙。 
+3.2.2 中介节点提取 
+跨多个社团的中介节点在非法关联网络中承担信息或资源传递的桥梁，维持多个社团间的协作链
+条。通过联合中介中心度BC(vi)= ∑
+countpq(i)
+countpq
+p≠i≠q
+和跨社团个数CrossComm(vi)=|label(vj)|vj
+∈Neigh(i)|两项指标，提取全局前1%的节点进行分析。 
+ 
+图2 中介中心度与跨社团个数相关性散点图 
+Fig.2 Scatter plot of the correlation between betweenness centrality and community number 
+图2 结果表明，当中介中心度增加时，节点的跨社团连接数总体呈现递减趋势，社团关联范围逐
+渐收缩，集中于少数几个社团。这说明部分节点在多社团协作中承担“跨域连接枢纽”功能，而极高中
+介中心度节点则趋于在少数关键社团间维系高频交互，可能涉及跨团伙非法收购倒卖卷烟操作。 
+表5 中介节点社团分布Top6情况统计 
+Tab.5 Statistical analysis of top6 community distribution of bridge nodes 
+社团编号 
+中介节点数 
+社团规模 
+中介节点密度（%） 
+6 
+202 
+2793 
+7.23 
+16 
+57 
+1226 
+4.65 
+17 
+44 
+1192 
+3.69 
+40 
+86 
+2385 
+3.61 
+158 
+47 
+1419 
+3.31 
+29 
+94 
+2898 
+3.24 
+表5 展示了中介节点在社团分布的top6 情况。中介节点密度反映社团桥梁型节点占比，密度越
+高，说明社团内信息流转越依赖少数中介节点，易形成隐蔽的协作网络。其中，社团6 的中介节点数
+和密度均巨首位，属于高中介节点密度的社团，少数中介节点控制大量流传链条，承担资源集散角
+
+
+===== PAGE 8 =====
+
+陈秉恒等  基于 Louvain 算法对大户控制小户套购卷烟异常关联网络分析  
+7 
+ 
+色，降低了散户直接暴露的风险。社团16、17、40、158、29 社团规模中等，中介密度在3%~5%之
+间，易形成紧密型异常联系，需警惕其进一步发展。 
+3.3 关键节点与涉案数据的关联分析 
+为检验关键节点识别结果的有效性，将提取的核心节点与中介节点分别与2021 年1 月至2025 年
+7 月间GD 省真烟异常流动涉案数据进行关联分析（共9382 起案件，涉及零售户27783 个）。 
+ 
+图3 关键节点涉案情况对比 
+Fig.3 Comparison of case-involved situations of key nodes 
+图3 显示随机节点的涉案率为7.0%±0.6%，而核心节点涉案率达14.3%（p<0.05），为随机节点
+的约2 倍；中介节点涉案率高达20.7%（p<0.01），为随机节点的近3 倍。这一显著差异说明：核心
+节点的高涉案率证明算法能精准锁定网络内部主导者；中介节点的高涉案率则揭示了跨社团协作机
+制，是破坏非法网络扩散路径的关键切入点。这为精准打击套购倒卖卷烟网络及团伙提供数据参考。 
+3.4 关键节点移除分析与网络稳定性分析 
+为进一步验证核心节点与中介节点在维持社团结构稳定性中的关键作用，本节选取关键节点密度
+较高的典型社团，通过模拟移除关键节点的实验，分析其对社团拓扑结构的破坏效应。 
+
+
+===== PAGE 9 =====
+
+8 
+中国烟草学报 
+ 
+3.4.1 核心节点移除实验结果对比 
+ 
+图4 移除核心节点网络破坏性分析 
+Fig.4 Analysis of network destructiveness after core node removal 
+图4 显示，移除社团中的核心节点后，社团密度、加权密度、平均度及加权平均度均出现显著下
+降。其中，社团6 各指标分别下降36.53%、52.35%、62.39%、71.76%，降幅最为剧烈。同时，该社
+团连通子图数量由1 个增至8 个，网络从整体结构瓦解为多个孤立团块。这一结果说明核心节点在维
+系社团“内部凝聚力”中起到决定性作用，移除后导致网络结构出现“断层式坍塌”，难以恢复。 
+   
+ 
+（a）社团密度变化直方图            （b）社团加权密度变化直方图 
+   
+ 
+（c）社团平均度变化直方图            （d）社团加权平均度变化直方图 
+ 
+（e）社团联通子图变化直方图 
+
+
+===== PAGE 10 =====
+
+陈秉恒等  基于 Louvain 算法对大户控制小户套购卷烟异常关联网络分析  
+9 
+ 
+3.4.2 中介节点移除实验结果对比 
+ 
+图5 移除中介节点网络破坏性分析 
+Fig.5 Analysis of network destructiveness after bridge node removal 
+图5 显示，移除中介节点后，社团间的连接广度与交互强度显著削弱。其中，社团29 的平均度、
+加权平均度、密度分别下降12.47%、7.95%、9.24%；社团40 的连通子图数增加至12 个，形成碎片
+化结构。这一结果说明中介节点移除主要削弱社团间的跨区域协作，使网络整体连通性崩解。而核心
+节点移除主要破坏社团内部结构，导致团伙瓦解。两者在作用层面互补，共同揭示了“精准打击关键
+节点即可瓦解非法网络”的系统性机理。 
+   
+ 
+（a）社团平均度变化直方图           （b）社团加权平均度变化直方图 
+   
+ 
+（c）社团密度变化直方图           （d）社团联通子图变化直方图 
+
+
+===== PAGE 11 =====
+
+10 
+中国烟草学报 
+ 
+3.4.3 可视化分析与监管启示 
+ 
+图6 移除关键节点可视化分析 
+Fig.6 Visual analysis of key node removal 
+为进一步直观呈现移除关键节点对社团结构的破坏性，以社团6 为例开展可视化分析。图6 中同
+一颜色表示节点之间互相连通，可以明显看出，在移除核心节点和中介节点后，社团6 由原本的连通
+结构分裂为多个相对独立的子图。同时从结构形态上可以观察到，原始社团6 呈现出高度连通、内部
+关系紧密，在对核心节点与中介节点实施打击后，整体的连边减少，网络的活跃度也随之降低。该可
+视化结果与前述基于社团密度、社团平均度及连通子图数量等定量指标的分析结论保持一致，进一步
+验证核心节点与中介节点在维系套购卷烟异常关联网络稳定性与协作结构中的关键作用，能为烟草专
+卖监管实际执法的精准打击和瓦解团伙提供技术支撑。 
+4 结论 
+本研究针对“大户控制小户”套购卷烟行为隐蔽性强、监管识别难的问题，基于复杂网络理论构建
+零售户异常关联网络，利用Louvain 算法实现社团检测与关键节点识别，从网络结构视角揭示了潜在
+非法收购倒卖卷烟团伙的组织特征。研究结果表明，该方法能够在真实业务数据中高效识别高风险节
+点。比如：识别出的核心节点与中介节点的历史涉案率分别达到14.3%和20.7%，显著高于随机节
+点，验证了所提方法在高风险主体识别方面的准确性与有效性；关键节点移除实验显示，核心节点移
+除可使社团密度下降36.53%，中介节点移除导致社团碎裂为最多12 个孤立子图，表明该方法能有效
+破坏非法网络的结构稳定性。相较于传统依赖人工排查、经验判断的监管手段，本研究通过构建数据
+驱动的网络分析框架，实现了异常行为的结构化识别和精确定位，为烟草专卖监管提供了可量化、可
+扩展的技术路径。 
+未来本研究可从三方面进一步深化：其一，构建动态网络模型，跟踪非法收购倒卖卷烟网络的拓
+扑演变规律，实现对违法行为的实时监测与预警；其二，融合政府、公安、物流等多源数据，提升潜
+在风险节点识别的精度与覆盖面；其三，聚焦核心节点、中介节点的角色转化路径与驱动因素，为制
+定监管干预策略提供更精细的理论支撑。总体而言，本研究为烟草市场数字化监管体系建设提供了新
+的思路与实证支持，对促进烟草专卖治理体系现代化具有重要意义。 
+参考文献 
+[1] 陈超． 新形势下我国烟草行业管理体制创新研究[J]． 财经界， 2024， （16）：54-56． CHEN Chao． Research on the innovation 
+of the management system of China's tobacco industry under the new situation[J]． Money China， 2024， （16）：54–56． 
+[2] 唐启孝． 浅论真烟非法流通的成因及对策[J]． 中国烟草学报， 2015， 21（S1）： 72–76． 
+TANG Qixiao. A primary analysis of the causes and countermeasures of illegal circulation of cigarettes[J]. Acta Tabacaria Sinica, 2015, 21(S1): 
+72–76. 
+[3] 马运泉． 新形势下真烟异常流动的治理策略研究[J]． 产业与科技论坛， 2024， 23（22）： 230–232． 
+MA Yunquan. Research on governance strategies for abnormal flows of authentic cigarettes under new circumstances[J]. Industrial & Science 
+ 
+（a）社团6 原始结构       （b）移除核心节点           （c）移除中介节点 
+
+
+===== PAGE 12 =====
+
+陈秉恒等  基于 Louvain 算法对大户控制小户套购卷烟异常关联网络分析  
+11 
+ 
+Tribune, 2024, 23(22): 230–232. 
+[4] 于闽， 何维， 余瑶， 等． 基于行为数据的零售户卷烟流动风险预警分析[J]． 数字技术与应用， 2025， 43（08）： 174–
+176． 
+YU Min, HE Wei, YU Yao, et al. Early warning analysis of cigarette flow risks for retailers based on behavioral data[J]. Digital Technology & 
+Application, 2025, 43(08): 174–176. 
+[5] 章惠民． 福建烟草商业系统专卖管理“数字化”监管体系构建[J]． 中国烟草学报， 2020， 26（05）： 123–128． 
+Zhang Huimin. Construction of "digitized" supervisory system for tobacco monopoly management in Fujianprovince[J]. Acta Tabacaria Sinica, 
+2015, 21(S1): 72–76. 
+[6] Shashank S S, Samya M, Shivansh M, et al. Social network analysis: a survey on process, tools, and application[J]. ACM Comput ing Surveys, 
+2024, 56(8): 1–39. 
+[7] 李立耀， 孙鲁敬， 杨家海． 社交网络研究综述[J]． 计算机科学， 2015， 42（11）： 8–21+42． 
+LI Liyao, SUN Lujing, YANG Jiahai. Research on online social network[J]. Computer Science, 2015, 42(11): 8–21+42. 
+[8] Khatoon M, Banu W A. A survey on community detection methods in social networks[J]. International Journal of Education & Management 
+Engineering, 2015, 5(1): 8–18. 
+[9] 马方． 犯罪网络分析：社会网络分析在有组织犯罪研究中的应用[J]． 西南政法大学学报， 2012， 14（02）： 34–43． 
+MA Fang. Criminal network analysis:social network analysis in the study of organized crime[J]. Journal of Southwest Universit y of Political 
+Science & Law, 2012, 14(02): 34–43. 
+[10] 谢秦川． 非法交易犯罪团伙的社会网络分析研究[J]． 信息网络安全， 2014， （06）： 88–91． 
+XIE Qinchuan. Social network analysis for exploratory mining of criminal gangs engaged in illegal transactions[J]. Netinfo Se curity, 2014, 
+(06): 88–91. 
+[11] 牛惊雷， 王艳红． 社会网络分析在互联网洗钱犯罪侦查中的运用[J]． 公安学刊（浙江警察学院学报）， 2020， （06）： 41–
+45． 
+NIU Jinglei, WANG Yanhong. The application of social network analysis in the investigation of cyber money laundering[J]. Journal of Zhejiang 
+Police College, 2020, (06): 41–45. 
+[12] Blondel V D, Guillaume J L, Lambiotte R, et al. Fast unfolding of communities in large networks[J]. Journal of Statistical Mechanics Theory 
+& Experiment, 2008. 

@@ -1,0 +1,19 @@
+{
+  "checks": {
+    "样本数一致": true,
+    "品规数一致": true,
+    "处理数一致": true,
+    "结果变量排除处理指标": true,
+    "CATE无缺失": true,
+    "表格数量19": true,
+    "图片数量8": true,
+    "图片文件齐全": true,
+    "旧结论已清除": true,
+    "摘要四要素": true,
+    "证据边界披露": true,
+    "固定比例已取消": true,
+    "作者占位符已提示": true
+  },
+  "failed": [],
+  "status": "PASS"
+}

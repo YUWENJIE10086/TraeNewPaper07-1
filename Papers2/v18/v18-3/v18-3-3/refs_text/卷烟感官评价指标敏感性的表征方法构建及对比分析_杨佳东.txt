@@ -1,0 +1,1011 @@
+
+===== PAGE 1 =====
+
+2025 年9 月
+第58 卷第9 期
+Sep. 2025
+Vol. 58 No. 9
+烟草科技
+Tobacco Science & Technology
+收稿日期：2025-02-07
+录用日期：2025-06-30
+基金项目：红云红河烟草（集团）有限责任公司科技项目“会泽卷烟厂制丝工艺质量全批次评价应用”（HYHH2022ZK02）。
+第一作者：杨佳东（1991—），男，硕士，助理工程师，从事卷烟工艺技术研究。E-mail：835423241@qq.com
+*通信作者：祁林（1986—），男，硕士，工程师，从事卷烟工艺技术研究。E-mail: 372925687@qq.com
+引用本文：杨佳东，杨露，刘继辉，等. 卷烟感官评价指标敏感性的表征方法构建及对比分析［J］. 烟草科技，2025，58（9）：76-83，98.
+（YANG Jiadong，YANG Lu，LIU Jihui，et al. Panel member’s sensitivity to cigarette sensory evaluation indicators:
+construction, characterization and contrastive analysis［J］. Tobacco Science & Technology，2025，58（9）：76-83，98. DOI：
+10.16135/j.issn1002-0861.2025.0077）
+摘要：为了有效降低评吸员个体差异对感官评价结果的干扰，评估其在不同感官评价指标上的感知
+敏锐度，以18名评吸员对不同卷烟产品开展的感官评价数据为研究对象，从评价方向偏差和梯度偏
+差两个关键维度构建了一种卷烟感官评价指标的敏感性表征方法，并借助熵权法实现参数的客观
+赋权及敏感性表征。结果表明：①结合多轮次和多组别的卷烟产品感官评价得分分布特征，筛选得
+到4项关键感官评价指标，分别为香气、杂气、刺激性和余味。②不同评吸员对卷烟感官评价指标感
+知的敏感性存在显著差异。③所采用的感官性能参数设计方法能够更为准确地识别感知能力较低
+的异常评吸员，对提升评价数据的可信度效果表现最优。该研究结果可为评吸员的筛选及评价小
+组的组建提供一定的技术支撑。
+关键词：卷烟；感官评价；个体差异；敏感性表征；感官性能参数；熵权法
+中图分类号：TS452.3
+文献标志码：A
+文章编号：1002-0861（2025）09-0076-08
+卷烟感官评价指标敏感性的表征方法构建及对比分析
+杨佳东，杨
+露，刘继辉，苏
+丽，刘卓鑫，朱
+峰，祁
+林
+*
+红云红河烟草（集团）有限责任公司，昆明市盘龙区红锦路367 号
+650231
+Panel member’s sensitivity to cigarette sensory evaluation indicators:
+construction, characterization and contrastive analysis
+YANG Jiadong, YANG Lu, LIU Jihui, SU Li, LIU Zhuoxin, ZHU Feng, QI Lin
+*
+HongyunHonghe Tobacco (Group) Co., Ltd., Kunming 650231, China
+Abstract：To effectively decrease the interference by individual differences among panel assessors on
+sensory evaluation results and to evaluate their perceptual sensitivity to key sensory evaluation indicators,
+sensory evaluation data from 18 trained assessors on different cigarette products were used as the research
+sample. A characterization method for the sensitivity to cigarette sensory evaluation indicators was
+developed through two key dimensions: directional bias and gradient deviation in smoking assessments,
+and the entropy weight method was applied to objectively weigh the parameters and characterize the
+sensitivity. The results showed that: 1) Four key sensory evaluation indicators, namely aroma, offensive
+odor, irritation and aftertaste were identified based on the score distribution patterns across multiple rounds
+of sensory evaluation on different cigarette products. 2) Significant variations existed in the assessors'
+sensitivity to the cigarette sensory indicators. 3) The adopted design method for sensory performance
+indicators could effectively identify assessors with low sensory ability, demonstrating an optimal
+effectiveness in enhancing the reliability of the evaluation data. This research provides the technical
+support for cigarette smoking sensory assessor selection and sensory panel formation.
+Keywords：Cigarette; Sensory evaluation; Individual difference; Sensitivity characterization; Sensory
+performance parameter; Entropy weight method
+
+
+===== PAGE 2 =====
+
+第58 卷第9 期
+感官评价依赖于人类的视觉、嗅觉、触觉、味觉
+及听觉等感官系统来激发、量化、分析并阐释产品的
+品质特征。作为“感官评价仪器”的评价小组及其评
+价员是直接获得原始测量数据的关键，要求其测量
+结果的信度与效度达到较高的标准
+［1］。在卷烟制造
+过程中，卷烟感官评价是检验、评估和维护卷烟产品
+质量的重要手段，通常由多位评吸员组成的评价小
+组协同完成。与机械化的物理检测仪器不同，评吸
+员作为具有主观意识的个体，不可避免地会受到生
+理条件、耐烟量、感官阈值及灵敏度等多种因素的干
+扰，导致在捕捉卷烟风格属性特征上存在感知敏感
+性的感官性能表现差异。
+当前，评价小组及其成员感官性能表现评估技
+术，特别是在定量与定性描述能力方面的研究已趋
+于成熟。其中，方差分析法
+［2］、Friedman 检验法
+［3］以
+及Panel Check软件
+［4］等评估方法或工具已在食品与
+饮品领域的感官分析中得到广泛应用
+［5-9］。国际标准
+化组织食品技术委员会感官分析分技术委员会于
+2021年颁布了基于方差分析的定量感官评价小组及
+其成员表现评估的一般导则
+［10］。为了与国际标准接
+轨，中国标准化研究院也正在积极推进相关国家标
+准的制定工作。目前，国内烟草行业在量化评吸员
+的感官性能表现这一领域，相关研究尚显不足，尽管
+已有研究采用统计校正方法对评价数据进行优化处
+理
+［11-12］，在一定程度上能够降低评吸员个体差异的影
+响，但本质上仍未能突破“数据后处理”的局限。因
+此，本研究中以多轮次和多组别不同卷烟的感官定
+量评价数据为研究对象，采用方差分析、Friedman检
+验以及感官性能参数设计等多种方法构建敏感性表
+征值，计算评吸员在不同感官评价指标上的感知敏
+锐度，旨在为卷烟感官评价实践中评吸员的感官性
+能表现评估提供新的思路和方法。
+1
+材料与方法
+1.1
+材料
+选取由红云红河烟草（集团）有限责任公司会泽
+卷烟厂生产的“云烟（紫）”
+“云烟（小熊猫家园）”
+“红
+河（小熊猫世纪风）”
+“威斯（小熊猫）”及“云烟（盛世
+小熊猫）”5个不同品牌、规格及价位的卷烟产品作为
+研究样品。
+1.2
+方法
+1.2.1
+卷烟感官质量评吸方法
+为了全面评估卷烟样品的感官质量，在2021 年
+1 月至2022 年9 月，组建了一个由18 名经过严格培
+训的评吸员（Assessor i，简称Assr i，i=1，2，…，18）构
+成的评价小组，共进行了42个轮次、152个组别的感
+官质量评吸活动。
+依据文献［13］中的方法对光泽、香气、谐调、杂
+气、刺激性、余味6项指标进行评分。
+1.2.2
+卷烟感官敏感性表征方法
+1.2.2.1
+方差分析
+运用方差分析构建一种卷烟感官评价指标敏感
+性的表征方法（简称方法Ⅰ），F统计量为方差分析中
+的一个关键指标，广泛用于评估评吸员在辨别和区
+分不同样品能力上的表现
+［9］，可通过公式（1）
+［9］进行
+计算。
+F = MSA
+MSE
+（1）
+式中：MSA为组间差异；MSE为组内差异；F为MSA和
+MSE 的比值，F 值越大，表明评吸员对相关评价属性
+的辨别能力越强
+［14］。
+为了消除量纲或取值范围差异可能带来的影
+响，通过公式（2）对每位评吸员的F值进行归一化处
+理，得到标准化的敏感性表征值
+F
+iS 。
+Si = Oi
+Omax
+（2）
+式中：i代表不同的评吸员；Oi为统计量转化的秩次信
+息；Omax为Oi的最大值。
+1.2.2.2
+Friedman检验
+Friedman检验是方差分析的一种非参数替代方
+法，其运用秩次信息来探究多个总体分布之间是否
+存在显著性差异。在对样品感官定性评价及排序分
+析中，该方法可以最大限度地显示评吸员对不同样
+品和轮次间的差异识别能力
+［8，14］。运用Friedman 检
+验原理构建一种卷烟感官评价指标敏感性的表征方
+法（简称方法Ⅱ），数据处理步骤如下：先以轮次作为
+行标签、样品作为列标签，整理评吸员的评分数据；
+再基于每轮次内所有样品评分的相对大小，参照秩
+次模式表（表1）将每个评分xij转化为对应的秩次Rij；
+最后，计算各行、列的秩和，构建Friedman 检验的统
+计量Q，计算方法如公式（3）
+［8］所示。
+Q =
+12
+nk（k+1）
+R
+2
+j-3n（k+1）
+∑
+j=1
+k
+（3）
+式中：j代表不同的样品；Rj为第j个样品的秩和；n为
+轮次数；k为样品个数。
+依据公式（2）对每位评吸员的Q 值进行归一化
+处理，得到标准化的敏感性表征值
+Q
+iS 。
+1.2.2.3
+感官性能参数设计
+感官评价活动可分为有无差别、差别方向以及
+差别程度3 个层次的测量
+［1］。评吸员的敏感性对于
+捕捉特定评价属性上的细微变化起着决定性作用，
+感知敏锐度越强，在评价方向及梯度上的判断与小
+杨佳东，等：卷烟感官评价指标敏感性的表征方法构建及对比分析
+·
+· 77
+
+
+===== PAGE 3 =====
+
+2025 年
+烟草科技
+组集体决策的一致性越高，则评价小组整体评价
+结果的可靠性也就越高。因此，从评价方向偏差和
+梯度偏差两个关键维度构建了一种卷烟感官评价
+指标的敏感性表征方法（简称方法Ⅲ）。具体步骤
+如下：
+（1）确定偏差比较基准值。将评吸员对卷烟样品
+j的第m轮次评分记为
+m
+j
+X ，卷烟样品j的评价轮次占比
+为Pj。当真实评分未知时，假定小组群体决策结果最
+接近真实评价结果，以评价小组对卷烟样品的综合评
+分
+m
+j
+Y （
+m
+j
+Y 为各评吸员评分
+m
+j
+X 的中位数）为基准值。
+（2）设计方向感知参数。将评吸员在卷烟样品j
+上参与评价的n个轮次重新组合成对，通过排列组合
+2
+n
+C 得到对比的组数为Nj。假定对比组的轮次为T1和
+T2，评吸员个体评分为
+T1
+j
+X 和
+T2
+j
+X ，评价小组综合评分
+为
+T1
+j
+Y 和
+T2
+j
+Y 。当满足条件①：
+（
+T1
+j
+X -
+T2
+j
+X ）×（
+T1
+j
+Y -
+T2
+j
+Y ）>0
+或条件②：
+T1
+j
+X =
+T2
+j
+X 且
+T1
+j
+Y
+=
+T2
+j
+Y
+时，认为评吸员在方向
+上的判断与小组群体决策保持一致。记卷烟样品j
+判定成功的组数为Vj，以样品轮次占比作为权重Pj，
+根据公式（4）计算方向偏差Z（Z越大，表明评吸员的
+评分方向偏差程度越小）。
+Z =
+Pj× Vj
+Nj
+∑
+j=1
+k
+（4）
+通过公式（2）对每位评吸员的Z 值进行归一化
+处理，得到标准化的方向感知参数
+Z
+i
+S 。
+（3）设计梯度感知参数。以评价小组的综合评
+分
+m
+j
+Y 为基准，记卷烟样品j 评价的梯度偏差为Dj，以
+样品轮次占比作为权重Pj，根据公式（5）和（6）计算
+梯度偏差D（D 值越小，表明评吸员的评分梯度偏差
+程度越小）。
+Dj =∑
+m=1
+n
+（X
+m
+j - Y
+m
+j）
+2/n
+（5）
+D =∑
+j=1
+k
+Pj × Dj
+（6）
+通过公式（2）对各评吸员的D 值进行归一化处
+理，得到标准化的梯度感知参数
+D
+iS 。
+（4）构建敏感性表征方法。结合方向感知参数
+和梯度感知参数，定义评吸员的敏感性表征值为
+E
+iS
+（
+E
+iS =α
+Z
+iS +β
+D
+iS ，α≥0、β≥0，且α+β=1）。在对α和β进
+行赋权时，层次分析法和专家咨询法等主观赋权方
+法虽然能较好地反映评吸员的主观意愿，但其过度
+依赖专家经验，未能充分考虑数据本身的统计特
+性。相比之下，熵权法作为一种基于信息熵理论的
+客观赋权方法，通过量化指标数据的离散程度来确
+定权重，克服了综合评价中的主观性带来的影响
+［15］。
+1.2.2.4
+评估指标
+组内相关系数（Intraclass Correlation Coefficient，
+ICC）是一种应用于评估观察者（或评价者）之间信度
+以及复测信度的统计指标
+［16-17］。组内相关系数计算
+方法的选择需根据研究目的和数据特征进行综合考
+虑，主要涉及模型类型、分析单元和一致性定义3 个
+关键维度。其中，ICC（t，a，s）（t代表两因素方差分析
+模型，a 代表绝对一致性，s 代表单个评价者）作为在
+心理学、教育学和医学等领域广泛使用的方法
+［16］，专
+门用于评估单个评价者在重复测量中的绝对一致
+性，其特点在于能够有效区分并排除系统误差的影
+响。本研究中采用ICC（t，a，s）计算组内相关系数，以
+评估经不同敏感性表征方法处理后所得评价数据可
+信度的提升效果。
+为了确保不同敏感性表征方法的可比性，基于
+简单随机抽样的基本原理
+［18］对18名评吸员进行顺序
+编号，以建立完整的有限抽样总体，并采用计算机随
+机数生成算法进行无放回抽样，确保每位评吸员被
+抽中的概率均等。具体步骤如下：
+（1）构建对照组。从抽样总体中随机抽取3名评
+吸员并剔除，形成“对照组”，该组作为无特定干预
+的基准组，其构建过程严格遵循实验设计的随机化
+原则。
+（2）构建实验组。基于3种敏感性表征方法的识
+别结果，分别从18 名评吸员群体中剔除3 名被判定
+为低敏感性的评吸员，形成3个不同的“实验组”。
+1.3
+数据处理
+从数据处理、统计分析到可视化作图等各个环
+节，均采用R语言（版本4.2.3）实现。
+2
+结果与分析
+2.1
+卷烟感官评价指标筛选及赋权
+卷烟感官评价指标评分分布结果见图1。可知，
+①光泽与谐调两项指标的评价得分分布呈现高度集
+中趋势，表明评吸员对光泽与谐调的感官性能评价
+具有高度一致性，需予以剔除。②香气、杂气、余味
+表1
+Friedman检验秩次模式表
+Tab. 1
+Rank pattern table using the Friedman test
+列
+1
+2
+…
+m
+…
+n
+列秩和
+行
+1
+R11
+R21
+…
+Rm1
+…
+Rn1
+R1
+2
+R12
+R22
+…
+Rm2
+…
+Rn2
+R2
+…
+…
+…
+…
+…
+…
+…
+…
+j
+R1j
+R2j
+…
+Rmj
+…
+Rnj
+Rj
+…
+…
+…
+…
+…
+…
+…
+…
+k
+R1k
+R2k
+…
+Rmk
+…
+Rnk
+Rk
+行秩和
+k（k+1）/2
+k（k+1）/2
+…
+k（k+1）/2
+…
+k（k+1）/2
+k（k+1）/2
+·
+· 78
+
+
+===== PAGE 4 =====
+
+第58 卷第9 期
+杨佳东，等：卷烟感官评价指标敏感性的表征方法构建及对比分析
+和刺激性4 项指标的得分分布表现出显著的离散特
+征，表明评吸员在感知这些感官指标时存在明显的
+个体差异，这种差异可能源于评吸员对香气、杂气、
+余味及刺激性的敏感程度不同。因此，将香气、杂
+气、余味和刺激性4项指标作为后续敏感性表征方法
+研究的核心指标。
+依据以上4 项关键指标的方向偏差（Z 值）和梯
+度偏差（D 值），运用熵权法
+［19］计算方法Ⅲ中香气、
+杂气、刺激性和余味等指标的权重（α和β），结果见
+表2。可知，方法Ⅲ中4项指标的梯度感知参数权重
+β均显著高于方向感知参数权重α，表明评吸员对感
+官评价指标的变化幅度具有更强的感知敏感性，而
+对指标变化方向的辨别能力相对较弱。
+2.2
+感官评价指标感知敏感性差异分析
+2.2.1
+香气感知敏感性差异分析
+18名评吸员对香气感知的敏感性表征结果见图
+2。可知，①3 种方法在识别香气感知的高敏感性群
+体时存在显著差异，方法Ⅰ的敏感性表征从高到低
+依次为Assr4、Assr5、Assr2、Assr10，方法Ⅱ的敏感性
+表征从高到低依次为Assr6、Assr4、Assr10、Assr2，方
+法Ⅲ的敏感性表征从高到低依次为Assr17、Assr5、
+Assr14、Assr15；②在识别低敏感性群体时呈现一定
+的相似性，3 种方法均认为Assr9 和Assr11 在香气上
+的感知能力弱、敏感性低。
+2.2.2
+杂气感知敏感性差异分析
+18名评吸员对杂气感知的敏感性表征结果见图
+3。可知，①3 种方法在识别杂气感知的高敏感性群
+体时保持一致，Assr4、Assr7 和Assr13 均被认为在杂
+气上的感知能力强、敏感性高；②在识别低敏感性群
+体时存在较大差异，方法Ⅰ和方法Ⅱ的敏感性表征
+从高到低依次为Assr8、Assr16、Assr18，而方法Ⅲ的
+敏感性表征从高到低依次为Assr9、Assr11、Assr8。
+2.2.3
+刺激性感知敏感性差异分析
+18名评吸员对刺激性感知的敏感性表征结果见
+图4。可知，①3 种方法在识别刺激性感知的高敏感
+性群体时表现出一定的相似性，Assr7和Assr12均被
+认为在刺激性上的感知能力较强、敏感性较高；②在
+识别低敏感性群体时存在较大差异，方法Ⅰ的敏感
+性表征从高到低依次为Assr18、Assr4、Assr8，方法Ⅱ
+的敏感性表征从高到低依次为Assr10、Assr4、Assr8，
+方法Ⅲ的敏感性表征从高到低依次为Assr8、Assr2、
+Assr18。
+2.2.4
+余味感知敏感性差异分析
+图1
+卷烟感官评价指标评分分布
+Fig. 1
+Score distribution from sensory evaluation indicators of 5 cigarettes
+红河（小熊猫世纪风）
+威斯（小熊猫）
+云烟（盛世小熊猫）
+云烟（小熊猫家园）
+云烟（紫）
+评分/分
+0
+10
+20
+30
+感官评价指标
+杂气
+余味
+谐调
+香气
+光泽
+刺激性
+指标
+香气
+杂气
+刺激性
+余味
+方向感知参数权重α
+0.274
+0.254
+0.162
+0.261
+梯度感知参数权重β
+0.726
+0.746
+0.838
+0.739
+表2
+方法Ⅲ中各指标的权重分布
+Tab. 2
+Weight distribution of indicators using method Ⅲ
+·
+· 79
+
+
+===== PAGE 5 =====
+
+2025 年
+烟草科技
+图2
+香气感知敏感性表征热力图
+Fig. 2
+Heatmap on sensitivity characterization for aroma perception
+图3
+杂气感知敏感性表征热力图
+Fig. 3
+Heatmap on sensitivity characterization for offensive odor perception
+18名评吸员对余味感知的敏感性表征结果见图
+5。可知，①3 种方法在识别余味感知的高敏感性群
+体时表现出一定的相似性，Assr12 和Assr15 均被认
+为在余味上的感知能力强、敏感性高；②在识别低敏
+方法Ⅰ
+方法Ⅲ
+方法Ⅱ
+方法Ⅰ
+方法Ⅲ
+方法Ⅱ
+·
+· 80
+
+
+===== PAGE 6 =====
+
+第58 卷第9 期
+感性群体时存在显著差异，方法Ⅰ的敏感性表征从
+高到低依次为Assr4、Assr1、Assr18，方法Ⅱ的敏感性
+表征从高到低依次为Assr10、Assr1、Assr6，而方法Ⅲ
+的敏感性表征从高到低依次为Assr2、Assr18、Assr8。
+方法Ⅰ
+方法Ⅲ
+方法Ⅱ
+图4
+刺激性感知敏感性表征热力图
+Fig. 4
+Heatmap on sensitivity characterization for irritation perception
+图5
+余味感知敏感性表征热力图
+Fig. 5
+Heatmap on sensitivity characterization for aftertaste perception
+方法Ⅰ
+方法Ⅲ
+方法Ⅱ
+杨佳东，等：卷烟感官评价指标敏感性的表征方法构建及对比分析
+·
+· 81
+
+
+===== PAGE 7 =====
+
+2025 年
+烟草科技
+2.3
+不同敏感性表征方法比较及应用
+2.3.1
+敏感性表征方法比较
+分别计算对照组及3 个实验组的香气、杂气、刺
+激性和余味4项指标评价数据的组内相关系数，结果
+见表3。可知，相较于对照组，3个实验组的组内相关
+系数均有显著提升，表明3种敏感性表征方法均具备
+有效筛选低敏感性评吸员，并提升评价数据可信度
+的效果。此外，方法Ⅲ在识别异常评吸员的精准度
+上展现出更显著的优势，对提升评价数据可信度效
+果的表现最佳。其中，方法Ⅲ使得刺激性和余味的
+评价数据从“可信度较好”层次跃升至“可信度优”层
+次；杂气的评价数据也实现了从“可信度一般”到“可
+信度较好”的显著提升。
+2.3.2
+评吸员敏感性综合表征
+采用方法Ⅲ对18名评吸员在香气、杂气、刺激性
+和余味感官评价指标上的感知敏感性进行表征，并
+采用面积法
+［20］计算卷烟感官敏感性的综合量化拟合
+值，结果见图6。可知，综合表征值从高到低依次为
+Assr7、Assr15、Assr17、Assr12、Assr5、Assr14、
+Assr13、Assr6、Assr3、Assr10、Assr4、Assr16、Assr2、
+Assr11、Assr9、Assr1、Assr18、Assr8，各评吸员的综合
+敏感性表征不仅反映了其在不同感官评价指标上的
+感知敏锐度，也揭示了感知能力在不同个体间的显
+著差异。
+基于本研究中采用的敏感性表征方法能够更加
+精准地筛选出在特定感官评价指标上具有敏锐感知
+表3
+敏感性表征方法比较评价结果
+Tab. 3
+Comparative evaluation results of sensitivity
+characterization methods
+评价
+指标
+香气
+杂气
+刺激性
+余味
+处理方法
+对照组（随机抽样）
+实验组（方法Ⅰ）
+实验组（方法Ⅱ）
+实验组（方法Ⅲ）
+对照组（随机抽样）
+实验组（方法Ⅰ）
+实验组（方法Ⅱ）
+实验组（方法Ⅲ）
+对照组（随机抽样）
+实验组（方法Ⅰ）
+实验组（方法Ⅱ）
+实验组（方法Ⅲ）
+对照组（随机抽样）
+实验组（方法Ⅰ）
+实验组（方法Ⅱ）
+实验组（方法Ⅲ）
+组内相关
+系数
+①
+0.482
+0.559
+0.559
+0.595
+0.569
+0.660
+0.660
+0.669
+0.641
+0.741
+0.711
+0.788
+0.687
+0.704
+0.711
+0.763
+95%置信区间
+下限
+0.421
+0.495
+0.495
+0.535
+0.505
+0.606
+0.606
+0.612
+0.574
+0.683
+0.651
+0.746
+0.629
+0.647
+0.656
+0.719
+上限
+0.549
+0.625
+0.625
+0.657
+0.634
+0.715
+0.715
+0.726
+0.705
+0.794
+0.767
+0.828
+0.742
+0.758
+0.764
+0.806
+注：①当组内相关系数小于0.40时，评价者之间的一致性和测
+量数据的可信度被认定为较差；当组内相关系数为0.40~
+0.60时，评价者之间的一致性和可信度被认定为处于一般
+水平；当组内相关系数为0.60~0.75时，评价者之间的一致
+性和可信度被认定为较好；当组内相关系数大于0.75 时，
+评价者之间的一致性和可信度被认定为优秀
+［16］。
+图6
+评吸员敏感性综合表征花瓣图
+Fig. 6
+Petal diagram of comprehensive characterization on assessors’sensitivity
+Assr1
+Assr2
+Assr3
+Assr4
+Assr5
+Assr6
+Assr7
+Assr8
+Assr9
+Assr10
+Assr11
+Assr12
+Assr13
+Assr14
+Assr15
+Assr16
+Assr17
+Assr18
+评吸员
+综合敏感性表征值
+2.0
+1.5
+1.0
+0.5
+0
+刺激性
+香气
+余味
+杂气
+·
+· 82
+
+
+===== PAGE 8 =====
+
+第58 卷第9 期
+能力的评吸员，从而组建出更加专业、更具针对性的
+评价小组。例如，在针对香气浓郁型卷烟产品的评
+价中，可以优先考虑对香气感知敏锐度较高的评吸
+员；在针对刺激性较强的卷烟产品的评价中，可以优
+先考虑对刺激性感知敏锐度较高的评吸员。另外，
+通过敏感性综合量化拟合值的计算，可以更加客观
+地评价不同评吸员的感知能力，从而避免主观偏见
+和个体差异对评价结果的影响。
+3
+结论
+①结合多轮次和多组别的卷烟产品感官评价得
+分分布特征，筛选得到4项关键感官评价指标，分别
+为香气、杂气、刺激性和余味。②根据敏感性表征方
+法实现了18名评吸员在感官评价指标上感知能力差
+异的分析，结果表明不同评吸员在不同感官评价指
+标间存在显著的感知敏锐度差异。③与方差分析及
+Friedman 检验两种在感官研究领域常用的方法相
+比，所采用的感官性能参数设计方法能够更为准确
+地识别感知能力较低的异常评吸员，对提升所得评
+价数据的可信度效果表现最优。该方法能够对评吸
+员的感官性能表现进行科学评估及动态追踪，不仅
+为卷烟感官评价组织工作中评吸员的筛选、调整乃
+至淘汰环节提供科学依据，还能够提升卷烟感官评
+价数据的可靠性及准确性。
+参考文献
+［1］史波林，赵镭，汪厚银，等. 感官分析评价小组及成
+员表现评估技术动态分析［J］. 食品科学，2014，35
+（8）：29-35.
+SHI
+Bolin，ZHAO
+Lei，WANG
+Houyin，et
+al.
+Overview of assessment techniques for sensory panel and
+panelist performance［J］. Food Science，2014，35（8）：
+29-35.
+［2］
+Brockhoff
+P B，Schlich
+P，Skovgaard
+I. Taking
+individual scaling differences into account by analyzing
+profile data with the Mixed Assessor Model［J］. Food
+Quality and Preference，2015，39：156-166.
+［3］史波林，赵镭，奂畅，等. 感官评价小组及成员排序
+能力评估的一般导则［J］. 食品科学，2014，35（17）：
+346-350.
+SHI Bolin，ZHAO Lei，HUAN Chang，et al. General
+guidance for performance evaluation of sensory ranking
+panels and panelists［J］. Food Science，2014，35（17）：
+346-350.
+［4］Tomic O，Luciano G，Nilsen A，et al. Analysing sensory
+panel
+performance
+in
+a
+proficiency
+test
+using
+the
+PanelCheck software［J］. European Food Research and
+Technology，2010，230（3）：497-511.
+［5］常玉梅，钟芳. 豆腐干质构感官分析及评价小组能力
+评估［J］. 食品与生物技术学报，2013，32（1）：37-42.
+CHANG Yumei，ZHONG Fang. Spectrum descriptive
+sensory analysis of dried bean curd’s texture and panel
+performance analysis［J］. Journal of Food Science and
+Biotechnology，2013，32（1）：37-42.
+［6］孙丽娟，胡学旭，张慧杰，等. 基于主成分分析法的
+描述性面包感官参数评估［J］. 食品研究与开发，
+2017，38（13）：11-17，74.
+SUN Lijuan，HU Xuexu，ZHANG Huijie，et al.
+Analysis the parameter of descriptive bread sensory
+evaluation base on principal component analysis［J］.
+Food Research and Development，2017，38（13）：
+11-17，74.
+［7］徐淑臻，黄伟，陈荣荣. Panel Check 检测评价小组对
+乳酸菌饮料的感官评估能力［J］. 饮料工业，2018，
+21（2）：12-17.
+XU Shuzhen，HUANG Wei，CHEN Rongrong. Panel
+Check
+evaluate
+panel
+sensory
+performance
+in
+lactobacillus beverage［J］. Beverage Industry，2018，21
+（2）：12-17.
+［8］韩月然，樊双喜，闫国开，等. 酱香型白酒勾调酒样
+感官排序结果的统计学最优估计［J］. 中国酿造，
+2023，42（6）：172-177.
+HAN Yueran，FAN Shuangxi，YAN Guokai，et al.
+Statistical optimal estimation of sensory ranking results
+of
+blended
+sauce-flavor
+Baijiu
+samples［J］.
+China
+Brewing，2023，42（6）：172-177.
+［9］杨洁，郭少鹏，李金梁，等. 基于品评小组可靠性筛
+选葡萄酒的香气描述符［J］. 食品科学，2021，42
+（19）：106-113.
+YANG
+Jie，GUO
+Shaopeng，LI
+Jinliang，et
+al.
+Screening
+for
+wine
+aromatic
+descriptors
+based
+on
+reliability evaluation of sensory panel［J］. Food Science，
+2021，42（19）：106-113.
+［10］ISO
+11132：2021
+Sensory
+analysis—Methodology—
+Guidelines for the measurement of the performance of a
+quantitative descriptive sensory panel［S］.
+［11］杨春强，宗永立，马骥，等. 基于平均值置信区间的
+卷烟感官评价数据分析方法及应用［J］. 烟草科技，
+2013（8）：62-66.
+YANG Chunqiang，ZONG Yongli，MA Ji，et al.
+Development and application of method for processing
+sensory evaluation data of cigarette based on mean value
+confidence interval［J］. Tobacco Science & Technology，
+2013（8）：62-66.
+［12］王明锋，赵建华，兰海强，等. 卷烟感官评价中小组
+得分的两阶段统计法［J］. 烟草科技，2014（5）：13-16.
+WANG Mingfeng，ZHAO Jianhua，LAN Haiqiang，et
+al. Two-stage statistics method for calculating panel
+（下转第98页）
+杨佳东，等：卷烟感官评价指标敏感性的表征方法构建及对比分析
+·
+· 83
+
+
+===== PAGE 9 =====
+
+2025 年
+烟草科技
+［12］卢志敏，张小杭，苏铃，等. YF17A 烟支存储输送装
+置柔性连接系统的设计［J］. 烟草科技，2023，56（6）：
+108-112.
+LU Zhimin，ZHANG Xiaohang，SU Ling，et al. Design
+of flexible linking system for YF17A cigarette reservoir
+system［J］. Tobacco Science & Technology，2023，56
+（6）：108-112.
+［13］王国东. 滤嘴棒产品规格更换后FF30 装盘机的调整
+方法［J］. 科技创新与应用，2014（8）：64.
+WANG Guodong. Adjustment method of FF30 tray filler
+after changing the product specification of filter rod［J］.
+Technology Innovation and Application，2014（8）：64.
+［14］汤治国，郭蒙飞，王晓，等. 棒状制品预装盒、盘装
+置：CN202211458414.X［P］. 2023-03-07.
+TANG Zhiguo，GUO Mengfei，WANG Xiao，et al.
+Box and tray preassembling device for rod-shaped
+products：CN202211458414.X［P］. 2023-03-07.
+［15］孔方亮，汤治国，李会江，等. 棒形制品装盘装盒机及
+装盘装盒方法：CN202311742517.3［P］. 2024-06-04.
+KONG Fangliang，TANG Zhiguo，LI Huijiang，et al.
+Rod-shaped product dishing and boxing machine and
+dishing and boxing method：CN202311742517.3［P］.
+2024-06-04.
+［16］杨琳. 机械制造工艺在食品机械生产中的应用［J］.
+数字农业与智能农机，2022（6）：120-122.
+YANG Lin. Application of mechanical manufacturing
+technology in food machinery production［J］. Digital
+Agriculture
+and
+Intelligent
+Agricultural
+Machinery，
+2022（6）：120-122.
+责任编辑
+张玉聪
+scores in sensory evaluation of cigarettes［J］. Tobacco
+Science & Technology，2014（5）：13-16.
+［13］GB 5606.4—2005
+卷烟
+第4 部分：感官技术要求
+［S］.
+GB 5606.4—2005
+Cigarettes—Part 4：Technical
+requirements for sense evaluation［S］.
+［14］Tomic O，Forde C，Delahunty C，et al. Performance
+indices in descriptive sensory analysis—A complimentary
+screening tool for assessor and panel performance［J］.
+Food Quality and Preference，2013，28（1）：122-133.
+［15］常延斌，王桂瑶，牟文君，等. 基于熵权法和改进
+TOPSIS 法的烤烟质量综合评价［J］. 烟草科技，
+2023，56（8）：35-43.
+CHANG Yanbin，WANG Guiyao，MU Wenjun，et al.
+Comprehensive assessment of flue-cured tobacco quality
+based on entropy weight method and modified TOPSIS
+method［J］. Tobacco Science & Technology，2023，56
+（8）：35-43.
+［16］乔舰. 组内相关系数的理论基础及建模应用［J］. 统
+计与信息论坛，2016，31（11）：44-48
+QIAO Jian. Theoretical basis and modeling application of
+intraclass
+correlation
+coefficient［J］.
+Statistics
+&
+Information Forum，2016，31（11）：44-48.
+［17］Bi J，Kuesten C. Intraclass Correlation Coefficient
+（ICC）：A framework for monitoring and assessing
+performance of trained sensory panels and panelists［J］.
+Journal of Sensory Studies，2012，27（5）：352-364.
+［18］金勇进，杜子芳，蒋妍. 抽样技术［M］. 5 版. 北京：
+中国人民大学出版社，2021.
+JIN
+Yongjin，DU
+Zifang，JIANG
+Yan.
+Sampling
+technique［M］. 5th ed. Beijing：China Renmin University
+Press，2021.
+［19］张勇刚，宋朝鹏，李常军，等. 熵权模糊综合评价法
+在烤烟感官质量评价中的应用［J］.中国烟草学报，
+2010，16（6）：33-36.
+ZHANG Yonggang，SONG Zhaopeng，LI Changjun，et
+al. The use of entropy weight and fuzzy synthetic
+evaluation
+in
+evaluating
+flue-cured
+tobacco
+sensory
+characters［J］. Acta Tabacaria Sinica，2010，16（6）：
+33-36.
+［20］吴成春，张苧元，徐磊. 基于雷达图特征量提取的卷
+烟感官质量综合评价［J］. 烟草科技，2013（6）：10-13.
+WU
+Chengchun，ZHANG
+Ningyuan，XU
+Lei.
+Comprehensive evaluation of sensory quality of cigarette
+with characteristic values extracted from radar graph［J］.
+Tobacco Science & Technology，2013（6）：10-13.
+责任编辑
+李
+路
+（上接第83页）
+􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇􀤇
+·
+· 98

@@ -1,0 +1,68 @@
+124 中国烟草学报 Acta Tabacaria Sinica 2024 Vol.30 No.3
+参考文献 2020 International Conference on Big Data, Artificial Intelligence
+and Internet of Things Engineering (ICBAIE). IEEE, 2020:
+[1] 马宗泽，孙永寿，薛寅. 基于商圈与动态规划理论的卷烟精准
+184-189.
+投放模型的研究[J]. 现代商业，2021(15): 32-34.
+[7] 王怡. 卷烟零售户分 类及应用 探索[J]. 科技广场，2016(8):
+MA Zongze, SUN Yongshou, XUE Yin. Research on the accurate
+172-177.
+delivery model of cigarettes based on business circle and dynamic
+WANG Yi. Study on the classification and application of cigarette
+programming theory[J]. Modern Business,2021(15):32-34.
+retailers[J]. Science Mosaic, 2016(8): 172-177.
+[2] 付秋璇. 卷烟货源精准投放的探索 与应用[J]. 计算机时代，
+[8] 许泓，刘文倩. 基于卷烟零售户销售潜力分值（G 值）的新产
+2020(12):47-52.
+品投放策略研究[J]. 中国烟草学报，2016, 22(1):114-121.
+FU Qiuxuan. The exploration and application of precise supply
+strategy of cigarette[J]. Computer Era, 2020(12):47-52. XU Hong, LIU Wenqian. Study on strategy for new cigarette
+products launch based on retailers' sales potential (G value)[J].
+[3] 周宏. 基于大数据的烟草营销创新应用[J]. 信息技术与标准化，
+Acta Tabacaria Sinica,2016,22(1):114-121.
+2020(5):66-70.
+[9] 雷恩杰，李伟群. 卷烟投放策略研究[J]. 管理观察，2014(27):
+ZHOU Hong. Tobacco marketing innovation application based on
+87-89.
+big data[J]. Information Technology & Standardization, 2020(5):
+66-70. LEI Enjie, LI Weiqun. Research on cigarette delivery strategy [J].
+Management Observer, 2014 (27): 87-89.
+[4] 吴漪涛. 基于 Hadoop 的江西卷烟零售户画像系统的设计与实
+[10] 魏雨宸，朱逸雯，杜珏，等. 荆州卷烟零售户精准划分及货源
+现[D]. 南昌大学，2018.
+投放策略[J]. 合作经济与科技，2020(2):61-65.
+WU Yitao. The design and implementation of Jiangxi tobacco
+retailers' persona system based on Hadoop[D]. Nanchang WEI Yuchen, ZHU Yiwen, DU Jue, et al. Accurate division of
+University,2018. cigarette retailers in Jingzhou and strategy for supplying goods[J].
+Co-Operative Economy & Science, 2020(2):61-65.
+[5] 邓超，刘颂，王露笛，等. 基于深度神经网络的卷烟智能投放
+[11] 朱卫东，汪国珍，李矿. SOM 聚类方法在卷烟零售户分类中的
+模型构建方法[J]. 烟草科技，2021,54 (2):78-83.
+应用[J]. 烟草科技，2014(6):29-32.
+DENG Chao, LIU Song, WANG Ludi, et al. Modeling for
+intelligent cigarette release based on deep neural network[J]. ZHU Weidong, WANG Guozhen, LI Kuang. Application of SOM
+Tobacco Science & Technology,2021,54 (2) :78-83. clustering method to classification of cigarette retailers[J]. Tobacco
+[6] Wei T, Huang F, Zhang X, et al. Research and application of data Science & Technology, 2014(6):29-32.
+mining based on artificial intelligence in cigarette delivery[C]//
+Research on dynamic classification of cigarette retailers based on high-dimensional precise
+profiling and deep learning
+TAN Chen1, ZHOU Xinran1, LUAN Xiaoyu1, LI Mingang2, YANG Yunli3*, GU Minjie4, JIN Yazhao4
+1 Information Center, Shanghai Tobacco Group Co., Ltd, Shanghai 200082, China;
+2 Marketing Center, Shanghai Tobacco Group Co., Ltd, Shanghai 200082, China;
+3 Shanghai Pintechs Technology Co., Ltd, Shanghai 201101, China;
+4 Research Center of Digital Transformation for Enterprises, Beijing Institute of Big Data Research, Beijing 100080, China
+Abstract: [Objective] This study aims to enrich the evaluation dimensions of cigarette retailers, establish the scientific standards for
+dynamic identification, and assist the marketing works such as grade adjustment, classification management, and delivery strategy
+formulation. [Methods] this paper introduces the overall solution for cigarette retailers identification, which is based on a high-dimensional
+precise profiling system and the deep learning model. Some effective strategies have been put forward, such as deducting the grade for
+retailers, designing the indicators of portrait, building the identification models, predicting and evaluating new samples, adjusting grade
+dynamically. In addition, by analyzing the importance of features, the potential influencing factors of retailers are excavated. [ Results] In
+the numerical experiments, based on marketing data from multiple launch cycles in Markets A and B, a comparison of the classification
+recognition effects of the nonlinear deep learning DXGBOOST model with the linear regression LR model and gradient boosting
+XGBOOST model is presented. Compared with the linear LR, the DXGBOOST algorithm can increase the grade identification accuracy of
+retailers in Markets A and B by 9.09% and 15.43% respectively. Compared to the nonlinear XGBOOST, it further enhances the accuracy of
+precise grades and grade intervals, reducing the degree of misjudgment bias. [Conclusion] Practice has proven that, while ensuring stability,
+the grade identification method based on the DXGBOOST model can greatly improve the grading accuracy of cigarette retailers, providing
+data and theoretical support for timely conducting scientific, precise, and intelligent marketing analysis and business decision-making.
+Keywords: precise profiling; grade identification; deep learning; DXGBOOST model; cigarette retailer
+*Corresponding author. Email：yunli252@mail.ustc.edu.cn

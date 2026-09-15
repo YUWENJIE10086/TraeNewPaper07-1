@@ -1,0 +1,2384 @@
+
+===== PAGE 1 =====
+
+中国烟草学报 Acta Tabacaria Sinica 2024 Vol.30 No.2 
+ 
+ 
+ 
+基金项目：红云红河烟草（集团）有限责任公司科技项目“计及多维目标优化的成品烟物流调度关键技术研究”（No. HYHH2021XX04）；红云红
+河烟草（集团）有限责任公司科技项目“卷烟成品智慧物流园区建设研究”（No. HYHH2020XX03） 
+作者简介：欧阳世波（1982—），硕士研究生，工程师，主要研究方向为智慧物流，Tel：13577044190，Email：ouysb1913@hyhhgroup.com 
+通讯作者：潘楠（1986—），Tel：15808867407，Email：nanpan@kust.edu.cn 
+收稿日期：2022-03-22；网络出版日期：2023-03-27 
+80
+经济与管理 
+欧阳世波，张淼寒，谢俊明,等. 计及多目标约束的成品卷烟销售订单配送调度优化[J]. 中国烟草学报，2024，30（2）. OUYANG 
+Shibo, ZHANG Miaohan, XIE Junming,et al. Optimization of multi-objective constrained distribution scheduling of finished cigarette sales 
+orders [J]. Acta Tabacaria Sinica, 2024, 30(2). doi:10.16472/j.chinatobacco.2022.036 
+计及多目标约束的成品卷烟销售订单配送调度优化 
+欧阳世波
+1，张淼寒
+2，谢俊明
+3，安裕强
+1,4，韩宇航
+2，周心博
+5，潘楠
+2* 
+1 红云红河烟草（集团）有限责任公司，物流中心，云南省昆明市 650231； 
+2 昆明理工大学，民航与航空学院，云南省昆明市呈贡区 650500； 
+3 中国烟草总公司，职工进修学院，河南省郑州市金水区 450008； 
+4 昆明理工大学，管理与经济学院，云南省昆明市呈贡区 650500； 
+5 昆明理工大学，信息工程与自动化学院，云南省昆明市呈贡区 650500 
+摘  要：针对制造业供应链中的跨地域多运输中心大数据订单物流调度问题，对涉及多约束条件和多目标的异构运输车辆调度问
+题展开研究。根据烟草制造工业的实际运输任务需求，考虑制造订单安排、车辆准运证限制、运输车辆物理限制、运输时间窗、
+排产出库时间等实际约束，搭建了以包括车辆等待卷烟出库的最短运输时间，最低运输费用及最高车辆利用率为优化目标的成品
+烟物流车辆跨地域调度优化模型。设计了基于差分进化的混合多元宇宙算法（DE-MVO）用以解决该模型。最后基于某烟草工业
+企业的实际生产订单数据进行实验，将所设计的算法分别与粒子群（PSO）算法、差分进化（DE）算法、鲸鱼优化（WOA）算法、
+遗传优化（GA）算法、乌鸦搜索（CSA）算法、天鹰座优化器（AO）、多元宇宙（MVO）等前沿算法进行横向对比，对比结果
+表明所设计的算法在全局搜索能力、寻优精度等方面更优于其他算法，进一步表明所建立的模型在求解制造业供应链运输车辆调
+度问题中具有可行性。 
+关键词：多目标约束；成品卷烟；配送调度；路径优化；多元宇宙算法  
+ 
+ 
+科学的调度决策能够实现生产端和需求端的有效
+衔接，降低物流成本、提高服务质量。随着成品卷烟
+营销数字化转型和物流服务水平的提升，订单周期大
+幅缩短，容量明显减小，单数大幅上升，调度规划优
+化的难度显著增加。配送调度决策模型和算法逐渐被
+广泛地研究和应用，当前国内外学者主要就优化目标、
+约束条件、算法求解等方面展开了有益的探索。 
+针对配送调度优化问题，学者主要以车辆路径规
+划问题（Vehicle Routing Problem，VRP）为基础，根
+据研究对象的不同，建立了面向不同环境、不同需求
+的物流调度模型，进而解决实际各类复杂调度优化问
+题。文献[1-2]以最小化成本和最高客户满意度构建车
+辆路径优化模型。文献[3]提出一种改进的普通带容量
+约束的车辆路径优化模型。文献[4]考虑了实际运输过
+程中的时间及成本，构建了多目标优化的物流调度模
+型。文献[5-6]则进一步对车辆载重、运输路径、时间
+窗等多维条件展开研究，构建综合考虑多维优化目标
+的车辆路径调度优化模型。 
+在算法求解上，由于群智能算法具备全局搜索性
+强、收敛速度快等[7-8]特点，因此运用群智能算法求解
+此类复杂车辆调度配送问题[9-13]已成为研究热点。文 
+献[14-15]分别设计了双循环模拟退火算法和基于混沌
+
+
+===== PAGE 2 =====
+
+欧阳世波等  计及多目标约束的成品卷烟销售订单配送调度优化 
+ 
+ 
+ 
+81
+系统的遗传模拟退火算法用来提高算法求解精度。文  
+献[16]为提高算法求解精度，设计了一种自适应的禁
+忌搜索算法。文献[17]将遗传算法与细菌觅食优化算
+法进行混合，使算法具备更强的搜索性；文献[18]在
+蚁群算法的基础上引入节约矩阵、挥发因子等策略提
+高蚁群算法的求解速度及求解精度。 
+综上所述，针对当前成品卷烟物流调度模型对多
+运输中心、承运商车型异构[19-20]、烟草运输准运证制
+度、跨区域配送等约束条件过度简化，对多目标优化
+研究不足。求解算法对模型参数依赖度高、收敛速度
+慢及全局搜索能力差等问题。本文充分研究了优化问
+题中计及多目标约束的配送调度优化问题，构建以供
+应链整体绩效最优为目标的模型，同时，针对已有算
+法现存问题，设计了改进的多元宇宙优化算法
+（Multi-Verse Optimizer，MVO）并进行仿真，以期贯
+通“订单-排产-库存-配送”全供应链，充分发挥配送
+在供应链中的核心作用，使调度配送计划更加科学合
+理，从而通过增强产销协同能力提高供应链整体绩效。 
+1  成品卷烟销售订单多配送中心异构车辆跨地
+域调度问题 
+1.1  问题描述 
+为实现最佳烟草工业企业供应链管理实践，本文
+在多中心车辆路径问题（MDVRP）研究的基础上，充
+分考虑包括多生产点排产和库存计划、多生产点最大
+发货数能力、异构的运输车辆的装载、成本、配送速
+度限制、准运证限制等在内的多维约束条件，从集成
+优化的视角构建混合整数规划模型，以配送时间最短、
+运输费用最低和异构车辆配送装载率最多的多维目标
+优化，进而使成品卷烟销售订单配送调度整体效益最
+高。 
+综上所述，成品卷烟配送调度问题是一个涉及生
+产排产、异构车辆、准运证约束、运输在途时间、路
+径规划等约束条件的多目标复杂车辆问题（图1）。 
+ 
+图1 烟草生产与运输调度示意图 
+Fig.1 Schematic diagram of tobacco production and transportation scheduling 
+ 
+1.2  限制条件 
+（1）考虑到工业企业成品卷烟销售订单配送是跨
+地区的干线运输，运输周期相对较长，故假设路网状
+态是静态的，不考虑点与点间的多路径选择，不考虑
+拥堵、过路费高低等动态因素。 
+（2）考虑到烟草的专卖制度，配送运输需获得行
+政管理部门签发的有时间限制的法定准运证。该制度
+还要求同一个订单不能越库装运。 
+（3）订单和准运证的关系是“一对一”，订单与
+承运车辆之间的关系是“多对一”。订单不能分开装载
+在不同货运车辆上。 
+（4）订单需要在当天内全部派出。 
+2  模型构建 
+2.1  模型的假设 
+（1）卸货时间相同，即在供应链中车辆每到一个
+商业客户公司的卸货时间均为3 h，
+3
+j
+tA
+h
+=
+。 
+（2）在考虑车载上限时不考虑码放空隙，默认为
+没有空隙，不同规格的烟草包装相同。 
+
+
+===== PAGE 3 =====
+
+中国烟草学报 Acta Tabacaria Sinica 2024 Vol.30 No.2 
+ 
+ 
+ 
+82
+（3）计算时间时，给各运输车辆留出12 h 的损
+耗时间。 
+2.2  目标函数 
+本文以运输时间最短、运输费用最低和车辆配载
+利用率最高为目标函数，根据调查，运输费用与运输
+重量和运输里程有关，而运输时间仅与运输里程有关。
+运输运费计算规则： 
+实际运费(元)=运输单价(元/(t.km))*里程(km) 
+(
+)
+'
+(
+)
+ij
+Am
+m
+i
+ij
+i
+j
+jj
+M
+u
+wAm
+L
+wAm
+wAm
+L
+=
+×
++
+−
+×
+∑
+∑
+ (1) 
+1
+j
+i
+j
+A
+j
+wAm
+w
+α
+=
+=
+×
+∑
+                    (2) 
+{
+}
+1
+1
+1
+,
+1,2,3
+ij
+Am
+A
+i
+j
+M
+m
+m
+=
+=
+=
+=
+=
+∑∑∑
+ 
+           (3) 
+1,
+0
+i
+Am
+Am
+i
+α
+■
+= ■
+■
+车辆在发货点始发
+，反之
+            (4) 
+1,
+0
+j
+Am
+Am
+α
+■
+= ■
+■
+车辆发往j收货点
+，反之
+            (5) 
+1
+max
+1
+j
+j
+Am
+j
+Am
+w
+W
+wAm
+α
+=
+×
+= −
+∑
+                    (6) 
+max
+1,
+95%
+0,
+i
+Am
+wAm
+wAm
+β
+■
+<
+|
+= ■
+|■
+反之
+ 
+               (7) 
+1
+Am
+Am
+A
+C
+β
+ϕ
+=
+=
+×
+∑
+                        (8) 
+'
+=
+ij
+Am
+i
+ij
+jj
+j
+T
+tAm
+TAm
+TAm
+tAm
++
++
++
+∑
+∑
+ 
+   (9) 
+'
+'
+1
+1
+                   
+ 
+=1
+(
+)
+   else
+ij
+ij
+m
+jj
+jj
+m
+i
+i
+i
+i
+A
+i
+i
+i
+a
+i
+i
+L
+TAm
+v
+L
+TAm
+v
+wAm
+tAm
+if Am
+V
+wAm
+wAm
+tAm
+V
+V
+−
+=
+■
+=
+|
+|
+|
+|
+=
+||■
+|■
+|
+=
+|
+||
+|■
+||
+=
++
+||■
+■
+∑
+       (10) 
+1
+1
+1
+ij
+Am
+A
+i
+j
+T
+T
+=
+=
+=
+= ∑∑∑
+                       (11) 
+1
+1
+1
+min
+(
+)
+ij
+ij
+Am
+Am
+Am
+Am
+A
+i
+j
+f
+M
+T
+C
+W
+=
+=
+=
+=
+×
+×
+×
+∑∑∑
+   (12) 
+式(1)表示车辆Am 的运输费用，其中：
+m
+u 为型号
+为m 的车辆每公里运输单价；
+i
+wAm ，
+j
+wAm 分别为型
+号为m 的第A 辆车在第i 个发货点和第j 个收货点装
+载的货物吨数；
+ij
+L 、
+'
+jj
+L 分别表示第i 个发货点到第j
+个收货点，第j 个收货点到第'j 个收货点的路径长度；
+式(2)表示车辆Am 在发货点取货的数量等于Am 配送
+所有收货点的总货物重量，其中：
+j
+w 为第j 个收货点
+的订单需求量；
+j
+A
+α 为0-1 变量，表示第A 辆车是否送
+j 收货点；式(3)表示所有车辆运输的总费用;；式(4)
+i
+Am
+α
+表示车辆Am 是否在发货点i 始发；式(5)
+j
+Am
+α
+表示
+车辆Am 是否发往收货点j ；式(6)为计算车辆的空载
+率，其中：
+max
+wAm
+为车辆A 最大装载率；式(7)
+Am
+β
+表
+示车辆Am 的空载率是否超过5%；式(8)为惩罚成本其
+中：ϕ 为惩罚系数；式(9)计算车辆Am 的运输总时间，
+其中：
+i
+tAm 型号为m 的第A 辆车在第i 个发货点的出
+货时间；
+j
+tAm 型号为m 的第A 辆车在第j 个收货点的
+入库时间(
+j
+tA =3)；
+ij
+TAm 、
+'
+jj
+TAm 为型号为m 的第A 辆
+车从第i 个发货点到第j 个收货点和从第j 个收货点
+到第'j 个收货点的路程时间；式(10)表示从发货点i 出
+发型号为m 的第A 辆车运输时间的具体计算公式，为
+了更加精细化供应链的实际排产调度情况，通过公式
+(10)进一步将发货点i 车辆排队等待卷烟出库情况进
+行了描述，当车辆是发货点i 的第一辆车时，则只需
+考虑仓库的出库时间，否则，则需进一步将前车的装
+车时间纳入等待时间内，其中：m
+v 为型号为m 的车辆
+的速度，
+iV 表示第i 个发货点的出货速度；式(11)表示
+所有车辆的运输总时间；式(12)为模型的目标函数，
+表示运输总时间最短、费用最低、车辆空载率最低。 
+2.3  约束条件 
+1
+1
+i
+Am
+A
+α
+=
+=
+∑
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  (13) 
+min
+max
+i
+wAm
+wAm
+wAm
+<
+<
+ 
+ 
+ 
+ 
+  (14) 
+1
+i
+i
+Am
+i
+A
+wAm
+w
+α
+=
+×
+≤
+∑
+ 
+ 
+ 
+ 
+ 
+  (15) 
+'
+12
+j
+i
+ij
+jj
+j
+T
+h
+tA
+TA
+TA
+tA
+−
+≥
++
++
++
+∑
+∑
+  
+  (16) 
+{
+}
+max
+1
+,
+1,2,3
+A
+Am
+m
+m
+δ
+δ
+=
+≤
+=
+∑
+  
+ 
+ 
+  (17) 
+式(13)表示供应链物流车辆只能从一个发货点始
+发；式(14)为车辆Am 装载上下限约束，由车辆自身性
+能所决定；式(15)为成品烟制造中发货点i 的日出货上
+限，由仓库结构、工作人员、工作时间所决定，其中
+iw
+为第i 个仓库的日出货上限；式(16)为准运证限制，由
+卷烟运输实行法定准运证制度所决定，其中
+jT 为车辆
+
+
+===== PAGE 4 =====
+
+欧阳世波等  计及多目标约束的成品卷烟销售订单配送调度优化 
+ 
+ 
+ 
+83
+A 从生产发货点i 到商业客户公司j 的准运证时效，在
+实际配送过程中需预留12 h 时间；式(17)为每个车型
+数量的约束。 
+3  基于差分进化的混合多元宇宙算法的模型求解 
+3.1  基本多元宇宙算法 
+多元宇宙算法（Multi-Verse Optimizer，MVO）是
+一种基于自然启发式的智能优化算法[21]，其具备参数
+较少，收敛速度快，全局搜索能力强等特点，因此其
+被广泛应用于大规模问题求解中。  
+传统MVO 算法概要如下： 
+（1）初始化宇宙矩阵； 
+（2）设定宇宙标准膨胀率参数； 
+（3）进入宇宙空间探索阶段：① 执行螺旋机制
+变量搜索操作，利用万有引力作用使得初始物体转移；
+②将高膨胀率的物体通过白洞发送，低膨胀率的物体
+通过黑洞发送；③将所有物体通过虫洞传送，利用探
+索机制对两类物体进行系数处理，得到WEP 系数和
+TDR 系数。 
+（4）更新宇宙膨胀率； 
+（5）进入宇宙空间开采阶段： 
+① 根据更新后的宇宙膨胀率计算复杂度的优劣；
+②利用快速分类算法机制完成宇宙空间的开采； 
+（6）若达到预先设定的迭代停止条件，则输出最
+优宇宙空间及最优解；若未达到，则返回步骤3。 
+3.2  解决方案 
+在本文所提出模型的求解中，所有运输车辆只能
+从单一运输中心装运货物，因此需要在4 个运输中心，
+100 个运输订单与3 种运输车辆选择之间求解最优的
+调度方案。这无疑会增加问题的复杂程度，在算法求
+解中的优化效果也会大打折扣，所以对该问题进行离
+散化处理，不同的运输调度方案由所选择的运输中心
+u 、订单组g 、车辆的型号m 以及车辆的编号δ 所组
+成，而每一个订单对应一个运输中心及一辆运输车辆，
+则算法的方案即为：首先对每一个订单对应的
+( ,
+, )
+u m δ 进行优化，进一步对每一个车辆( , )
+m δ 对应的
+所有运送订单的运输顺序进行优化，最终确定了优化
+后运输调度的方案。解决方案如图2 所示。 
+ 
+图2 运输方案示意图 
+Fig.2 Schematic diagram of transportation scheme 
+ 
+3.3  基于差分进化的混合多元宇宙算法 
+MVO 算法的优势主要体现在参数相对较少，主
+要的性能由虫洞存在概率WEP 和虫洞旅行距离速率
+TDR 决定，在相对较低的维度可以表现出更好的性
+能，但在求解复杂模型和大规模的优化问题中极易陷
+入局部的最优解，导致全局搜索能力差。所以在求解
+本文的模型时，在MVO 算法中引入差分进化算法中
+的变异、交叉和选择策略，差分进化算法（Differential 
+Evolution, DE）是基于生物体优胜劣汰，不断由低级
+向高级进化的算法，其通过不断地迭代保留适合环境
+的个体，淘汰掉适应性弱的个体，是一种操作复杂性
+低的全局优化算法。因此在MVO 算法的基础上提出
+基于差分进化的混合多元宇宙算法（DE-WOA）以增
+强其全局搜索能力，同时在虫洞穿梭隧道机制中加入
+
+
+===== PAGE 5 =====
+
+中国烟草学报 Acta Tabacaria Sinica 2024 Vol.30 No.2 
+ 
+ 
+ 
+84
+鲸鱼种群间的信息交互探索模式，增加种群内部信息
+交流的同时帮助算法更好地开拓新的搜索区域，进而
+使得算法具备跳出局部最优解的能力。 
+步骤1：参数初始化 
+初始化宇宙维度D ，宇宙种群数量
+max
+pop
+，迭代
+次数
+max
+K
+；交叉概率CR ；差分系数F 。 
+步骤2：初始化宇宙 
+根据供应链运输中心数
+U
+N ，车型数
+M
+N
+和订单分
+组方案初始化每个订单的运输中心编号
+.
+X u ，运送订
+单车型编号
+.
+X m 。.
+X u 为[1 NU ]的随机整数，.
+X m 为
+[1 
+M
+N
+]的随机整数。查找运输中心
+.
+X u 下车型为
+.
+X m
+的车辆数
+um
+N
+，则运送订单的车辆编号
+.
+X δ 为[1 
+um
+N
+]
+的随机整数。生成
+max
+pop
+个种群个体后，依据轮盘赌
+的方法筛选
+1
+pop
+N
+个个体作为初始宇宙种群（图3）。 
+ 
+图3 初始种群生成示意图 
+Fig.3 Schematic diagram of initial population generation 
+ 
+步骤3：差分进化操作 
+对第k 代的第i 个宇宙个体
+k
+i
+X 进行差分进化操作 
+（1）变异。随机选取两个可选宇宙，进行宇宙间
+信息的传递，具体操作如下式： 
+1
+1
+2
+(
+)
+k
+k
+k
+k
+i
+best
+r
+r
+V
+X
+F
+X
+X
++ =
++
+×
+−
+ 
+ 
+ 
+  (18) 
+其中
+1
+k
+iV
++ 为执行变异操作后的宇宙，F 为变异算
+子
+[0,2]
+∈
+，
+1
+k
+r
+X 和
+2
+k
+r
+X
+为随机选取的不同于
+k
+best
+X
+的宇
+宙。 
+（2）交叉。依据交叉概率对两个前代宇宙进行部
+分的替换，具体操作如下式： 
+1
+  ,
+ ,
+k
+i
+k
+i
+k
+i
+V
+rand
+CR
+U
+X
+rand
+CR
++
+■
+≤
+|
+= ■
+>
+|■
+ 
+ 
+ 
+ 
+  (19) 
+其中CR 为交叉算子
+[0,1]
+∈
+，rand 是随机产生
+[0,1]
+∈
+的随机数，
+1
+k
+i
+U
++ 是交叉产生的新宇宙个体。 
+（3）选择。搜索代理通过变异和交叉操作后需通
+过适应度函数值来判断进行保留原始宇宙或者执行交
+叉操作产生的新宇宙。选择式如下： 
+1
+1
+1
+1
+1
+, (
+)
+(
+)
+,
+k
+k
+k
+i
+i
+best
+k
+i
+k
+best
+U
+f U
+f X
+X
+X
++
++
++
++
++
+■
+<
+|
+= ■
+|■
+其他
+  
+ 
+  (20) 
+当交叉产生宇宙的适应度函数值小于原宇宙适应
+度函数值，则将新宇宙替换原宇宙个体位置，否则不变。 
+步骤4：计算宇宙膨胀度并标准化
+ 
+基于模型所建立的目标函数对所有宇宙的膨胀度
+进行计算，由于目标函数求其最小值，则膨胀度最小
+的宇宙代表该模型的最优解，依据约束条件筛选不符
+合约束的宇宙膨胀度设置为正无穷，并根据标准化公
+式对宇宙膨胀度进行标准化，所得公式如下： 
+
+
+===== PAGE 6 =====
+
+欧阳世波等  计及多目标约束的成品卷烟销售订单配送调度优化 
+ 
+ 
+ 
+85
+max
+max
+max
+1
+2
+1
+2
+1
+2
+(
+)
+min(
+([
+,
+,
+,
+]))
+(
+)
+max(
+([
+,
+,
+,
+]))
+min(
+([
+,
+,
+,
+]))
+k
+k
+k
+k
+i
+pop
+k
+i
+k
+k
+k
+k
+k
+k
+pop
+pop
+f X
+fit
+X
+X
+X
+Sfit X
+fit
+X
+X
+X
+fit
+X
+X
+X
+−
+=
+−
+…
+…
+…
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+(21) 
+式中：
+(
+)
+k
+i
+Sfit X
+为种群中第k 个宇宙个体的标准
+化宇宙膨胀度，
+(
+)
+k
+i
+f X
+为第k 个宇宙个体的适应度函
+数值。 
+步骤5：宇宙通过黑白洞交换物质 
+每个宇宙个体
+k
+i
+X 都随机生成1 个
+[0,1]
+∈
+的随机
+数
+1
+ir ，若
+1
+(
+)
+k
+i
+i
+r
+Sfit X
+<
+，则通过轮盘赌的方式产生黑
+洞的宇宙
+k
+j
+X ，拥有黑洞的宇宙向该宇宙发送物质： 
+1
+1
+    
+(
+)
+    
+(
+)
+k
+k
+j
+i
+i
+k
+i
+k
+k
+i
+i
+i
+X
+r
+Sfit X
+X
+X
+r
+Sfit X
+■
+<
+|
+= ■
+≥
+|■
+ 
+ 
+ 
+ 
+  (22) 
+步骤6:通过虫洞接受最优宇宙发送的物质 
+若
+1
+(
+)
+k
+i
+i
+r
+Sfit X
+>
+，则对该宇宙产生3 个介于0 到1
+之间的随机数
+2
+ir ,
+3
+ir ,
+4
+ir ,通过下式的更新机制对最优
+宇宙通过虫洞向该宇宙发送物质： 
+4
+3
+4
+3
+2
+((
+)
+)   
+0.5
+((
+)
+)    
+0.5
+     
+k
+i
+j
+j
+i
+j
+i
+k
+k
+i
+i
+j
+j
+i
+j
+i
+k
+i
+i
+X
+TDR
+ub
+lb
+r
+lb
+r
+X
+X
+TDR
+ub
+lb
+r
+lb
+r
+X
+r
+WEP
+■
++
+×
++
+×
++
+<
+||
+=
+−
+×
++
+×
++
+≥
+■
+|
+≥
+|■
+ (23) 
+1
+1
+max
+1
+p
+p
+k
+TDR
+pop
+= −
+  
+ 
+ 
+ 
+ 
+  (24) 
+在传统多元宇宙算法中，当
+2
+ir
+WEP
+≥
+时，并没有
+宇宙中的物质通过虫洞进行算法更新，这在一定程度
+上降低了算法的全局开采能力，同时MVO 算法在更
+新过程中并没有注重于种群中内部宇宙物质信息间的
+交流，进而降低了算法的稳定性和全局搜索性。鉴于
+此，通过引入鲸鱼种群间的信息交互探索模式，此法
+不仅提高了MVO 算法种群内部宇宙物质间的信息交
+互，同时使得算法具备跳出局部最优解的能力。因此
+改进后的虫洞隧道机制如下所示： 
+4
+3
+4
+3
+2
+((
+)
+)   
+0.5
+((
+)
+)    
+0.5
+*
+    
+k
+i
+j
+j
+i
+j
+i
+k
+k
+i
+i
+j
+j
+i
+j
+i
+k
+rand
+i
+X
+TDR
+ub
+lb
+r
+lb
+r
+X
+X
+TDR
+ub
+lb
+r
+lb
+r
+X
+A D
+r
+WEP
+■
++
+×
++
+×
++
+<
+||
+=
+−
+×
++
+×
++
+≥
+■
+|
+−
+≥
+|■
+ (25) 
+2
+2
+A
+a rand
+a
+C
+rand
+=
+−
+■
+■
+=
+■
+· ·
+·
+  
+ 
+ 
+ 
+ 
+  (26) 
+k
+k
+rand
+i
+D
+C X
+X
+=
+−
+·
+  
+ 
+ 
+ 
+ 
+  (27) 
+2
+2
+(
+)*(
+)
+a
+k
+t
+K
+=
+−
++
+ 
+ 
+ 
+ 
+ 
+  (28) 
+在式(25)中，
+k
+rand
+X
+为当前种群中的随机宇宙，
+,
+,
+A C D 为系数向量由式(26～27)得到，a 为线性因子
+由式(28)得到，其中，A 的大小影响着优化曲线的收敛
+性，为了加强算法搜索效率，改进曲线收敛性以及搜
+索精度，通常将参数t 作为算法搜索偏向性的侧重点。 
+步骤7：通过虫洞进行最优宇宙的全局探索 
+步骤8：更新全局极值，将目前宇宙保存为
+k
+best
+X
+ 
+步骤9：若达到最大迭代次数则输出结果，反之
+则返回至步骤4 
+4  结果与分析 
+4.1  结果 
+本文以某烟草制造工业企业的实际数据作为背
+景，将该企业某天的部分待送订单为例求解成品烟物
+流运输的最佳优化方案。选取某天的100 份订单数据
+（包括：订单城市、重量、准运证时间）如表1 所示，
+物流配送中心的商业客户及运输中心之间距离矩阵如
+表2 所示。在表3 中：运输中心共有4 个，分别位于
+昆明、红河、曲靖及会泽，运输中心单班/日出库能力。
+负责成品烟运输的签约承运商所拥有车辆型号分别为
+{
+}
+1,2,3
+M =
+，3 种车辆的信息和相应的运输单价见表
+4。1 箱成品烟重50 kg。 
+表1 订单信息表 
+Tab.1 Order information  
+订单城市 
+订单重量/t 
+准运证有效时间/d 
+订单城市 
+订单重量/t 
+准运证有效时间/d 
+昭通 
+5 
+8 
+… 
+… 
+… 
+南阳 
+9 
+10 
+广元 
+6 
+9 
+青岛 
+9 
+14 
+乌鲁木齐 
+8 
+9 
+白城 
+11 
+11 
+信阳 
+12 
+9 
+濮阳 
+5 
+6 
+湘潭 
+10 
+9 
+
+
+===== PAGE 7 =====
+
+中国烟草学报 Acta Tabacaria Sinica 2024 Vol.30 No.2 
+ 
+ 
+ 
+86
+续表1 
+订单城市 
+订单重量/t 
+准运证有效时间/d 
+订单城市 
+订单重量/t 
+准运证有效时间/d 
+广州 
+10 
+9 
+吴川 
+11 
+9 
+阿克苏 
+5 
+11 
+新乡 
+6 
+10 
+宁德 
+9 
+7 
+锡林浩特 
+10 
+8 
+兴化 
+5 
+13 
+建德 
+5 
+12 
+邳州 
+7 
+11 
+大理 
+11 
+5 
+绥化 
+7 
+8 
+益阳 
+6 
+10 
+阜阳 
+4 
+7 
+十堰 
+9 
+9 
+娄底 
+5 
+8 
+天水 
+5 
+13 
+黄山 
+8 
+11 
+漯河 
+11 
+14 
+达州 
+11 
+9 
+银川 
+5 
+8 
+成都 
+5 
+8 
+乌海 
+8 
+8 
+朝阳 
+5 
+7 
+延吉 
+11 
+9 
+咸宁 
+5 
+11 
+吴忠 
+12 
+7 
+瑞丽 
+5 
+9 
+连云港 
+5 
+13 
+吉林 
+12 
+9 
+扎兰屯 
+4 
+12 
+… 
+… 
+… 
+威海 
+8 
+15 
+表2 距离矩阵 
+Tab.2 Distance matrix 
+城市 
+昆明 
+曲靖 
+红河(弥勒) 
+会泽 
+北京 
+… 
+新疆石河子 
+北京 
+2781 
+2612 
+2722 
+2423 
+0 
+… 
+2544.2 
+天津 
+2759 
+2590 
+2702 
+2477 
+96.1 
+… 
+2636.6 
+河北石家庄 
+2404 
+2355 
+2453 
+2138 
+239.5 
+… 
+2457.2 
+河北唐山 
+2854 
+2705 
+2796 
+2535 
+162.1 
+… 
+2701.3 
+河北秦皇岛 
+2998 
+2849 
+2939 
+2678 
+266.9 
+… 
+2792.4 
+河北邯郸 
+2335 
+2186 
+2265 
+2037 
+394.5 
+… 
+2539.6 
+河北邢台 
+2383 
+2234 
+2324 
+2096 
+326.8 
+… 
+2505.5 
+河北保定 
+2529 
+2482 
+2562 
+2253 
+141.5 
+… 
+2514 
+河北张家口 
+2658 
+2663 
+2680 
+2401 
+178.8 
+… 
+2371.3 
+… 
+… 
+… 
+… 
+… 
+… 
+… 
+… 
+新疆吐鲁番 
+3935 
+3940 
+3621 
+3197 
+2291.9 
+… 
+310.9 
+新疆哈密 
+3546 
+3551 
+3234 
+2810 
+1949.7 
+… 
+618.1 
+新疆昌吉 
+4156 
+4161 
+3844 
+3417 
+2449.4 
+… 
+96.0 
+新疆博乐 
+4623 
+4628 
+4318 
+3900 
+2856.2 
+… 
+314.9 
+新疆库尔勒 
+4325 
+4330 
+3996 
+3572 
+2549.5 
+… 
+302.8 
+新疆阿克苏 
+4857 
+4862 
+4529 
+4105 
+3042.6 
+… 
+586.9 
+新疆阿图什 
+5279 
+5284 
+4947 
+4524 
+3421.0 
+… 
+977.9 
+新疆喀什 
+5321 
+5326 
+4988 
+4564 
+3465.1 
+… 
+1020.0 
+新疆和田 
+5261 
+5266 
+4930 
+4522 
+3193.8 
+… 
+958.4 
+新疆伊宁 
+4793 
+4798 
+4488 
+4083 
+2930.7 
+… 
+391.5 
+新疆塔城 
+4729 
+4734 
+4426 
+4001 
+2659.2 
+… 
+115.3 
+新疆阿勒泰 
+4780 
+4785 
+4247 
+3824 
+2821.5 
+… 
+368.3 
+新疆石河子 
+4256 
+4261 
+3949 
+3529 
+2419.6 
+… 
+404.5 
+ 
+
+
+===== PAGE 8 =====
+
+欧阳世波等  计及多目标约束的成品卷烟销售订单配送调度优化 
+ 
+ 
+ 
+87
+表3 各运输中心日出货上限，出货速度 
+Tab.3 Daily shipping limit and shipping speed of each 
+transportation center 
+仓储科 
+红河 
+会泽 
+昆明 
+曲靖 
+日出库能力/箱 
+7140 
+1200 
+10600
+17000
+单班出库速度/(箱/h) 
+2520 
+480 
+3780 
+2400 
+ 
+表4 车辆信息参数表 
+Tab.4 Vehicle parameter 
+车辆
+型号
+(m)
+装载
+下限
+(ωmmin)
+装载
+上限
+(ωmmax)
+车辆日均行
+驶里程/km
+数量/
+辆 
+每公里单价
+/(CNY/(Ton·Km))
+1 
+11t 
+24t 
+725 
+55 
+0.25 
+2 
+14t 
+25t 
+668 
+50 
+0.28 
+3 
+13t 
+23t 
+648 
+55 
+0.30 
+ 
+本文算法编程工具采用MATLAB R2018a，实验
+仿真硬件为华为2288H V5 服务器主机，CPU 为Intel 
+XEON inside。为确保算法的公平性，拟采取相同的初
+始订单种群进行算法优化，将本文所提出的算法与包
+括DE 算法，PSO 算法，MVO 算法，CSA 算法、WOA
+算法，GA 算法、OA 算法在内的7 种算法对比，其中
+PSO 算法的学习因子
+1
+2
+1.5
+c
+c
+=
+=
+，粒子最大速度
+max
+5
+v
+=
+，粒子最小速度
+min
+5
+v
+= −。DE-MVO 的算法参
+数为：宇宙个数
+max
+50
+pop
+=
+，最大迭代次数
+max
+200
+T
+=
+，初始变异算子
+0
+0.4
+F =
+，交叉算子
+0.1
+CR =
+，GA 算法中的
+0.8
+Pc =
+，
+0.1
+Pm =
+；经大量
+测试试验后得到式(28)中的参数
+110
+t =
+。共进行30 次
+仿真实验并进行对比，8 个算法30 次运行中各算法最
+优目标函数收敛曲线如图4 所示，最差收敛曲线如图
+5 所示，平均收敛曲线如图6 所示，运行结果各指标
+如表5 所示。 
+ 
+图4  8 个算法30 次运行中各算法最优目标函数收敛曲线图 
+Fig.4 Convergence curve of the optimal objective function of each algorithm in 30 runs of the eight algorithms 
+ 
+图5  8 个算法30 次运行中各算法最差目标函数收敛曲线图 
+Fig.5 Convergence curve of the worst objective function of each algorithm in 30 runs of eight algorithms 
+
+
+===== PAGE 9 =====
+
+中国烟草学报 Acta Tabacaria Sinica 2024 Vol.30 No.2 
+ 
+ 
+ 
+88
+ 
+图6  8 个算法30 次运行中各算法平均目标函数收敛曲线图 
+Fig.6 Convergence curve of the average objective function of each algorithm in 30 runs of the eight algorithms 
+ 
+表5  8 个算法30 次运行过程中各指标值 
+Tab.5 The index values of the eight algorithms during 30 runs 
+指标 
+PSO 
+WOA 
+MVO 
+DE 
+CSA 
+GA 
+OA 
+DE-MVO
+目标函数平均值
+10
+(10 ) 
+1.612 
+1.925 
+1.866 
+1.74 
+2.298 
+1.445 
+2.317 
+1.097 
+目标函数最差解
+10
+(10 ) 
+2.027 
+2.591 
+2.758 
+1.988 
+2.745 
+1.979 
+2.692 
+1.664 
+目标函数最优解
+10
+(10 ) 
+1.188 
+1.251 
+1.140 
+1.052 
+1.836 
+0.959 
+1.542 
+0.672 
+ 
+8 个算法各运行30 次的计算过程中，某次的收敛
+曲线如图7 所示，表6、7 为DE-MVO 算法的规划结
+果，包括发货地、拼车方案、车辆路线、运输里程、
+货物吨数；表8 为各算法某次运行过程中的调度结果
+表，包括总运费、路线长度、运输时间等。 
+ 
+图7  8 个算法某次运行中目标函数收敛曲线图 
+Fig.7 Convergence curve of objective function of eight algorithms in one of 30 runs 
+
+
+===== PAGE 10 =====
+
+欧阳世波等  计及多目标约束的成品卷烟销售订单配送调度优化 
+ 
+ 
+ 
+89
+表6 随机选取DE-MVO 算法30 次运行过程中某次的规划结果-1 
+Tab.6 Planning result of DE-MVO algorithm for a certain time in a randomly selected course of 30 runs-1 
+路线 
+具体路线 
+运输车型 
+1 
+云南昆明→云南昭通→四川成都→河南三门峡→广东台山 
+车型1 
+2 
+云南昆明→湖北黄冈→辽宁朝阳 
+车型1 
+3 
+云南昆明→湖南冷水滩→黑龙江尚志→辽宁铁岭 
+车型1 
+4 
+云南昆明→广东珠海→辽宁大连 
+车型1 
+5 
+云南昆明→江苏无锡→河北保定→内蒙古临河 
+车型2 
+6 
+云南昆明→四川绵阳→浙江义乌→黑龙江鹤岗 
+车型2 
+7 
+云南昆明→四川广元→广东吴川 
+车型2 
+8 
+云南昆明→湖南益阳→江苏连云港→宁夏银川→甘肃天水 
+车型3 
+9 
+云南曲靖→江苏邳州→江苏兴化→新疆阿克苏 
+车型1 
+10 
+云南曲靖→湖北咸宁→湖南娄底→安徽铜陵 
+车型1 
+… 
+… 
+… 
+28 
+云南红河(弥勒)→浙江建德→河南新乡→山西侯马 
+车型3 
+29 
+云南红河(弥勒)→河南漯河→内蒙古扎兰屯→内蒙古乌海 
+车型1 
+30 
+云南会泽→上海→吉林白城 
+车型1 
+31 
+云南会泽→四川巴中→内蒙古通辽→内蒙古二连浩特 
+车型1 
+32 
+云南会泽→四川都江堰→广东揭阳 
+车型1 
+33 
+云南会泽→四川资阳→广西北海 
+车型1 
+34 
+云南会泽→湖南湘潭→安徽芜湖→黑龙江七台河→四川资阳 
+车型2 
+35 
+云南会泽→湖北十堰→湖北黄冈 
+车型2 
+36 
+云南会泽→吉林延吉→宁夏吴忠 
+车型2 
+表7 随机选取DE-MVO 算法30 运行过程中某次的规划结果-2 
+Tab.7 The planning result of DE-MVO algorithm for a certain time in a randomly select course of 30 runs-2 
+路线 
+运费/CNY 
+路线长度/km 
+运输时间/d 
+货物重量/t 
+装载率/% 
+1 
+14538 
+2778.2 
+4.84 
+24.00 
+100.00 
+2 
+18865 
+3175.4 
+5.14 
+22.00 
+91.67 
+3 
+17825 
+3017.0 
+5.05 
+23.00 
+95.83 
+4 
+17117 
+3708.2 
+5.89 
+22.00 
+91.67 
+5 
+29942 
+3801.1 
+6.60 
+23.00 
+92.00 
+6 
+19817 
+4369.1 
+7.46 
+24.00 
+96.00 
+7 
+12999 
+1739.7 
+3.41 
+22.00 
+88.00 
+8 
+21210 
+4267.2 
+7.64 
+19.00 
+82.61 
+9 
+17246 
+6460.0 
+9.82 
+23.00 
+95.83 
+10 
+7340 
+2361.9 
+4.21 
+24.00 
+100.00 
+… 
+… 
+… 
+… 
+… 
+… 
+28 
+9590.6 
+3382.1 
+6.14 
+22.00 
+95.65 
+29 
+8697.7 
+3359.1 
+5.56 
+23.00 
+95.83 
+30 
+14248 
+3695.5 
+5.85 
+23.00 
+95.83 
+31 
+35266 
+3146.1 
+5.23 
+24.00 
+100.00 
+32 
+31781 
+1587.8 
+2.96 
+22.00 
+91.67 
+33 
+29882 
+1107.7 
+2.31 
+21.00 
+87.50 
+34 
+46929 
+7182.7 
+11.79 
+25.00 
+100.00 
+35 
+21093 
+2354.3 
+4.32 
+18.00 
+72.00 
+36 
+14228 
+6367.1 
+10.33 
+23.00 
+92.00 
+表8  8 个算法运行30 次的平均各指标对比表 
+Tab.8 The average index comparison of the five algorithms running 30 times 
+算法 
+总运费/CNY 
+平均共计运输时间/d 
+目标函数值/(1010)  
+平均装载率 
+平均作业车辆
+PSO 
+657490 
+216.62 
+1.612 
+88.52% 
+37.93 
+DE 
+702060 
+215.46 
+1.74 
+88.75% 
+37.87 
+WOA 
+640880 
+220.54 
+1.925 
+87.75% 
+38.23 
+
+
+===== PAGE 11 =====
+
+中国烟草学报 Acta Tabacaria Sinica 2024 Vol.30 No.2 
+ 
+ 
+ 
+90
+续表8 
+算法 
+总运费/CNY 
+平均共计运输时间/d 
+目标函数值/(1010) 
+平均装载率 
+平均作业车辆
+MVO 
+734880 
+216.54 
+1.866 
+88.41% 
+37.96 
+CSA 
+759060 
+222.88 
+2.298 
+85.93% 
+39.00 
+DE-MVO 
+630002 
+213.68 
+1.097 
+90.33% 
+37.26 
+GA 
+736760 
+215.37 
+1.445 
+89.8% 
+37.48 
+AO 
+679470 
+220.77 
+2.317 
+86.99% 
+38.6 
+ 
+表9 核心算法计算时间复杂度 
+Tab.9 Computational time complexity of core algorithm 
+步骤 
+DE-MVO 
+MVO 
+DE 
+种群初始化
+O(N) 
+O(N) 
+O(N) 
+变异操作 
+O(N) 
+/ 
+O(N) 
+交叉操作 
+O(1) 
+/ 
+O(1) 
+选择操作 
+O(N*D) 
+/ 
+O(N*D) 
+交叉扰动 
+O(N) 
+/ 
+O(N) 
+宇宙更新 
+O(N^2*D) 
+O(N^2*D) 
+/ 
+汇总 
+O(N^2*D) 
+O(N^2*D) 
+O(N*D) 
+ 
+4.2  结果分析 
+在图4-7 中可以看出，在适应度曲线上，DE-MVO
+算法具有更好的精度，主要体现在：全局搜索能力更
+优、算法收敛速度更好、鲁棒性更好，这得益于差分
+进化的操作，该操作可以有效帮助算法进行全局的搜
+索，同时，基于鲸鱼算法的种群交互探索机制也帮助
+算法进行了全局开拓，扩大算法的解空间，使算法具
+备了跳出局部最优解的能力。 
+从表5 和表8 中的仿真数据中可以得到：所提出
+的DE-MVO 算法相较于PSO 算法、DE 算法、WOA
+算法、MVO 算法、和CSA 算法、GA 算法和AO 算
+法在适应度函数值上平均降低了40.23%。在运输费用
+上平均降低了10.37%，在运输天数上平均降低了
+2.1%，在装载率上平均提高了3%，在作业车辆上平
+均降低了2.3%。 
+在表9 的核心算法时间复杂度分析中可以看出，
+由于在交叉操作中选中维度并通过随机索引的方法进
+行更新，因此该操作的时间复杂度为O（1）。因此尽
+管改进算法中的操作步骤有所增加，但时间复杂度仍
+保持在O（N^2*D）。随后，将本文所提出的模型与优
+化算法接入该企业物流调度决策辅助系统之中，基于
+实际调度案例与该系统现有调度方案对比，本文提出
+模型和算法无论是从实际运用亦或是算法复杂分析及
+大规模求解均展现出了优秀的性能，可有效缩短运输
+时间并降低运输总运费，同时在供应链物流运输车辆
+的选择方面也更加合理。 
+5  结论 
+本文根据烟草工业企业制造供应链实际要求，构
+建了供应链成品烟多运输中心异构车辆跨地域调度模
+型，将配送中心，订单、车辆序号等复杂且耦合的数
+据进行离散化处理，并设计了一种改进的多元宇宙算
+法进行求解，通过仿真实验证明，相较7 种前沿算法
+进行数据对比，结果表明本文所提算法更有利于解决
+大规模复杂约束条件下的车辆物流调度问题。在烟草
+工业行业有较强的可行性与实用性，且能为智能工厂、
+智慧物流等涉及车辆调度的领域提供借鉴价值和参考
+方向。 
+ 
+参考文献 
+[1] 
+吴倩云，谢乃明，邵雨婷. 考虑时间窗和装载约束的装配线集
+成物流调度[J]. 计算机集成制造系统，2020, 26;.263(03): 
+806-814.  
+WU Qianyun, XIE Naiming, SHAO Yuting, et al. Integrated 
+logistics scheduling of assembly lines with time windows and 
+loading 
+constraints[J]. 
+Computer 
+Integrated 
+Manufacturing 
+Systems, 2020, 26;.263(03): 806-814. 
+[2] 
+李嫚嫚，陆建，安颖. 考虑客户偏好的双目标时间窗指派车辆
+路径问题[J]. 东南大学学报（自然科学版），2018, 48(3): 568-575.  
+LI Manman, LU Jie, AN Ying. Bi-objective time window 
+assignment vehicle routing problem considering customer 
+preferences 
+for 
+time 
+windows[J]. 
+Journal 
+of 
+Southeast 
+University(Natural Science Edition), 2018, 48(3): 568-575. 
+[3] 
+孙刘诚，孙焰. 带订单选择车辆路径问题的模型与算法[J]. 交通
+运输系统工程与信息，2018, 18(2): 194-200.  
+SUN Liucheng, SUN Yan. Model and Algorithm of the Vehicle 
+Routing 
+Problem 
+with 
+Request 
+Selection[J]. 
+Journal 
+of 
+Transportation Systems Engineering and Information Technology, 
+2018, 18(2): 194-200. 
+[4] 
+石建力，张锦. 行驶时间和服务时间随机的集配货一体的分批
+配送车辆路径优化[J]. 控制与决策，2018, 33(04): 657-670.  
+SHI Jianli, ZHANG Jin. Optimization on simultaneous pick-up and 
+delivery vehicle routing problem with split delivery and stochastic 
+travel and service time[J]. Control and Decision, 2018, 33(4): 
+657-670. 
+[5] 
+徐君翔，郭静妮. 基于大数据平台下的物流配送车辆路径问题
+研究[J]. 交通运输系统工程与信息，2018, 18(S1): 86-93.  
+XU Junxiang, GUO Jingniu. Research on logistics vehicle routing 
+problem based on big data framework[J]. Journal of Transportation 
+Systems Engineering and Information Technology, 2018, 18(S1): 
+86-93. 
+[6] 
+柴获，何瑞春，代存杰，等. 考虑时空相异的危险品运输车辆
+安全调度[J]. 交通运输工程学报，2019, 19(3): 145-156.  
+CHAI Hou, HE Ruichun, DAI Cunjie, et al. Safety scheduling of 
+hazardous materials transportation vehicle considering spatio- 
+
+
+===== PAGE 12 =====
+
+欧阳世波等  计及多目标约束的成品卷烟销售订单配送调度优化 
+ 
+ 
+ 
+91
+temporal dissimilarity[J]. Journal of Traffic and Transportation 
+Engineering, 2019, 19(3): 145-156. 
+[7] 
+Husnain G, Anwar S. An Intelligent Probabilistic Whale 
+Optimization Algorithm (i-WOA) for Clustering in Vehicular Ad 
+Hoc Networks[J]. International Journal of Wireless Information 
+Networks, 2022: 1-14.. 
+[8] 
+李珍萍，张煜炜. 带时间窗和服务顺序约束的多需求车辆路径
+问题[J]. 控制与决策，2019,34(7): 1565-1570.  
+LI Zhenping, ZHANG Yuwei. Multiple demands vehicle routing 
+problem with time windows and serviceorder constraints[J]. 
+Control and Decision, 2019, 34(7): 1565-1570. 
+[9] 
+Yassine Saji, Mohammed Barkatou. A discrete bat algorithm based 
+on Lévy flights for Euclidean traveling salesman problem[J]. 
+Expert Systems with Applications, 2021, 172. 
+[10] 
+LI Yongbo, Hamed Soleimani, Mostafa Zohal. An improved ant 
+colony optimization algorithm for the multi-depot green vehicle 
+routing problem with multiple objectives[J]. Journal of Cleaner 
+Production, 2019, 227: 1161-1172. 
+[11] 
+Omid Motamedi Sedeh, Bakhtiar Ostadi, Farank Zagia. A novel 
+hybrid GA-PSO optimization technique for multi-location facility 
+maintenance 
+scheduling 
+problem[J]. 
+Journal 
+of 
+Building 
+Engineering, 2021, 40. 
+[12] 
+李桃迎，吕晓宁，李峰，等. 考虑动态需求的外卖配送路径优
+化模型及算法[J]. 控制与决策，2019, 34(02): 406-413.  
+LI Taoying, LV Xiaoning, LI Feng, et al. Routing optimization 
+model and algorithm for takeout distribution with multiple fuzzy 
+variables under dynamics demand[J]. Control and Decision, 2019, 
+34(02): 406-413. 
+[13] 
+李顺勇，但斌，葛显龙. 多通路时变网络下低碳车辆路径优化
+模型与算法[J]. 计算机集成制造系统，2019, 25(2): 454-468.  
+LI Shunyong, DAN Bin, GE Xianlong. Optimization model and 
+algorithm of low carbon vehicle routing problem under multi-graph 
+time-var yin network[J]. Computer Integrated Manufacturing 
+System, 2019, 25(2): 454-468. 
+[14] 
+夏扬坤，符卓，谢九勇. 依订单拆分的多自动导引车物料配送
+路径规划[J]. 计算机集成制造系统，2017, 23(7): 1520-1528.  
+XIA Yangkun, FU Zhuo, XIE Jiuyong. Material distribution route 
+planning for multiple automated guided vehicles with split 
+deliveries by order[J]. Computer Integrated Manufacturing System, 
+2017, 23(7): 1520-1528. 
+[15] 
+范厚明，徐振林，李阳，等. 开放式多中心需求可拆分VRP 及
+混沌遗传模拟退火算法[J]. 运筹与管理，2022,31(01):92-98. 
+FAN Houming, XU Zhenlin, LI Yang, et al. Chaos genetic 
+simulated annealing algorithm for the open multi-depot Split 
+delivery vehicle routing problem [J]. Operations Research and 
+Management Science,2022,31(01):92-98. 
+[16] 
+Barma Partha Sarathi, Dutta Joydeep, Mukherjee Anupam, Kar 
+Samarjit. A hybrid GA-BFO algorithm for the profit-maximizing 
+capacitated vehicle routing problem under uncertain paradigm[J]. 
+Journal of Intelligent & Fuzzy Systems, 2021, 40(5). 
+[17] 
+刘紫玉，赵丽霞，薛建越，等. 面向车辆路径问题的改进蚁群
+算法研究[J]. 河北科技大学学报，2022,43(01):80-89.  
+[18] 
+Reza 
+Shahabi-Shahmiri, 
+Sobhan 
+Asian, 
+Reza 
+Tavakkoli- 
+Moghaddam, et al. A routing and scheduling problem for 
+cross-docking networks with perishable products, heterogeneous 
+vehicles and split delivery[J]. Computers & Industrial Engineering, 
+2021, 157. 
+[19] 
+范文兵，冯文. 混合遗传算法的带时间窗卷烟物流车辆路径优
+化[J]. 现代电子技术，2018, 41(11): 119-123+128.  
+FAN Wenbing, FENG Wen. Hybrid genetic algorithm based 
+cigarette logistics vehicle routing optimization with time 
+window[J]. Journal of Traffic and Transportation Engineering 
+Modern Electronics Technique, 2018, 41(11): 119-123+128. 
+[20] 
+Liu Ziyu, ZHAO Lixia, Xue Jiancheng, et,al. Research on vehicle 
+routing problem based on improved ant colony algorithm[J]. 
+Journal of Hebei University of Science andTechnology, 2022, 
+43(01):80-89. 
+[21] 
+Mirjalili S, Mirjalili S M, Hatamlou A, et al. Multi-Verse Optimizer: 
+a nature-inspired algorithm for global optimization[J]. Neural 
+Computing and Applications, 2016, 27(2): 495-513. 
+ 
+Optimization of multi-objective constrained distribution scheduling of finished cigarette sales 
+orders  
+OUYANG Shibo1, ZHANG Miaohan2, XIE Junming3, AN Yuqiang1,4, HAN Yuhang2, ZHOU Xinbo5, PAN Nan2* 
+1 Logistics Center Hongyun Honghe Tobacco (Group) Co., Ltd., Kunming 650231, China; 
+2 Faculty of Civil Aviation and Aeronautical, Kunming University of Science & Technology, Kunming 650500, China; 
+3 Staff Training College, China National Tobacco Corporation, Zhengzhou 450008, China; 
+4 Faculty of Management and Economics, Kunming University of Science & Technology, Kunming 650500, China; 
+5 Faculty of Information Engineering and Automation, Kunming University of Science and Technolog, Kunming 650500, China 
+Abstract: Aiming at the scheduling problem in the cross-region multi-transportation center logistics scheduling model in the 
+manufacturing supply chain under big data context, the heterogeneous vehicle scheduling problem involving multiple constraints and 
+multiple objectives is investigated. Based on the actual transportation task requirements of the tobacco manufacturing industry, a 
+heterogeneous vehicle scheduling model with the shortest transportation time, lowest transportation cost, and highest vehicle utilization rate 
+as the optimization objectives are built. A hybrid multivariate universe algorithm based on differential evolution is designed. Finally, based 
+on the actual order data of a tobacco industrial enterprise, the designed algorithm is compared with the cutting-edge algorithms such as 
+particle swarm algorithm, differential evolution algorithm, whale optimization algorithm, crow search algorithm, Aquila Optimizer, and 
+multiverse algorithm. The results showed that the designed algorithm outperformed other algorithms in terms of global search capability 
+and convergence rate. It further shows that the developed model is feasible for solving the vehicle scheduling problem of the manufacturing 
+supply chain. 
+Keywords: multi-objective constraint; finished cigarettes; distribution scheduling; path optimization; multiverse algorithm 
+ 
+*Corresponding author. Email：nanpan@kust.edu.cn 

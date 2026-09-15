@@ -1,0 +1,989 @@
+
+===== PAGE 1 =====
+
+中国烟草学报 Acta Tabacaria Sinica 2025 Vol.31 No.6 
+ 
+ 
+基金项目：浙江中烟工业有限责任公司科技项目重点项目“基于捕捉机遇的销售动态管理数智决策体系研究与应用”（No. ZJZY2022F001） 
+作者简介：金文蔚（1980—），助理经济师，主要研究方向：卷烟市场营销，Tel：13588821248，Email：jww@zjtobacco.com 
+通讯作者：童骏（1983—），讲师，主要研究方向：智能决策理论与应用，Tel：13661636823，Email：tongjun20@zjut.edu.cn 
+收稿日期：2024-11-26；网络出版日期：2025-07-23     
+152
+金文蔚，虞华东，沈振凯，等. 数据驱动的卷烟品规精准投放策略研究[J]. 中国烟草学报，2025，31（6）：152-160. JIN Wenwei, 
+YU Huadong, SHEN Zhenkai, et al. Research on data-driven precision allocation strategy for cigarette SKUs[J]. Acta Tabacaria Sinica, 
+2025,31(6):152-160. doi:10.16472/j.chinatobacco.2024.T0428 
+数据驱动的卷烟品规精准投放策略研究 
+金文蔚
+1，虞华东
+1，沈振凯
+1，童骏
+2* 
+1 浙江中烟工业有限责任公司市场营销部，浙江省杭州市中山南路77 号 310008； 
+2 浙江工业大学管理学院，浙江省杭州市留和路288 号 310023 
+摘  要：数据驱动货源精准投放是卷烟营销数字化转型升级的关键。为此，基于多目标整数规划构建卷烟投放策略模型，首次引
+入企业经营意图和投放规则约束条件，并设计可快速求解模型的二进制粒子群算法。采用江苏省某地（市）历史投放数据，在不
+同投放场景下检验模型的实际应用效果。结果表明，模型能显著提升各品规卷烟的市场状态水平。研究成果可为烟草行业数智营
+销决策提供一定的理论支撑和实践指导。 
+关键词：卷烟营销；货源投放；数据驱动；粒子群算法 
+ 
+ 
+随着消费者需求多元化和市场竞争加剧，传统依
+赖人工经验的卷烟投放模式已难以适应发展需求。大
+数据、人工智能等数字技术的蓬勃发展，为卷烟精准
+投放开辟了新思路。随着工商营销协同推进，工业公
+司的投放建议已成为烟草公司制定投放决策的重要依
+据。在此情景下，如何制定既符合自身经营意图，又
+可实现工商企业互利共赢的卷烟精准投放策略，已成
+为工业公司营销决策的关键所在。 
+卷烟投放的核心内容是确定各品规卷烟在各档位
+上的合理数量。目前主流思路是通过细化客户分类或
+改良销量预测方法来提升货源投放的精准度。例如，
+许泓等[1]基于模糊综合评价法的评分排序策略；谭建
+等[2]基于互信息方法的销量比分配策略；付秋璇[3]基于
+RFM+K-Means 客户分类模型的迭代货源分配策略；
+马宗泽等[4]以及许瑞琦等[5]基于客户“档位+商圈”标
+签分类的档位动态调整策略；张一博等[6]基于“档位+
+价值标签”的组合策略；路宏伟等[7]、邓超等[8]基于神
+经网络销量预测的按比例策略；刘依等[9]、谷学志等[10]
+则提出档位配额分配模型；张一博等[11]基于聚合思想
+提出分步实施策略。 
+现有研究虽取得了进展，但仍存在不足：①研究
+视角局限于烟草公司，缺乏对工业公司的探讨。②理
+论支撑薄弱，大多数策略依赖简单的权重分配法或业
+务经验，难以保证其最优性。③对烟草专卖规则和政
+策导向等关键因素考虑不够，而这些因素正是决定卷
+烟投放策略能否得以实施的前提条件。针对这些不足，
+本文创新性地采用多目标优化理论构建卷烟投放策略
+模型，具体表现在：①首次将企业经营导向而非传统
+的经济效益作为优化目标；②首次引入烟草专卖规则
+等客观约束条件；③基于模型结构特征设计可快速寻
+优的改进离散粒子群算法，从而为业务人员快速提供
+卷烟投放策略建议。 
+粒子群算法是一种有效求解复杂优化问题的启发
+式方法，已被广泛应用于各行业。例如，Ye 等[12]将其
+用于提高海洋油溢事故的应急响应的效率和成本效
+益；Mohammed 等[13]利用算法优化可再生能源系统的
+总成本和供电可靠性；Molaei 等[14]将算法用于社会物
+联网（SIoT）中的广告传播；Ran 等[15]将算法用于解
+
+
+===== PAGE 2 =====
+
+金文蔚等  数据驱动的卷烟品规精准投放策略研究 
+ 
+ 
+ 
+153
+决泊位分配和岸桥调度问题；淳静等[16]通过算法降低
+航天发射成本、提高发射成功率。这些研究证明了粒
+子群算法具有强大的寻优能力，为设计高效的模型求
+解算法提供了参考。基于此，结合多目标优化理论和
+数据驱动方法，开展卷烟品规投放策略优化及模型求
+解算法研究，可为行业数字化转型升级提供理论和实
+践支持，具有重要的理论和现实意义。 
+1  基础模型 
+1.1  卷烟投放 
+地（市）级烟草公司通常以周为1 个轮次，定期
+向零售户投放不同规格（品规）的卷烟。具体投放过
+程如图1 所示。为了简化模型，考虑工业公司针对某
+地（市）在单个轮次内的卷烟投放决策问题，并基于
+现实场景给出如下基本假设： 
+假设1：下一个轮次的卷烟投放总量是一个已知
+的固定值。 
+假设2：卷烟按档位进行投放，且优先投放高档
+位的零售户，不允许跳档跳投。 
+假设3：卷烟投放必须符合经营目标导向，并最
+大程度地提升卷烟的市场状态水平。 
+ 
+图1 卷烟投放流程 
+Fig.1 Workflow of cigarette stock allocation 
+ 
+假设1 符合工业公司根据月度目标完成情况预先
+确定下一轮次各地（市）卷烟投放总量的实际运作。
+假设2 体现了烟草行业零售户分级管理模式，即档位
+越高，零售户的经营能力越强，并执行“同档同策，
+异档异策”的投放原则。基于假设１和假设２，整个
+投放过程可分解为2 个步骤（具体如图2 所示）：①确
+定各品规的投放总量，实现品规的配置；②分配各品
+规在各档位的定量，完成品规到档位的分解。 
+ 
+图2 货源投放决策过程分解 
+Fig.2 Decomposition of the cigarette stock allocation decision process 
+ 
+假设2 规定高档位零售户的各品规定量不低于低
+档位，且仅允许在相邻档位上投放。假设3 要求企业
+经营目标导向需考虑计划进度、销售季节、产品生命
+周期和市场趋势等因素。例如，成长期品规为增加消
+费者接触频率，采用“扩档扩面”，并以订足面、订足
+率、进货面、订购率（两面两率）以及投放达成率作
+为关键度量指标（计算方法见表1）。 
+ 
+表1  指标说明 
+Tab.1 Description of indicators 
+指标 
+计算公式 
+订足面 
+某档位订足户数/该档位投放户数 
+订足率 
+某档位订购数量/该档位投放数量 
+进货面 
+某档位订购户数 
+订购率 
+某档位进货客户数/该档位应进货户数 
+投放达成率 
+实际投放量/计划投放量 
+ 
+烟草公司
+零售户
+①沟通协商
+③订购
+工业公司
+②实施投放
+
+
+===== PAGE 3 =====
+
+中国烟草学报 Acta Tabacaria Sinica 2025 Vol.31 No.6 
+ 
+ 
+154
+卷烟市场状态水平受卷烟价格、零售商要货积极
+性及社会库存等因素影响，呈现高度的复杂性和动态
+性。现普遍将市场状态划分为“俏、紧、平、松、软”
+5 个等级。但这种划分方式难以精确捕捉市场状态水
+平的动态变化幅度与趋势，容易造成制定的投放策略
+偏离实际需求。为此，引入连续型的市场状态水平（具
+体构建方法见实证部分），以实现对品规市场状态水平
+的精准监测。 
+1.2  模型构建 
+考虑q种品规的卷烟，其总投放量为α条。档位数
+量记为m个，各档位定量的上限记为n条。它们满足关
+系式：mn < α。令模型的决策变量为xijr ∈{0,1}，表
+示品规r在第i个档位的定量是否为j条（j = 0, … , n）。
+若档位定量为j条，那么xijr = 1；否则，xijr = 0。 
+根据假设3，模型目标为最大化各品规市场状态
+水平和企业经营目标导向。由于品规市场状态水平依
+赖于投放量，记品规r在投放量为Cr条时的市场状态变
+化率为fr(Cr) ，则整体市场状态变化率等于
+∑
+fr(Cr)
+q
+r=1
+。因此，模型的目标之一是确定C1, … , Cq，
+使得∑
+fr(Cr)
+q
+r=1
+最大。 
+企业根据不同的经营目标导向对两面两率及投放
+达成率指标的侧重不同。为此，为各品规r引入权重向
+量λr = (λ1r,λ2r, λ3r, λ4r,λ5r)，表示品规r的经营目标
+导向。而整体经营目标表示为λ = (λ1,. . . , λq)，业务人
+员可根据实际目标导向和个人经验灵活调整这些参
+数，以制定合适的投放策略。 
+令卷烟投放后的两面两率及投放达成率指标为随
+机变量。对于品规r，在给定的经营目标导向λr下的期
+望投放效率为（符号及其说明详见表2）： 
+∑
+∑
+(λ1r
+n
+j=0
+m
+i=1
+bijr + λ2rhijr + λ3rkijr + λ4rpijr + λ5r
+j ηtr
+α ). 
+根据假设3，最优档位定量即为最大化所有品规
+的总期望投放效率。 
+表2 模型符号 
+Tab.2 Notation 
+符号
+含义 
+m
+档位数 
+n 
+档位定量的上限（条） 
+q
+品规种类 
+i 
+第i个档位，i = 1, . . . , m 
+j
+档位定量（条），j = 0, . . . , n 
+r
+第r个品规，r = 1, . . . , q 
+bijr
+第r个品规在档位i上定量为j条时的期望订足率 
+hijr
+第r个品规在档位i上定量为j条时的期望订足面 
+kijr
+第r个品规在档位i上定量为j条时的期望订购率 
+pijr
+第r个品规在档位i上定量为j条时的期望进货面 
+ηir
+第r个品规在档位i上的总投放户数 
+λur
+第r 个品规在指标u 对应的平衡系数，为非负数，
+u = 1, … ,5 
+α 
+一类烟的投放总量（条） 
+xijr
+0-1 决策变量，表示第r个品规在档位i上的定量是否为j条 
+ 
+方便起见，记决策向量为xA = (x101,. . . , xmnq)。卷
+烟投放策略模型可表达为： 
+max у = (f1(xA),f2(xA))                                  （1） 
+f1(xA) = ∑
+fr(∑
+∑
+ 
+n
+j=0
+m
+i=1
+j xijrηir)  
+q
+r=1
+                           （2） 
+f2(xA) = ∑
+∑
+∑
+(λ1r
+n
+j=0
+m
+i=1
+bijr + λ2rhijr + λ3rkijr + λ4rpijr + λ5r
+j ηtr
+α ) xijr
+q
+r=1
+         （3） 
+s. t. ∑
+∑
+∑
+j xijrηir ≤α,
+n
+j=0
+m
+i=1
+q
+r=1
+                          （4） 
+∑
+xijr = 1 ,      i = 1, . . . , m;     r = 1, … , q
+n
+j=0
+                      （5） 
+∑
+j xi-1jr≤
+n
+j=0
+∑
+j xijr , i = 2, . . . , m
+n
+j=0
+; r = 1, . . . , q                   （6） 
+xijr ∈{0,1} ,           i = 1, . . . , m; j = 0, . . . , n; r = 1,. . . , q.                    （7） 
+其中，目标函数（1）旨在最大化2 个目标：投放
+后的整体市场状态水平f1(xA)和企业经营目标导向下
+的期望卷烟投放效率f2(xA)，分别对应公式（2）和公
+式（3）。公式（4）控制总投放量不超过计划目标；公
+式（5）保证各品规档位定量的唯一性；公式（6）则
+是为了确保投放策略符合档位投放规则。 
+上述模型可转化为单目标优化问题。构造加权目
+标函数f(xA) = ∂1f1(xA) + ∂2f2(xA)，其中∂1≥0，∂2≥0且
+满足∂1 + ∂2 = 1，分别表示两个目标的权重，权重值
+越大，代表企业越重视该目标。因此，(∂1, ∂2)反映了
+企业的整体经营意图。 
+在实际应用中，业务人员可依据当地投放规则灵
+
+
+===== PAGE 4 =====
+
+金文蔚等  数据驱动的卷烟品规精准投放策略研究 
+ 
+ 
+ 
+155
+活调整这些参数。例如，若部分品规受投放规则约束，
+则可将公式（6）的品规集缩小为仅包含受约束的品规。
+业务人员也可灵活调整∂1和∂2。比如，当某品规的价
+格出现倒挂时，市场状态水平通常呈下滑趋势，此时
+可适当提高权重∂1，以减少投放量。此外，业务人员
+还可通过综合调节α和λ = (λ1,. . . , λq)控制不同季节
+的投放节奏。 
+ 
+ 
+2  模型求解 
+鉴于模型在现实应用时规模庞大，为提高求解效
+率，这里采用经典的二进制粒子群算法（BPSO）进行
+求解。 
+2.1  算法设计 
+对于任意品规r ∈{1, . . . , q}，其速度和位置属性分
+别为vr = [vijr]m×(n+1)，xr = [xijr]m×(n+1)。对于粒子
+g，第r个品规在档位i定量为j维度的速度更新公式如下： 
+v9ijr
+k+1 = wk · v9dr
+k
++ c1r1(p9ijr,рbest
+k
+−x9ijr
+k
+) + c2r2(pijr,9best
+k
+−x9ijr
+k
+),               （8） 
+wk = wmax −
+(wmax-wmtn)(Tmax-k)
+Tmax
+.                            （9） 
+其中，v9ijr
+k
+表示品规r第k次更新时的速度；x9ijr
+k
+表
+示第k次更新时的位置；p9ijr,рbest
+k
+表示第k次更新时粒
+子g的历史最优位置；pijr,9best
+k
+表示第k次更新后群体的
+历史最优位置；wk表示第k次迭代惯性权重；c1和c2为
+个体和群体学习因子；r1和r2是区间（0, 1）的随机数。 
+为确保粒子位置的可行性，采用轮盘赌策略确定各
+品规的档位定量。品规r在档位i选择定量j的概率定义为： 
+S9ijr
+k+1 =
+■⎪■
+⎪■
+1
+1+∑
+e-vgtjr
+k
+n
+j=1
+, 若j = 0;
+ 
+e-vgtjr
+k
+1+∑
+e-vgtjr
+k
+Jgtr
+j=1
+, 若j = 1, … , J9ir
+Max.
+ （10） 
+其中J9ir
+Max表示档位i可选定量的上限，计算公式为： 
+J9ir
+Max = min{所有品规剩余总投放总量÷ 档位i户数，J9i-1r
+Max }. 
+令C9,i,-1,r
+k+1
+= 0，档位i的累加概率为： 
+C9,i,j,r
+k+1 = C9,i,j-1,r
+k+1
++ S9ijr
+k+1, j = 0, … , J9ir
+Max. （11） 
+此时，粒子位置的更新公式为： 
+x9ijr
+k+1 = {
+1,
+C9,i,j-1,r
+k+1
+≤r3 < C9,i,j,r
+k+1
+0,
+其他.
+    （12） 
+其中r3是 (0, 1) 区间上的随机数。 
+2.2  算法步骤 
+基于上述算法设计，表3 给出了具体迭代步骤。 
+表3 改进的二进制粒子群算法 
+Tab. 3 Improved binary particle swarm optimization (BPSO) algorithm 
+迭代步骤： 
+步骤1：设置最大迭代次数тmax以及粒子群规模N；随机生成N个粒子的速度和位置；计算每个粒子的适应度，即目标函数值。
+记k = 0。 
+步骤2：更新N个粒子的个体最优位置p9ijr,рbest
+k
+以及群体最优位置pijr,9best
+k
+。 
+步骤3：按照公式（8）～（12）逐个更新每个粒子的速度和位置。 
+步骤4：判断k是否大于тmax。若是，转步骤5；若否，则令k = k + 1，并转步骤2。 
+步骤5：输出群体最优适应度值以及各品规在各档位的合理定量。 
+ 
+为进一步提高求解效率，步骤3 可分解为：首先，
+将品规按市场状态水平降序排序；接着，依序设置各
+品规的可行档位定量。为满足条件（4）～（6），对各
+品规从高档位到低档位逐一确定各档位定量。具体的
+档位定量算法步骤详见表4。 
+表4 单个品规档位定量算法 
+Tab.4 Algorithm for determining the quantity of a single cigarette specification at each tier/grade  
+迭代步骤： 
+步骤1：给定剩余投放总量。设置i = 1，J90r
+Max = ∞；转步骤2； 
+步骤2：计算J9ir
+Max = min{所有品规剩余投放总量÷ 户数，J9i-1r
+Max }，若J9ir
+Max = 0，算法停止；否则，根据公式（8）更新粒子的速
+度v9ijr
+k+1，并根据（9）～（12）更新粒子的位置x9ijr
+k+1。设置i = i + 1；转步骤3； 
+步骤3：若i > m，设置i = 1，转步骤2。 
+
+
+===== PAGE 5 =====
+
+中国烟草学报 Acta Tabacaria Sinica 2025 Vol.31 No.6 
+ 
+ 
+156
+值得一提的是，为避免算法陷入局部最优，可增
+大群体规模来提高获得全局最优解的概率，但会显著
+增加计算复杂度和迭代时间。此外，加速常数c1和c2取
+值过大容易使粒子越过目标区域，导致搜索过程不稳
+定，而若取值过小则会使粒子在目标区域外徘徊，降
+低搜索效率。因此，参数配置应当基于具体问题特性
+进行优化，以实现全局搜索能力与计算效率的最佳平
+衡。 
+3  实例分析 
+基于浙江中烟卷烟投放场景，验证模型实际的应
+用效果。数据处理、参数预测以及算法运行等程序均
+采用MATLAB 编写，并在Intel i7-12700H 处理器的计
+算机上执行。 
+3.1  数据来源与算法参数 
+基于江苏省某地（市）S 的投放实践，选取历史
+投放周期相对较长且数据较完整的4 个品规——利群
+1、利群2、利群3 和利群4，作为样本。采集第213
+轮次至243 轮次的历史数据，涵盖市场价格、零售价
+格、总投放量以及各档位的两面两率等。经数据清洗
+后最终获得124 项有效数据。 
+为提高算法求解效率，经多次试验性评估，确定
+如下参数： тmax =1000，N = 1000， wmax = 1.2，
+ wmin = 0.4， vmax = 5， vmin = −5， c1 = c2 = 2。 
+3.2  市场状态变化率函数 
+根据行业调研确立卷烟市场状态水平指标体系，
+包括价格、要货积极性和社会库存存销比3 个一级指
+标及对应的二级指标（详见表5）。其中，二级指标对
+应的权重由专家打分法确定。基于该指标体系，各品
+规的市场状态水平等于所有二级指标值的加权和，市
+场状态变化率则等于相邻两次投放产生的市场状态变
+化百分比。 
+表5 各品规卷烟市场状态指标 
+Tab.5 Market-status indicators for each cigarette specification 
+一级指标 
+一级指标权重
+二级指标 
+二级指标权重
+价格 
+0.5 
+市场价格 
+0.8 
+零售价格 
+0.2 
+要货积极性
+0.3 
+订购率 
+0.4 
+订足率 
+0.3 
+订足面 
+0.3 
+存销比 
+0.2 
+平均移动销量
+0.6 
+社会库存 
+0.4 
+ 
+市场状态变化率与投放量的关系拟合对投放策略
+至关重要。由于各品规需求具有周期性、季节性等复
+合特征，导致单一拟合函数难以准确捕捉其变化规律。
+因此，采用多函数拟合策略：对各品规历史数据同时
+进行傅立叶级数和指数模型拟合，选择最优函数作为
+市场状态变化率函数。 
+傅立叶级数模型是一种有效拟合周期性波动数据
+的方法，适用于季节性产品销售预测和经济周期预测
+等场景，其数学公式为： 
+f(x) =
+a0
+2 + a1cos(ωx) + b1sin(ωx)+. . . +ancos(nωx) + bnsin(nωx)              （13） 
+式中x为投放量，f(x)表示投放量为x时的市场状
+态变化率，a0, … , an和b1, … , bn分别表示正余弦函数对
+应的系数，ω为角频率，n是最高谐波次数。 
+指数模型是一种有效拟合非线性快速增长或衰减
+趋势的方法，适用于新产品上市需求激增、产品退市
+需求衰退或政策变动导致市场波动等场景。其表达式
+为： 
+f(x) = a · eb x,         （14） 
+其中，a和b为描述市场状态水平增长或衰减速度
+的参数，e为自然对数的底。 
+由于各品规卷烟的历史投放数据具有时间序列特
+征，采用滑动时间窗口方法评估傅立叶级数模型和指
+数模型的拟合效果，评估指标选取平均绝对误差
+（MAE）、相对误差（RE）和残差平方和（SSE）。考
+虑到地区间消费者偏好的差异，为确保分析的可比性，
+选取江苏省3 个地（市）共有的利群3 和利群4 作为
+研究对象，并设置28 个轮次的滑动时间窗口，以充分
+捕捉市场动态特征。表6显示，傅立叶级数-7（n = 7）模
+型的预测误差最小，对应某地（市）S 数据集。 
+
+
+===== PAGE 6 =====
+
+金文蔚等  数据驱动的卷烟品规精准投放策略研究 
+ 
+ 
+ 
+157
+表6 地区因素对模型拟合效果的影响 
+Tab.6 Effect of regional factors on model-fitting performance 
+卷烟品规 
+最佳拟合模型 
+MAE 
+RE 
+SSE 
+利群3-多地（市） 
+指数模型 
+0.0245 
+14.8706 
+0.0007 
+利群4-多地（市） 
+指数模型 
+0.0193 
+1.557 
+0.0011 
+利群3-地（市）S 
+傅立叶级数-7  
+0.0272 
+1.0362 
+0.0009  
+利群4-地（市）S 
+指数模型 
+0.0019  
+0.5996  
+0.0004  
+ 
+基于某地（市）S 数据集评估并确定利群1～4 的
+市场状态变化率函数。表7 显示，利群1～3 选用傅里
+叶级数模型预测精度最优，利群4 则适合指数模型。
+后续分析将采用各品规对应的最优预测模型作为市场
+状态变化率函数。 
+表7 江苏省某地（市）S 不同品规市场状态变化率与投放量关系的拟合误差 
+Tab.7 Fitting errors for the relationship between market-status change rate and allocation volume across specifications in City S, Jiangsu Province 
+卷烟品规 
+最佳拟合模型 
+MAE 
+RE 
+SSE 
+利群1 
+傅立叶级数-7 
+0.1017  
+0.7246  
+0.0230  
+利群2 
+傅立叶级数-6 
+0.0476  
+0.3511  
+0.0084  
+利群3 
+傅立叶级数-7  
+0.0272 
+1.0362 
+0.0009  
+利群4 
+指数模型 
+0.0019  
+0.5996  
+0.0004  
+ 
+3.3  结果与分析 
+3.3.1  经营意图的影响 
+考察常态季（二季度和10 月）和调控季（11、12
+月）时期企业经营意图对品规投放策略的影响。在常
+态季，企业需要兼顾品规卷烟投放后的市场状态变化
+趋势与两面两率、投放达成率等经营指标，因此采取
+平衡策略（∂1 = 0.5，∂2 = 0.5）。而在调控季，公司
+更关注投放后的市场状态变化是否符合预期，因此设
+定∂1 = 0.9，∂2 = 0.1。以下对比分析上述两个时期的
+卷烟精准投放策略。 
+为便于对比分析，将所有品规卷烟统一视为增量
+品规（增量品规一般对应生命周期中的成长期，这一
+时期公司比较注重投放后的订足率），且在2 个时期保
+持相同的经营导向。考虑到增量品规投放后公司侧重
+于订足率和投放达成率，将经营导向权重向量设定为
+(λ1r, λ2r, λ3r,λ4r, λ5r) = (0.4,0.1,0.1,0,0.4)，并固定α为
+100000 条。卷烟投放策略结果见表9 至表11。其中，
+表8和表9分别为常态季各品规配额以及各档位定量，
+表10 和表11 则对应调控季的品规配置及其档位定量。 
+表8 各品规投放量（∂1=0.5，∂2=0.5） 
+Tab.8 Allocation for each cigarette specification (∂1=0.5，∂2=0.5) 
+卷烟品规规格 
+投放量/条 
+市场状态变化率 
+利群1 
+6585 
+1.62% 
+利群2 
+8231 
+1.45% 
+利群3 
+40240 
+2.29% 
+利群4 
+43445 
+2.26% 
+注：投放达成率为98.5%。 
+表9 各品规档位定量（∂1=0.5，∂2=0.5） 
+Tab.9 Quantities at each range for all cigarette specifications (∂1=0.5，∂2=0.5) 
+卷烟品规规格 
+档位合理定量/条 
+档位 
+两面两率档位均值 
+利群1 
+1 
+20～30 
+99.31% 
+利群2 
+1 
+19～30 
+99.01% 
+利群3 
+3 
+30 
+97.61% 
+1 
+2～29 
+利群4 
+2 
+27～30 
+94.65% 
+1 
+1～26 
+
+
+===== PAGE 7 =====
+
+中国烟草学报 Acta Tabacaria Sinica 2025 Vol.31 No.6 
+ 
+ 
+158
+表10 各品规投放量（ ∂1 = 0. 9，∂2 = 0. 1） 
+Tab.10 Allocation for each cigarette specification ( ∂1 = 0. 9，∂2 = 0. 1) 
+卷烟品规规格 
+投放量/条 
+市场状态变化率 
+利群1 
+5356 
+2.43% 
+利群2 
+5356 
+2.64% 
+利群3 
+40036 
+2.52% 
+利群4 
+40652 
+2.89% 
+注：投放达成率为91.4%。 
+表11 各品规档位定量（ ∂1 = 0. 9，∂2 = 0. 1） 
+Tab.11 Quantities at each range for all cigarette specifications ( ∂1 = 0. 9，∂2 = 0. 1) 
+卷烟品规规格 
+档位合理定量/条 
+档位 
+两面两率档位均值 
+利群1 
+1 
+21～30 
+99.33% 
+利群2 
+1 
+21～30 
+99.07% 
+利群3 
+1 
+2～30 
+97.61% 
+利群4 
+2 
+28～30 
+96.00% 
+1 
+2～27 
+ 
+结果表明，利群3 和利群4 因预期市场状态增幅
+较大而获得了更多投放量。利群1 和利群2 的投放量
+较少，且集中分配于高档位零售户，利群3 和利群4
+则覆盖了2～30 档，并重点投放高档位零售户。对比
+分析表8 与表10 可以发现，调控季的市场状态变化率
+明显高于常态季，但其投放达成率（91.4%）略低于
+常态季（98.5%）。这一现象与调控季企业更注重市场
+状态（设置较大的 ∂1）有关，通过适当减少各品规的
+投放量来实现提升市场状态水平的目标。此外，调控
+季各品规的两面两率也相对较高。在实际应用中，企
+业需根据具体市场需求情况合理设置 ∂1和 ∂2，以实现
+自身经营意图。 
+3.3.2  经营导向的影响 
+选取增量品规和调控品规（市场状态水平为松、
+软或者价格未达到预期的品规），考察经营导向对卷烟
+投放决策的影响。增量品规卷烟的经营导向及其权重
+向量设置同上节。对于调控品规，企业往往优先确保
+销量达成，故调整经营导向为(λ1r, λ2r,λ3r, λ4r, λ5r) =
+(0.2,0,0,0,0.8)，其中达成率权重0.8 体现了其优先地
+位。为了控制变量，仅考察常态季，对应经营意图
+∂1 = 0.5，∂2 = 0.5。其余模型参数与上节保持一致。 
+表8 和表9 展示了增量品规的投放策略，表12
+和表13 则为调控品规的投放方案。对比分析表明，不
+同经营导向导致显著的投放差异。当侧重投放达成率
+时，利群2 的投放量从6585 条增至8231 条，但市场
+状态变化率相应降低。 
+表12 各品规投放量(λ1r, λ2r, λ3r, λ4r, λ5r) = (0. 2, 0, 0, 0, 0. 8) 
+Tab.12 Allocation for each cigarette specifications with (λ1r, λ2r, λ3r, λ4r, λ5r) = (0. 2, 0, 0, 0, 0. 8) 
+卷烟品规规格 
+投放量/条 
+市场状态变化率 
+利群1 
+8231 
+1.45% 
+利群2 
+8231 
+1.32% 
+利群3 
+40036 
+2.52% 
+利群4 
+43445 
+2.26% 
+注：投放达成率为99.94%。 
+
+
+===== PAGE 8 =====
+
+金文蔚等  数据驱动的卷烟品规精准投放策略研究 
+ 
+ 
+ 
+159
+表13 各品规档位定量(λ1r, λ2r, λ3r, λ4r, λ5r) = (0. 2, 0, 0, 0, 0. 8) 
+Tab.13 Quantities at each range for all cigarette specifications with (λ1r, λ2r, λ3r, λ4r, λ5r) = (0. 2, 0, 0, 0, 0. 8) 
+卷烟品规规格 
+档位合理定量/条 
+档位 
+两面两率档位均值 
+利群1 
+1 
+19～30 
+99.01% 
+利群2 
+1 
+19～30 
+99.36% 
+利群3 
+1 
+2～30 
+97.61% 
+利群4 
+2 
+27～30 
+94.65% 
+1 
+1～26 
+ 
+3.3.3  总投放目标的影响 
+考察总投放量对卷烟投放策略的影响。为控制变
+量，仅考察常态季，其经营意图目标权重设定为
+∂1 = 0.5，∂2 = 0.5。所有品规卷烟视为增量品规，其权
+重向量为(λ1r, λ2r,λ3r, λ4r, λ5r) = (0.4,0.1,0.1,0,0.4)，
+总投放目标分别设置为80000 条和100000 条。模型其
+余参数与上节保持一致。 
+表14 与表15 展示了各品规在总投放目标为
+80000 条时的投放策略，而总投放目标为100000 条的
+投放策略已在表8 和表9 给出。结果显示，将卷烟总
+投放量100000条降至80000条能有效提升各品规卷烟
+的市场状态水平，其中利群3 和利群4 的变化幅度分
+别从2.29%和2.26%提升至3.72%和4.26%。但这一调
+整也导致4 个品规卷烟的档位覆盖面有所减少。由此
+可见，在制定卷烟投放总量时，需要权衡市场状态水
+平提升与档位覆盖面维持之间的关系。 
+表14 总投放目标 α = 80000 
+Tab.14 Total delivery target α = 80000 
+卷烟品规规格 
+投放量/条 
+市场状态变化率 
+利群1 
+5356 
+2.64% 
+利群2 
+6585 
+1.62% 
+利群3 
+36007 
+3.72% 
+利群4 
+31784 
+4.26% 
+注：投放达成率为99.67%。 
+表15 总投放目标 α = 80000 
+Tab.15 Total delivery target α = 80000 
+卷烟品规规格 
+档位合理定量/条 
+档位 
+两面两率档位均值 
+利群1 
+1 
+20～30 
+99.07% 
+利群2 
+1 
+21～30 
+99.31% 
+利群3 
+3 
+30 
+97.61% 
+1 
+7～29 
+利群4 
+2 
+27～30 
+94.65% 
+1 
+5～26 
+ 
+4  结论 
+针对现有研究的局限性，提出了卷烟投放多目标
+整数规划模型，创新性地引入市场投放规则约束，并
+将品规市场状态水平和企业经营目标导向作为优化目
+标。通过改进传统的二进制粒子群算法，提出了“先
+配额后定量”的两步求解算法，提升了模型求解效率。
+基于浙江中烟公司历史数据，采用傅立叶级数和指数
+模型对两面两率和达成率指标进行预测，并在不同场
+景下检验了经营意图和目标导向对投放策略制定的显
+著影响。研究成果不仅为工业公司制定卷烟投放策略
+提供了理论依据，也为烟草行业数智化决策提供了新
+思路。未来将引入更多烟草专卖规则约束条件，并融
+合机器学习技术探索提升模型性能的方法。 
+ 
+参考文献 
+[1] 
+许泓，刘文倩. 基于卷烟零售户销售潜力分值（G 值）的新产
+品投放策略研究[J]. 中国烟草学报，2016, 22(1): 114-121. 
+
+
+===== PAGE 9 =====
+
+中国烟草学报 Acta Tabacaria Sinica 2025 Vol.31 No.6 
+ 
+ 
+160
+XU Hong, LIU Wenqian. Research on new product launch strategy 
+based on sales potential score (G value) of cigarette retailers[J]. 
+Acta Tabacaria Sinica, 2016, 22(1): 114-121. 
+[2] 
+谭建，肖正中，欧增发，等. 基于互信息的卷烟货源分配模型
+研究[J]. 中国烟草学报，2019, 25(2): 104-108. 
+TAN Jian, XIAO Zhengzhong, OU Zengfa, et al. Research on 
+cigarette supply allocation model based on mutual information[J]. 
+Acta Tabacaria Sinica, 2019, 25(2): 104-108. 
+[3] 
+付秋璇. 卷烟货源精准投放的探索与应用[J]. 计算机时代，
+2020(12): 47-49+52. 
+FU Qiuxuan. Exploration and application of precision cigarette 
+supply allocation[J]. Computer Era, 2020(12): 47-49+52. 
+[4] 
+马宗泽，孙永寿，薛寅. 基于商圈与动态规划理论的卷烟精准
+投放模型的研究[J]. 现代商业，2021(15): 32-34. 
+MA Zongze, SUN Yongshou, XUE Yin. Research on precision 
+cigarette distribution model based on business district and dynamic 
+programming theory[J]. Modern Business, 2021(15): 32-34. 
+[5] 
+许瑞琦，周啟亮，毕讯波，等. 卷烟“档位+商圈”的棋盘式精
+准投放研究[J]. 现代商业，2022(22): 3-6. 
+XU Ruiqi, ZHOU Qiliang, BI Xunbo, et al. Research on 
+chessboard-like precision distribution of cigarettes based on “rank+ 
+business district”[J]. Modern Business, 2022(22): 3-6. 
+[6] 
+张一博，王丹，史浪，等. 基于单品规价值客户分类的卷烟货
+源精准供应策略研究[J]. 全国流通经济，2024(7): 108-112. 
+ZHANG Yibo, WANG Dan, SHI Lang, et al. Research on precision 
+supply strategy of cigarette based on customer classification of 
+single specification value[J]. National Circulation Economy, 
+2024(7): 108-112. 
+[7] 
+路宏伟，杨国平，刘三阳. 西安烟草精准营销及服务系统方案
+设计[J]. 西北大学学报（自然科学版），2012, 42(5): 753-757. 
+LU Hongwei, YANG Guoping, LIU Sanyang. Design of precision 
+marketing and service system for Xi'an tobacco[J]. Journal of 
+Northwest University (Natural Science Edition), 2012, 42(5): 
+753-757. 
+[8] 
+邓超，刘颂，王露笛，等. 基于深度神经网络的卷烟智能投放
+模型构建方法[J]. 烟草科技，2021, 54(2): 78-83. 
+DENG Chao, LIU Song, WANG Ludi, et al. Construction method 
+of intelligent cigarette distribution model based on deep neural 
+network[J]. Tobacco Science and Technology, 2021, 54(2): 78-83. 
+[9] 
+刘依，张革伕，蒋丽雯. 卷烟的精准投放模型研究[J]. 物流工程
+与管理，2023, 45(2): 106-109. 
+LIU Yi, ZHANG Geyu, JIANG Liwen. Research on precision 
+distribution model of cigarettes[J]. Logistics Engineering and 
+Management, 2023, 45(2): 106-109. 
+[10] 
+谷学志，曹小钟. 基于量化管理的卷烟精准投放策略研究[J]. 现
+代经济信息，2014(1): 30-31. 
+GU Xuezhi, CAO Xiaozhong. Research on precision distribution 
+strategy of cigarettes based on quantitative management[J]. 
+Modern Economic Information, 2014(1): 30-31. 
+[11] 
+张一博，史浪，刘思宇，等. 卷烟潜力品规货源投放方式策略
+组合研究[J]. 中国市场，2024(11): 126-130. 
+ZHANG Yibo, SHI Lang, LIU Siyu, et al. Research on strategy 
+combination of cigarette potential specification supply distribution[J]. 
+China Market, 2024(11): 126-130. 
+[12] 
+YE X, ZHANG B, LEE K, et al. A multi-criteria simulation- 
+optimization coupling approach for effective emergency response 
+in marine oil spill accidents[J]. Journal of Hazardous Materials, 
+2024, 469: 133832. 
+[13] 
+MOHAMMED A, GHAITHAN A M, AL-HANBALI A, et al. A 
+multi- objective optimization model based on mixed integer linear 
+programming for sizing a hybrid PV-hydrogen storage system[J]. 
+International Journal of Hydrogen Energy, 2023, 48(26): 
+9748-9761. 
+[14] 
+MOLAEI R, RAHSEPAR FARD K, Bouyer A. A mathematical 
+multi- objective optimization model and metaheuristic algorithm 
+for effective advertising in the social internet of things[J]. Neural 
+Computing and Applications, 2025, 37: 4797-4821. 
+[15] 
+RAN L, LIU B, ZHANG G, et al. An improved particle swarm 
+optimization algorithm for berth allocation and time-variant quay 
+crane scheduling problem during an emergency[J]. Expert Systems 
+with Applications, 2025: 126406. 
+[16] 
+淳静，李阳，杨俊. 基于粒子群算法的航天发射任务规划技术[J]. 
+导弹与航天运载技术（中英文），2024(6): 47-53. 
+CHUN Jing, LI Yang, YANG Jun. Space launch mission planning 
+technology based on particle swarm optimization algorithm[J]. 
+Missile and Space Vehicles (Bilingual), 2024(6): 47-53. 
+ 
+Research on data-driven precision allocation strategy for cigarette stock keeping units 
+JIN Wenwei1, YU Huadong1, SHEN Zhenkai1, TONG Jun2* 
+1 Marketing Department, Zhejiang China Tobacco Industrial Company, Hangzhou 310008, China; 
+2 School of Management, Zhejiang University of Technology, Hangzhou 310023, China 
+Abstract: Data-driven precision allocation of resources is critical to the digital transformation of tobacco marketing. This study builds a 
+multi-objective integer programming model for cigarette allocation, introducing- for the first time-enterprise business intent and 
+allocation-rule constraints. A binary particle swarm optimization (BPSO) algorithm is designed to solve the model efficiently. Using 
+historical allocation data from a city in Jiangsu Province, we evaluate performance under different allocation scenarios. Results show that 
+the model markedly elevates the market status of each cigarette stock keeping units. The findings offer theoretical support and practical 
+guidance for intelligent marketing decision-making in the tobacco industry. 
+Keywords: cigarette marketing; cigarette distribution; data-driven; PSO algorithm 
+ 
+*Corresponding author. Email：tongjun20@zjut.edu.cn 

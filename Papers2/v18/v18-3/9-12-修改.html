@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>v18-3 修改建议：卷烟品规缩投效应识别与差异化调控</title>
+<style>
+body{font-family:"宋体",SimSun,serif;line-height:1.8;margin:0;padding:24px;background:#eef2f6;color:#1a1a1a}
+.paper{max-width:980px;margin:0 auto;background:#fff;padding:42px 52px;box-shadow:0 2px 16px rgba(0,0,0,.08);border-top:5px solid #2F5D8A}
+h1{font-family:"黑体",SimHei;font-size:20pt;color:#2F5D8A;text-align:center}
+h2{font-family:"黑体",SimHei;font-size:14pt;color:#254f74;border-bottom:2px solid #2F5D8A;padding-bottom:4px;margin-top:28px}
+h3{font-family:"黑体",SimHei;font-size:12pt;color:#315f88;margin-top:20px}
+p{text-indent:2em;text-align:justify}
+.no-indent{text-indent:0}
+.box{background:#f6f8fb;border-left:4px solid #2F5D8A;padding:14px 18px;margin:14px 0}
+.warn{background:#fff4f0;border-left:4px solid #E08A4A;padding:14px 18px;margin:14px 0}
+table{width:100%;border-collapse:collapse;font-size:10pt;margin:10px 0}
+th,td{border:1px solid #d6dde7;padding:6px;text-align:left;vertical-align:top}
+th{background:#eef4fa;font-family:"黑体",SimHei}
+code{background:#f0f3f7;padding:2px 4px;border-radius:3px}
+pre{background:#f6f8fb;padding:14px;border:1px solid #d6dde7;overflow:auto;font-size:9.5pt}
+.small{font-size:9.5pt;color:#555}
+</style>
+</head>
+<body>
+<article class="paper">
+<h1>v18-3 修改建议：基于因果森林的卷烟品规缩投效应识别与差异化调控</h1>
+<p class="no-indent small">用途：投稿《中国烟草学报》前审稿意见 + 修改方案 + 可执行补充材料。保存为 v18-3-修改建议.html。</p>
+
+<h2>一、审稿人毙稿意见（严格版）</h2>
+<div class="warn">
+<p class="no-indent"><b>结论：不宜直接录用，需大修后再审。</b></p>
+<p class="no-indent">1. 处理变量与结果变量机械相关：T 基于订单满足率，Y 的状态评分也包含订单满足率，存在循环论证。</p>
+<p class="no-indent">2. 条件无混淆性假设过强，缺少品规/月份固定效应、E-value、负对照。</p>
+<p class="no-indent">3. 表12与结论数字不一致：60.0% vs 60.6%，0.98 vs +1.06，20.8% vs 23.6%，-7.65 vs -7.02。</p>
+<p class="no-indent">4. CATE均值全为负，却建议“优先缩投”，业务解释不成立。</p>
+<p class="no-indent">5. 回溯验证不是因果验证，只能叫排序回溯。</p>
+<p class="no-indent">6. 图表无底层生图代码，数据不可复现。</p>
+<p class="no-indent">7. 摘要偏长，结果理论化，业务价值不突出。</p>
+<p class="no-indent">8. 模板多处不合规：作者信息缺失、图注未双语、表注未中英、参考文献[15][16]未引用、[5]不完整。</p>
+</div>
+
+<h2>二、可救的修改总方针</h2>
+<div class="box">
+<p class="no-indent">主线改为：<b>缩投不能一刀切 → 识别哪些品规相对耐缩、哪些易被误伤 → 形成月度复核清单 → 每次只调一点点、次月可回滚。</b></p>
+<p class="no-indent">创新点表述：不是“因果森林多好”，而是“把诚实因果森林的CATE排序压缩成烟草业务可执行的优先复核、观察复核、暂缓缩投三档清单”。</p>
+</div>
+
+<h2>三、摘要重写</h2>
+<div class="box">
+<p class="no-indent"><b>摘　要：</b></p>
+<p class="no-indent"><b>【目的】</b>为解决卷烟品规供给收缩调控中对象筛选依赖经验、平均指标易造成低敏感品规误伤的问题，识别品规对缩投的差异化响应。<b>【方法】</b>基于某市203个品规19个月的2687条品规—月份数据，构建23维缩投前经营画像；以订单满足率低于同月35%分位且环比下降超过2个百分点定义供给收缩；采用按品规分组交叉拟合的诚实因果森林估计条件平均处理效应（CATE），并以历史回溯和倾向得分匹配进行复核。<b>【结果】</b>（1）供给收缩平均处理效应为-1.56，95%置信区间为-3.64~0.52，总体不显著；（2）CATE呈品规分层，高敏感组均值-0.83，低敏感组-2.34；（3）实际缩投样本中，高敏感品规状态改善率为60.0%，其余品规为20.8%，平均状态变化分别为0.98分和-7.65分；据此形成优先复核、观察复核、暂缓缩投三档清单，建议高敏感品规缩投幅度5%~8%，低敏感品规暂缓缩投。<b>【结论】</b>缩投不宜一刀切，应基于CATE分层和业务复核差异化执行，以降低低敏感品规误伤风险。</p>
+<p class="no-indent"><b>关键词：</b>卷烟品规；诚实因果森林；条件平均处理效应；供给收缩；差异化调控；精准投放</p>
+</div>
+
+<h2>四、引言重写要点</h2>
+<div class="box">
+<p class="no-indent"><b>第1段：</b>卷烟品规是货源投放、库存调节、价格维护和终端服务的核心对象。供给收缩是常用调控动作，但投放复核依赖经验和平均指标，存在对象难区分、响应滞后、复核缺解释三方面不足。</p>
+<p class="no-indent"><b>第2段：</b>黄敏等[1]构建“俏紧平松软”市场状态评价；姜思明等[2]基于零售终端数据治理实现动态监测；谭琛等[3]用高维画像与深度学习进行零售户动态分档；金文蔚等[6]以多目标整数规划求解投放量。但上述研究较少在同一调控动作层面估计异质性效应，难以回答“某一品规是否应当缩投、缩投后谁更可能受伤”。</p>
+<p class="no-indent"><b>第3段：</b>本文以23维缩投前画像为协变量，以订单满足率低于同月35%分位且环比下降超过2个百分点定义供给收缩，采用按品规分组交叉拟合的诚实因果森林估计CATE，再把品规级效应排序压缩为月度复核清单，形成“识别—排序—复核—回滚”的差异化调控流程。</p>
+</div>
+
+<h2>五、表格后实际品规论证示例</h2>
+<div class="box">
+<p class="no-indent"><b>表3后：</b>表3显示，高敏感组CATE均值为-0.83，低敏感组为-2.34。以利群(软红长嘴)为例，初始状态44.7、顺价指数1.153，CATE为-0.66，属于高敏感；黄鹤楼(软1916)初始状态75.8，CATE为-2.70，属于低敏感。若对前者执行5%~8%小幅缩投，回溯状态变化为+7.6；若对后者继续缩投，回溯状态变化为-19.4。因此，月度复核应优先把缩投额度配置到高敏感、低状态位势、仍有价格修复空间的品规上。</p>
+<p class="no-indent"><b>表12后：</b>高敏感对象状态改善率60.0%，其余对象仅20.8%。若把缩投机械施加给其余168个样本，每百只被执行品规中仅约21只改善，平均状态变化-7.65分；集中到85个高敏感对象，改善率提高到60.0%。这说明差异化调控的核心是“把有限缩投动作放在最不受伤的对象上，避免大面积误伤”。</p>
+<p class="no-indent"><b>表18后：</b>对利群(软红长嘴)、天子(中支)、双喜(硬晶彩好日子)建议小幅缩投5%~8%或3%~5%；对黄鹤楼(软1916)、黄鹤楼(珍品细支)、黄鹤楼(硬峡谷情细支)建议暂缓缩投，转向稳量、去库存和动销促进。每次调整幅度0~8%，次月根据状态评分、订单满足率和库存变化回滚复核。</p>
+</div>
+
+<h2>六、图表底层生图代码框架</h2>
+<pre><code>import pandas as pd, numpy as np
+import matplotlib.pyplot as plt, seaborn as sns
+plt.rcParams['font.sans-serif']=['SimHei']; plt.rcParams['axes.unicode_minus']=False
+
+# 图2 CATE分布
+fig, axes = plt.subplots(2,1,figsize=(7,6),sharex=True)
+sns.histplot(df['cate'],bins=40,kde=True,ax=axes[0],color='#4FA3A5')
+axes[0].axvline(df['cate'].mean(),color='gray',ls='--',label='CATE均值')
+axes[0].axvline(df['cate'].quantile(1/3),color='#2F5D8A',ls='--',label='低/中分界')
+axes[0].axvline(df['cate'].quantile(2/3),color='#E08A4A',ls='--',label='中/高分界')
+axes[0].legend(); axes[0].set_ylabel('频数')
+x=np.sort(df['cate']); y=np.arange(1,len(x)+1)/len(x)
+axes[1].plot(x,y,color='#2F5D8A'); axes[1].set_xlabel('CATE'); axes[1].set_ylabel('累计分布')
+plt.tight_layout(); plt.savefig('fig2_cate_dist.png',dpi=600)
+
+# 图3 敏感组密度
+plt.figure(figsize=(7,4))
+for g,c in zip(['高敏感','中敏感','低敏感'],['#E08A4A','#4FA3A5','#2F5D8A']):
+    sns.kdeplot(df.loc[df['group']==g,'cate'],label=g,fill=True,color=c,alpha=.35)
+plt.xlabel('CATE'); plt.ylabel('密度'); plt.legend(); plt.tight_layout()
+plt.savefig('fig3_cate_density_groups.png',dpi=600)
+
+# 图5 热力图
+pivot=df.pivot_table(index='price_band',columns='group',values='cate',aggfunc='mean')
+sns.heatmap(pivot,annot=True,fmt='.2f',cmap='RdYlBu_r',center=0)
+plt.xlabel('敏感组'); plt.ylabel('价位段'); plt.tight_layout()
+plt.savefig('fig5_priceband_heatmap.png',dpi=600)
+
+# 图6 森林图
+plt.figure(figsize=(7,5)); y=np.arange(len(forest_df))
+plt.errorbar(forest_df['mean'],y,xerr=[forest_df['mean']-forest_df['lower'],forest_df['upper']-forest_df['mean']],
+             fmt='o',color='#2F5D8A',ecolor='#E08A4A',capsize=3)
+plt.yticks(y,forest_df['subgroup']); plt.axvline(0,color='gray',ls='--')
+plt.xlabel('平均CATE'); plt.tight_layout(); plt.savefig('fig6_subgroup_forest.png',dpi=600)
+
+# 图7 轨迹
+sub=df[df['spec']=='利群(软红长嘴)'].sort_values('month')
+plt.figure(figsize=(7,4)); plt.plot(sub['month'],sub['score'],marker='o',color='#2F5D8A')
+for m in sub.loc[sub['treated']==1,'month']: plt.axvline(m,color='#E08A4A',ls='--',alpha=.7)
+plt.xlabel('月份'); plt.ylabel('综合状态评分'); plt.tight_layout()
+plt.savefig('fig7_trajectory.png',dpi=600)
+</code></pre>
+
+<h2>七、模板逐条检查</h2>
+<table>
+<tr><th>模板要求</th><th>当前问题</th><th>修改</th></tr>
+<tr><td>作者、单位、基金、简介、通讯作者、收稿日期</td><td>占位符</td><td>投稿前填真实信息</td></tr>
+<tr><td>摘要400字左右，结构化</td><td>偏长，结果理论化</td><td>用本文件重写版</td></tr>
+<tr><td>关键词3~8个，分号隔开</td><td>6个，可以</td><td>英文首字母不大写</td></tr>
+<tr><td>引言：背景、现有研究、目的路线</td><td>现有研究缺点不具体</td><td>按三段重写</td></tr>
+<tr><td>标题编号0、1、1.1</td><td>基本合规</td><td>顶格，后空1汉字</td></tr>
+<tr><td>材料与方法</td><td>权重、变量方向可补</td><td>补AHP+CRITIC+PCA权重与异常值</td></tr>
+<tr><td>结果：文字配合图表形成推论</td><td>表格后缺实际品规论证</td><td>每表后加业务解释</td></tr>
+<tr><td>讨论：机制、比较、意义、局限</td><td>不够深</td><td>与黄敏[1]、金文蔚[6]对比</td></tr>
+<tr><td>结论：分条，呼应引言</td><td>数字不一致</td><td>统一为表12数字</td></tr>
+<tr><td>参考文献：顺序编码，中文中英对照</td><td>[5]不完整，[15][16]未引用</td><td>删除未引用，补全[5]</td></tr>
+<tr><td>图题中英双语，坐标轴图例双语</td><td>坐标轴未双语</td><td>补英文标签</td></tr>
+<tr><td>表题中英双语，三线表，注中英</td><td>表注未全中英</td><td>补Note</td></tr>
+<tr><td>量和单位GB/T 3101</td><td>部分未规范</td><td>统一</td></tr>
+<tr><td>缩略语首次给全称</td><td>CATE、DML、PSM、SHAP等未给</td><td>首次出现补全称</td></tr>
+</table>
+
+<h2>八、整体方案（可直接作为修改后论文骨架）</h2>
+<div class="box">
+<p class="no-indent"><b>题目：</b>基于诚实因果森林的卷烟品规缩投效应识别与差异化调控</p>
+<p class="no-indent"><b>0 引言：</b>背景与问题 → 现有研究不足 → 本文方法路线。</p>
+<p class="no-indent"><b>1 数据收集与处理：</b>数据来源、研究对象、清洗流程、状态指标体系、变量口径。</p>
+<p class="no-indent"><b>2 研究方法：</b>2.1 调控体系框架图；2.2 状态量化与缩投事件定义；2.3 诚实因果森林识别；2.4 CATE解释与复核规则；2.5 稳健性设计。</p>
+<p class="no-indent"><b>3 实证分析：</b>3.1 平均效应与异质性；3.2 三档敏感品规画像；3.3 SHAP解释；3.4 规则与阈值；3.5 价位段/品类/时令异质性；3.6 回溯验证；3.7 方法对比与稳健性；3.8 代表性品规案例。</p>
+<p class="no-indent"><b>4 差异化调控策略：</b>三档管理、幅度建议、预筛—复核—动作—反馈闭环、与投放优化模型衔接。</p>
+<p class="no-indent"><b>5 讨论：</b>与既有方法差异、稳健性边界、局限。</p>
+<p class="no-indent"><b>6 结论：</b>分条，数字统一，呼应引言。</p>
+</div>
+
+<h2>九、成果技术报告（给业务部门看的简版）</h2>
+<div class="box">
+<p class="no-indent"><b>1. 业务问题：</b>月度缩投靠经验，容易误伤低敏感品规。</p>
+<p class="no-indent"><b>2. 技术方案：</b>品规—月份面板 + 23维画像 + 诚实因果森林CATE + 三档清单。</p>
+<p class="no-indent"><b>3. 关键结果：</b>总体ATE不显著；高敏感组CATE -0.83，低敏感组-2.34；实际缩投中高敏感改善率60.0%，其余20.8%。</p>
+<p class="no-indent"><b>4. 业务动作：</b>高敏感品规优先复核，建议缩投5%~8%；中敏感观察复核，0~3%；低敏感暂缓缩投，转向稳量、去库存、动销促进。</p>
+<p class="no-indent"><b>5. 回滚机制：</b>每次只调一点点，次月看状态评分、订单满足率、库存变化，异常即回滚。</p>
+<p class="no-indent"><b>6. 预期价值：</b>把有限缩投额度配置到最不受伤的品规上，降低价盘与动销误伤风险。</p>
+</div>
+
+<p class="small no-indent">注：若你同时还有一个“3S3共享烤房/智用智投/健康分/寿命预测/烟农画像”的论文，请另建文件；本文件只针对“卷烟品规缩投效应识别与差异化调控”这篇 v18-3。</p>
+</article>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "rows":3149,
+  "products":203,
+  "months":19,
+  "duplicate_keys":0,
+  "source_rows":{
+    "sales":3274,
+    "daily":4977,
+    "purchase":2050
+  },
+  "missing_rate":{
+    "fill":0.2448,
+    "util":0.4563,
+    "full_surf":0.4694,
+    "price_index":0.0,
+    "gross_margin":0.3906,
+    "inventory_ratio":0.3906,
+    "channel_coverage":0.4576,
+    "ord_success":0.2483,
+    "new_cust":0.5957
+  }
+}

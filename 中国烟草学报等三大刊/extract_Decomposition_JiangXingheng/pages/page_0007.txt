@@ -1,0 +1,73 @@
+144 中国烟草学报 Acta Tabacaria Sinica 2025 Vol.31 No.5
+表 5 利群、黄鹤楼和芙蓉王品牌销量 EEMD 分解及整体预测误差对比表
+Tab.5 Comparison table of eemd decomposition and overall prediction errors for liqun, yellow crane tower and furongwang brand sales
+分解集成预测的均方根误差 未参与分解集成预测的均方根误差 p 值
+品牌 RMSE 降幅/%
+RMSE RMSE （配对 t 检验）
+利群 0.77 1.51 49.00 0.032
+黄鹤楼 0.83 2.97 72.05 0.000
+芙蓉王 0.73 1.03 29.13 0.040
+经过计算，经 EEMD 分解后，利群、黄鹤楼和芙 CHEN Shanglin. Forecasting sales volume of new energy vehicles
+based on LSTM neural network and baidu index — a case study of
+蓉王的预测销量均方根误差（RMSE）的平均降幅超过
+BYD[D]. 2024, 03.
+了 50%，且预测精度的提升均具有统计学显著性，进 [3] 吴明山，王冰，起亚宁，等. 卷烟销量组合预测模型研究[J]. 中
+一步验证了数据分解在提升预测精度方面的有效性。 国烟草学报，2019: 84-91.
+WU Mingshan, Wang Bing, Qi Yanning, et al. Research on
+本研究的分解集成预测方法不仅提升了卷烟销量 combined forecasting model for cigarette sales volume[J]. Acta
+预测精度，其成果也可转化为以下应用：一是供应链 Tabacaria Sinica, 2019: 84-91.
+[4] Huang N E, Shen Z, Long S R, 1998. The empirical mode
+动态优化。基于分解模型的高频分量与趋势项预测，
+decomposition and the Hilbert spectrum for nonlinear and
+实现精准生产计划管理，保证市场需求。二是建立安 nonstationary time series analysis[J]. Proceedings of the Royal
+Society A, 454: 903-995.
+全库存与动态预警机制。根据预测销量，结合预测误
+[5] Wu Z, Huang N E, 2004. Ensemble empirical mode decomposition:
+差的分布特性，构建动态安全库存模型。三是将分解 a noise-assisted data analysis method[R], Centre for Ocean-Land-
+Atmosphere Studies, Technical Report, No. 193.51.
+得到的不同周期波动序列与宏观经济波动结合分析，
+[6] 郑祖光，刘莉红. 经验模态分析与小波分析及其应用[M]. 北京：
+可以探索分析主要宏观经济指标与趋势项及低频分量 气象出版社，2010: 1-83.
+的相关关系。 ZHENG Zuguang, LIU Lihong. Empirical mode decomposition
+and wavelet analysis and their applications[M]. Beijing:
+Meteorological Press, 2010: 1-83.
+4 结论
+[7] 高铁梅，王金明，陈飞，等. 计量经济分析方法与建模 eviews
+应用及实例[M]. 北京：清华大学出版社，2016: 1-477.
+通过对不同时间段、不同卷烟品牌销售数据的分
+GAO Tiejie, WANG Jinming, CHEN Fei, et al. Econometric
+析，说明了采用 EEMD 分解再预测的方法在处理不同 analysis methods and modeling with eviews applications and
+类型品牌销量数据时表现出较高的准确性和适用性。 examples[M]. Beijing: Tsinghua University Press, 2016: 1-477.
+[8] 朱凯，王正林. 精通 MATLAB 神经网络[M]. 北京：电子工业
+相比较其他预测方法，本文的预测方法具有以下主要
+出版社，2010: 193-224.
+优势：一是本文方法依据研究的样本数据特征，不限 ZHU Kai, WANG Zhenglin. Mastering MATLAB neural
+networks[M]. Beijing: Publishing House of Electronics Industry,
+定其他特定条件，具有广泛的适用性；二是通过序列
+2010: 193-224.
+分解，将原本复杂的序列拆解为若干简单的子序列， [9] 杰弗里·M·伍德里奇. 计量经济学导论现代观点[M]. 2015:
+从而有效降低了预测建模的难度；三是确保了各步骤 511-529.
+Jeffrey M. Wooldridge. Introductory econometrics: a modern
+建模过程的合理性、科学性和有效性，显著提高了模
+approach[M]. 2015: 511-529.
+型的分析与预测性能。 [10] 蒋兴恒，朱素蓉. 基于 Levenberg-Marquardt 算法改进 BP 神经
+网络的卷烟销量预测模型研究[J]. 中国烟草学报，2011, 17(05):
+总的来看，本文所采用的分解集成的预测思想，
+81-86.
+具有适用范围广、预测精度高等特点，但是这种方法 JIANG Xingheng, ZHU Surong. Research on cigarette sales
+更加成熟的运用，还需要不断地检验、完善与发展， volume prediction model based on improved BP neural network
+with levenberg-marquardt algorithm[J]. Acta Tabacaria Sinica,
+以争取为卷烟销售预测领域带来更多的创新和突破。
+2011, 17(05): 81-86.
+[11] Lei Y, He Z, Zi Y. EEMD method and WNN for fault diagnosis of
+locomotive roller bearings[J]. Expert Systems With Applications,
+参考文献
+2011, 38(6):7334-7341.
+[1] 葛娜，孙连英，赵平，等. 基于 ARIMA时间序列模型的销售量
+[12] Niazy R K, Beckmann C F, Brady J M, et al. Performance
+预测分析[J]. 北京联合大学学报，2018: 27-33. evaluation of ensemble empirical mode decomposition[J]. Advances
+GE Na, SUN Lianying, ZHAO Ping, et al. Sales volume In Adaptive Data Analysis, 2014, 01(02): 0900010.
+forecasting analysis based on ARIMA time series model[J]. Journal [13] Guo W, Tse P W. A novel signal compression method based on
+of Beijing Union University, 2018: 27-33. optimal ensemble empirical mode decomposition for bearing
+[2] 陈尚林. 基于 LSTM 神经网络和百度指数的新能源汽车销量预 vibration signals[J]. Journal Of Sound And Vibration, 2013, 332(2):
+测——以比亚迪为例[D]. 2024, 03. 423-441.

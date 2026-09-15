@@ -1,0 +1,1107 @@
+
+===== PAGE 1 =====
+
+2025 年7 月
+第58 卷第7 期
+Jul. 2025
+Vol. 58 No. 7
+烟草科技
+Tobacco Science & Technology
+摘要：为深入探索和理解卷烟消费者的消费迁移行为规律，开展了针对消费者卷烟消费迁移的定量
+测算研究。通过运用大数据分析技术，从个体消费者和卷烟品规两个维度构建了卷烟消费迁移模
+型。该模型将消费者的卷烟购买量细分为迁入量、迁出量和留存量，分析挖掘三部分的构成、变化
+趋势及变化概率，以得到消费者在不同品规间的迁移情况。以Y省Z市销量前10的卷烟品规（编号
+为A~J）为例，分析发现：①品规A和品规E的留存率高，品牌忠诚度高，稳定性强；②其他8款卷烟
+的迁入率和迁出率均较高，展现出了市场活力和吸引力；③品规A的留存量最高，品规E的迁出量
+最高，品规A的迁入量最高，且A与E存在竞争关系。该研究可为卷烟货源投放、品牌策略制定及
+消费者服务升级提供重要参考。
+关键词：卷烟；消费者；消费行为数据；品规迁移；定量测算
+中图分类号：TP18；O29
+文献标志码：A
+文章编号：1002-0861（2025）07-0084-08
+收稿日期：2024-10-29
+录用日期：2025-05-28
+基金项目：广西中烟工业有限责任公司科技项目“基于卷烟消费数据的消费者行为特征指标体系研究与应用”
+（GXZYCX2023H002）；
+2025年广西青年科技人才工程资助项目（GXYESS2025162）。
+第一作者：莫玉华（1995—），女，硕士，工程师，从事人工智能与大数据分析方向研究。E-mail：18482173509@163.com
+*通信作者：祝丽丽（1994—），女，博士，工程师，从事数字化转型方向研究。E-mail：346343531@qq.com
+引用本文：莫玉华，陈浩，古越，等. 基于消费行为数据的卷烟消费迁移定量测算方法［J］. 烟草科技，2025，58（7）：84-91.（MO Yuhua，
+CHEN Hao，GU Yue，et al. A quantitative method to measure cigarette consumption migration based on consumption behavior
+data［J］. Tobacco Science & Technology，2025，58（7）：84-91. DOI：10.16135/j.issn1002-0861.2024.0762）
+A quantitative method to measure cigarette consumption migration
+based on consumption behavior data
+MO Yuhua，CHEN Hao，GU Yue，LIU Xipeng，ZHU Lili
+*，WANG Xin
+Internet Research Center，China Tobacco Guangxi Industrial Co.，Ltd.，Nanning 530001，China
+Abstract：To explore and understand the migration behavior of cigarette consumers, the patterns of
+cigarette consumption among smokers was studied using quantitative measurement techniques. Using big
+data analysis techniques, a cigarette consumption migration model was constructed with two dimensions:
+one for individual consumers and the other for cigarette products. This model divided the cigarette
+purchase quantities into three categories: immigration, emigration, and retention. The compositions, trends
+and change probabilities of these categories were analyzed to determine the migration status between
+different cigarette products. Taking the ten best-selling cigarette specifications (encoded as A to J) sold in
+City Z of Province Y as an example, the analysis results showed that: 1) Products A and E had a higher
+retention rate, brand loyalty and stability. 2) The other eight cigarette products had a higher immigration
+rate and a higher emigration rate, demonstrating greater market vitality and attractiveness. 3) Product A
+had the highest retention and immigration volumes, while Product E had the highest emigration volume
+and was in competition with Product A. This study provides a useful tool for the allocation of cigarette
+supplies, the development of brand strategies and the improvement of consumer services.
+Keywords：Cigarette;
+Consumer;
+Consumption
+behavior
+data;
+Product
+specification
+migration;
+Quantitative measurement
+基于消费行为数据的卷烟消费迁移定量测算方法
+莫玉华，陈
+浩，古
+越，刘锡鹏，祝丽丽
+*，王
+信
+广西中烟工业有限责任公司互联网研究中心，南宁市西乡塘区北湖南路28 号
+530001
+
+
+===== PAGE 2 =====
+
+第58 卷第7 期
+消费迁移是消费者行为的重要研究方向，指随
+着时间推移消费者对事物的购买轨迹会逐渐发生演
+变。通过分析消费者的迁移转换行为可以帮助企业
+精准把握市场需求变化趋势
+［1-3］。随着互联网信息技
+术的不断发展，消费数据的爆炸式增长有效推动了
+消费者行为研究由传统经验式向数据智能驱动式变
+革
+［4-8］。例如，Aimé等
+［4］通过深入挖掘大量消费者画
+像数据，精准洞察用户在交通出行中的潜在需求，并
+据此创新了动态定价和在线打车应用的设计，从而
+更好地满足消费者的需求；Wang 等
+［5］通过共享服装
+平台在线获取消费者购买行为特征数据，采用自举
+法识别消费者服装品牌转换意愿，改变品牌培育模
+式，扩大回报。因此，通过对消费者产品使用或者购
+买行为的实时洞察，企业可以快速捕捉消费者的潜
+在偏好和市场消费趋势，从而促进形成以用户需求
+为导向的产品设计和营销决策
+［9］。卷烟是一种具有
+强烈个性化和差异化特征的快消品，其吸味、质量、
+价格、品牌、外观等多种属性影响着消费者的选择和
+偏好
+［10-11］，这使得消费者对于卷烟产品的需求会随之
+迁移。烟草行业经过多年的发展也积累了海量消费
+者数据
+［12］，在以市场需求为导向的生产经营过程中，
+消费者数据的分析可以有效预测市场消费需求和消
+费规律。杨茜芮等
+［11］运用最优尺度回归分析法对卷
+烟消费者品牌偏好进行统计分析，构建卷烟消费者
+品牌偏好的预测模型；尹健康等
+［13］应用第三方消费
+者群体数据，利用TF-IDF方法搭建基于用户画像的
+用户卷烟偏好预测模型；魏胤楠等
+［14］提出通过分析
+会员消费数据把握消费偏好，同时发挥集客能力以
+增加消费转换。上述研究表明，烟草企业必须及时
+洞察消费者购买行为，迅速捕捉消费趋势变化，逐步
+从传统“大水漫灌”式品牌培育向消费需求驱动的
+“精细滴灌”式培育模式转变
+［8］。虽然现有研究一定
+程度上揭示了卷烟消费迁移的变化趋势和规律，但
+是并未定量解决消费迁移人群“从哪里来，到哪里
+去”的规模问题。为此，基于消费者卷烟购买数据，
+建立消费迁移模型，测算消费者在不同卷烟产品之
+间的迁移数量和迁移概率，分析消费者在不同卷烟
+产品之间的迁移行为及其规律，为烟草企业预测市
+场消费需求和增强市场把控力提供参考，实现“从消
+费者看品牌，从品牌看消费者”的品牌培育新模式。
+1
+数据与方法
+1.1
+问题描述
+如图1所示，消费者品规迁移可以定义为一个三
+元组（S，T，V），S表示迁出品规，即下一周期销量小于
+上一周期销量的品规；V 表示迁入品规，即下一周期
+销量大于上一周期销量的品规；T表示迁移量。迁移
+量T包含迁入量、迁出量和留存量三部分，其中迁入
+量指其他品规向该品规迁移的量；迁出量指该品规
+向其他品规迁移的量；留存量指该品规在扣除向其
+他品规迁移的量后，剩余部分的量。将研究目标确
+定为给定迁出品规S和迁入品规V，求解迁移量T。
+1.2
+数据集构建
+以Y省Z市的消费者云POS扫码数据为基础构
+建数据集，该扫码数据是由零售客户对卷烟小盒包
+装上的条形码扫码获得。以品规扫码量排名前10
+（编号为A~J）的卷烟为研究对象开展消费迁移研究
+（下文均使用品规编号）。数据采集时间为2022年1
+月1日—2022年9月29日，共9月。采用python语言
+开发数据清洗程序，将满足设定条件的数据进行删
+除处理。经过清洗获得有效扫码记录共6 391 034
+条，涉及651 334次消费。其中扫码量排名前10的品
+规如表1所示。
+1.3
+模型构建
+基于研究目标，以消费行为数据为基础构建卷
+烟消费迁移模型。模型以个体消费者的迁移作为最
+小研究单元，构建单个消费者迁移模型，计算单个消
+图1
+消费者品规迁移定义
+Fig. 1
+Definition of product migration of consumers
+表1
+Y省Z市消费者扫码次数前10品规
+①
+Tab. 1
+Top ten cigarette product specifications scanned
+by consumers in City Z of Province Y
+注：①数据采集时间为2022年1月1日—2022年9月29日。
+品规编号
+A
+B
+C
+D
+E
+F
+G
+H
+I
+J
+扫码次数
+3 293 451
+1 941 727
+1 936 06
+154 740
+152 500
+146 778
+143 546
+130 129
+120 174
+114 383
+消费人次
+144 132
+131 022
+57 229
+51 740
+47 444
+49 908
+45 216
+46 191
+40 810
+37 642
+莫玉华，等：基于消费行为数据的卷烟消费迁移定量测算方法
+·
+· 85
+
+
+===== PAGE 3 =====
+
+2025 年
+烟草科技
+费者在不同品规之间的留存量、迁出量和迁入量，汇
+集所有消费者迁移行为形成消费迁移聚合模型得到
+品规迁移矩阵。进一步基于品规迁移矩阵构建品规
+迁移概率模型得到品规留存率、迁出率和迁入率。
+最终利用留存率、迁出率和迁入率构建求解品规迁
+移量T 的最优化问题，通过凸优化算法得到品规迁
+移量矩阵。
+1.3.1
+消费者迁移模型
+对于单个消费者而言，购买量增加反映了其在
+一段时间内对某个品规购买偏好的升高，购买量减
+少反映了其在一段时间内对某个品规购买偏好的降
+低，不存在对某品规购买偏好既升高又降低的情
+况。因此，单个消费者的品规迁移方向总是从购买
+偏好降低的品规向购买偏好升高的品规迁移。图2
+中TAA、TBB、TCC分别表示品规A、B、C 的留存量（可以
+为0），即消费者对某个品规购买偏好有一部分留存
+在了第二时间段。TBA表示B 品规和A 品规之间的
+迁移量，类似地，TBC、TBD、TCA、TCB、TCD也表示品规之
+间的迁移量（可以为0），此处不再赘述。假设消费
+者i在这两个时间段里总共购买了h个品规，在第一
+个时间段购买第z（z=1，…，h）个品规的盒数量为pz，
+在第二个时间段购买第z 个品规的盒数量为p'z。若
+pz>p'z，说明该品规的购买量减少，定义该品规为迁出
+品规，迁出量记为Δpz=pz-p'z；若pz<p'z，说明该品规
+的购买量增加，定义该品规为迁入品规，迁入量记
+为Δpz=p'z-pz。
+图2
+单个消费者品规迁移示意图
+Fig. 2
+Schematic diagram of individual product migration of consumers
+所有迁出品规的集合定义为S=｛z│pz>p'z｝，所有
+迁入品规的集合定义为V=｛z│pz<p'z｝。为了使公式
+更直观，统一用Sout表示迁出品规，Sin表示迁入品规，
+所有品规集合为Sall=Sin∪Sout。若第k（k∈Sin）个品规
+是消费者i的一个迁入品规，其迁入量Δpk=p'k-pk应是
+从其他迁出品规j（j∈Sout）的迁出量Δpj=pj-p'j中转移过
+来的，将消费者i从迁出品规j向迁入品规k迁移的购
+买量记为T
+i
+jk，则可得到公式（1）。同理，迁出品规j的
+购买迁出量Δpj应向其他迁入品规的迁入量转移，满
+足公式（2）。
+Δpk=∑j∈Sout T
+i
+jk
+（1）
+Δpj=∑k∈Sin T
+i
+jk
+（2）
+公式（1）和公式（2）中，迁入量Δpk和迁出量Δpj可
+以通过消费者购买记录计算出来，而迁移量T
+i
+jk是未
+知量。对所有的迁入品规和迁出品规进行求解，可
+以得到单个消费者i的迁移模型如公式（3）所示。对
+于单个消费者i 而言，公式（3）中的方程组有m+n 个
+方程和m×n 个未知量（m 表示迁入品规的数量，n 表
+示迁出品规的数量）。
+Δpk=∑j∈Sout T
+i
+jk ，k∈Sin
+Δpj=∑k∈Sin T
+i
+jk ，j∈Sout
+（3）
+该迁移模型有解的条件是∑j∈SoutΔpj =∑k∈SinΔpk，
+即所有迁出品规迁出量之和等于所有迁入品规迁入
+量之和。该条件等价于消费者在第一个时间段内的
+购买量与第二个时间段内的购买量相等。然而，真
+实购买数据样本中，消费者在前后两个时间段购买
+量往往是不相等的，所以需要引入一个虚拟品规X
+来平衡方程数量与未知量个数，以对单个消费者迁
+移模型进行求解，如图3所示。
+当∑j∈SoutΔpj >∑k∈SinΔpk时，将虚拟品规X 加入迁
+入品规集Sin中得到修正后的迁入品规集记为S'in=
+Sin∪｛X｝，迁出品规集保持不变，记为S'out=Sout。此时，
+虚拟品规X的购买量反映了单个消费者在后一个时
+间段相比于前一个时间段流失的购买量，其购买量
+设为x=|∑j∈SoutΔpj-∑k∈SinΔpk|。当∑j∈SoutΔpj<∑k∈SinΔpk
+时，将虚拟品规X加入迁出品规集Sout中得到修正后
+的迁出品规集记为S'out=Sout∪｛X｝，迁入品规集保持
+不变，记为S'in=Sin。此时，虚拟品规X 的购买量反映
+·
+· 86
+
+
+===== PAGE 4 =====
+
+第58 卷第7 期
+了单个消费者在后一个时间段相比于前一个时间段
+新增的购买量，其购买量设为x=|∑j∈SoutΔpj-∑k∈SinΔ
+pk|。当∑j∈SoutΔpj=∑k∈SinΔpk时，公式（3）有解，迁入品
+规集和迁出品规集保持不变。为统一描述，将迁入
+品规集记为S'in=Sin，迁出品规集记为S'out=Sout。综合
+上述3种情况，单个消费者i迁移模型可以修正为公
+式（4）。
+Δpk=∑j∈S'out T
+i
+jk，k∈S'in
+Δpj=∑k∈S'in T
+i
+jk，j∈S'out
+（4）
+引入虚拟品规X 后，不会影响计算结果的准确
+性，但保证了公式（4）始终有解。但是当m+n<mn
+时，方程组的解是多解。为了唯一确定的迁移量T
+i
+jk，
+进一步设置约束条件，即迁出品规的迁出量Δpj越大，
+其向迁入品规转移量Tjk就越大，即Δpj与Tjk成正比关
+系。
+对于某个市场上采集到的消费行为数据，扫码
+消费者人数为N，按照公式（1）和公式（4）计算单个消
+费者从品规j 向品规k 的购买迁移量T
+i
+jk（i=1，2，…，
+N）。将所有消费者的迁移量进行汇总，得到公式
+（5）。通过公式（5）求解出所有消费者从品规j 向品
+规k的迁移量Tjk=∑i∈｛1，2，…，N｝T
+i
+jk，得到消费者品规迁移
+量矩阵T。
+Pk=∑i∈｛1，2，…，N｝∑j∈S' outT
+i
+jk，k∈S'in
+Pj=∑i∈｛1，2，…，N｝∑k∈S' inT
+i
+jk，j∈S'out
+（5）
+式中：Pk是所有消费者的迁入量之和；Pj是所有消费
+者的迁出量之和。
+1.3.2
+品规迁移量模型
+根据消费者品规迁移量矩阵T构建品规迁移概
+率模型，为每个品规计算迁出率、迁入率和留存率。
+对于迁出品规集合S'out中的品规j，假设其在t时间段
+消费者的总购买量为Pjt，总迁移量为Tjk，定义迁出品
+规j向迁入品规k的迁出率αjk为：
+αjk=
+，j≠k
+αjk=1-∑j≠k αjk，j=k
+（6）
+式中：k∈S'in，j∈S'out；迁出率αjk表示在t时间段消费者
+购买品规j的总量中，在t+1时间段转变为购买品规k
+的概率（当j=k时，αjk指的是留存率，表示自己转移给
+自己的比例），一定程度上反映了市场上在t时间段品
+规j的销量中，在t+1时间段转变为品规k销量的比例。
+对于迁入品规集合S'in中的品规k，假设其在t+1
+时间段消费者的总购买量为Pk（t+1），总迁移量为Tjk，定
+义迁入品规k向迁出品规j的迁入率为：
+βjk=
+，j≠k
+（7）
+式中：k∈S'in，j∈S'out；迁入率βjk表示在t+1时间段消费
+者购买品规k的总量中，由t时间段购买品规j转变为
+购买品规k 的概率，一定程度上反映了市场上在t+1
+时间段品规k的销量中，由t时间段购买品规j转变为
+品规k销量的比例。
+已知迁出品规集合S'out中品规j 在t 时间段的真
+实销量为Lj（j∈S'out），迁入品规集合S'in中品规k在t+1
+时间段的真实销量为L'k（k∈S'in）。假设R
+→
+jk表示市场
+上迁出品规j 向迁入品规k 迁移的真实量，R
+←
+jk表示市
+场上迁入品规k 向迁出品规j 迁移的真实量，此时R
+←
+jk
+和R
+→
+jk都是未知变量。
+品规的真实迁移率应与利用消费行为数据计算
+出的迁移率尽量接近，利用品规在t 和t+1 时间段的
+真实销量数据以及真实迁移量数据，可以计算迁出
+品规j 向迁入品规k 的真实迁出率为α-
+jk= Lj
+；迁入品
+规k向迁出品规j的真实迁入率为β-
+jk= L'j
+。
+1.4
+评价函数构建
+根据计算出的迁出率αjk、迁入率βjk以及真实迁
+图3
+单个消费者品规（含虚拟品规）迁移示意图
+Fig. 3
+Schematic diagram of individual product (including virtual product) migration of consumers
+莫玉华，等：基于消费行为数据的卷烟消费迁移定量测算方法
+·
+· 87
+
+
+===== PAGE 5 =====
+
+2025 年
+烟草科技
+出率α-
+jk、真实迁入率β-
+jk，得到评价函数F，如公式（8）
+所示。该函数利用误差平方和来衡量真实迁移率与
+迁移率计算值之间的差值。
+F=∑j，k fjk=∑j，k［（α-
+jk-αjk）
+2+（β-
+jk-βjk）
+2］
+（8）
+式中：k∈S'in，j∈S'out。
+利用损失函数求解品规相互迁移量是一个最优
+化问题，为了求解该问题，需要添加两个约束条件，即
+迁出品规的迁出量不能大于自身前一时间段的销量，
+迁入品规的迁入量不能大于下一时间段销量。根据
+这两个约束条件，构造最优化问题如公式（9）所示。
+minF=∑j，k fjk s.t.∑k∈S'in R
+→
+jk<Lj and∑j∈S'out R
+←
+jk<L'k （9）
+利用凸优化算法求解该最优化问题可得一组确
+定的α-
+jk、β-
+jk，即测算出市场上不同品规之间的真实迁
+移率：基于约束条件，找到一组α-
+jk、β-
+jk，使得F 的值最
+小，则该组α-
+jk、β-
+jk即为最符合真实情况的真实迁移
+率；此时，可以将该组中的α-
+jk、β-
+jk分别看作真实迁出
+率和真实迁入率。根据α-
+jk=
+Lj
+、β-
+jk=
+L'k
+可知R
+→
+jk=α-
+jk×Lj、
+R
+←
+jk=β-
+jk×L'k。因此，可以根据真实迁出率和t时间段的
+销量数据求出确定的R
+→
+jk，根据真实迁入率和t+1时间
+段销量数据可以求出确定的R
+←
+jk，即得到品规之间相
+互迁移真实量。
+1.5
+数据分析及模型运行环境
+所有数据分析及模型构建的程序均配置在搭载
+Intel
+®Core
+®i7-12650H 十核64 位处理器、16 G 内存、
+NVIDIA GeForce RTX 4060 GPU 的计算机上，操作
+系统为Windows11。程序使用PyCharmCE 和
+Python3.7.9编写。
+2
+结果与分析
+一个品规活力与该品规的迁入、迁出关系密切，
+通常迁入和迁出越活跃，说明该品规处于成长期，转
+化和增长的可能性越高。但如果一个活跃的品规没
+有将这种流动性固化下来，则最终也会逐渐失去活
+力，这种固化流动性的指标即为留存率。在迁入、迁
+出活跃时，留存率越高，该品规发展越稳定。根据
+1.3节的方法对Y省Z市销量前10的品规迁出率、留
+存率、迁入率和迁移量进行分析。
+2.1
+各品规迁出率及留存率
+留存率和迁出率与品规销量的稳定性密切相
+关，留存率越高，迁出率越低，表明了品规忠实消费
+者越多，销售越稳定。表2 为Y 省Z 市销量前10 品
+规的迁出率，从表2中可以发现品规A和品规E迁出
+到其他品规的占比较低，而其他8 款卷烟相对较高。
+结合图4中各品规的留存率分析，可知品规A和品规
+E 的留存率在80%左右，迁出率低，说明这两个品规
+具有大量的忠实消费者，迁出消费者少，营销可以重
+视对消费者的持续维护，实时监测消费者动向。而
+另外8 款卷烟的留存率均在50%左右，相对较低，迁
+出其他品规的概率较高，说明与品规A 和品规E 相
+比，缺少忠实消费者，一部分消费者未形成固定抽吸
+习惯比较容易发生迁移行为，可根据单个消费者对
+目标品规的迁移量情况对消费者实施为期一段时间
+的精准营销活动以拉动消费，促进消费者发生消费
+迁移，固化消费行为习惯。
+2.2
+各品规迁入率
+迁入率越高，表明该品规活力越强。由表3 可
+知，品规A 和品规E 的迁入率分别为15.1%、20.5%，
+再一次验证了这两个品规消费群体已经处于比较稳
+定的状态。而其他8款卷烟的迁入率均在50%左右，
+说明这些品规的生命力比较旺盛，有充足的消费者
+迁入，消费者转化的概率相对较高。
+表2
+Y省Z市销量前10品规的迁出率矩阵
+Tab. 2
+Matrix of emigration rates of ten best-selling products in City Z of Province Y
+（%）
+迁出品规
+品规A
+品规B
+品规C
+品规D
+品规E
+品规F
+品规G
+品规H
+品规I
+品规J
+迁入品规
+品规A
+18.2
+20.4
+18.1
+11.9
+21.7
+21.6
+19.9
+19.5
+20.9
+品规B
+0.6
+2.3
+2.1
+0.9
+1.9
+2.2
+1.7
+2.0
+1.6
+品规C
+0.7
+2.1
+1.5
+0.8
+1.4
+1.7
+1.8
+2.0
+1.5
+品规D
+0.5
+1.5
+1.7
+0.7
+1.3
+1.6
+1.4
+1.4
+1.2
+品规E
+8.0
+15.4
+15.8
+14.1
+15.7
+14.5
+15.9
+16.2
+15.4
+品规F
+1.0
+2.4
+2.4
+2.3
+1.3
+2.2
+2.3
+2.7
+3.0
+品规G
+0.7
+1.7
+1.6
+3.4
+0.9
+1.9
+1.7
+1.9
+1.3
+品规H
+0.7
+2.1
+2.3
+2.3
+1.0
+2.0
+1.9
+2.2
+1.2
+品规I
+0.7
+1.8
+1.8
+1.9
+0.8
+1.6
+1.8
+1.9
+1.5
+品规J
+1.8
+3.9
+4.5
+3.4
+2.5
+5.7
+4.6
+4.2
+4.2
+·
+· 88
+
+
+===== PAGE 6 =====
+
+第58 卷第7 期
+图4
+Y省Z市销量前10品规的留存率
+Fig. 4
+Retention rates of ten best-selling products in City Z of Province Y
+表3
+Y省Z市销量前10品规的迁入率矩阵
+Tab. 3
+Matrix of immigrant rates of ten best-selling products in City Z of Province Y
+（%）
+迁出品规
+品规A
+品规B
+品规C
+品规D
+品规E
+品规F
+品规G
+品规H
+品规I
+品规J
+迁入品规
+品规A
+0.6
+0.9
+0.5
+7.8
+1.3
+0.9
+0.7
+0.7
+1.7
+品规B
+18.8
+2.8
+1.6
+16.5
+3.4
+2.5
+1.7
+2.0
+3.7
+品规C
+17.8
+1.8
+1.1
+14.8
+2.4
+1.9
+1.7
+1.8
+3.2
+品规D
+17.2
+1.6
+2.6
+16.0
+3.0
+2.2
+1.8
+1.8
+3.6
+品规E
+12.2
+0.7
+1.0
+0.6
+1.5
+0.9
+0.8
+0.9
+1.9
+品规F
+18.5
+1.4
+1.8
+1.1
+15.3
+1.5
+1.4
+1.7
+4.3
+品规G
+18.3
+1.4
+1.8
+2.4
+15.4
+3.2
+1.5
+1.7
+2.9
+品规H
+18.6
+1.7
+2.6
+1.7
+18.4
+3.4
+2.0
+2.1
+4.3
+品规I
+19.6
+1.6
+2.2
+1.5
+16.2
+2.8
+2.2
+1.9
+3.5
+品规J
+20.7
+1.4
+2.1
+1.0
+18.7
+4.0
+2.1
+1.6
+1.6
+2.3
+各品规迁移量
+根据消费迁移量分析结果分别绘制Y省Z市销
+量前10品规的迁移量矩阵，如表4所示，横向表示迁
+出量，纵向表示迁入量，对角线表示留存量。由表4
+莫玉华，等：基于消费行为数据的卷烟消费迁移定量测算方法
+迁出品规
+品规A
+品规B
+品规C
+品规D
+品规E
+品规F
+品规G
+品规H
+品规I
+品规J
+迁入品规
+品规A
+223 112.0
+1 473.4
+2 234.6
+1 257.0
+20 357.8
+3 524.7
+2 237.6
+1 757.3
+1 753.0
+4 359.7
+品规B
+1 653.0
+4 105.0
+245.9
+143.6
+1 449.1
+302.4
+223.7
+149.7
+178.7
+328.4
+品规C
+1 726.1
+170.1
+5 182.0
+104.9
+1 433.4
+233.2
+180.2
+162.2
+175.4
+313.7
+品规D
+1 219.2
+124.5
+181.7
+3 554.0
+1 140.2
+217.9
+160.2
+125.7
+129.6
+255.8
+品规E
+20 787.2
+1 243.9
+1 724.9
+983.8
+135 494.0
+2 540.4
+1 500.2
+1 401.0
+1 458.5
+3 206.4
+品规F
+2 659.7
+194.1
+261.6
+157.7
+2 193.8
+7 608.0
+221.9
+205.8
+245.2
+623.9
+品规G
+1 769.8
+138.6
+177.2
+235.4
+1 482.5
+305.1
+4 954.0
+149.1
+166.8
+278.2
+品规H
+1 792.5
+166.6
+251.8
+160.0
+1 767.8
+330.6
+192.8
+4 342.0
+198.7
+417.0
+品规I
+1 740.9
+144.8
+198.8
+132.2
+1 438.8
+253.4
+195.3
+166.5
+4 315.0
+311.0
+品规J
+4 763.5
+314.9
+486.9
+234.5
+4 289.4
+921.6
+473.4
+365.9
+376.3
+10 764.0
+表4
+Y省Z市销量前10品规的迁移量矩阵
+Tab. 4
+Migration volumes of ten best-selling products in City Z of Province Y
+（条）
+·
+· 89
+
+
+===== PAGE 7 =====
+
+2025 年
+烟草科技
+可知，品规A 与品规E 相互迁移的量最大但迁出率
+不高，且大部分品规都有向这两个品规迁移的量，说
+明在当前市场中，这两款卷烟所占份额较大，而且有
+“双雄争霸”的趋势。此外，品规A 到品规J 中，品规
+A 的留存量最高，品规E 的迁出量最高，品规A 的迁
+入量最高。以品规A 为例分析迁出量，迁出量排名
+前3 的是品规E、品规F、品规J，迁出占比分别是
+54.40%、6.98%、12.50%；以品规B 为例分析迁入量，
+其他品规迁入到品规B的前3个品规为品规A、品规
+E、品规J，迁入占比分别为35.3%、31.0%、7.0%。
+2.4
+实验结果验证
+为了验证所建立的测算方法与真实情况的可比
+较性和有效性，对Y 省Z 市扫码量前10 品规的市场
+真实销售数据进行统计，如表5所示。结合表5中各
+品规的市场真实销售数据和图4的留存率可以发现，
+品规A、B、D、G、J 的销量增长率较小，均小于1.7%，
+销量相对稳定（品规A、B、D、J具有地产烟优势），与
+迁移模型分析出来的结果“留存率越高，销售越稳
+定”相吻合；品规C、F、H、I的增长率较大，与“留存率
+较小，迁入率和迁出率都较高”的结论相吻合；品规E
+的增长率比较大，与模型计算的留存率79.21%结果
+相悖，经过市场反馈发现，该品规在这段时间持续开
+展营销活动，使得产品的销量增长率偏高。
+3
+结论
+通过融合消费者消费行为数据以及零售户订购
+数据，从迁入、迁出和留存三个维度构建卷烟消费变
+迁模型，挖掘出消费者在不同品规之间的消费偏好
+迁移规律，实现了消费者在不同品规之间的迁移数
+量测算。以卷烟消费数据和零售户订购数据为基
+础，分析研究了Y省Z市销量排名前10品规（编号为
+A~J）的消费者迁移情况。实验结果表明：①品规A
+和品规E 的留存率在80%左右，迁出率低，迁入率
+低，说明这两个品规具有大量的忠实消费者，比较稳
+定；②除品规A、品规E之外的8款卷烟，留存率均在
+50%左右，迁出其他品规的概率较高，但迁入率较
+高，说明品规具有活力；③10 款卷烟中，品规A 的留
+存量最高，品规E的迁出量最高，品规A的迁入量最
+高，且A 与E 存在竞争关系。所建立的卷烟消费迁
+移模型还可用于分析消费者在不同品牌之间的迁移
+规模，便于各烟草企业从消费者迁移角度掌握各品
+牌的市场状态，及时制定相应的培育策略。未来随
+着卷烟消费者数据质量的不断提高和卷烟零售客户
+订购数据的不断丰富，还可利用所建模型为消费者提
+供精细化服务，为卷烟货源精准投放提供技术支持。
+参考文献
+［1］罗子明. 消费者心理学［M］. 2 版. 北京：清华大学出
+版社，2002.
+LUO
+Ziming.
+Consumer
+psychology［M］.
+2nd
+ed.
+Beijing：Tsinghua University Press，2002.
+［2］邢加圣，谢邵斌，叶金国. 基于支付宝数据的卷烟消
+费转移跟踪应用与实践［C］//中国烟草学会2018 年
+学术年会. 北京：中国烟草学会，2018.
+XING Jiasheng，XIE Shaobin，YE Jinguo. Application
+and practice of cigarette consumption transfer tracing
+based on Alipay data［C］//Proceedings of 2018 Annual
+Academic
+Conference
+of
+China
+Tobacco
+Society.
+Beijing：China Tobacco Society，2018.
+［3］曾德明，倪娜. 论消费者品牌转换行为形成机理［J］.
+求索，2006（10）：62-64.
+ZENG Deming，NI Na. On the formation mechanism of
+consumers’brand conversion behavior［J］. Seeker，2006
+（10）：62-64.
+［4］Aimé I，Berger-Remy F，Laporte M E. The brand，the
+persona
+and
+the
+algorithm：How
+datafication
+is
+reconfiguring marketing work［J］. Journal of Business
+Research，2022，145：814-827.
+［5］
+Wang Y，Xiao Z R. The dual effects of consumer
+satisfaction on brand switching intention of sharing
+apparel［J］. Sustainability，2022，14（8）：4526.
+［6］
+Erkayman B，Erdem E，Aydin T，et al. New artificial
+intelligence approaches for brand switching decisions［J］.
+Alexandria Engineering Journal，2023，63：625-643.
+［7］Abdelwahab D，San-Martín S，Jiménez N. Does regional
+bias matter？Examining the role of regional identification，
+animosity，and negative emotions as drivers of brand
+switching：An application in the food and beverage
+industry［J］. Journal of Brand Management，2022，29（1）：
+111-126.
+［8］丁杰，王伟，龚强. 大数据时代消费者行为与卷烟精
+表5
+Y省Z市销量前10品规的真实销售数据
+Tab. 5
+Growth rates of sales volume of ten best-selling
+products in City Z of Province Y
+品规名称
+品规A
+品规B
+品规C
+品规D
+品规E
+品规F
+品规G
+品规H
+品规I
+品规J
+销量增长率/%
+-0.26
+-0.22
+3.05
+1.66
+3.97
+7.03
+1.37
+2.30
+4.23
+0.04
+是否地产烟
+是
+是
+否
+是
+否
+是
+否
+否
+否
+是
+是否开展营销活动
+否
+否
+否
+否
+是
+否
+否
+否
+否
+否
+·
+· 90
+
+
+===== PAGE 8 =====
+
+第58 卷第7 期
+准营销策略研究［J］. 中国市场，2022（22）：136-138.
+DING Jie，WANG Wei，GONG Qiang. Research on
+consumer behavior and precision marketing strategies
+for cigarettes in the era of big data［J］. China Market，
+2022（22）：136-138.
+［9］金吉琼，居雷，张易，等. 基于用户画像的卷烟消费者
+特征识别和价值评估［J］. 烟草科技，2023，56（1）：
+105-112.
+JIN Jiqiong，JU Lei，ZHANG Yi，et al. Character
+identification and value assessment of cigarette consumers
+based on consumer persona［J］. Tobacco Science &
+Technology，2023，56（1）：105-112.
+［10］蒋志峰，杨湘粤，刘顺，等. 卷烟消费选择偏好的影
+响因素及品牌培育策略研究：基于耒阳市芙蓉王（硬
+蓝新版）及黄鹤楼（硬天下名楼）的调查［J］. 现代商
+贸工业，2022，43（16）：66-68.
+JIANG Zhifeng，YANG Xiangyue，LIU Shun，et al.
+Factors influencing cigarette consumption preference and
+brand
+cultivation
+strategies：A
+survey
+based
+on
+Furongwang （new hard blue）and Huanghelou （hard
+world famous building）in Leiyang City［J］. Modern
+Business Trade Industry，2022，43（16）：66-68.
+［11］杨茜芮，张一博，王丹，等. 基于最优尺度回归的卷
+烟消费者品牌偏好预测模型构建［J］. 中国商论，
+2022（15）：80-85.
+YANG Xirui，ZHANG Yibo，WANG Dan，et al.
+Construction of cigarette consumer brand preference
+prediction model based on optimal scale regression［J］.
+China Journal of Commerce，2022（15）：80-85.
+［12］王树明，张磊，杨伟，等. 基于零售终端数据的卷烟
+消费需求预测方法研究与探索［J］. 科技经济市场，
+2023（3）：109-115.
+WANG Shuming，ZHANG Lei，YANG Wei，et al.
+Research and exploration on prediction method for
+cigarette consumption demand based on retail terminal data
+［J］. Science & Technology Economy Market，2023（3）：
+109-115.
+［13］尹健康，梁筱雨，刘志，等. 用户偏好预测模型研究
+与用户画像标签应用［J］. 电子技术与软件工程，
+2020（24）：201-202.
+YIN Jiankang，LIANG Xiaoyu，LIU Zhi，et al. Research
+on user preference prediction models and application of
+user profile tags［J］. Electronic Technology & Software
+Engineering，2020（24）：201-202.
+［14］魏胤楠，陈越昆，宋柏直，等. 基于智能卷烟零售终
+端的消费者画像构建与行为分析：评《消费者行为
+学》［J］. 中国油脂，2022，47（9）：168.
+WEI Yinnan，CHEN Yuekun，SONG Baizhi，et al.
+Consumer profile construction and behavior analysis
+based on intelligent cigarette retail terminals：A review of
+Consumer Behavior［J］. China Oils and Fats，2022，47（9）：
+168.
+责任编辑
+张玉聪
+莫玉华，等：基于消费行为数据的卷烟消费迁移定量测算方法
+·
+· 91

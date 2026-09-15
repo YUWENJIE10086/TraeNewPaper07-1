@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"></meta>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+    <meta name="renderer" content="webkit"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+    <meta name="description" content=""></meta>
+    <meta name="author" content=""></meta>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"></meta>
+    <link rel="shortcut icon" href="/docdown/favicon.ico"  type="image/x-icon">
+    <title>CNKI原文下载服务</title>
+    <link rel="stylesheet" href="/docdown/css/global.css"/>
+</head>
+<body>
+<div class="Mmain">
+    <h1 class="Mhd">提示信息</h1>
+    
+        
+        <div class="Mbd">
+            <p class="Mcont">
+                <span>抱歉，您的本次会话已超时，请您重新下载！</span>
+            </p>
+        </div>
+        
+        
+        
+        
+        <!--<div class="Mbd" th:case="'10201'">
+            <p class="Mcont" th:title="${message}">
+                <span th:text="'系统错误('+${#strings.abbreviate(message, 30)}+')，请联系客服解决！'"></span>
+            </p>
+        </div>-->
+        
+    
+    <input id="code" name="code" type="hidden" value="10009">
+    <input id="message" name="message" type="hidden" value="请求超时(url=http://docdown.cnki.net/docdown/fulltext/download,queryStr=q=NP7oX%2BLD6jdCNfVk3NNhrmQEEJ1X6xJJabtCdTSWpO8Y6qUCnF%2BUAS6Fx4ppwqcz3jq9sFxXhBHNn%2BDfF2kRioOqBKPKFv8B%2FU5UjDknlxn%2Bn7r657J9nPzQqW2L0vbYTCvcSlyQXk1ZSm%2BtlLTHfe%2BMwOzZVgrRkEsI7qzhuI2Xoxb4xc2V0BPwGRCmlHWLPUb5NTr9xV0RgG07ZB2pn5oLsO7oqqGDeADTRqFRzzvXce2Wpqt6XyXexiTRpLN%2BbyFbmOfNeUPysV%2FRua4hSmOnR0Be2Ve0ngyKRENy277FmHGQW04m0lw4NvohEDRpDnJMesKqyoSYrruhYJ04nbJPEFZ4QNAFQd%2FDx6QhugNu3A7pW0EVbMRFWlD4Qwhe7k4VOBBJtJMWTDH9Cch2HlOmDL0rShuCnf2cIEokqiJGPtMr0A%2BtszYZGtwE53H105nOhYTRNQkqjwJUoEixwn1dgTvYMWergwrHeVFwIqAwIitegJnMXN7Ddng5NEHDfVEjEQqRoXy%2FfOx3wQ5DWu75uQt2ryrx4osa%2BfmHRgwKvWtL6dUxgAChYTyS9TC9x3G%2F9V7RT18UDjGktVVipgWAULUjZnzGjZ9XS%2B7Dr8itlLPedAh7ZRWqOKxCIV9PcTuhSRAhL0b6rwFVs83jIw%3D%3D&amp;invoice=dtHY3edKKNOL0S2jgZHfYg9MMsB1HbEsn%2BpjhLuVWwujxxWhMtNe1md3QCgEJ0TcEDAe3J80wTUSved9B4rhNRha4zBuIT07f9SgkS2Hsx46nar2t583tAp8vk5gP%2FxADNGVt1RHW%2B4kWQ8zoU45gdwUU0mX92JLjP4eGSu0hiY%3D)">
+</div>
+</body>
+</html>

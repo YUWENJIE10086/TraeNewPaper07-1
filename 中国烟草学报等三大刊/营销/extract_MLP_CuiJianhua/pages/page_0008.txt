@@ -1,0 +1,47 @@
+140 中国烟草学报 Acta Tabacaria Sinica 2026 Vol.32 No.3
+[5] 邓超，刘颂，王露笛，等. 基于深度神经网络的卷烟智能投放 预测与结果评价研究[J]. 中国烟草学报，2019, 25(1): 93-98.
+模型构建方法[J]. 烟草科技，2021, 54(02): 78-83. ZHAO Min, ZHANG Danfeng, ZENG Zhongliang, et al.
+DENG Chao, LIU Song, WANG Ludi, et al. Modeling for Prediction of cigarette demand in Yunnan province based on
+intelligent cigarette release based on deep neural network[J]. combination model and criteria of result evaluation[J]. Acta
+Tobacco Science & Technology, 2021,54(02): 78-83. Tabacaria Sinica, 2019, 25(1): 93-98
+[6] 吴明山，王冰，起亚宁，等. 卷烟销量组合预测模型研究[J]. 中 [9] ZENG A, CHEN M, ZHANG L, et al. Are transformers effective
+国烟草学报，2019, 25(3): 84-91. for time series forecasting[C]//Proceedings of the AAAI
+Conference on Artificial Intelligence. Association for the
+WU Mingshan, WANG Bing, QI Yaning, et al. Research on
+Advancement of Artificial Intelligence (AAAI), 2023, 37(9):
+combined forecasting model for cigarette sales volume[J]. Acta
+11121-11128.
+Tabacaria Sinica, 2019, 25(3): 84-91.
+[10] WEI J, WANG X, SCHUURMANS D, et al. Chain-of-thought
+[7] 蒋兴恒. 基于分解集成思想的复杂卷烟销量时间序列预测模型
+prompting elicits reasoning in large language models[J]. Advances
+研究[J]. 中国烟草学报，2025, 31(5): 138-145.
+in neural information processing systems, 2022, 35: 24824-24837.
+JIANG Xingheng. Research on time series prediction model of
+[11] FU D, ZHANG H T, DUTTA A, et a1 ．A cooperative distributed
+complex cigarette sales based on decomposition ensemble idea[J].
+model predictive control approach to supply chain management[J].
+Acta Tabacaria Sinica, 2025, 31(5): 138-145.
+IEEE Transactions on Systems, Man, and Cybernetics: Systems,
+[8] 赵旻，张丹枫，曾中良，等. 基于组合模型的云南省卷烟需求
+2019, 50(12): 4894-4904.
+Research on the construction and application of an MLP-dominated cigarette sales forecasting
+model
+CUI Jianhua, CHEN Hao, LIU Dongrong*
+Zhejiang Tobacco Monopoly Administration, Hangzhou 310001, China
+Abstract: Cigarette market sales exhibit strong cyclical, seasonal, and strategic characteristics, making it difficult for traditional forecasting
+models to capture the impact of key non-market factors such as policy directives, supply plans, delivery rhythms, inventory balance, and
+monopoly regulations. To address this, this paper combines a Multi-Layer Perceptron (MLP) with a Large Language Model (LLM) and
+proposes a combined forecasting model for cigarette sales characterized by “MLP dominance and LLM assistance”. In this framework, the
+MLP excels at modeling natural data patterns, while the LLM provides capabilities for multi-source information understanding and
+reasoning. Based on this forecasting model, the study further applies it to cigarette inventory transfer strategies and proposes a dynamic
+optimal control method for cigarette logistics supply chain inventory based on hierarchical Distributed Model Predictive Control (DMPC).
+Using real historical data from Province Z covering the 18-month period from January 2022 to June 2023, the sales forecasting and
+inventory control are evaluated. Results show that the proposed forecasting model achieves a mean relative prediction error of 3.5% for
+fast-selling stock-keeping units, significantly outperforming ARIMA (20.0%) and the RBF neural network (8.3%). Furthermore, the
+proposed inventory control method outperforms the traditional inventory-to-sales ratio approach across three cigarette inventory transfer
+indicators (average inventory, number of transport trips, and standard deviation of inbound volume) in a front warehouse of a
+prefecture-level city during different periods, achieving average reductions of 24.21%, 36.84%, and 9.93%, respectively.
+Keywords: cigarette logistics; sales forecasting; inventory control; Multi-Layer Perceptron; Large Language Model; model predictive
+control
+*Corresponding author. Email：liudr@zjyc.cn

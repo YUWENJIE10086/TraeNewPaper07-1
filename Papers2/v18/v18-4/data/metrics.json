@@ -1,0 +1,60 @@
+{
+  "n": 2687,
+  "products": 203,
+  "treated": 258,
+  "covariates": 23,
+  "covariate_names": [
+    "util_pre",
+    "fill_pre",
+    "full_surf_pre",
+    "ord_success_pre",
+    "price_index_pre",
+    "gross_margin_pre",
+    "unitval_pre",
+    "inventory_ratio_pre",
+    "channel_coverage_pre",
+    "demand_gap_pre",
+    "amt_per_cust_pre",
+    "new_cust_pre",
+    "S_pre",
+    "cat_一类烟",
+    "cat_二类烟",
+    "cat_三类烟",
+    "cat_四类烟",
+    "cat_五类烟",
+    "band_低档",
+    "band_中低档",
+    "band_中档",
+    "band_中高档",
+    "band_高档"
+  ],
+  "ate": 4.125626157722961,
+  "ate_ci": [
+    1.448313924233172,
+    6.80293839121275
+  ],
+  "cate_sd": 1.625201850349939,
+  "q_low": 3.3500854651458836,
+  "q_high": 4.706675268875338,
+  "honest_fraction_estimation": 0.55,
+  "honest_fraction_splitting": 0.45,
+  "min_samples_leaf": 20,
+  "trees": 600,
+  "group_cv_folds": 5,
+  "backtest": {
+    "high_n": 86,
+    "other_n": 172,
+    "high_mean_change": 10.019859820820828,
+    "other_mean_change": 1.0523002764689566,
+    "high_improvement": 0.8372093023255814,
+    "other_improvement": 0.5290697674418605,
+    "baseline_smd": -0.4990121829410201,
+    "baseline_p": 0.00011894116779836751
+  },
+  "psm": {
+    "pairs": 258,
+    "effect": 5.537665014919847,
+    "mean_abs_smd_before": 0.1777169624200661,
+    "mean_abs_smd_after": 0.03956959901008779
+  }
+}

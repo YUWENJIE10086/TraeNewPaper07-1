@@ -1,0 +1,46 @@
+蒋兴恒 基于分解集成思想的复杂卷烟销量时间序列预测模型研究 145
+[14] 赵乾坤，曹灵芝. 基于最优参数选择的 EEMD方法的暂态电能 WANG Jing. Research and application of parameter optimization
+质量扰动识别分类[J]. 计算机与数字工程，2019: 1067-1071. algorithm for empirical mode decomposition[D]. Guangzhou,
+ZHAO Qiankun, CAO Lingzhi. Identification and classification of 2019.
+transient power quality disturbances based on EEMD method with [16] 陈磊. 应用统计学[M]. 北京：中国纺织出版社，2018: 112-150.
+optimal parameter selection[J]. Computer and Digital Engineering, CHEN Lei. Applied Statistics[M]. Beijing: China Textile &
+2019: 1067-1071. Apparel Press, 2018: 112-150.
+[15] 王晶. 经验模式分解参数优化算法研究与应用[D]. 广州，2019.
+Research on time series prediction model of complex cigarette sales based on decomposition-
+ensemble idea
+JIANG Xingheng
+Anhui Zhongyan Industrial Co., Ltd., Technology Center, Hefei, 230601, China
+Abstract: This study proposes a decomposition-integration forecasting framework based on an improved Ensemble Empirical Mode
+Decomposition (EEMD) method. By adaptive parameter optimization, the original sales series is decomposed into multi-scale Intrinsic
+Mode Function (IMF) components. ARIMA, threshold regression, and LM-BP neural network models are matched for prediction according
+to the characteristics of each component, and the prediction results of each component are finally integrated. Empirical research shows that
+the root mean square error (RMSE) of this method for the prediction of Huangshan, Chunghwa, and Yunyan brands is reduced by 70.73%
+to 80.23% compared with traditional methods. Through comparison, the prediction accuracy of the decomposed-ensemble method for the
+original time series is greater than the general overall prediction accuracy, and the applicable scope is wider. Furthermore, the applicability
+of this method is demonstrated by the sales forecast of Liqun, Yellow Crane Tower, and Furongwang brands in different periods. This study
+provides methodological innovation and practical reference for complex time series forecasting.
+Keywords: cigarette sales; decomposition; ensemble; forecasting
+*Corresponding author. Email：66903003@qq.com
+《烟草科技》2025 年第 9 期目次
+·烟草化学 ·烟草工艺
+以分配系数为指标分析卷烟中酯类单体香料的分配转移特征 基于关键化学指标相似的上部烟叶模块配方数字化设计
+········································· 郝贤伟，田雨农，李石头，等
+········································ 罗曾源，付英杰，张博莹，等
+卷烟感官评价指标敏感性的表征方法构建及对比分析
+GC-MS-O-双柱定性分析香紫苏精油的关键香气成分
+········································· 杨佳东，杨 露，刘继辉，等
+········································ 陈伟华，刘子轩，贾晓慧，等
+基于静电捕集的卷烟主流烟气烟碱气、粒相分布
+·设备与仪器
+········································ 陈锴琦，余晶晶，郭吉兆，等 中高速包装机组多品规包装纸集中自动配送装置的设计
+········································· 张天奇，李 辉，康凯宁，等
+·烟草农学与生物学 一种棒形制品装盘/盒装置的设计
+烤烟氮肥利用率与生物碱组分含量的定量关系 ········································· 刘 恺，汤治国，孔方亮，等
+ZJ116B型卷接机组施胶方式对预打孔接装纸细支烟的影响
+········································ 蔡民爵，曾嘉楠，黄瑞寅，等
+········································· 潘 著，冯 忆，裘雨灿，等
+施用有机肥对重庆植烟土壤碳氮矿化的影响
+········································ 黄乐煜，沈 铮，赵东方，等
+·信息技术与数据科学
+调制过程中光照强度对晒黄烟叶品质的影响 基于多传感器融合 SLAM 的 AGV 自动装车导航系统设计
+········································ 刘 璐，史小军，喻 杰，等 ········································· 周永光，李晓彬，梅海青，等

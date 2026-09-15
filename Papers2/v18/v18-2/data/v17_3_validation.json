@@ -1,0 +1,21 @@
+{
+  "source": "Papers3/v1 logic rerun on 0805数据",
+  "n_samples": 2857,
+  "n_specifications": 203,
+  "n_treatment": 270,
+  "n_covariates": 23,
+  "treatment_definition": "fill <= same-month 35th percentile and previous fill - current fill > 2 percentage points",
+  "ate": 7.646671,
+  "cluster_unit": "specification code",
+  "cluster_robust_se_for_mean_CATE": 0.588611,
+  "cluster_robust_ci95": [
+    6.492994,
+    8.800348
+  ],
+  "raw_unclustered_se": 0.267,
+  "v17_3_metrics_match": {
+    "n_samples": true,
+    "n_treatment": true,
+    "ate": true
+  }
+}

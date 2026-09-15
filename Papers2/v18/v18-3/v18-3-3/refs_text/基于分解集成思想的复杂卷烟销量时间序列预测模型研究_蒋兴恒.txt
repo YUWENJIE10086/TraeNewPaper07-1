@@ -1,0 +1,819 @@
+
+===== PAGE 1 =====
+
+中国烟草学报 Acta Tabacaria Sinica 2025 Vol.31 No.5 
+ 
+ 
+作者简介：蒋兴恒（1982—），硕士研究生，高级统计师，主要从事经济数据分析等，Tel：1386693805，Email：66903003@qq.com 
+收稿日期：2024-08-27；网络出版日期：2025-06-05 
+138
+经济与管理 
+蒋兴恒. 基于分解集成思想的复杂卷烟销量时间序列预测模型研究[J]. 中国烟草学报，2025，31（5）：138-145. JIANG Xingheng. 
+Research on time series prediction model of complex cigarette sales based on decomposition-ensemble idea[J]. Acta Tabacaria Sinica, 
+2025,31(5):138-145. doi:10.16472/j.chinatobacco.2024.T0324  
+基于分解集成思想的复杂卷烟销量时间序列预测模型研究 
+蒋兴恒 
+安徽中烟工业有限责任公司技术中心，合肥市高新区永和路399 号 230601 
+摘  要：本文提出一种基于集合经验模态分解（EEMD）的分解集成预测框架，通过自适应参数优化将原始销量序列分解为多尺
+度本征模态函数（IMF）分量，并针对各分量特性匹配ARIMA、门限回归及LM-BP 神经网络模型进行预测，最终集成各分量的
+预测结果。实证研究表明，该方法对黄山、中华、云烟等品牌的预测均方根误差（RMSE）较传统方法降低70.73%～80.23%，通
+过对比，对原时间序列分解集成方法的预测精度大于一般整体预测精度，适用范围更加广泛。并通过对不同时段利群、黄鹤楼和
+芙蓉王品牌的销量预测，进一步证明了该方法的适用性。本研究为复杂时间序列预测提供了方法论创新与实践参考。 
+关键词：卷烟销售；分解；集成；预测 
+ 
+ 
+卷烟销量预测准确性的提升，不仅能在日常管理
+中优化资源配置，提升运营效率，还能够为预警机制
+提供精准的数据支撑，确保面对市场波动时能够迅速
+反应。目前关于产品销量等时间序列的预测方法大致
+可以分为3 类：①基于时间序列的数据特征，运用传
+统的计量经济学方法构建预测模型。这类方法通过对
+历史数据的深入分析，挖掘数据间的潜在规律，并据
+此建立数学模型预测未来销量。葛娜等[1]基于传统的
+计量经济模型对产品销量进行预测，为制定销售战略
+和产业布局提供依据。②借助神经网络等机器学习方
+法构建预测模型。利用计算机模拟人脑神经网络的运
+作方式，自动识别数据中的复杂模式，从而实现准确
+预测。陈尚林[2]利用基于LSTM 神经网络和百度指数
+对新能源汽车销量进行了预测。③将传统计量方法与
+神经网络相结合，以提高预测准确性。这种方法融合
+了这两种方法的优点，既能够保留传统计量方法对数
+据特征的深入挖掘能力，又能够借助神经网络强大的
+模式识别能力来捕捉数据中的非线性关系。吴明山等[3]
+选择ARIMA 模型、基于梯度下降算法的BP 神经网络
+模型、基于LM 算法改进的BP 神经网络模型等方法
+对卷烟数据进行了预测。 
+上述不同的预测模型具有各自的优劣势：传统计
+量模型的函数形式是固化的，其对符合条件的时序数
+据具有较高的预测精度，但与实际情况中绝大部分数
+据的非平稳性、非线性等复杂的数据特征相悖。机器
+学习在非平稳、非线性数据的研究中，也容易陷入参
+数敏感性、局部最优及过度拟合等弊端。同时，前述
+预测方法无法实现从更细化的维度对时间序列进行分
+析。原始时间序列数据受到季节性变动、长期趋势以
+及随机波动等多种因素的共同作用，可能会掩盖时间
+序列中的某些重要信息。如果能够从更精细化的维度
+去分析时间序列，就有可能提高预测的精度和效果。
+鉴于此，本文将采用分解集成的研究思路，构建“分
+解-分项建模-集成”的卷烟销量预测框架，对原始时
+间序列数据从更细化的维度分析，揭示时间序列数据
+背后的复杂动态，以提升预测的准确性和有效性。 
+本文创新点在于：①提出EEMD 参数自适应优化
+方法，用于卷烟销量分解；②构建“分解-分项建模-
+集成”的卷烟销量预测框架，综合线性与非线性模型
+优势，构建分量数据预测模型。 
+1  分析方法 
+本研究所构建的分解集成分析框架遵循“分解-
+分项建模-集成”的方法体系，其核心流程包含3 个关
+键阶段： 
+第一阶段，采用自适应集合经验模态分解（EEMD）
+
+
+===== PAGE 2 =====
+
+蒋兴恒  基于分解集成思想的复杂卷烟销量时间序列预测模型研究 
+ 
+ 
+ 
+139
+将原始时间序列分解为不同的模态分量。EEMD 算法
+通过引入服从正态分布的随机白噪声，克服传统EMD
+的模态混叠缺陷，获得不同周期的本征模态函数
+（IMF）集合： 
+1
+n
+j
+n
+j
+X t
+C
+r
+=
+=
++
+∑
+( )
+           （1） 
+其中分量Cj 表示第j 次分解的IMF 分量，rn 为趋
+势项[4-6]。 
+第二阶段，针对IMF 分量特征建立双维度检验机
+制，构建预测模型。采用ADF 单位根检验评估分量的
+平稳性，运用BDS 检验识别分量的线性特征[9]。基于
+检验结果实施差异化建模。 
+对于平稳线性序列，使用ARIMA（p,d,q）等方
+法建模。 
+ARIMA（p,d,q）模型通过差分处理（d 阶）实现
+序列平稳化，其预测方程为： 
+1
+1
+1
+)(1
+)
+1
+)
+p
+q
+i
+d
+j
+i
+t
+j
+t
+i
+i
+L
+L
+y
+θ L ε
+φ
+=
+=
+−
+−
+=
++
+∑
+∑
+（
+（
+    （2） 
+式中L 为滞后算子，φi 、θ j 分别为自回归和移动
+平均系数，εt 为白噪声序列。 
+对于非平稳非线性序列，使用门限回归、
+Levenberg-Marquardt 算法改进的BP 神经网络等方法
+建模预测。 
+其中，SETAR 模型基于门限机制建立的分段线性
+回归[7]，其表达方程为： 
+0
+1
+1
+,
+t
+t
+p
+t
+p
+t
+t d
+y
+a
+a y
+a y
+ε y
+τ
+−
+−
+−
+=
++
++
++
++
+≥
+…
+   （3） 
+0
+1
+1
+,
+t
+t
+q
+t q
+t
+t d
+y
+β
+β y
+β y
+θ y
+τ
+−
+−
+−
+=
++
++
++
++
+<
+…
+   （4） 
+式中
+t d
+y
+−
+=
+是门限，在门限的两边，序列yt 呈现
+出两种不同的自回归过程。 
+Levenberg-Marquardt 算法改进的BP 神经网络，
+其表达式为： 
+1
+1
+[
+]
+T
+T
+k
+k
+x
+x
+J J
+I
+J e
+µ
+−
++ =
+−
++
+        （5） 
+式中为雅克比矩阵，μ为阻尼因子，是网络误差
+向量。该算法通过动态调整μ值实现梯度下降法与高
+斯-牛顿法的自适应切换，在保证收敛精度的前提下提
+升训练速度[8] [10]。 
+前述预测方法均有相对优势，同时也有一定的局
+限性，具体如表1 所示。 
+表1 预测模型优势和局限性对比表 
+Fig.1 Comparison table of advantages and limitations of prediction models 
+预测模型 
+优势 
+局限性 
+ARIMA 模型 
+能够有效地捕捉数据的长期趋势和季节性变化。 
+对数据要求高，需要时间序列数据是平稳的或者通过
+差分后变得平稳；对异常值敏感。 
+门限回归模型
+适用于各种类型的数据集，无论是截面数据还是面板数
+据。同时能够有效捕捉变量之间的非线性关系，提供更
+准确的预测和分析结果。 
+门限回归模型以单一变量的变化作为门槛值的划分标
+准，但是实际经济活动中，门槛值可能涉及多个变量。
+BP 神经网络 
+具有较强的非线性映射能力、高度自学习和自适应能
+力，也具有一定的容错能力。 
+学习和预测过程不透明，无法输出明确的方程模型，
+并且对初始网络权重敏感，往往会收敛于不同的局部
+极小点，易出现过拟合等现象。 
+ 
+第三阶段，集成各分量预测结果重构最终预测值。
+该框架通过多尺度分解并有效提取序列特征分别建
+模，构建了“分解-检验-适配-集成”的优化路径，显
+著提升了预测模型的适应性。具体流程如图1 所示。 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+图1 分解、集成预测方法思路图 
+Fig.1 Decomposition and integration prediction method 
+集成 
+卷烟销
+量序列
+预测结果 
+分解序列1 
+分解序列2 
+分解序列N
+…… 
+结果1
+结果2 
+…… 
+结果N 
+分解
+检验、预测方法1
+检验、预测方法2
+检验、预测方法N
+…… 
+
+
+===== PAGE 3 =====
+
+中国烟草学报 Acta Tabacaria Sinica 2025 Vol.31 No.5 
+ 
+ 
+140
+2  实证分析 
+2.1  数据来源与预处理 
+数据范围：选取2009 年6 月—2019 年5 月，黄
+山、中华和云烟月度销量数据，以及2019年1月—2024
+年11 月，利群、黄鹤楼和芙蓉王的月度销量数据。 
+数据划分：将2009 年6 月—2019 年1 月的黄山、
+中华和云烟销量数据作为训练集，2019 年2—5 月的
+数据为测试集。使用2019 年1 月—2024 年7 月的利
+群、黄鹤楼和芙蓉王的销量数据为训练集，2024年8-11
+月数据为测试集。 
+数据特点：本文重点分析黄山、中华和云烟3 个
+品牌。其中黄山品牌销量规模中等，可以反映较多品
+牌销量的变化规律；中华品牌作为行业销售收入较多
+的品牌，其销量数据具有单箱结构高的特点；云烟品
+牌销量规模较大，能够反映大销量品牌的一些特征。
+这3 个品牌组合覆盖了烟草市场主要的规模梯度，可
+反映揭示行业共性规律。为进一步分析不同时段、不
+同品牌情况下所构建模型的适用性，对利群、黄鹤楼
+和芙蓉王3 个品牌的销量也进行了预测。 
+2.2  对黄山、中华和云烟品牌销量的分解预测 
+2.2.1  EEMD 参数优化 
+EEMD 分解的完备性和计算效率依赖于添加的白
+噪声幅值（Nstd）和集合平均次数（NE），这两个参
+数一般都是根据“经验”来选取的，势必会出现因人
+而异的偏差。所以，参数能够自适应选择显得尤为重
+要。相关学者在此方面做了研究。Lei[11]尝试了不同的
+噪声幅值，根据Huang[4]的建议及实验效果挑选合适
+的噪声幅值。Niazy[12]使用相对均方根误差(RMSE)评
+价EEMD 在不同水平的添加白噪声的性能。香港城市
+大学的Guo[13]等利用相对均方根误差作为优化白噪声
+幅值的评价标准，提出了最优集合经验模式分解。赵
+乾坤等[14]提出了基于最优参数选择的EEMD 方法进行
+电能质量识别，选定最优参数来提取特征值。王晶[15]
+在集合经验模式分解算法的基础上，提出了一种经验
+模式分解参数优化方法。 
+综合以上研究，本文使用同步确定EEMD 两个参
+数最优化的自适应计算方法。对于添加不同噪声幅值
+的序列，评价EEMD 的分解性能的优劣关键在于其主
+要信号成分是否与噪声、其它低相关序列成份分开。
+本文引入了均方根误差（RMSE）指标，用以评价不
+同噪声水平下的EEMD 方法的性能。假设卷烟销量时
+间序列为
+0( )
+x
+k ，应用EEMD 方法处理销量序列，该
+序列被分解为多个IMF 分量。选取与原始数据序列相
+关性最高的IMF 分量，称为
+max( )
+c
+k ，其包含了原始序
+列的主要成分。其均方根误差为： 
+2
+0
+max
+1
+(
+( )
+( ))
+N
+k
+x k
+c
+k
+RMSE
+N
+=
+−
+= ∑
+ 
+RMSE 越小，说明所选的
+max( )
+c
+k 越接近原始序列，
+分解效果也就越差。然而，一定存在一个噪声值，使
+RMSE 最大，
+max( )
+c
+k 只包含原始序列的主要成分，并
+于噪声和其他无关的分量分开，这是理想的分解效果，
+对应的噪声幅值是最优的。 
+如图2 所示，以黄山卷烟销量为例，通过遍历取
+值并绘制RMSE 随参数变化的三维曲面图可以发现，
+在Nstd 取值从0.1 到0.5，NE 取值从100 到800 时，
+最优的Nstd=0.45，最优的NE=150，此时RMSE 的最
+大值。 
+ 
+图2 Nstd 和NE 对RMSE 的影响图 
+Fig.2 The impacts of Nstd and NE on RMSE 
+
+
+===== PAGE 4 =====
+
+蒋兴恒  基于分解集成思想的复杂卷烟销量时间序列预测模型研究 
+ 
+ 
+ 
+141
+从二维Nstd 与RMSE 的关系图也可观察到，当
+NE=150 时，Nstd=0.45 时，RMSE 取得最大值1.66。 
+ 
+图3 Nstd 与RMSE 的关系图 
+Fig.3 The impact of Nstd on RMSE 
+ 
+从二维NE 与RMSE 的关系图也可观察到，当
+Nstd=0.45，NE=150 时，RMSE 取得最大值1.66。 
+ 
+图4 NE 与RMSE 的关系图 
+Fig.4 The impact of NE on RMSE 
+ 
+综上，可知黄山品牌销量EEMD 分解的最优参数
+值Nstd=0.45，最优的NE=150。使用上述方法，可以
+确定其它品牌的EEMD 分解的最优参数值。 
+2.2.2  EEMD 分解结果分析 
+使用最优EEMD 分解模型，可以得到所分析品牌
+的销量模态分解分量及趋势项。以黄山品牌为例，经
+EEMD 分解，黄山品牌的销量序列分解得到6 个模态
+分量和1 个趋势项。每一个模态分量代表不同时间尺
+度的变化，最下方的曲线是趋势项（详见图5）。 
+
+
+===== PAGE 5 =====
+
+中国烟草学报 Acta Tabacaria Sinica 2025 Vol.31 No.5 
+ 
+ 
+142
+ 
+图5 黄山品牌本征模态函数分量1-7 
+Fig.5 Intrinsic mode function components 1-7 of huangshan brand 
+ 
+图5 显示，本征模态函数（IMF）各分量揭示了
+黄山品牌销量变化的多时间尺度特征。IMF1 呈现约
+2.5 年的周期性波动，可能与市场需求或宏观经济因素
+相关；IMF2 显示约2 年的震荡模式，反映市场中期动
+态；IMF3 表现出1 年左右的短期波动，或与促销活动
+等短期因素有关；IMF4 的2 年变率与IMF2 的中期动
+态相呼应；IMF5 揭示约5 年的长周期波动，或源于行
+业技术革新；IMF6 呈现9 年超长周期，反映宏观经济
+环境周期性；IMF7 作为趋势项，表明销量保持稳健增
+长态势。 
+采用EEMD 方法将黄山品牌销量序列分解为多
+个IMF 分量，各分量累加值与原始序列的最大差值仅
+0.0019，验证了分解的精确性。该方法实现了将复杂
+数据分解为具有独立动态特性的IMF 分量和趋势项。 
+2.2.3  模态分量预测 
+在时间序列分析领域，通常基于一定的数据假设，
+其中最常见的是数据的平稳性和线性关系。基于前文
+介绍的分析方法，首先，判断本征模态函数分量数据
+的平稳性及是否为线性序列。其次，针对数据的不同
+特征，采取相应的预测方法。平稳且线性的分量采用
+ARIMA 预测模型，其它分量经平稳处理后使用门限
+回归或LM-BP 神经网络等模型分析预测。 
+综合上述分析，黄山、中华和云烟品牌销量的数
+据特征如表2 所示。 
+表2 黄山、中华和云烟品牌销量EEMD 最优分解参数、IMF 分量及其预测方法 
+Tab.2 Optimal decomposition parameters, imf components and prediction methods of eemd for huangshan, chunghwa and yunyan brand sales 
+品牌 
+Nstd 
+NE 
+IMF 
+分量数 
+IMF 分量预测模型组合 
+黄山 
+0.45 
+150 
+7 
+ARIMA(2,1,1)+ SETAR+ SETAR+ ARMA(3,2)+ ARMA(4,3)+ ARMA(4,1)+ AR(2)
+中华 
+0.50 
+150 
+7 
+SETAR+ SETAR+ SETAR+ AR(4)+ ARMA(4,1)+ ARMA(3,2)+ AR(3) 
+云烟 
+0.45 
+150 
+7 
+SETAR+ SETAR+ SETAR+ ARMA(4,1)+ AR(5)+ AR(4)+ AR(2) 
+ 
+
+
+===== PAGE 6 =====
+
+蒋兴恒  基于分解集成思想的复杂卷烟销量时间序列预测模型研究 
+ 
+ 
+ 
+143
+2.2.4  结果分析 
+通过对本征模态函数分量的分析，针对每个分量
+的不同数据特征，构建了相应的预测模型，实现对每
+个分量的精准预测（详见表3）。 
+表3 黄山、中华和云烟品牌销量分解集成预测值对比表                     单位：万箱 
+Tab.3 Comparison table of decomposed-ensemble predicted values for huangshan, chunghwa and yunyan brand sales 
+序号 
+黄山品牌 
+中华品牌 
+云烟品牌 
+预测值 
+与实际值差值
+预测值 
+与实际值差值
+预测值 
+与实际值差值
+117 
+9.29 
+-0.72 
+10.42 
+1.20 
+28.15 
+-0.14 
+118 
+9.74 
+-0.72 
+9.05 
+-0.08 
+28.07 
+-0.58 
+119 
+11.33 
+0.08 
+9.55 
+0.45 
+29.74 
+1.36 
+120 
+12.28 
+1.34 
+8.86 
+0.35 
+28.79 
+2.61 
+ 
+为了进一步验证分解集成方法的预测准确性，对
+未分解的原销量数据构建模型进行预测，并将预测结
+果与分解集成预测的结果进行对比。 
+为提高预测准确性并弥补单一模型的不足，对原
+销量数据采用组合预测的方法，即在构建ARIMA 模
+型的基础上，进一步引入了基于LM 算法改进的BP
+神经网络模型进行辅助预测。为了进一步提高预测精
+度，对LM-BP 神经网络的预测值进行50 次模拟，并
+将50 次预测值的均值作为最终预测结果。 
+表4 黄山、中华和云烟品牌销量EEMD 分解及整体预测误差对比表 
+Tab.4 Comparison table of eemd decomposition and overall prediction errors for huangshan, chunghwa and yunyan brand sales 
+品牌 
+分解集成预测的均方根误差
+RMSE 
+整体预测的均方根误差 
+RMSE 
+RMSE 降幅/% 
+p 值 
+（配对t 检验） 
+黄山 
+0.84 
+2.87 
+70.73 
+0.008 
+中华 
+0.67 
+3.39 
+80.23 
+0.000 
+云烟 
+1.51 
+5.17 
+70.79 
+0.000 
+注：基于中心极限定理，为满足样本均值分布的正态性等相关假设，通常需要配对样本量不小于30 对（n≥30）。由于样本量（预测值）较小
+（n=4），直接进行配对t 检验的相关假设难以满足。为此，本研究采用Bootstrap 重抽样方法，通过有放回地抽取4 对原始数据生成30 组伪样本，
+探索差异均值的分布特性[16]。 
+ 
+由表4，黄山、中华和云烟品牌基于分解集成方
+法预测的销量均方根误差RMSE 分别为0.84、0.67 和
+1.51，表明分解集成方法在预测黄山品牌销量方面具
+有较高的精度。 
+与分解集成模型的预测值相比，黄山品牌销量整
+体预测的均方根误差（RMSE）为2.87，这意味着在
+预测未来4 个月的销售情况时，平均误差将达到2.87
+万箱。这一误差明显大于使用EEMD（经验模态分解）
+方法的预测误差0.84。这说明原始销售数据的整体预
+测误差相对较大，分解集成方法显著降低预测误差
+（RMSE 降幅70.73%），分解集成模型在提高预测精
+度方面具有更好的优势。 
+中华品牌销量的整体预测均方根误差为3.39，这
+意味着在预测未来4 个月的销量时，平均误差将达到
+3.39 万箱。对数据进行分解后再进行预测集成的均方
+根误差降至0.67，表明预测未来4 个月的平均误差为
+0.67 万箱，均方根误差（RMSE）降幅80.23%，预测
+精度明显提高。 
+云烟品牌销量整体预测的均方根误差为5.17，对
+数据先分解再整体预测的均方根误差降至1.51、 降幅
+70.79%。进一步验证了数据分解在提升预测精度方面
+的有效性。 
+通过对中华品牌、云烟品牌和黄山品牌销量数据
+的EEMD 分解预测，发现分解后的各模态数据更易于
+捕捉其内在规律，提高了预测的准确性。相比之下，
+对整体的预测往往难以捕捉数据的复杂变化规律，导
+致预测误差较大。 
+3  讨论 
+通过对中华品牌、云烟品牌和黄山品牌销量数据
+的EEMD 分解预测及整体预测结果对比，验证了先采
+用EEMD 分解后预测的方法在提高预测准确性方面
+的优势。为了进一步说明该方法对于不同时间段、不
+同品牌的适用性，使用2019 年1 月—2024 年7 月利
+群、黄鹤楼和芙蓉王的月度销售数据，构建分析模型，
+预测2024 年8—11 月这3 个品牌的销售情况。 
+
+
+===== PAGE 7 =====
+
+中国烟草学报 Acta Tabacaria Sinica 2025 Vol.31 No.5 
+ 
+ 
+144
+表5 利群、黄鹤楼和芙蓉王品牌销量EEMD 分解及整体预测误差对比表 
+Tab.5 Comparison table of eemd decomposition and overall prediction errors for liqun, yellow crane tower and furongwang brand sales 
+品牌 
+分解集成预测的均方根误差
+RMSE 
+未参与分解集成预测的均方根误差
+RMSE 
+RMSE 降幅/% 
+p 值 
+（配对t 检验） 
+利群 
+0.77 
+1.51 
+49.00 
+0.032 
+黄鹤楼 
+0.83 
+2.97 
+72.05 
+0.000 
+芙蓉王 
+0.73 
+1.03 
+29.13 
+0.040 
+ 
+经过计算，经EEMD 分解后，利群、黄鹤楼和芙
+蓉王的预测销量均方根误差（RMSE）的平均降幅超过
+了50%，且预测精度的提升均具有统计学显著性，进
+一步验证了数据分解在提升预测精度方面的有效性。 
+本研究的分解集成预测方法不仅提升了卷烟销量
+预测精度，其成果也可转化为以下应用：一是供应链
+动态优化。基于分解模型的高频分量与趋势项预测，
+实现精准生产计划管理，保证市场需求。二是建立安
+全库存与动态预警机制。根据预测销量，结合预测误
+差的分布特性，构建动态安全库存模型。三是将分解
+得到的不同周期波动序列与宏观经济波动结合分析，
+可以探索分析主要宏观经济指标与趋势项及低频分量
+的相关关系。 
+4  结论 
+通过对不同时间段、不同卷烟品牌销售数据的分
+析，说明了采用EEMD 分解再预测的方法在处理不同
+类型品牌销量数据时表现出较高的准确性和适用性。
+相比较其他预测方法，本文的预测方法具有以下主要
+优势：一是本文方法依据研究的样本数据特征，不限
+定其他特定条件，具有广泛的适用性；二是通过序列
+分解，将原本复杂的序列拆解为若干简单的子序列，
+从而有效降低了预测建模的难度；三是确保了各步骤
+建模过程的合理性、科学性和有效性，显著提高了模
+型的分析与预测性能。 
+总的来看，本文所采用的分解集成的预测思想，
+具有适用范围广、预测精度高等特点，但是这种方法
+更加成熟的运用，还需要不断地检验、完善与发展，
+以争取为卷烟销售预测领域带来更多的创新和突破。 
+ 
+参考文献 
+[1] 
+葛娜，孙连英，赵平，等. 基于ARIMA 时间序列模型的销售量
+预测分析[J]. 北京联合大学学报，2018: 27-33. 
+GE Na, SUN Lianying, ZHAO Ping, et al. Sales volume 
+forecasting analysis based on ARIMA time series model[J]. Journal 
+of Beijing Union University, 2018: 27-33. 
+[2] 
+陈尚林. 基于LSTM 神经网络和百度指数的新能源汽车销量预
+测——以比亚迪为例[D]. 2024, 03. 
+CHEN Shanglin. Forecasting sales volume of new energy vehicles 
+based on LSTM neural network and baidu index — a case study of 
+BYD[D]. 2024, 03. 
+[3] 
+吴明山，王冰，起亚宁，等. 卷烟销量组合预测模型研究[J]. 中
+国烟草学报，2019: 84-91. 
+WU Mingshan, Wang Bing, Qi Yanning, et al. Research on 
+combined forecasting model for cigarette sales volume[J]. Acta 
+Tabacaria Sinica, 2019: 84-91. 
+[4] 
+Huang N E, Shen Z, Long S R, 1998. The empirical mode 
+decomposition and the Hilbert spectrum for nonlinear and 
+nonstationary time series analysis[J]. Proceedings of the Royal 
+Society A, 454: 903-995. 
+[5] 
+Wu Z, Huang N E, 2004. Ensemble empirical mode decomposition: 
+a noise-assisted data analysis method[R], Centre for Ocean-Land- 
+Atmosphere Studies, Technical Report, No. 193.51. 
+[6] 
+郑祖光，刘莉红. 经验模态分析与小波分析及其应用[M]. 北京：
+气象出版社，2010: 1-83. 
+ZHENG Zuguang, LIU Lihong. Empirical mode decomposition 
+and wavelet analysis and their applications[M]. Beijing: 
+Meteorological Press, 2010: 1-83. 
+[7] 
+高铁梅，王金明，陈飞，等. 计量经济分析方法与建模eviews
+应用及实例[M]. 北京：清华大学出版社，2016: 1-477. 
+GAO Tiejie, WANG Jinming, CHEN Fei, et al. Econometric 
+analysis methods and modeling with eviews applications and 
+examples[M]. Beijing: Tsinghua University Press, 2016: 1-477. 
+[8] 
+朱凯，王正林. 精通MATLAB 神经网络[M]. 北京：电子工业
+出版社，2010: 193-224. 
+ZHU Kai, WANG Zhenglin. Mastering MATLAB neural 
+networks[M]. Beijing: Publishing House of Electronics Industry, 
+2010: 193-224. 
+[9] 
+杰弗里·M·伍德里奇. 计量经济学导论现代观点[M]. 2015: 
+511-529. 
+Jeffrey M. Wooldridge. Introductory econometrics: a modern 
+approach[M]. 2015: 511-529. 
+[10] 
+蒋兴恒，朱素蓉. 基于Levenberg-Marquardt 算法改进BP 神经
+网络的卷烟销量预测模型研究[J]. 中国烟草学报，2011, 17(05): 
+81-86. 
+JIANG Xingheng, ZHU Surong. Research on cigarette sales 
+volume prediction model based on improved BP neural network 
+with levenberg-marquardt algorithm[J]. Acta Tabacaria Sinica, 
+2011, 17(05): 81-86. 
+[11] 
+Lei Y, He Z, Zi Y. EEMD method and WNN for fault diagnosis of 
+locomotive roller bearings[J]. Expert Systems With Applications, 
+2011, 38(6):7334-7341. 
+[12] 
+Niazy R K, Beckmann C F, Brady J M, et al. Performance 
+evaluation of ensemble empirical mode decomposition[J]. Advances 
+In Adaptive Data Analysis, 2014, 01(02): 0900010. 
+[13] 
+Guo W, Tse P W. A novel signal compression method based on 
+optimal ensemble empirical mode decomposition for bearing 
+vibration signals[J]. Journal Of Sound And Vibration, 2013, 332(2): 
+423-441. 
+
+
+===== PAGE 8 =====
+
+蒋兴恒  基于分解集成思想的复杂卷烟销量时间序列预测模型研究 
+ 
+ 
+ 
+145
+[14] 
+赵乾坤，曹灵芝. 基于最优参数选择的EEMD 方法的暂态电能
+质量扰动识别分类[J]. 计算机与数字工程，2019: 1067-1071.  
+ZHAO Qiankun, CAO Lingzhi. Identification and classification of 
+transient power quality disturbances based on EEMD method with 
+optimal parameter selection[J]. Computer and Digital Engineering, 
+2019: 1067-1071. 
+[15] 
+王晶. 经验模式分解参数优化算法研究与应用[D]. 广州，2019. 
+WANG Jing. Research and application of parameter optimization 
+algorithm for empirical mode decomposition[D]. Guangzhou, 
+2019. 
+[16] 
+陈磊. 应用统计学[M]. 北京：中国纺织出版社，2018: 112-150. 
+CHEN Lei. Applied Statistics[M]. Beijing: China Textile & 
+Apparel Press, 2018: 112-150. 
+ 
+Research on time series prediction model of complex cigarette sales based on decomposition- 
+ensemble idea 
+JIANG Xingheng 
+Anhui Zhongyan Industrial Co., Ltd., Technology Center, Hefei, 230601, China 
+Abstract: This study proposes a decomposition-integration forecasting framework based on an improved Ensemble Empirical Mode 
+Decomposition (EEMD) method. By adaptive parameter optimization, the original sales series is decomposed into multi-scale Intrinsic 
+Mode Function (IMF) components. ARIMA, threshold regression, and LM-BP neural network models are matched for prediction according 
+to the characteristics of each component, and the prediction results of each component are finally integrated. Empirical research shows that 
+the root mean square error (RMSE) of this method for the prediction of Huangshan, Chunghwa, and Yunyan brands is reduced by 70.73% 
+to 80.23% compared with traditional methods. Through comparison, the prediction accuracy of the decomposed-ensemble method for the 
+original time series is greater than the general overall prediction accuracy, and the applicable scope is wider. Furthermore, the applicability 
+of this method is demonstrated by the sales forecast of Liqun, Yellow Crane Tower, and Furongwang brands in different periods. This study 
+provides methodological innovation and practical reference for complex time series forecasting. 
+Keywords: cigarette sales; decomposition; ensemble; forecasting 
+ 
+*Corresponding author. Email：66903003@qq.com 
+ 
+ 
+《烟草科技》2025 年第9 期目次 
+·烟草化学 
+以分配系数为指标分析卷烟中酯类单体香料的分配转移特征 
+ ········································ 罗曾源，付英杰，张博莹，等 
+GC-MS-O-双柱定性分析香紫苏精油的关键香气成分 
+ ········································ 陈伟华，刘子轩，贾晓慧，等 
+基于静电捕集的卷烟主流烟气烟碱气、粒相分布 
+ ········································ 陈锴琦，余晶晶，郭吉兆，等 
+ 
+·烟草农学与生物学 
+烤烟氮肥利用率与生物碱组分含量的定量关系 
+ ········································ 蔡民爵，曾嘉楠，黄瑞寅，等 
+施用有机肥对重庆植烟土壤碳氮矿化的影响 
+ ········································ 黄乐煜，沈  铮，赵东方，等 
+调制过程中光照强度对晒黄烟叶品质的影响 
+ ········································ 刘  璐，史小军，喻  杰，等 
+ 
+·烟草工艺 
+基于关键化学指标相似的上部烟叶模块配方数字化设计 
+ ········································· 郝贤伟，田雨农，李石头，等 
+卷烟感官评价指标敏感性的表征方法构建及对比分析 
+ ········································· 杨佳东，杨  露，刘继辉，等 
+ 
+·设备与仪器 
+中高速包装机组多品规包装纸集中自动配送装置的设计 
+ ········································· 张天奇，李  辉，康凯宁，等 
+一种棒形制品装盘/盒装置的设计 
+ ········································· 刘  恺，汤治国，孔方亮，等 
+ZJ116B 型卷接机组施胶方式对预打孔接装纸细支烟的影响 
+ ········································· 潘  著，冯  忆，裘雨灿，等 
+ 
+·信息技术与数据科学 
+基于多传感器融合SLAM 的AGV 自动装车导航系统设计 
+ ········································· 周永光，李晓彬，梅海青，等 
+ 
