@@ -1,0 +1,24 @@
+name: v20 extract strict cases
+on:
+  push:
+    paths:
+      - 'Papers2/v20/code/extract_strict_cases_0916_0023.py'
+      - '.github/workflows/v20_extract_strict_cases.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install pandas
+      - run: python Papers2/v20/code/extract_strict_cases_0916_0023.py
+      - run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add Papers2/v20/experiments/0916_0014/representative_*_strict_0916_0023.csv
+          if git diff --cached --quiet; then echo 'No changes'; else git commit -m 'v20: add strict representative cases 0916_0023'; git push; fi
