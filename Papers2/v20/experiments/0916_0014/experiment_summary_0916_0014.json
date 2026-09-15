@@ -1,0 +1,40 @@
+{
+  "timestamp": "0916_0014",
+  "n": 1266,
+  "n_specs": 150,
+  "n_treated": 171,
+  "state_indicators": [
+    "price_index",
+    "gross_margin",
+    "inventory_ratio",
+    "unit_growth"
+  ],
+  "n_x": 35,
+  "time_folds": 4,
+  "time_spearman_median": 0.17868329307200864,
+  "time_top20_gain_mean": 1.0611757188569355,
+  "oof_top20_gain": 1.0220074658593576,
+  "oof_top20_gain_ci": [
+    -0.008519374337217061,
+    1.9759682773077127
+  ],
+  "oof_auuc": 0.18081509066743057,
+  "seed_spearman_median": 0.8600879130799021,
+  "seed_top20_jaccard_median": 0.5333333333333333,
+  "support_retained_share": 0.9834123222748815,
+  "treated_retained_share": 0.9883040935672515,
+  "full_dr_ate": -0.606243216651206,
+  "full_dr_ate_ci": [
+    -1.3333642536569263,
+    0.08933430256207249
+  ],
+  "support_dr_ate": -0.5898055032396609,
+  "support_dr_ate_ci": [
+    -1.1841714405870007,
+    0.006359216434097072
+  ],
+  "support_bounds": [
+    0.09877909587172193,
+    0.95
+  ]
+}
