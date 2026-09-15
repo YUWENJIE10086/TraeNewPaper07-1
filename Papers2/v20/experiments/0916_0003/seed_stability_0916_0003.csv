@@ -1,0 +1,2 @@
+﻿n_seeds,pairwise_spearman_median,pairwise_spearman_min,top20_jaccard_median,top20_jaccard_min,median_rowwise_cate_sd,p90_rowwise_cate_sd
+10,0.9228345751129398,0.8739477114253362,0.8375796178343949,0.7071005917159763,0.7590562575371738,1.1404923251627652
