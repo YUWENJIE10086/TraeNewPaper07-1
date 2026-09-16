@@ -1,0 +1,26 @@
+name: build v20-8 final assets
+on:
+  push:
+    paths:
+      - 'Papers2/v20/code/build_v20_8_assets_0916_0831.py'
+      - '.github/workflows/v20_build_final_assets.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install numpy pandas matplotlib
+      - run: python Papers2/v20/code/build_v20_8_assets_0916_0831.py
+      - name: Commit assets
+        run: |
+          git config user.name "chatgpt-experiment-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add Papers2/v20/experiments/0916_0831
+          git commit -m "Add v20-8 final figures and tables [skip ci]" || exit 0
+          git push
