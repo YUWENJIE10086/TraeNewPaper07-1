@@ -3,7 +3,7 @@ name: v20-7 hard experiments
 on:
   push:
     paths:
-      - 'Papers2/v20/code/run_v20_7_hard_experiments_0916_0811.py'
+      - 'Papers2/v20/code/run_v20_7_hard_experiments_fix_0916_0811.py'
       - '.github/workflows/v20_7_hard_experiments.yml'
   workflow_dispatch:
 
@@ -21,7 +21,7 @@ jobs:
       - name: Install dependencies
         run: pip install numpy pandas scipy scikit-learn lightgbm matplotlib
       - name: Run four hard experiments
-        run: python Papers2/v20/code/run_v20_7_hard_experiments_0916_0811.py
+        run: python Papers2/v20/code/run_v20_7_hard_experiments_fix_0916_0811.py
       - name: Commit experiment outputs
         run: |
           git config user.name "chatgpt-experiment-bot"
