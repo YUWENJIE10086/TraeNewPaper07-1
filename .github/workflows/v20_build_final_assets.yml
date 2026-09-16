@@ -12,15 +12,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
       - run: pip install numpy pandas matplotlib
       - run: python Papers2/v20/code/build_v20_8_assets_0916_0831.py
+      - name: Create package
+        run: |
+          mkdir -p Papers2/v20/packages
+          zip -r "Papers2/v20/packages/v20-8_实验图表数据完整包_0916_0831.zip" Papers2/v20/experiments/0916_0831
       - name: Commit assets
         run: |
           git config user.name "chatgpt-experiment-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add Papers2/v20/experiments/0916_0831
-          git commit -m "Add v20-8 final figures and tables [skip ci]" || exit 0
-          git push
+          git add Papers2/v20/experiments/0916_0831 Papers2/v20/packages/v20-8_实验图表数据完整包_0916_0831.zip
+          git commit -m "Add v20-8 final figures tables and package [skip ci]" || true
+          git pull --rebase origin main
+          git push origin main
