@@ -3,7 +3,7 @@ name: v20 final representative cases
 on:
   push:
     paths:
-      - 'Papers2/v20/code/make_v20_final_cases_0916_0823.py'
+      - 'Papers2/v20/code/make_v20_final_cases_0916_0827.py'
       - '.github/workflows/v20_final_cases.yml'
   workflow_dispatch:
 
@@ -20,11 +20,11 @@ jobs:
           python-version: '3.11'
       - run: pip install pandas
       - name: Build final case table
-        run: python Papers2/v20/code/make_v20_final_cases_0916_0823.py
+        run: python Papers2/v20/code/make_v20_final_cases_0916_0827.py
       - name: Commit case table
         run: |
           git config user.name "chatgpt-experiment-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add Papers2/v20/experiments/0916_0823/representative_cases_final.csv
-          git commit -m "Add final traceable representative cases [skip ci]" || exit 0
+          git add Papers2/v20/experiments/0916_0827/representative_cases_final.csv
+          git commit -m "Add corrected P35 representative cases [skip ci]" || exit 0
           git push
