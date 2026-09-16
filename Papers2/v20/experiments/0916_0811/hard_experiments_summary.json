@@ -1,0 +1,18 @@
+{
+  "analysis_n": 2771,
+  "analysis_specs": 203,
+  "analysis_months": 18,
+  "analysis_treated": 246,
+  "oot_months": 10,
+  "oot_treated_n": 109,
+  "oot_lift_top30_mean": -0.5851608607943826,
+  "oot_lift_top30_median": -0.7344645062837357,
+  "top20_gain_vs_all": -0.6650565862054492,
+  "top20_gain_vs_state": 2.644804333144549,
+  "seed_spearman_median": 0.7829982547247006,
+  "seed_top20_overlap_median": 0.6630630630630631,
+  "support_ate": 4.660791982596069,
+  "support_ci_low": 1.9427375386263108,
+  "support_ci_high": 7.378846426565827,
+  "treated_outside_support_pct": 2.032520325203252
+}
