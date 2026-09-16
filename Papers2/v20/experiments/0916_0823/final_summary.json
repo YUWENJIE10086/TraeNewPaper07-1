@@ -1,0 +1,30 @@
+{
+  "base_rows": 3149,
+  "analysis_n": 1825,
+  "analysis_specs": 177,
+  "analysis_treated": 272,
+  "oot_n": 1059,
+  "oot_months": 10,
+  "top30_month_mean": 0.4828609092744657,
+  "top30_positive_months": 5,
+  "top30_boot_ci_low": -4.2759342956914175,
+  "top30_boot_ci_high": 7.4507038393865574,
+  "top30_gain_vs_all": 1.4342084587244954,
+  "top30_gain_vs_state": -0.9142464189049531,
+  "top30_gain_vs_inventory": 4.370449095424932,
+  "seed_spearman_median": 0.676554945490239,
+  "seed_top20_overlap_median": 0.6109589041095891,
+  "support_ate": 2.34028829400476,
+  "support_ci_low": 0.15508870403717978,
+  "support_ci_high": 4.52548788397234,
+  "treated_outside_pct": 0.7352941176470589,
+  "negative_control": 0.12050343848034104,
+  "negative_control_ci_low": -2.3882143013229173,
+  "negative_control_ci_high": 2.6292211782835997,
+  "state_indicator_coverage": {
+    "price_index": 1.0,
+    "gross_margin": 0.6093998094633217,
+    "inventory_ratio": 0.6093998094633217,
+    "sell_rate": 0.5306446490949508
+  }
+}
