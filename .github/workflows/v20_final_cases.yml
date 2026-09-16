@@ -1,0 +1,30 @@
+name: v20 final representative cases
+
+on:
+  push:
+    paths:
+      - 'Papers2/v20/code/make_v20_final_cases_0916_0823.py'
+      - '.github/workflows/v20_final_cases.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  make-cases:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install pandas
+      - name: Build final case table
+        run: python Papers2/v20/code/make_v20_final_cases_0916_0823.py
+      - name: Commit case table
+        run: |
+          git config user.name "chatgpt-experiment-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add Papers2/v20/experiments/0916_0823/representative_cases_final.csv
+          git commit -m "Add final traceable representative cases [skip ci]" || exit 0
+          git push
