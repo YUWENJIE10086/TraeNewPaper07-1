@@ -1,0 +1,35 @@
+name: v20 final coherent validation
+
+on:
+  push:
+    paths:
+      - 'Papers2/v20/code/run_v20_final_rlearner_pipeline_0916_0823.py'
+      - '.github/workflows/v20_final_pipeline.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  run-final-pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: pip install numpy pandas scipy scikit-learn lightgbm matplotlib
+      - name: Run coherent final pipeline
+        run: python Papers2/v20/code/run_v20_final_rlearner_pipeline_0916_0823.py
+      - name: Commit outputs
+        run: |
+          git config user.name "chatgpt-experiment-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add Papers2/v20/experiments/0916_0823
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "Add coherent v20 final validation results [skip ci]"
+            git push
+          fi
