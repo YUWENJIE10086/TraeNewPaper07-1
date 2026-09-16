@@ -1,0 +1,15 @@
+{
+  "n": 2771,
+  "oot_n": 1501,
+  "oot_months": 10,
+  "dr_top30_month_mean": -0.8976498498720892,
+  "dr_top30_month_median": -0.5903577272507503,
+  "dr_top30_positive_months": 5,
+  "dr_top30_boot_ci_low": -5.242909916048901,
+  "dr_top30_boot_median": -0.8856415966726164,
+  "dr_top30_boot_ci_high": 2.9356332381459915,
+  "top20_gain_vs_all": -3.2256723252554056,
+  "top30_gain_vs_all": -0.7373103029324275,
+  "top40_gain_vs_all": -0.4748652928898851,
+  "top30_gain_vs_state": 3.424983944601338
+}
